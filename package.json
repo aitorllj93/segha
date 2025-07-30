@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "docs:obsidianmd": "npx zod2md --entry schemas/obsidianmd/index.ts --title \"Schemas for ObsidianMD\" --output schemas/obsidianmd/README.md",
+    "docs:schemaorg": "npx zod2md --entry schemas/schemaorg/index.ts --title \"Schemas for Schema.org\" --output schemas/schemaorg/README.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,5 +13,8 @@
   "description": "",
   "dependencies": {
     "zod": "^4.0.14"
+  },
+  "devDependencies": {
+    "zod2md": "^0.2.4"
   }
 }
