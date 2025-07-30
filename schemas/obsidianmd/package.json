@@ -1,0 +1,39 @@
+{
+  "name": "@segha/obsidianmd",
+  "description": "Schemas for ObsidianMD",
+  "scripts": {
+    "docs": "npx zod2md --entry schemas/obsidianmd/index.ts --title \"Schemas for ObsidianMD\" --output schemas/obsidianmd/README.md",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "index.ts",
+	"keywords": [
+		"schemas",
+		"zod",
+		"obsidianmd"
+	],
+  "version": "0.0.1",
+	"author": "Aitor Llamas Jiménez <aitorllj93@gmail.com>",
+	"homepage": "https://github.com/aitorllj93/segha",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/aitorllj93/segha.git",
+		"directory": "schemas/obsidianmd"
+	},
+  "license": "MIT",
+	"type": "module",
+	"exports": {
+		".": "./index.ts",
+		"./document": "./Document.ts",
+		"./types": "./types.ts"
+	},
+  "peerDependencies": {
+    "zod": "^4.0.14"
+  },
+  "devDependencies": {
+    "zod": "^4.0.14",
+    "zod2md": "^0.2.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

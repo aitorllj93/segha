@@ -1,0 +1,40 @@
+{
+  "name": "@segha/schemaorg",
+  "description": "Schemas for Schema.org",
+  "scripts": {
+    "docs": "npx zod2md --entry schemas/schemaorg/index.ts --title \"Schemas for Schema.org\" --output schemas/schemaorg/README.md",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "index.ts",
+	"keywords": [
+		"schemas",
+		"zod",
+		"schemaorg"
+	],
+  "version": "0.0.1",
+	"author": "Aitor Llamas Jiménez <aitorllj93@gmail.com>",
+	"homepage": "https://github.com/aitorllj93/segha",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/aitorllj93/segha.git",
+		"directory": "schemas/schemaorg"
+	},
+  "license": "MIT",
+	"type": "module",
+	"exports": {
+		".": "./index.ts",
+		"./datatypes": "./DataTypes.ts",
+		"./thing": "./Thing.ts",
+		"./types": "./types.ts"
+	},
+  "peerDependencies": {
+    "zod": "^4.0.14"
+  },
+  "devDependencies": {
+    "zod": "^4.0.14",
+    "zod2md": "^0.2.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
