@@ -110,13 +110,15 @@ async function generateJSONSchemas(options: {
   output?: string;
   cwd?: string;
   combined?: boolean;
+  silent?: boolean;
 }) {
   const cwd = options.cwd || process.cwd();
   const pkg = readPackageJson(cwd);
   const entryPath = join(cwd, options.entry);
   const baseOutputDir = options.output || './json-schemas';
+  const log = options.silent ? () => {} : console.log.bind(console);
 
-  console.log(`📦 Generating JSON Schemas for ${pkg.name}...`);
+  log(`📦 Generating JSON Schemas for ${pkg.name}...`);
 
   // Cleanup output directory
   if (existsSync(baseOutputDir)) {
@@ -138,11 +140,11 @@ async function generateJSONSchemas(options: {
     : [entryPath];
 
   if (tsFiles.length === 0) {
-    console.log('⚠️ No TypeScript files found.');
+    log('⚠️ No TypeScript files found.');
     return;
   }
 
-  console.log(`   Scanning ${tsFiles.length} file(s)...`);
+  log(`   Scanning ${tsFiles.length} file(s)...`);
 
   // Extract schemas from all files, tracking their relative paths
   const allGeneratedSchemas: GeneratedSchema[] = [];
@@ -176,11 +178,11 @@ async function generateJSONSchemas(options: {
   }
 
   if (allGeneratedSchemas.length === 0) {
-    console.log('⚠️ No Zod schemas found.');
+    log('⚠️ No Zod schemas found.');
     return;
   }
 
-  console.log(`   Found ${allGeneratedSchemas.length} schema(s)`);
+  log(`   Found ${allGeneratedSchemas.length} schema(s)`);
 
   // Calculate the entry subdirectory to include in output path
   // e.g., if entry is ./es/index.ts or ./es, we want to preserve "es" in output
@@ -205,7 +207,7 @@ async function generateJSONSchemas(options: {
     writeFileSync(filePath, JSON.stringify(jsonSchema, null, 2), 'utf-8');
 
     const displayPath = outputSubdir ? `${outputSubdir}/${fileName}` : fileName;
-    console.log(`   ✅ ${displayPath}`);
+    log(`   ✅ ${displayPath}`);
   }
 
   // Generate combined index.json files per directory
@@ -227,11 +229,11 @@ async function generateJSONSchemas(options: {
       writeFileSync(combinedPath, JSON.stringify(combinedSchema, null, 2), 'utf-8');
 
       const displayPath = outputSubdir ? `${outputSubdir}/index.json` : 'index.json';
-      console.log(`   ✅ ${displayPath} (combined)`);
+      log(`   ✅ ${displayPath} (combined)`);
     }
   }
 
-  console.log(`\n✅ JSON Schema generation complete: ${baseOutputDir}`);
+  log(`\n✅ JSON Schema generation complete: ${baseOutputDir}`);
 }
 
 // CLI execution

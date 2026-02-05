@@ -1,8 +1,10 @@
 import { readFileSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
 import { execSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
-const workspaceRoot = join(__dirname, '..');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /**
  * Represents a JSON Schema structure for comparison
@@ -13,28 +15,10 @@ export interface SchemaShape {
 
 /**
  * Loads JSON schemas from the json-schemas directory of a package
+ * Note: JSON schemas should be generated before calling this function
  */
 export async function extractPackageShapes(packagePath: string): Promise<Record<string, SchemaShape>> {
   const jsonSchemasPath = join(packagePath, 'json-schemas', 'index.json');
-
-  if (!existsSync(jsonSchemasPath)) {
-    // Try to generate JSON schemas first
-    try {
-      const packageJsonPath = join(packagePath, 'package.json');
-      if (existsSync(packageJsonPath)) {
-        const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
-        if (packageJson.scripts?.['json-schema']) {
-          execSync(`pnpm run json-schema`, {
-            cwd: packagePath,
-            stdio: 'pipe'
-          });
-        }
-      }
-    } catch (error) {
-      // If generation fails, return empty
-      return {};
-    }
-  }
 
   if (!existsSync(jsonSchemasPath)) {
     return {};

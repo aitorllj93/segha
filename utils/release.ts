@@ -1,10 +1,11 @@
 import { execSync } from 'node:child_process';
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractPackageShapes, extractShapesFromGit } from './extract-schema-shape.js';
 import { compareShapes, ComparisonResult } from './compare-schemas.js';
 import { updateChangelog, bumpVersion } from './generate-changelog.js';
+import { generateJSONSchemas } from './generate-json-schema.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -131,22 +132,16 @@ async function processPackage(packagePath: string): Promise<PackageReleaseInfo |
 
   try {
     // Generate JSON schemas first
-    if (packageJson.scripts?.['json-schema']) {
-      try {
-        console.log(`  🔧 Generating JSON schemas...`);
-        execSync(`pnpm run json-schema`, {
-          cwd: packagePath,
-          stdio: 'pipe'
-        });
-      } catch (error: any) {
-        console.warn(`  ⚠️  Warning: Could not generate JSON schemas`);
-        if (error.stderr) {
-          console.warn(`  stderr: ${error.stderr.toString()}`);
-        }
-        if (error.stdout) {
-          console.warn(`  stdout: ${error.stdout.toString()}`);
-        }
-      }
+    try {
+      console.log(`  🔧 Generating JSON schemas...`);
+      await generateJSONSchemas({
+        entry: './',
+        cwd: packagePath,
+        silent: true,
+      });
+    } catch (error: any) {
+      console.warn(`  ⚠️  Warning: Could not generate JSON schemas`);
+      console.warn(`  Error: ${error.message}`);
     }
 
     // Extract current shapes from JSON schemas
@@ -280,17 +275,15 @@ async function main() {
     console.log(`  ✅ CHANGELOG.md updated`);
 
     // Generate JSON schemas (ensure they're up to date)
-    const packageJson = JSON.parse(readFileSync(join(release.packagePath, 'package.json'), 'utf-8'));
-    if (packageJson.scripts?.['json-schema']) {
-      try {
-        execSync(packageJson.scripts['json-schema'], {
-          cwd: release.packagePath,
-          stdio: 'ignore'
-        });
-        console.log(`  ✅ JSON schemas updated`);
-      } catch (error) {
-        console.warn(`  ⚠️  Warning: Could not generate JSON schemas`);
-      }
+    try {
+      await generateJSONSchemas({
+        entry: './',
+        cwd: release.packagePath,
+        silent: true,
+      });
+      console.log(`  ✅ JSON schemas updated`);
+    } catch (error: any) {
+      console.warn(`  ⚠️  Warning: Could not generate JSON schemas: ${error.message}`);
     }
 
     // Generate docs
