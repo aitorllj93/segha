@@ -36,5 +36,10 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "files": [
+    "*.ts",
+    "README.md",
+    "CHANGELOG.md"
+  ]
 }
