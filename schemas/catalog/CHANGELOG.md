@@ -1,5 +1,15 @@
 # @segha/catalog
 
+
+## 0.1.0
+
+### Minor Changes
+
+- Schema CatalogClothingSchema was added
+- Schema ClothingSchema was added
+- Schema DetailedClothingSchema was added
+- Schema MetaClothingSchema was added
+
 ## 0.0.1
 
 ### Initial Release

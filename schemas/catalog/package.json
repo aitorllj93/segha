@@ -1,6 +1,6 @@
 {
   "name": "@segha/catalog",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "index.ts",
   "description": "Schemas for Petroglyph Catalog",
   "scripts": {
@@ -8,31 +8,31 @@
     "json-schema": "pnpx tsx ../../utils/generate-json-schema.ts --entry ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-	"keywords": [
-		"schemas",
-		"zod",
-		"obsidianmd"
-	],
-	"author": "Aitor Llamas Jiménez <aitorllj93@gmail.com>",
-	"homepage": "https://github.com/aitorllj93/segha",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/aitorllj93/segha.git",
-		"directory": "schemas/catalog"
-	},
+  "keywords": [
+    "schemas",
+    "zod",
+    "obsidianmd"
+  ],
+  "author": "Aitor Llamas Jiménez <aitorllj93@gmail.com>",
+  "homepage": "https://github.com/aitorllj93/segha",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aitorllj93/segha.git",
+    "directory": "schemas/catalog"
+  },
   "license": "ISC",
-	"type": "module",
-	"exports": {
-		".": "./index.ts",
-		"./es": "./es/index.ts",
-		"./es/clothing": "./es/Clothing/index.ts",
-		"./es/clothing/types": "./es/Clothing/types.ts",
-		"./types": "./types.ts",
-		"./es/json-schema": "./json-schemas/es/index.json",
-		"./es/json-schemas/*": "./json-schemas/es/*.json",
-		"./es/clothing/json-schema": "./json-schemas/es/Clothing/index.json",
-		"./es/clothing/json-schemas/*": "./json-schemas/es/Clothing/*.json"
-	},
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./es": "./es/index.ts",
+    "./es/clothing": "./es/Clothing/index.ts",
+    "./es/clothing/types": "./es/Clothing/types.ts",
+    "./types": "./types.ts",
+    "./es/json-schema": "./json-schemas/es/index.json",
+    "./es/json-schemas/*": "./json-schemas/es/*.json",
+    "./es/clothing/json-schema": "./json-schemas/es/Clothing/index.json",
+    "./es/clothing/json-schemas/*": "./json-schemas/es/Clothing/*.json"
+  },
   "peerDependencies": {
     "zod": "catalog:"
   },

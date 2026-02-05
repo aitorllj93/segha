@@ -7,29 +7,29 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "index.ts",
-	"keywords": [
-		"schemas",
-		"zod",
-		"schemaorg"
-	],
-  "version": "0.0.1",
-	"author": "Aitor Llamas Jiménez <aitorllj93@gmail.com>",
-	"homepage": "https://github.com/aitorllj93/segha",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/aitorllj93/segha.git",
-		"directory": "schemas/schemaorg"
-	},
+  "keywords": [
+    "schemas",
+    "zod",
+    "schemaorg"
+  ],
+  "version": "0.1.0",
+  "author": "Aitor Llamas Jiménez <aitorllj93@gmail.com>",
+  "homepage": "https://github.com/aitorllj93/segha",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aitorllj93/segha.git",
+    "directory": "schemas/schemaorg"
+  },
   "license": "ISC",
-	"type": "module",
-	"exports": {
-		".": "./index.ts",
-		"./datatypes": "./DataTypes.ts",
-		"./thing": "./Thing.ts",
-		"./types": "./types.ts",
-		"./json-schema": "./json-schemas/index.json",
-		"./json-schemas/*": "./json-schemas/*.json"
-	},
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./datatypes": "./DataTypes.ts",
+    "./thing": "./Thing.ts",
+    "./types": "./types.ts",
+    "./json-schema": "./json-schemas/index.json",
+    "./json-schemas/*": "./json-schemas/*.json"
+  },
   "peerDependencies": {
     "zod": "catalog:"
   },
