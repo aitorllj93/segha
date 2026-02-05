@@ -1,6 +1,6 @@
 import z from 'zod';
-import { writeFileSync, readFileSync, existsSync, mkdirSync, readdirSync, statSync } from 'node:fs';
-import { join, resolve, dirname, basename, relative } from 'node:path';
+import { writeFileSync, readFileSync, existsSync, mkdirSync, readdirSync, statSync, rmSync } from 'node:fs';
+import { join, resolve, dirname, relative } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 interface PackageConfig {
@@ -88,7 +88,6 @@ async function extractSchemas(filePath: string): Promise<SchemaExport[]> {
 function toJSONSchema(schema: z.ZodType, name: string): object {
   try {
     return z.toJSONSchema(schema, {
-      $schema: 'https://json-schema.org/draft/2020-12/schema',
       target: 'draft-2020-12',
       io: 'output',
     });
@@ -118,6 +117,16 @@ async function generateJSONSchemas(options: {
   const baseOutputDir = options.output || './json-schemas';
 
   console.log(`📦 Generating JSON Schemas for ${pkg.name}...`);
+
+  // Cleanup output directory
+  if (existsSync(baseOutputDir)) {
+    readdirSync(baseOutputDir).forEach(file => {
+      rmSync(join(baseOutputDir, file), {
+        recursive: true,
+        force: true,
+      });
+    });
+  }
 
   // Determine if entry is a file or directory
   const entryStat = statSync(entryPath);

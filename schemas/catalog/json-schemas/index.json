@@ -7,6 +7,10 @@
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
+        "name": {
+          "type": "string",
+          "description": "Nombre descriptivo de la prenda de ropa"
+        },
         "garment": {
           "type": "string",
           "enum": [
@@ -283,6 +287,7 @@
         }
       },
       "required": [
+        "name",
         "garment",
         "slot",
         "primary_color",
@@ -295,6 +300,10 @@
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
+        "name": {
+          "type": "string",
+          "description": "Nombre descriptivo de la prenda de ropa"
+        },
         "garment": {
           "type": "string",
           "enum": [
@@ -660,6 +669,7 @@
         }
       },
       "required": [
+        "name",
         "garment",
         "slot",
         "primary_color",

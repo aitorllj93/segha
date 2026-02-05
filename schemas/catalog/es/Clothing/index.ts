@@ -5,17 +5,18 @@ import { Pattern, PrimaryColor, SecondaryColor } from "./Colors";
 import { Fit } from "./Fit";
 import { Formality } from "./Formality";
 import { Garment } from "./Garment";
-import { Layer } from "./layer";
-import { Materials } from "./materials";
-import { Season } from "./season";
-import { Size } from "./size";
-import { Slot } from "./slot";
-import { Status } from "./status";
-import { UseCases } from "./use_cases";
-import { Variants } from "./variants";
-import { Measurements } from "./measurements";
+import { Layer } from "./Layer";
+import { Materials } from "./Materials";
+import { Measurements } from "./Measurements";
+import { Season } from "./Season";
+import { Size } from "./Size";
+import { Slot } from "./Slot";
+import { Status } from "./Status";
+import { UseCases } from "./UseCases";
+import { Variants } from "./Variants";
 
 export const CatalogClothingSchema = z.object({
+  name: z.string().describe('Nombre descriptivo de la prenda de ropa'),
   garment: Garment,
   slot: Slot,
   variants: Variants,
