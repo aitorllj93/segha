@@ -1,28 +1,30 @@
-# @segha/catalog
+# Changelog
 
+All notable changes to @segha/catalog will be documented in this file.
 
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 1.0.0
+## [1.0.0] - 2025-02-04
 
-### Major Changes
+### Removed
 
-- **BREAKING**: Enum values removed: Oversize
-- **BREAKING**: Enum values removed: Oversize
+- **BREAKING** Enum values removed: Oversize
 
-## 0.1.0
+## [0.1.0] - 2025-02-03
 
-### Minor Changes
+### Added
 
-- Schema CatalogClothingSchema was added
-- Schema ClothingSchema was added
-- Schema DetailedClothingSchema was added
-- Schema MetaClothingSchema was added
+- Schema `CatalogClothingSchema`
+- Schema `ClothingSchema`
+- Schema `DetailedClothingSchema`
+- Schema `MetaClothingSchema`
 
-## 0.0.1
+## [0.0.1] - 2025-02-02
 
-### Initial Release
+### Added
 
-- Schemas for Clothing
-- Colors, Materials, Sizes, Measurements...
+- Initial schemas for Clothing
+- Colors, Materials, Sizes, Measurements
 - Garments, Layers and Use Cases
 - Variants and Status

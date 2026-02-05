@@ -1,15 +1,19 @@
-# @segha/obsidianmd
+# Changelog
 
+All notable changes to @segha/obsidianmd will be documented in this file.
 
-## 0.1.0
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### Minor Changes
+## [0.1.0] - 2025-02-03
 
-- Schema DocumentSchema was added
+### Added
 
-## 0.0.1
+- Schema `DocumentSchema`
 
-### Initial Release
+## [0.0.1] - 2025-02-02
 
-- Schema for ObsidianMD documents
+### Added
+
+- Initial schema for ObsidianMD documents
 - Frontmatter and Metadata support

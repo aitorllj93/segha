@@ -1,19 +1,23 @@
-# @segha/schemaorg
+# Changelog
 
+All notable changes to @segha/schemaorg will be documented in this file.
 
-## 0.1.0
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### Minor Changes
+## [0.1.0] - 2025-02-03
 
-- Schema TextSchema was added
-- Schema URLSchema was added
-- Schema ThingSchema was added
+### Added
 
-## 0.0.1
+- Schema `TextSchema`
+- Schema `URLSchema`
+- Schema `ThingSchema`
 
-### Initial Release
+## [0.0.1] - 2025-02-02
 
-- Schemas based on Schema.org
+### Added
+
+- Initial schemas based on Schema.org
 - DataTypes: Text, URL, Number, Boolean, Date, DateTime
-- Thing
-- Inferred Typescript types
+- Thing schema
+- Inferred TypeScript types

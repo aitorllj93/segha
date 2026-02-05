@@ -3,57 +3,73 @@ import { join } from 'node:path';
 import { SchemaChange, BumpType } from './compare-schemas.js';
 
 /**
+ * Gets the current date in ISO 8601 format (YYYY-MM-DD)
+ */
+function getISODate(): string {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+/**
  * Generates a changelog entry based on detected changes
+ * Following Keep a Changelog format: https://keepachangelog.com/en/1.1.0/
  */
 export function generateChangelogEntry(
   version: string,
   bump: BumpType,
   changes: SchemaChange[]
 ): string {
+  const date = getISODate();
+
   if (changes.length === 0) {
-    return `## ${version}\n\n### Patch Changes\n\n- Internal changes and improvements\n`;
+    return `## [${version}] - ${date}\n\n### Changed\n\n- Internal changes and improvements\n`;
   }
 
-  const lines: string[] = [`## ${version}\n`];
+  const lines: string[] = [`## [${version}] - ${date}\n`];
 
-  // Group changes by type
+  // Group changes by Keep a Changelog categories
   const added = changes.filter(c => c.type === 'added');
   const removed = changes.filter(c => c.type === 'removed');
   const modified = changes.filter(c => c.type === 'modified');
   const typeChanged = changes.filter(c => c.type === 'type-changed');
 
-  // Major changes
-  if (removed.length > 0 || typeChanged.length > 0) {
-    lines.push('### Major Changes\n');
-
-    for (const change of removed) {
-      lines.push(`- **BREAKING**: ${change.description || `${change.schema}${change.property ? `.${change.property}` : ''} was removed`}`);
-    }
-
-    for (const change of typeChanged) {
-      lines.push(`- **BREAKING**: ${change.description || `Type changed in ${change.schema}${change.property ? `.${change.property}` : ''}`}`);
-    }
-
-    lines.push('');
-  }
-
-  // Minor changes (new features)
-  if (added.length > 0 && bump !== 'major') {
-    lines.push('### Minor Changes\n');
+  // Added - for new features
+  if (added.length > 0) {
+    lines.push('### Added\n');
 
     for (const change of added) {
-      lines.push(`- ${change.description || `${change.schema}${change.property ? `.${change.property}` : ''} was added`}`);
+      const isRequired = change.description?.includes('Required') || change.description?.includes('required');
+      const prefix = isRequired ? '**BREAKING** ' : '';
+      lines.push(`- ${prefix}${change.description || `${change.schema}${change.property ? `.${change.property}` : ''}`}`);
     }
 
     lines.push('');
   }
 
-  // Patch changes
-  if (modified.length > 0 && bump === 'patch') {
-    lines.push('### Patch Changes\n');
+  // Changed - for changes in existing functionality (including type changes)
+  if (modified.length > 0 || typeChanged.length > 0) {
+    lines.push('### Changed\n');
+
+    for (const change of typeChanged) {
+      lines.push(`- **BREAKING** ${change.description || `Type changed in ${change.schema}${change.property ? `.${change.property}` : ''}`}`);
+    }
 
     for (const change of modified) {
       lines.push(`- ${change.description || `Modified ${change.schema}${change.property ? `.${change.property}` : ''}`}`);
+    }
+
+    lines.push('');
+  }
+
+  // Removed - for now removed features
+  if (removed.length > 0) {
+    lines.push('### Removed\n');
+
+    for (const change of removed) {
+      lines.push(`- **BREAKING** ${change.description || `${change.schema}${change.property ? `.${change.property}` : ''}`}`);
     }
 
     lines.push('');
@@ -63,7 +79,21 @@ export function generateChangelogEntry(
 }
 
 /**
+ * Generates the Keep a Changelog header
+ */
+function generateChangelogHeader(packageName: string): string {
+  return `# Changelog
+
+All notable changes to ${packageName} will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+`;
+}
+
+/**
  * Updates the CHANGELOG.md file for a package
+ * Following Keep a Changelog format: https://keepachangelog.com/en/1.1.0/
  */
 export function updateChangelog(
   packagePath: string,
@@ -80,22 +110,44 @@ export function updateChangelog(
 
   const entry = generateChangelogEntry(version, bump, changes);
 
-  // Insert the new entry after the header (if it exists)
-  const headerMatch = existingContent.match(/^#\s+@[\w/-]+\s*\n/);
-  if (headerMatch) {
-    const headerEnd = headerMatch.index! + headerMatch[0].length;
+  // Check if the file has a Keep a Changelog header
+  const keepAChangelogHeaderMatch = existingContent.match(/^# Changelog\n\nAll notable changes.*?\n\n(?:The format is based on.*?\n\n)?/s);
+
+  // Also check for old-style header (package name only)
+  const oldHeaderMatch = existingContent.match(/^#\s+@[\w/-]+\s*\n/);
+
+  if (keepAChangelogHeaderMatch) {
+    // Insert after the Keep a Changelog header
+    const headerEnd = keepAChangelogHeaderMatch.index! + keepAChangelogHeaderMatch[0].length;
     const newContent =
       existingContent.slice(0, headerEnd) +
-      '\n' + entry + '\n' +
+      entry + '\n' +
       existingContent.slice(headerEnd).replace(/^\n+/, '');
     writeFileSync(changelogPath, newContent, 'utf-8');
-  } else {
-    // No header, create one
+  } else if (oldHeaderMatch) {
+    // Replace old header with Keep a Changelog format
     const packageJsonPath = join(packagePath, 'package.json');
     const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
-    const packageName = packageJson.name || 'Unknown Package';
+    const packageName = packageJson.name || 'this project';
 
-    const newContent = `# ${packageName}\n\n${entry}${existingContent ? '\n' + existingContent : ''}`;
+    const contentAfterHeader = existingContent.slice(oldHeaderMatch.index! + oldHeaderMatch[0].length).replace(/^\n+/, '');
+    const newContent = generateChangelogHeader(packageName) + '\n' + entry + '\n' + contentAfterHeader;
+    writeFileSync(changelogPath, newContent, 'utf-8');
+  } else if (existingContent.trim()) {
+    // Has content but no recognized header - prepend new header
+    const packageJsonPath = join(packagePath, 'package.json');
+    const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
+    const packageName = packageJson.name || 'this project';
+
+    const newContent = generateChangelogHeader(packageName) + '\n' + entry + '\n' + existingContent;
+    writeFileSync(changelogPath, newContent, 'utf-8');
+  } else {
+    // No existing content, create new file
+    const packageJsonPath = join(packagePath, 'package.json');
+    const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
+    const packageName = packageJson.name || 'this project';
+
+    const newContent = generateChangelogHeader(packageName) + '\n' + entry;
     writeFileSync(changelogPath, newContent, 'utf-8');
   }
 }
