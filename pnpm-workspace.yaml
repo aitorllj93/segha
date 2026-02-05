@@ -1,0 +1,8 @@
+packages:
+  - "schemas/*"
+  - "utils/*"
+
+catalog:
+  tsx: "^4.21.0"
+  zod: "^4.0.14"
+  zod2md: "^0.2.4"

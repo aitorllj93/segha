@@ -1,9 +1,33 @@
-# Schemas for ObsidianMD
+# @segha/obsidianmd
+
+Schemas for ObsidianMD
+
+## Installation
+
+```bash
+npm install @segha/obsidianmd
+```
+
+or
+
+```bash
+pnpm add @segha/obsidianmd
+```
+
+## Usage
+
+```typescript
+import { /* schemas */ } from '@segha/obsidianmd';
+
+// Example: Validate data with a schema
+// const result = YourSchema.parse(data);
+```
+
+## API Reference
+
 
 ## Document
-
 _Object containing the following properties:_
-
 | Property             | Type                                                                                       |
 | :------------------- | :----------------------------------------------------------------------------------------- |
 | `tags`               | `Array<string>` (_nullable_)                                                               |
@@ -14,5 +38,4 @@ _Object containing the following properties:_
 | `description`        | `string`                                                                                   |
 | `image`              | `string`                                                                                   |
 | `cover`              | `string`                                                                                   |
-
 _(\*) Required._

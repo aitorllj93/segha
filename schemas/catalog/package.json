@@ -1,6 +1,6 @@
 {
-  "name": "@segha/schemaorg",
-  "description": "Schemas for Schema.org",
+  "name": "@segha/catalog",
+  "description": "Schemas for Petroglyph Catalog",
   "scripts": {
     "docs": "pnpx tsx ../../utils/generate-docs.ts --entry ./index.ts --cwd .",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,7 @@
 	"keywords": [
 		"schemas",
 		"zod",
-		"schemaorg"
+		"obsidianmd"
 	],
   "version": "0.0.1",
 	"author": "Aitor Llamas Jiménez <aitorllj93@gmail.com>",
@@ -17,14 +17,15 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/aitorllj93/segha.git",
-		"directory": "schemas/schemaorg"
+		"directory": "schemas/obsidianmd"
 	},
   "license": "MIT",
 	"type": "module",
 	"exports": {
 		".": "./index.ts",
-		"./datatypes": "./DataTypes.ts",
-		"./thing": "./Thing.ts",
+		"./es": "./es/index.ts",
+		"./es/clothing": "./es/Clothing/index.ts",
+		"./es/clothing/types": "./es/Clothing/types.ts",
 		"./types": "./types.ts"
 	},
   "peerDependencies": {

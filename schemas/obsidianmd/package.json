@@ -2,7 +2,7 @@
   "name": "@segha/obsidianmd",
   "description": "Schemas for ObsidianMD",
   "scripts": {
-    "docs": "npx zod2md --entry schemas/obsidianmd/index.ts --title \"Schemas for ObsidianMD\" --output schemas/obsidianmd/README.md",
+    "docs": "pnpx tsx ../../utils/generate-docs.ts --entry ./index.ts --cwd .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "index.ts",
@@ -27,11 +27,12 @@
 		"./types": "./types.ts"
 	},
   "peerDependencies": {
-    "zod": "^4.0.14"
+    "zod": "catalog:"
   },
   "devDependencies": {
-    "zod": "^4.0.14",
-    "zod2md": "^0.2.4"
+    "zod": "catalog:",
+    "zod2md": "catalog:",
+    "tsx": "catalog:"
   },
   "publishConfig": {
     "access": "public"
