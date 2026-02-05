@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "enum": [
+    "Sin Mangas",
+    "Mangas Cortas",
+    "Mangas Largas",
+    "Cuello Redondo",
+    "Cuello Pico",
+    "Cuello Alto",
+    "Cuello Camisa",
+    "Overshirt",
+    "Cropped",
+    "Larga",
+    "Pierna Recta",
+    "Pitillo",
+    "Ancha",
+    "Cargo",
+    "Trench",
+    "Plumífero",
+    "Doble botonadura"
+  ]
+}

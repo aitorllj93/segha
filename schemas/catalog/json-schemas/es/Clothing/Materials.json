@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Materiales",
+  "type": "array",
+  "items": {
+    "type": "string",
+    "enum": [
+      "Algodón",
+      "Lino",
+      "Lana",
+      "Seda",
+      "Cuero",
+      "Poliéster",
+      "Nylon",
+      "Elastano",
+      "Viscosa",
+      "Denim",
+      "Punto",
+      "Felpa"
+    ]
+  }
+}

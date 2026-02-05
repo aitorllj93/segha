@@ -3,6 +3,7 @@
   "description": "Zod schemas for various domains and use cases",
   "scripts": {
     "docs": "pnpm -r run docs",
+    "json-schema": "pnpm -r run json-schema",
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "tsx utils/release.ts",
     "release:dry-run": "tsx utils/release-dry-run.ts"

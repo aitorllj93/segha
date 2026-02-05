@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "tags": {
+      "description": "Document tags for categorization",
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "aliases": {
+      "description": "Alternative names for the document",
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cssclasses": {
+      "description": "CSS classes to apply to the document",
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "publish": {
+      "description": "Whether to publish the document",
+      "type": "boolean"
+    },
+    "permalink": {
+      "description": "Permanent link for the document",
+      "type": "string"
+    },
+    "description": {
+      "description": "Document description for SEO/previews",
+      "type": "string"
+    },
+    "image": {
+      "description": "Featured image URL",
+      "type": "string"
+    },
+    "cover": {
+      "description": "Cover image URL",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Obsidian document frontmatter schema"
+}

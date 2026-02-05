@@ -98,7 +98,21 @@ async function processPackage(packagePath: string): Promise<PackageReleaseInfo |
   console.log(`\n📦 Processing ${packageName}...`);
 
   try {
-    // Extract current shapes
+    // Generate JSON schemas first
+    const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
+    if (packageJson.scripts?.['json-schema']) {
+      try {
+        console.log(`  🔧 Generating JSON schemas...`);
+        execSync(packageJson.scripts['json-schema'], {
+          cwd: packagePath,
+          stdio: 'ignore'
+        });
+      } catch (error) {
+        console.warn(`  ⚠️  Warning: Could not generate JSON schemas`);
+      }
+    }
+
+    // Extract current shapes from JSON schemas
     const currentShapes = await extractPackageShapes(packagePath);
 
     if (Object.keys(currentShapes).length === 0) {

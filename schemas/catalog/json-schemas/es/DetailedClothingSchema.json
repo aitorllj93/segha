@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "cares": {
+      "description": "Cuidados",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Lavado a mano",
+          "Lavado a máquina",
+          "Lavado en seco",
+          "Frio",
+          "Caliente",
+          "Planchado",
+          "Planchado a vapor"
+        ]
+      }
+    },
+    "status": {
+      "default": "Bien",
+      "description": "Estado",
+      "type": "string",
+      "enum": [
+        "Nuevo",
+        "Bien",
+        "Gastado",
+        "Dañado",
+        "Retirar"
+      ]
+    },
+    "size": {
+      "type": "string",
+      "enum": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46",
+        "48",
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ]
+    },
+    "measurements": {
+      "description": "Medidas",
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    }
+  },
+  "required": [
+    "status",
+    "size"
+  ],
+  "additionalProperties": false,
+  "description": "Prenda de ropa: Datos adicionales de dificil obtención"
+}

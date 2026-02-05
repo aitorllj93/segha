@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Estaciones",
+  "type": "string",
+  "enum": [
+    "Invierno",
+    "Verano",
+    "Entretiempo",
+    "Todo el año"
+  ]
+}

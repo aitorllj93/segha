@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "default": "Bien",
+  "description": "Estado",
+  "type": "string",
+  "enum": [
+    "Nuevo",
+    "Bien",
+    "Gastado",
+    "Dañado",
+    "Retirar"
+  ]
+}

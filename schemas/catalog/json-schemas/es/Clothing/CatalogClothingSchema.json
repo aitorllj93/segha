@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "garment": {
+      "type": "string",
+      "enum": [
+        "Camisetas",
+        "Polos",
+        "Camisas",
+        "Blusas",
+        "Tops",
+        "Jerseys",
+        "Sudaderas",
+        "Cárdigans",
+        "Chaquetas",
+        "Pantalones",
+        "Vaqueros",
+        "Chinos",
+        "Faldas",
+        "Shorts",
+        "Abrigos",
+        "Gabardinas",
+        "Parkas",
+        "Cazadoras",
+        "Chalecos",
+        "Vestidos",
+        "Monos",
+        "Zapatillas",
+        "Zapatos",
+        "Botas",
+        "Sandalias",
+        "Cinturones",
+        "Gorras",
+        "Sombreros",
+        "Bufandas",
+        "Guantes",
+        "Bolsos",
+        "Mochilas"
+      ],
+      "description": "Tipo de Prenda"
+    },
+    "slot": {
+      "type": "string",
+      "enum": [
+        "Superior",
+        "Inferior",
+        "Cuerpo Completo",
+        "Exterior",
+        "Calzado",
+        "Accesorios"
+      ],
+      "description": "Parte del outfit"
+    },
+    "variants": {
+      "description": "Detalles Estructurales",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Sin Mangas",
+          "Mangas Cortas",
+          "Mangas Largas",
+          "Cuello Redondo",
+          "Cuello Pico",
+          "Cuello Alto",
+          "Cuello Camisa",
+          "Overshirt",
+          "Cropped",
+          "Larga",
+          "Pierna Recta",
+          "Pitillo",
+          "Ancha",
+          "Cargo",
+          "Trench",
+          "Plumífero",
+          "Doble botonadura"
+        ]
+      }
+    },
+    "fit": {
+      "description": "Ajuste",
+      "type": "string",
+      "enum": [
+        "Entallado",
+        "Regular",
+        "Relajado",
+        "Oversize"
+      ]
+    },
+    "primary_color": {
+      "type": "string",
+      "enum": [
+        "Blanco",
+        "Negro",
+        "Gris",
+        "Beige",
+        "Marrón",
+        "Azul",
+        "Verde",
+        "Rojo",
+        "Burdeos",
+        "Rosa",
+        "Amarillo",
+        "Naranja",
+        "Morado",
+        "Camel",
+        "Caqui",
+        "Marino",
+        "Crema"
+      ],
+      "description": "Color principal"
+    },
+    "secondary_color": {
+      "description": "Color secundario",
+      "type": "string",
+      "enum": [
+        "Blanco",
+        "Negro",
+        "Gris",
+        "Beige",
+        "Marrón",
+        "Azul",
+        "Verde",
+        "Rojo",
+        "Burdeos",
+        "Rosa",
+        "Amarillo",
+        "Naranja",
+        "Morado",
+        "Camel",
+        "Caqui",
+        "Marino",
+        "Crema"
+      ]
+    },
+    "pattern": {
+      "description": "Estampado",
+      "type": "string",
+      "enum": [
+        "Liso",
+        "Rayas",
+        "Cuadros"
+      ]
+    },
+    "materials": {
+      "description": "Materiales",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Algodón",
+          "Lino",
+          "Lana",
+          "Seda",
+          "Cuero",
+          "Poliéster",
+          "Nylon",
+          "Elastano",
+          "Viscosa",
+          "Denim",
+          "Punto",
+          "Felpa"
+        ]
+      }
+    },
+    "layer": {
+      "type": "string",
+      "enum": [
+        "Base",
+        "Intermedia",
+        "Exterior"
+      ],
+      "description": "Capa Térmica"
+    },
+    "season": {
+      "description": "Estaciones",
+      "type": "string",
+      "enum": [
+        "Invierno",
+        "Verano",
+        "Entretiempo",
+        "Todo el año"
+      ]
+    },
+    "use_case": {
+      "description": "Casos de uso",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Capsula",
+          "Favorita",
+          "Básico",
+          "Deporte",
+          "Trabajo",
+          "Evento",
+          "Viaje",
+          "Casa"
+        ]
+      }
+    },
+    "formality": {
+      "description": "Formalidad",
+      "type": "string",
+      "enum": [
+        "Muy Informal",
+        "Casual",
+        "Arreglado",
+        "Formal",
+        "Etiqueta"
+      ]
+    },
+    "brand": {
+      "description": "The brand of the clothing",
+      "type": "string"
+    }
+  },
+  "required": [
+    "garment",
+    "slot",
+    "primary_color",
+    "layer"
+  ],
+  "additionalProperties": false,
+  "description": "Prenda de ropa: Datos obtenibles de catalogación"
+}

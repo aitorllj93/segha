@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "@segha/schemaorg",
+  "description": "Schemas for Schema.org",
+  "$defs": {
+    "TextSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "description": "Data type: Text."
+    },
+    "URLSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "format": "uri",
+      "description": "Data type: URL."
+    },
+    "ThingSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "additionalType": {
+          "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org style guide.",
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "description": "Data type: Text."
+                },
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Data type: URL."
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "alternateName": {
+          "description": "An alias for the item.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "Data type: Text."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "description": {
+          "description": "A description of the item.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "Data type: Text."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "disambiguatingDescription": {
+          "description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "Data type: Text."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "identifier": {
+          "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details.",
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "description": "Data type: Text."
+                },
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Data type: URL."
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "image": {
+          "description": "An image of the item. This can be a URL or a fully described ImageObject.",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Data type: URL."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mainEntityOfPage": {
+          "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes for details. Inverse property: mainEntity",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Data type: URL."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "name": {
+          "description": "The name of the item.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "Data type: Text."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sameAs": {
+          "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Data type: URL."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "url": {
+          "description": "URL of the item.",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Data type: URL."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "description": "The most generic type of item."
+    }
+  }
+}

@@ -15,7 +15,28 @@ export interface ComparisonResult {
 }
 
 /**
- * Compares two schema shapes and determines the semantic version bump needed
+ * Deep comparison of two JSON Schema objects
+ */
+function deepEqual(obj1: any, obj2: any): boolean {
+  if (obj1 === obj2) return true;
+  if (obj1 == null || obj2 == null) return false;
+  if (typeof obj1 !== 'object' || typeof obj2 !== 'object') return false;
+
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) return false;
+
+  for (const key of keys1) {
+    if (!keys2.includes(key)) return false;
+    if (!deepEqual(obj1[key], obj2[key])) return false;
+  }
+
+  return true;
+}
+
+/**
+ * Compares two JSON Schema shapes and determines the semantic version bump needed
  */
 export function compareShapes(
   oldShapes: Record<string, SchemaShape>,
@@ -57,7 +78,7 @@ export function compareShapes(
 
     if (!oldShape) continue; // Already handled as added
 
-    const schemaChanges = compareSchemaShape(oldShape, newShape, schemaName);
+    const schemaChanges = compareJSONSchema(oldShape, newShape, schemaName);
     changes.push(...schemaChanges);
 
     // Determine bump type from changes
@@ -75,9 +96,12 @@ export function compareShapes(
 
           if (oldProp && newProp) {
             // If property went from optional to required, it's major
-            if (oldProp.optional && !newProp.optional) {
+            const oldRequired = oldShape.required?.includes(change.property) ?? false;
+            const newRequired = newShape.required?.includes(change.property) ?? false;
+
+            if (!oldRequired && newRequired) {
               hasMajor = true;
-            } else if (!oldProp.optional && newProp.optional) {
+            } else if (oldRequired && !newRequired) {
               hasMinor = true;
             } else {
               hasPatch = true;
@@ -104,29 +128,29 @@ export function compareShapes(
 }
 
 /**
- * Compares two individual schema shapes
+ * Compares two JSON Schema objects
  */
-function compareSchemaShape(
-  oldShape: SchemaShape,
-  newShape: SchemaShape,
+function compareJSONSchema(
+  oldSchema: SchemaShape,
+  newSchema: SchemaShape,
   schemaName: string,
   propertyPath: string = ''
 ): SchemaChange[] {
   const changes: SchemaChange[] = [];
 
   // Type change is always major
-  if (oldShape.type !== newShape.type) {
+  if (oldSchema.type !== newSchema.type) {
     changes.push({
       type: 'type-changed',
       schema: schemaName,
       property: propertyPath || undefined,
-      description: `Type changed from ${oldShape.type} to ${newShape.type}`,
+      description: `Type changed from ${oldSchema.type} to ${newSchema.type}`,
     });
     return changes; // Early return, type change is breaking
   }
 
   // Compare descriptions (patch-level change)
-  if (oldShape.description !== newShape.description) {
+  if (oldSchema.description !== newSchema.description) {
     changes.push({
       type: 'modified',
       schema: schemaName,
@@ -136,9 +160,11 @@ function compareSchemaShape(
   }
 
   // For objects, compare properties
-  if (oldShape.type === 'object' && newShape.type === 'object') {
-    const oldProps = oldShape.properties || {};
-    const newProps = newShape.properties || {};
+  if (oldSchema.type === 'object' && newSchema.type === 'object') {
+    const oldProps = oldSchema.properties || {};
+    const newProps = newSchema.properties || {};
+    const oldRequired = oldSchema.required || [];
+    const newRequired = newSchema.required || [];
 
     // Check for removed properties
     for (const propName of Object.keys(oldProps)) {
@@ -155,22 +181,13 @@ function compareSchemaShape(
     // Check for added properties
     for (const propName of Object.keys(newProps)) {
       if (!oldProps[propName]) {
-        const propShape = newProps[propName];
-        if (propShape.optional) {
-          changes.push({
-            type: 'added',
-            schema: schemaName,
-            property: propertyPath ? `${propertyPath}.${propName}` : propName,
-            description: `Optional property ${propName} was added`,
-          });
-        } else {
-          changes.push({
-            type: 'added',
-            schema: schemaName,
-            property: propertyPath ? `${propertyPath}.${propName}` : propName,
-            description: `Required property ${propName} was added`,
-          });
-        }
+        const isRequired = newRequired.includes(propName);
+        changes.push({
+          type: 'added',
+          schema: schemaName,
+          property: propertyPath ? `${propertyPath}.${propName}` : propName,
+          description: `${isRequired ? 'Required' : 'Optional'} property ${propName} was added`,
+        });
       }
     }
 
@@ -183,30 +200,31 @@ function compareSchemaShape(
 
       const propPath = propertyPath ? `${propertyPath}.${propName}` : propName;
 
-      // Check optionality changes
-      if (oldProp.optional !== newProp.optional) {
-        if (!oldProp.optional && newProp.optional) {
-          // Required -> Optional: minor
-          changes.push({
-            type: 'modified',
-            schema: schemaName,
-            property: propPath,
-            description: `Property ${propName} changed from required to optional`,
-          });
-        } else {
-          // Optional -> Required: major
+      // Check required status changes
+      const wasRequired = oldRequired.includes(propName);
+      const isRequired = newRequired.includes(propName);
+
+      if (wasRequired !== isRequired) {
+        if (!wasRequired && isRequired) {
           changes.push({
             type: 'removed',
             schema: schemaName,
             property: propPath,
             description: `Property ${propName} changed from optional to required`,
           });
+        } else {
+          changes.push({
+            type: 'added',
+            schema: schemaName,
+            property: propPath,
+            description: `Property ${propName} changed from required to optional`,
+          });
         }
       }
 
       // Recursively compare nested properties
       if (oldProp.type === 'object' && newProp.type === 'object') {
-        changes.push(...compareSchemaShape(oldProp, newProp, schemaName, propPath));
+        changes.push(...compareJSONSchema(oldProp, newProp, schemaName, propPath));
       } else if (oldProp.type !== newProp.type) {
         changes.push({
           type: 'type-changed',
@@ -214,73 +232,60 @@ function compareSchemaShape(
           property: propPath,
           description: `Property ${propName} type changed from ${oldProp.type} to ${newProp.type}`,
         });
+      } else if (!deepEqual(oldProp, newProp)) {
+        // Other changes (enum values, etc.)
+        if (oldProp.enum && newProp.enum) {
+          const removedValues = oldProp.enum.filter((v: any) => !newProp.enum.includes(v));
+          const addedValues = newProp.enum.filter((v: any) => !oldProp.enum.includes(v));
+
+          if (removedValues.length > 0) {
+            changes.push({
+              type: 'removed',
+              schema: schemaName,
+              property: propPath,
+              description: `Enum values removed: ${removedValues.join(', ')}`,
+            });
+          }
+          if (addedValues.length > 0) {
+            changes.push({
+              type: 'added',
+              schema: schemaName,
+              property: propPath,
+              description: `Enum values added: ${addedValues.join(', ')}`,
+            });
+          }
+        } else {
+          changes.push({
+            type: 'modified',
+            schema: schemaName,
+            property: propPath,
+            description: `Property ${propName} was modified`,
+          });
+        }
       }
     }
   }
 
   // For enums, compare values
-  if (oldShape.type === 'enum' && newShape.type === 'enum') {
-    const oldValues = oldShape.values || [];
-    const newValues = newShape.values || [];
+  if (oldSchema.enum && newSchema.enum) {
+    const removedValues = oldSchema.enum.filter((v: any) => !newSchema.enum.includes(v));
+    const addedValues = newSchema.enum.filter((v: any) => !oldSchema.enum.includes(v));
 
-    // Check for removed enum values
-    for (const oldValue of oldValues) {
-      if (!newValues.includes(oldValue)) {
-        changes.push({
-          type: 'removed',
-          schema: schemaName,
-          property: propertyPath || undefined,
-          description: `Enum value ${oldValue} was removed`,
-        });
-      }
+    if (removedValues.length > 0) {
+      changes.push({
+        type: 'removed',
+        schema: schemaName,
+        property: propertyPath || undefined,
+        description: `Enum values removed: ${removedValues.join(', ')}`,
+      });
     }
-
-    // Check for added enum values
-    for (const newValue of newValues) {
-      if (!oldValues.includes(newValue)) {
-        changes.push({
-          type: 'added',
-          schema: schemaName,
-          property: propertyPath || undefined,
-          description: `Enum value ${newValue} was added`,
-        });
-      }
-    }
-  }
-
-  // For unions, compare types
-  if (oldShape.type === 'union' && newShape.type === 'union') {
-    const oldTypes = oldShape.types || [];
-    const newTypes = newShape.types || [];
-
-    // Check for removed union types
-    for (const oldType of oldTypes) {
-      const found = newTypes.some(newType =>
-        JSON.stringify(oldType) === JSON.stringify(newType)
-      );
-      if (!found) {
-        changes.push({
-          type: 'removed',
-          schema: schemaName,
-          property: propertyPath || undefined,
-          description: 'Union type member was removed',
-        });
-      }
-    }
-
-    // Check for added union types
-    for (const newType of newTypes) {
-      const found = oldTypes.some(oldType =>
-        JSON.stringify(oldType) === JSON.stringify(newType)
-      );
-      if (!found) {
-        changes.push({
-          type: 'added',
-          schema: schemaName,
-          property: propertyPath || undefined,
-          description: 'Union type member was added',
-        });
-      }
+    if (addedValues.length > 0) {
+      changes.push({
+        type: 'added',
+        schema: schemaName,
+        property: propertyPath || undefined,
+        description: `Enum values added: ${addedValues.join(', ')}`,
+      });
     }
   }
 

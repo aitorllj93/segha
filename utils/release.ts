@@ -1,5 +1,5 @@
 import { execSync } from 'node:child_process';
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractPackageShapes, extractShapesFromGit } from './extract-schema-shape.js';
@@ -17,31 +17,6 @@ interface PackageReleaseInfo {
   newVersion: string;
   bump: 'major' | 'minor' | 'patch' | 'none';
   changes: ComparisonResult['changes'];
-}
-
-/**
- * Gets the list of packages in the workspace
- */
-function getPackages(): string[] {
-  const packages: string[] = [];
-  const schemasDir = join(workspaceRoot, 'schemas');
-
-  try {
-    const entries = readdirSync(schemasDir, { withFileTypes: true });
-    for (const entry of entries) {
-      if (entry.isDirectory()) {
-        const packagePath = join(schemasDir, entry.name);
-        const packageJsonPath = join(packagePath, 'package.json');
-        if (existsSync(packageJsonPath)) {
-          packages.push(packagePath);
-        }
-      }
-    }
-  } catch (error) {
-    console.error('Error reading packages:', error);
-  }
-
-  return packages;
 }
 
 /**
@@ -123,7 +98,20 @@ async function processPackage(packagePath: string): Promise<PackageReleaseInfo |
   console.log(`\n📦 Processing ${packageName}...`);
 
   try {
-    // Extract current shapes
+    // Generate JSON schemas first
+    if (packageJson.scripts?.['json-schema']) {
+      try {
+        console.log(`  🔧 Generating JSON schemas...`);
+        execSync(packageJson.scripts['json-schema'], {
+          cwd: packagePath,
+          stdio: 'ignore'
+        });
+      } catch (error) {
+        console.warn(`  ⚠️  Warning: Could not generate JSON schemas:`, error);
+      }
+    }
+
+    // Extract current shapes from JSON schemas
     const currentShapes = await extractPackageShapes(packagePath);
 
     if (Object.keys(currentShapes).length === 0) {
@@ -252,6 +240,20 @@ async function main() {
     // Update changelog
     updateChangelog(release.packagePath, release.newVersion, release.bump, release.changes);
     console.log(`  ✅ CHANGELOG.md updated`);
+
+    // Generate JSON schemas (ensure they're up to date)
+    const packageJson = JSON.parse(readFileSync(join(release.packagePath, 'package.json'), 'utf-8'));
+    if (packageJson.scripts?.['json-schema']) {
+      try {
+        execSync(packageJson.scripts['json-schema'], {
+          cwd: release.packagePath,
+          stdio: 'ignore'
+        });
+        console.log(`  ✅ JSON schemas updated`);
+      } catch (error) {
+        console.warn(`  ⚠️  Warning: Could not generate JSON schemas`);
+      }
+    }
 
     // Generate docs
     generateDocs(release.packagePath);

@@ -5,6 +5,7 @@
   "description": "Schemas for Petroglyph Catalog",
   "scripts": {
     "docs": "pnpx tsx ../../utils/generate-docs.ts --entry ./index.ts --cwd .",
+    "json-schema": "pnpx tsx ../../utils/generate-json-schema.ts --entry ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 	"keywords": [
@@ -26,7 +27,11 @@
 		"./es": "./es/index.ts",
 		"./es/clothing": "./es/Clothing/index.ts",
 		"./es/clothing/types": "./es/Clothing/types.ts",
-		"./types": "./types.ts"
+		"./types": "./types.ts",
+		"./es/json-schema": "./json-schemas/es/index.json",
+		"./es/json-schemas/*": "./json-schemas/es/*.json",
+		"./es/clothing/json-schema": "./json-schemas/es/Clothing/index.json",
+		"./es/clothing/json-schemas/*": "./json-schemas/es/Clothing/*.json"
 	},
   "peerDependencies": {
     "zod": "catalog:"
@@ -42,6 +47,7 @@
   "files": [
     "*.ts",
     "es/**/*.ts",
+    "json-schemas/**/*.json",
     "README.md",
     "CHANGELOG.md"
   ]

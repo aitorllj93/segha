@@ -3,6 +3,7 @@
   "description": "Schemas for ObsidianMD",
   "scripts": {
     "docs": "pnpx tsx ../../utils/generate-docs.ts --entry ./index.ts --cwd .",
+    "json-schema": "pnpx tsx ../../utils/generate-json-schema.ts --entry ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "index.ts",
@@ -24,7 +25,9 @@
 	"exports": {
 		".": "./index.ts",
 		"./document": "./Document.ts",
-		"./types": "./types.ts"
+		"./types": "./types.ts",
+    "./json-schema": "./json-schemas/index.json",
+    "./json-schemas/*": "./json-schemas/*.json"
 	},
   "peerDependencies": {
     "zod": "catalog:"
@@ -39,6 +42,7 @@
   },
   "files": [
     "*.ts",
+    "json-schemas/**/*.json",
     "README.md",
     "CHANGELOG.md"
   ]
