@@ -19,7 +19,7 @@
 		"url": "git+https://github.com/aitorllj93/segha.git",
 		"directory": "schemas/schemaorg"
 	},
-  "license": "MIT",
+  "license": "ISC",
 	"type": "module",
 	"exports": {
 		".": "./index.ts",

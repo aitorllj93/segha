@@ -25,10 +25,12 @@ import { /* schemas */ } from '@segha/catalog';
 
 ## API Reference
 
-
 ## CatalogClothing
+
 Prenda de ropa: Datos obtenibles de catalogación
+
 _Object containing the following properties:_
+
 | Property                 | Description               | Type                                                                                                                                                                                                                                                                               |
 | :----------------------- | :------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`garment`** (\*)       | Tipo de Prenda            | `'Camisetas' \| 'Polos' \| 'Camisas' \| 'Blusas' \| 'Tops' \| 'Jerseys' \| 'Sudaderas' \| 'Cárdigans' \| 'Chaquetas' \| 'Pantalones' \| 'Vaqueros' \| 'Chinos' \| 'Faldas' \| 'Shorts' \| 'Abrigos' \| 'Gabardinas' \| 'Parkas' \| 'Cazadoras' \| 'Chalecos' \| 'Vestidos' \| ...` |
@@ -44,10 +46,15 @@ _Object containing the following properties:_
 | `use_case`               | Casos de uso              | `Array<'Capsula' \| 'Favorita' \| 'Básico' \| 'Deporte' \| 'Trabajo' \| 'Evento' \| 'Viaje' \| 'Casa'>`                                                                                                                                                                            |
 | `formality`              | Formalidad                | `'Muy Informal' \| 'Casual' \| 'Arreglado' \| 'Formal' \| 'Etiqueta'`                                                                                                                                                                                                              |
 | `brand`                  | The brand of the clothing | `string`                                                                                                                                                                                                                                                                           |
+
 _(\*) Required._
+
 ## Clothing
+
 Prenda de ropa
+
 _Object containing the following properties:_
+
 | Property                 | Description               | Type                                                                                                                                                                                                                                                                               | Default  |
 | :----------------------- | :------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
 | **`garment`** (\*)       | Tipo de Prenda            | `'Camisetas' \| 'Polos' \| 'Camisas' \| 'Blusas' \| 'Tops' \| 'Jerseys' \| 'Sudaderas' \| 'Cárdigans' \| 'Chaquetas' \| 'Pantalones' \| 'Vaqueros' \| 'Chinos' \| 'Faldas' \| 'Shorts' \| 'Abrigos' \| 'Gabardinas' \| 'Parkas' \| 'Cazadoras' \| 'Chalecos' \| 'Vestidos' \| ...` |          |
@@ -73,20 +80,30 @@ _Object containing the following properties:_
 | **`color`** (\*)         |                           | `'#CB6120'`                                                                                                                                                                                                                                                                        |          |
 | **`icon`** (\*)          |                           | `'shirt'`                                                                                                                                                                                                                                                                          |          |
 | `cover`                  |                           | `string`                                                                                                                                                                                                                                                                           |          |
+
 _(\*) Required._
+
 ## DetailedClothing
+
 Prenda de ropa: Datos adicionales de dificil obtención
+
 _Object containing the following properties:_
+
 | Property        | Description | Type                                                                                                                                                               | Default  |
 | :-------------- | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
 | `cares`         | Cuidados    | `Array<'Lavado a mano' \| 'Lavado a máquina' \| 'Lavado en seco' \| 'Frio' \| 'Caliente' \| 'Planchado' \| 'Planchado a vapor'>`                                   |          |
 | `status`        | Estado      | `'Nuevo' \| 'Bien' \| 'Gastado' \| 'Dañado' \| 'Retirar'`                                                                                                          | `'Bien'` |
 | **`size`** (\*) |             | `'28' \| '30' \| '32' \| '34' \| '36' \| '37' \| '38' \| '39' \| '40' \| '41' \| '42' \| '43' \| '44' \| '45' \| '46' \| '48' \| 'XS' \| 'S' \| 'M' \| 'L' \| ...` |          |
 | `measurements`  | Medidas     | `Array<number>`                                                                                                                                                    |          |
+
 _(\*) Required._
+
 ## MetaClothing
+
 Prenda de ropa: Metadatos de Nota
+
 _Object containing the following properties:_
+
 | Property           | Type                 |
 | :----------------- | :------------------- |
 | **`type`** (\*)    | `'[[Recursos]]'`     |
@@ -95,4 +112,5 @@ _Object containing the following properties:_
 | **`color`** (\*)   | `'#CB6120'`          |
 | **`icon`** (\*)    | `'shirt'`            |
 | `cover`            | `string`             |
+
 _(\*) Required._

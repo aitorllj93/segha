@@ -1,4 +1,29 @@
-# Schemas for Schema.org
+# @segha/schemaorg
+
+Schemas for Schema.org
+
+## Installation
+
+```bash
+npm install @segha/schemaorg
+```
+
+or
+
+```bash
+pnpm add @segha/schemaorg
+```
+
+## Usage
+
+```typescript
+import { /* schemas */ } from '@segha/schemaorg';
+
+// Example: Validate data with a schema
+// const result = YourSchema.parse(data);
+```
+
+## API Reference
 
 ## Text
 

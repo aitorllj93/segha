@@ -1,15 +1,23 @@
 {
   "name": "segha",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
+  "description": "Zod schemas for various domains and use cases",
+	"scripts": {
     "docs": "pnpm -r run docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "private": true,
+  "keywords": [
+    "schemas",
+    "zod"
+  ],
+	"version": "1.0.0",
+  "author": "Aitor Llamas Jiménez <aitorllj93@gmail.com>",
+  "homepage": "https://github.com/aitorllj93/segha",
+   "repository": {
+		"type": "git",
+		"url": "git+https://github.com/aitorllj93/segha.git"
+	},
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "zod": "^4.3.6"
   },
