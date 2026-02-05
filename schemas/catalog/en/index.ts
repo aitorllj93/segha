@@ -1,2 +1,5 @@
+export * from './Article';
+export * from './Book';
 export * from './Clothing';
-export * from './types';
+export * from './Movie';
+export * from './Note';

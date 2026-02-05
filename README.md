@@ -14,13 +14,11 @@ Segha provides a collection of validated schemas organized into separate package
 
 ### `@segha/catalog`
 
-Schemas for Petroglyph Catalog, including comprehensive clothing item definitions with properties such as:
+Schemas for Petroglyph Catalog, including the data types I use on my Obsidian notes:
 
-- Garment types (shirts, pants, jackets, etc.)
-- Colors, patterns, and materials
-- Fit, formality, and seasonal attributes
-- Care instructions and status tracking
-- Size and measurement data
+- Sources: Articles, Books, Movies...
+- Resources: Clothing, Hardware, Software...
+- Entities: People, Organizations, Places...
 
 **Exports:**
 - `@segha/catalog` - Main catalog schemas

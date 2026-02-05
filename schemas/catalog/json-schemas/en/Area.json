@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "enum": [
+    "[[Food]]",
+    "[[Health]]",
+    "[[Knowledge]]",
+    "[[Structured Thinking]]",
+    "[[Home]]",
+    "[[Productivity]]",
+    "[[Exploration]]",
+    "[[Links]]",
+    "[[Exercise]]",
+    "[[Energy]]",
+    "[[Work]]",
+    "[[Finances]]",
+    "[[Mental Health]]",
+    "[[Creativity]]"
+  ],
+  "description": "Area"
+}

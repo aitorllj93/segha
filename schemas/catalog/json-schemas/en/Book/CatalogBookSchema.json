@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the book"
+    },
+    "subtitle": {
+      "description": "Subtitle of the book",
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the book",
+      "type": "string"
+    },
+    "author": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Authors"
+    },
+    "published": {
+      "type": "string",
+      "description": "Year of publication"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Categories"
+    }
+  },
+  "required": [
+    "title",
+    "author",
+    "published",
+    "categories"
+  ],
+  "additionalProperties": false,
+  "description": "Book: Data obtained from catalogation"
+}

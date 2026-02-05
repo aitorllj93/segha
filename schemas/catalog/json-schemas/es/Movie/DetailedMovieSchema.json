@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "Pendiente",
+        "En progreso",
+        "Completado"
+      ],
+      "description": "Estado de visualización"
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Temas"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Puntuación de la película"
+    },
+    "online_rating": {
+      "type": "number",
+      "description": "Puntuación en línea"
+    },
+    "last_time_watched": {
+      "type": "string",
+      "description": "Última vez vista"
+    },
+    "times_watched": {
+      "type": "number",
+      "description": "Veces vista"
+    }
+  },
+  "required": [
+    "status",
+    "topics",
+    "rating",
+    "online_rating",
+    "last_time_watched",
+    "times_watched"
+  ],
+  "additionalProperties": false,
+  "description": "Película: Datos adicionales"
+}

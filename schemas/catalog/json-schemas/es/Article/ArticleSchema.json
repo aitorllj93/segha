@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Título del artículo"
+    },
+    "description": {
+      "description": "Descripción",
+      "type": "string"
+    },
+    "excerpt": {
+      "description": "Extracto del artículo",
+      "type": "string"
+    },
+    "author": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Autores"
+    },
+    "published": {
+      "description": "Año de publicación",
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Pendiente",
+        "En Proceso",
+        "Leído",
+        "Consolidado"
+      ],
+      "description": "Estado de lectura"
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Proyectos"
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Temas"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Puntuación del artículo"
+    },
+    "type": {
+      "type": "string",
+      "const": "[[Fuentes]]"
+    },
+    "format": {
+      "type": "string",
+      "const": "[[Artículos]]"
+    },
+    "areas": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "const": "[[Conocimiento]]"
+      }
+    },
+    "color": {
+      "type": "string",
+      "const": "#3171B2"
+    },
+    "icon": {
+      "type": "string",
+      "const": "newspaper"
+    },
+    "banner": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "description": "URL del artículo"
+    }
+  },
+  "required": [
+    "title",
+    "author",
+    "status",
+    "projects",
+    "topics",
+    "rating",
+    "type",
+    "format",
+    "areas",
+    "color",
+    "icon",
+    "url"
+  ],
+  "additionalProperties": false,
+  "description": "Artículo"
+}

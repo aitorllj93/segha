@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Título de la película"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descripción de la película"
+    },
+    "author": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Autores. Guionistas, directores, productores, etc."
+    },
+    "actors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Actores"
+    },
+    "published": {
+      "type": "string",
+      "description": "Año de publicación"
+    },
+    "genres": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Géneros"
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "author",
+    "actors",
+    "published",
+    "genres"
+  ],
+  "additionalProperties": false,
+  "description": "Película: Datos obtenibles de catalogación"
+}

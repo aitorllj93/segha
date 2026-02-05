@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Título del libro"
+    },
+    "subtitle": {
+      "description": "Subtítulo del libro",
+      "type": "string"
+    },
+    "description": {
+      "description": "Descripción del libro",
+      "type": "string"
+    },
+    "author": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Autores"
+    },
+    "published": {
+      "type": "string",
+      "description": "Año de publicación"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Géneros"
+    }
+  },
+  "required": [
+    "title",
+    "author",
+    "published",
+    "categories"
+  ],
+  "additionalProperties": false,
+  "description": "Libro: Datos obtenibles de catalogación"
+}

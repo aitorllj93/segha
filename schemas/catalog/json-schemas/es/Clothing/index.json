@@ -1558,7 +1558,7 @@
         "size"
       ],
       "additionalProperties": false,
-      "description": "Prenda de ropa: Datos adicionales de dificil obtención"
+      "description": "Prenda de ropa: Datos adicionales"
     },
     "MetaClothingSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",

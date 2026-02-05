@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Título del artículo"
+    },
+    "description": {
+      "description": "Descripción",
+      "type": "string"
+    },
+    "excerpt": {
+      "description": "Extracto del artículo",
+      "type": "string"
+    },
+    "author": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Autores"
+    },
+    "published": {
+      "description": "Año de publicación",
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "author"
+  ],
+  "additionalProperties": false,
+  "description": "Artículo: Datos obtenibles de catalogación"
+}

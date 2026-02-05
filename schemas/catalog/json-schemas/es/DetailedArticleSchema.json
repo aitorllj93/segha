@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "Pendiente",
+        "En Proceso",
+        "Leído",
+        "Consolidado"
+      ],
+      "description": "Estado de lectura"
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Proyectos"
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Temas"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Puntuación del artículo"
+    }
+  },
+  "required": [
+    "status",
+    "projects",
+    "topics",
+    "rating"
+  ],
+  "additionalProperties": false,
+  "description": "Artículo: Datos adicionales"
+}

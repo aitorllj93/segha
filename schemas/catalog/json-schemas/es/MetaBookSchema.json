@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "[[Fuentes]]"
+    },
+    "format": {
+      "type": "string",
+      "const": "[[Libros]]"
+    },
+    "areas": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "const": "[[Knowledge]]"
+      }
+    },
+    "color": {
+      "type": "string",
+      "const": "#3171B2"
+    },
+    "icon": {
+      "type": "string",
+      "const": "book"
+    },
+    "cover": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "description": "URL del libro en Amazon o similar"
+    },
+    "read_url": {
+      "type": "string",
+      "description": "URL de la lectura del libro"
+    }
+  },
+  "required": [
+    "type",
+    "format",
+    "areas",
+    "color",
+    "icon",
+    "url",
+    "read_url"
+  ],
+  "additionalProperties": false,
+  "description": "Libro: Metadatos de Nota"
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the movie"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the movie"
+    },
+    "author": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Authors. Writers, directors, producers, etc."
+    },
+    "actors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Actors"
+    },
+    "published": {
+      "type": "string",
+      "description": "Year of publication"
+    },
+    "genres": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Genres"
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "author",
+    "actors",
+    "published",
+    "genres"
+  ],
+  "additionalProperties": false,
+  "description": "Movie: Data obtained from catalogation"
+}

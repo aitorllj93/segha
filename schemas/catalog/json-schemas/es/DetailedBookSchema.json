@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "Pendiente",
+        "En Proceso",
+        "Leído",
+        "Consolidado"
+      ],
+      "description": "Estado de lectura"
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Temas"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Puntuación del libro"
+    },
+    "online_rating": {
+      "type": "number",
+      "description": "Puntuación en línea"
+    },
+    "last_time_read": {
+      "type": "string",
+      "description": "Última vez leído"
+    },
+    "times_read": {
+      "type": "number",
+      "description": "Veces leído"
+    }
+  },
+  "required": [
+    "status",
+    "topics",
+    "rating",
+    "online_rating",
+    "last_time_read",
+    "times_read"
+  ],
+  "additionalProperties": false,
+  "description": "Libro: Datos adicionales"
+}

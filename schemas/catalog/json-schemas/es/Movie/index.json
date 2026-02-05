@@ -1,0 +1,283 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "@segha/catalog/es/Movie",
+  "description": "Schemas for Petroglyph Catalog",
+  "$defs": {
+    "CatalogMovieSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Título de la película"
+        },
+        "description": {
+          "type": "string",
+          "description": "Descripción de la película"
+        },
+        "author": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Autores. Guionistas, directores, productores, etc."
+        },
+        "actors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Actores"
+        },
+        "published": {
+          "type": "string",
+          "description": "Año de publicación"
+        },
+        "genres": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Géneros"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "author",
+        "actors",
+        "published",
+        "genres"
+      ],
+      "additionalProperties": false,
+      "description": "Película: Datos obtenibles de catalogación"
+    },
+    "DetailedMovieSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "Pendiente",
+            "En progreso",
+            "Completado"
+          ],
+          "description": "Estado de visualización"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Temas"
+        },
+        "rating": {
+          "type": "number",
+          "description": "Puntuación de la película"
+        },
+        "online_rating": {
+          "type": "number",
+          "description": "Puntuación en línea"
+        },
+        "last_time_watched": {
+          "type": "string",
+          "description": "Última vez vista"
+        },
+        "times_watched": {
+          "type": "number",
+          "description": "Veces vista"
+        }
+      },
+      "required": [
+        "status",
+        "topics",
+        "rating",
+        "online_rating",
+        "last_time_watched",
+        "times_watched"
+      ],
+      "additionalProperties": false,
+      "description": "Película: Datos adicionales"
+    },
+    "MetaMovieSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "[[Fuentes]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Películas]]"
+        },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "const": "[[Creatividad]]"
+          }
+        },
+        "color": {
+          "type": "string",
+          "const": "#BE9207"
+        },
+        "icon": {
+          "type": "string",
+          "const": "movie"
+        },
+        "cover": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL de la película en IMDB o similar"
+        },
+        "watch_url": {
+          "type": "string",
+          "description": "URL de la película en streaming"
+        }
+      },
+      "required": [
+        "type",
+        "format",
+        "areas",
+        "color",
+        "icon",
+        "url",
+        "watch_url"
+      ],
+      "additionalProperties": false,
+      "description": "Película: Metadatos de Nota"
+    },
+    "MovieSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Título de la película"
+        },
+        "description": {
+          "type": "string",
+          "description": "Descripción de la película"
+        },
+        "author": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Autores. Guionistas, directores, productores, etc."
+        },
+        "actors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Actores"
+        },
+        "published": {
+          "type": "string",
+          "description": "Año de publicación"
+        },
+        "genres": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Géneros"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Pendiente",
+            "En progreso",
+            "Completado"
+          ],
+          "description": "Estado de visualización"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Temas"
+        },
+        "rating": {
+          "type": "number",
+          "description": "Puntuación de la película"
+        },
+        "online_rating": {
+          "type": "number",
+          "description": "Puntuación en línea"
+        },
+        "last_time_watched": {
+          "type": "string",
+          "description": "Última vez vista"
+        },
+        "times_watched": {
+          "type": "number",
+          "description": "Veces vista"
+        },
+        "type": {
+          "type": "string",
+          "const": "[[Fuentes]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Películas]]"
+        },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "const": "[[Creatividad]]"
+          }
+        },
+        "color": {
+          "type": "string",
+          "const": "#BE9207"
+        },
+        "icon": {
+          "type": "string",
+          "const": "movie"
+        },
+        "cover": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL de la película en IMDB o similar"
+        },
+        "watch_url": {
+          "type": "string",
+          "description": "URL de la película en streaming"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "author",
+        "actors",
+        "published",
+        "genres",
+        "status",
+        "topics",
+        "rating",
+        "online_rating",
+        "last_time_watched",
+        "times_watched",
+        "type",
+        "format",
+        "areas",
+        "color",
+        "icon",
+        "url",
+        "watch_url"
+      ],
+      "additionalProperties": false,
+      "description": "Película"
+    }
+  }
+}

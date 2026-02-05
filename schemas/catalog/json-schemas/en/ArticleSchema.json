@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the article"
+    },
+    "description": {
+      "description": "Description",
+      "type": "string"
+    },
+    "excerpt": {
+      "description": "Extract of the article",
+      "type": "string"
+    },
+    "author": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Authors"
+    },
+    "published": {
+      "description": "Year of publication",
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Pending",
+        "In Progress",
+        "Read",
+        "Consolidated"
+      ],
+      "description": "Reading status"
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Projects"
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Topics"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Rating of the article"
+    },
+    "type": {
+      "type": "string",
+      "const": "[[Sources]]"
+    },
+    "format": {
+      "type": "string",
+      "const": "[[Articles]]"
+    },
+    "areas": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "const": "[[Knowledge]]"
+      }
+    },
+    "color": {
+      "type": "string",
+      "const": "#3171B2"
+    },
+    "icon": {
+      "type": "string",
+      "const": "newspaper"
+    },
+    "banner": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "description": "URL of the article"
+    }
+  },
+  "required": [
+    "title",
+    "author",
+    "status",
+    "projects",
+    "topics",
+    "rating",
+    "type",
+    "format",
+    "areas",
+    "color",
+    "icon",
+    "url"
+  ],
+  "additionalProperties": false,
+  "description": "Article"
+}

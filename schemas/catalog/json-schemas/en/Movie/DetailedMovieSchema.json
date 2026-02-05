@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "Pending",
+        "In Progress",
+        "Completed"
+      ],
+      "description": "Watching status"
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Topics"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Rating of the movie"
+    },
+    "online_rating": {
+      "type": "number",
+      "description": "Online rating"
+    },
+    "last_time_watched": {
+      "type": "string",
+      "description": "Last time watched"
+    },
+    "times_watched": {
+      "type": "number",
+      "description": "Times watched"
+    }
+  },
+  "required": [
+    "status",
+    "topics",
+    "rating",
+    "online_rating",
+    "last_time_watched",
+    "times_watched"
+  ],
+  "additionalProperties": false,
+  "description": "Movie: Additional data"
+}

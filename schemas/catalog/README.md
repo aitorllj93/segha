@@ -18,13 +18,13 @@ pnpm add @segha/catalog
 ## Usage
 
 ```typescript
-import { CatalogClothingSchema, ClothingSchema, DetailedClothingSchema, ... } from '@segha/catalog';
+import { ArticleSchema, BookSchema, CatalogArticleSchema, ... } from '@segha/catalog';
 
 // Validate data
-const result = ClothingSchema.parse(data);
+const result = ArticleSchema.parse(data);
 
 // Infer TypeScript types
-type Clothing = z.infer<typeof ClothingSchema>;
+type Article = z.infer<typeof ArticleSchema>;
 ```
 
 You can also import specific submodules:
@@ -35,12 +35,116 @@ import { CatalogClothingSchema, DetailedClothingSchema, MetaClothingSchema } fro
 
 ### Schemas
 
+- [Article](#article)
+- [Book](#book)
+- [CatalogArticle](#catalogarticle)
+- [CatalogBook](#catalogbook)
 - [CatalogClothing](#catalogclothing)
+- [CatalogMovie](#catalogmovie)
 - [Clothing](#clothing)
+- [DetailedArticle](#detailedarticle)
+- [DetailedBook](#detailedbook)
 - [DetailedClothing](#detailedclothing)
+- [DetailedMovie](#detailedmovie)
+- [MetaArticle](#metaarticle)
+- [MetaBook](#metabook)
 - [MetaClothing](#metaclothing)
+- [MetaMovie](#metamovie)
+- [Movie](#movie)
+- [Note](#note)
 
 ## API Reference
+
+## Article
+
+Article
+
+_Object containing the following properties:_
+
+| Property            | Description            | Type                                                     |
+| :------------------ | :--------------------- | :------------------------------------------------------- |
+| **`title`** (\*)    | Title of the article   | `string`                                                 |
+| `description`       | Description            | `string`                                                 |
+| `excerpt`           | Extract of the article | `string`                                                 |
+| **`author`** (\*)   | Authors                | `Array<string>`                                          |
+| `published`         | Year of publication    | `string`                                                 |
+| **`status`** (\*)   | Reading status         | `'Pending' \| 'In Progress' \| 'Read' \| 'Consolidated'` |
+| **`projects`** (\*) | Projects               | `Array<string>`                                          |
+| **`topics`** (\*)   | Topics                 | `Array<string>`                                          |
+| **`rating`** (\*)   | Rating of the article  | `number`                                                 |
+| **`type`** (\*)     |                        | `'[[Sources]]'`                                          |
+| **`format`** (\*)   |                        | `'[[Articles]]'`                                         |
+| **`areas`** (\*)    |                        | `Array<'[[Knowledge]]'>`                                 |
+| **`color`** (\*)    |                        | `'#3171B2'`                                              |
+| **`icon`** (\*)     |                        | `'newspaper'`                                            |
+| `banner`            |                        | `string`                                                 |
+| **`url`** (\*)      | URL of the article     | `string`                                                 |
+
+_(\*) Required._
+
+## Book
+
+Book
+
+_Object containing the following properties:_
+
+| Property                  | Description                          | Type                                                     |
+| :------------------------ | :----------------------------------- | :------------------------------------------------------- |
+| **`title`** (\*)          | Title of the book                    | `string`                                                 |
+| `subtitle`                | Subtitle of the book                 | `string`                                                 |
+| `description`             | Description of the book              | `string`                                                 |
+| **`author`** (\*)         | Authors                              | `Array<string>`                                          |
+| **`published`** (\*)      | Year of publication                  | `string`                                                 |
+| **`categories`** (\*)     | Categories                           | `Array<string>`                                          |
+| **`status`** (\*)         | Reading status                       | `'Pending' \| 'In Progress' \| 'Read' \| 'Consolidated'` |
+| **`topics`** (\*)         | Topics                               | `Array<string>`                                          |
+| **`rating`** (\*)         | Rating of the book                   | `number`                                                 |
+| **`online_rating`** (\*)  | Online rating                        | `number`                                                 |
+| **`last_time_read`** (\*) | Last time read                       | `string`                                                 |
+| **`times_read`** (\*)     | Times read                           | `number`                                                 |
+| **`type`** (\*)           |                                      | `'[[Sources]]'`                                          |
+| **`format`** (\*)         |                                      | `'[[Books]]'`                                            |
+| **`areas`** (\*)          |                                      | `Array<'[[Knowledge]]'>`                                 |
+| **`color`** (\*)          |                                      | `'#3171B2'`                                              |
+| **`icon`** (\*)           |                                      | `'book'`                                                 |
+| `cover`                   |                                      | `string`                                                 |
+| **`url`** (\*)            | URL of the book in Amazon or similar | `string`                                                 |
+| **`read_url`** (\*)       | URL of the reading of the book       | `string`                                                 |
+
+_(\*) Required._
+
+## CatalogArticle
+
+Article: Data obtained from catalogation
+
+_Object containing the following properties:_
+
+| Property          | Description            | Type            |
+| :---------------- | :--------------------- | :-------------- |
+| **`title`** (\*)  | Title of the article   | `string`        |
+| `description`     | Description            | `string`        |
+| `excerpt`         | Extract of the article | `string`        |
+| **`author`** (\*) | Authors                | `Array<string>` |
+| `published`       | Year of publication    | `string`        |
+
+_(\*) Required._
+
+## CatalogBook
+
+Book: Data obtained from catalogation
+
+_Object containing the following properties:_
+
+| Property              | Description             | Type            |
+| :-------------------- | :---------------------- | :-------------- |
+| **`title`** (\*)      | Title of the book       | `string`        |
+| `subtitle`            | Subtitle of the book    | `string`        |
+| `description`         | Description of the book | `string`        |
+| **`author`** (\*)     | Authors                 | `Array<string>` |
+| **`published`** (\*)  | Year of publication     | `string`        |
+| **`categories`** (\*) | Categories              | `Array<string>` |
+
+_(\*) Required._
 
 ## CatalogClothing
 
@@ -64,6 +168,23 @@ _Object containing the following properties:_
 | `use_case`               | Use cases                             | `Array<'Capsule' \| 'Favorite' \| 'Basic' \| 'Sport' \| 'Work' \| 'Event' \| 'Travel' \| 'Home' \| 'Party' \| 'Beach' \| 'Rain' \| 'Extreme Cold'>`                                                                                                                                                                 |
 | `formality`              | Formality                             | `'Very Casual' \| 'Casual' \| 'Smart Casual' \| 'Formal' \| 'Black Tie'`                                                                                                                                                                                                                                            |
 | `brand`                  | The brand of the clothing             | `string`                                                                                                                                                                                                                                                                                                            |
+
+_(\*) Required._
+
+## CatalogMovie
+
+Movie: Data obtained from catalogation
+
+_Object containing the following properties:_
+
+| Property               | Description                                  | Type            |
+| :--------------------- | :------------------------------------------- | :-------------- |
+| **`title`** (\*)       | Title of the movie                           | `string`        |
+| **`description`** (\*) | Description of the movie                     | `string`        |
+| **`author`** (\*)      | Authors. Writers, directors, producers, etc. | `Array<string>` |
+| **`actors`** (\*)      | Actors                                       | `Array<string>` |
+| **`published`** (\*)   | Year of publication                          | `string`        |
+| **`genres`** (\*)      | Genres                                       | `Array<string>` |
 
 _(\*) Required._
 
@@ -102,6 +223,38 @@ _Object containing the following properties:_
 
 _(\*) Required._
 
+## DetailedArticle
+
+Article: Additional data
+
+_Object containing the following properties:_
+
+| Property            | Description           | Type                                                     |
+| :------------------ | :-------------------- | :------------------------------------------------------- |
+| **`status`** (\*)   | Reading status        | `'Pending' \| 'In Progress' \| 'Read' \| 'Consolidated'` |
+| **`projects`** (\*) | Projects              | `Array<string>`                                          |
+| **`topics`** (\*)   | Topics                | `Array<string>`                                          |
+| **`rating`** (\*)   | Rating of the article | `number`                                                 |
+
+_(\*) Required._
+
+## DetailedBook
+
+Book: Additional data
+
+_Object containing the following properties:_
+
+| Property                  | Description        | Type                                                     |
+| :------------------------ | :----------------- | :------------------------------------------------------- |
+| **`status`** (\*)         | Reading status     | `'Pending' \| 'In Progress' \| 'Read' \| 'Consolidated'` |
+| **`topics`** (\*)         | Topics             | `Array<string>`                                          |
+| **`rating`** (\*)         | Rating of the book | `number`                                                 |
+| **`online_rating`** (\*)  | Online rating      | `number`                                                 |
+| **`last_time_read`** (\*) | Last time read     | `string`                                                 |
+| **`times_read`** (\*)     | Times read         | `number`                                                 |
+
+_(\*) Required._
+
 ## DetailedClothing
 
 Clothing item: Additional hard-to-obtain data
@@ -114,6 +267,60 @@ _Object containing the following properties:_
 | `status`        | Status            | `'New' \| 'Good' \| 'Worn' \| 'Damaged' \| 'Retire'`                                                                                                               | `'Good'` |
 | **`size`** (\*) |                   | `'28' \| '30' \| '32' \| '34' \| '36' \| '37' \| '38' \| '39' \| '40' \| '41' \| '42' \| '43' \| '44' \| '45' \| '46' \| '48' \| 'XS' \| 'S' \| 'M' \| 'L' \| ...` |          |
 | `measurements`  | Measurements      | `Array<number>`                                                                                                                                                    |          |
+
+_(\*) Required._
+
+## DetailedMovie
+
+Movie: Additional data
+
+_Object containing the following properties:_
+
+| Property                     | Description         | Type                                        |
+| :--------------------------- | :------------------ | :------------------------------------------ |
+| **`status`** (\*)            | Watching status     | `'Pending' \| 'In Progress' \| 'Completed'` |
+| **`topics`** (\*)            | Topics              | `Array<string>`                             |
+| **`rating`** (\*)            | Rating of the movie | `number`                                    |
+| **`online_rating`** (\*)     | Online rating       | `number`                                    |
+| **`last_time_watched`** (\*) | Last time watched   | `string`                                    |
+| **`times_watched`** (\*)     | Times watched       | `number`                                    |
+
+_(\*) Required._
+
+## MetaArticle
+
+Article: Metadata of Note
+
+_Object containing the following properties:_
+
+| Property          | Description        | Type                     |
+| :---------------- | :----------------- | :----------------------- |
+| **`type`** (\*)   |                    | `'[[Sources]]'`          |
+| **`format`** (\*) |                    | `'[[Articles]]'`         |
+| **`areas`** (\*)  |                    | `Array<'[[Knowledge]]'>` |
+| **`color`** (\*)  |                    | `'#3171B2'`              |
+| **`icon`** (\*)   |                    | `'newspaper'`            |
+| `banner`          |                    | `string`                 |
+| **`url`** (\*)    | URL of the article | `string`                 |
+
+_(\*) Required._
+
+## MetaBook
+
+Book: Metadata of Note
+
+_Object containing the following properties:_
+
+| Property            | Description                          | Type                     |
+| :------------------ | :----------------------------------- | :----------------------- |
+| **`type`** (\*)     |                                      | `'[[Sources]]'`          |
+| **`format`** (\*)   |                                      | `'[[Books]]'`            |
+| **`areas`** (\*)    |                                      | `Array<'[[Knowledge]]'>` |
+| **`color`** (\*)    |                                      | `'#3171B2'`              |
+| **`icon`** (\*)     |                                      | `'book'`                 |
+| `cover`             |                                      | `string`                 |
+| **`url`** (\*)      | URL of the book in Amazon or similar | `string`                 |
+| **`read_url`** (\*) | URL of the reading of the book       | `string`                 |
 
 _(\*) Required._
 
@@ -133,3 +340,64 @@ _Object containing the following properties:_
 | `cover`            | `string`            |
 
 _(\*) Required._
+
+## MetaMovie
+
+Movie: Metadata of Note
+
+_Object containing the following properties:_
+
+| Property             | Description                         | Type                      |
+| :------------------- | :---------------------------------- | :------------------------ |
+| **`type`** (\*)      |                                     | `'[[Sources]]'`           |
+| **`format`** (\*)    |                                     | `'[[Movies]]'`            |
+| **`areas`** (\*)     |                                     | `Array<'[[Creativity]]'>` |
+| **`color`** (\*)     |                                     | `'#BE9207'`               |
+| **`icon`** (\*)      |                                     | `'movie'`                 |
+| `cover`              |                                     | `string`                  |
+| **`url`** (\*)       | URL of the movie in IMDB or similar | `string`                  |
+| **`watch_url`** (\*) | URL of the movie in streaming       | `string`                  |
+
+_(\*) Required._
+
+## Movie
+
+Movie
+
+_Object containing the following properties:_
+
+| Property                     | Description                                  | Type                                        |
+| :--------------------------- | :------------------------------------------- | :------------------------------------------ |
+| **`title`** (\*)             | Title of the movie                           | `string`                                    |
+| **`description`** (\*)       | Description of the movie                     | `string`                                    |
+| **`author`** (\*)            | Authors. Writers, directors, producers, etc. | `Array<string>`                             |
+| **`actors`** (\*)            | Actors                                       | `Array<string>`                             |
+| **`published`** (\*)         | Year of publication                          | `string`                                    |
+| **`genres`** (\*)            | Genres                                       | `Array<string>`                             |
+| **`status`** (\*)            | Watching status                              | `'Pending' \| 'In Progress' \| 'Completed'` |
+| **`topics`** (\*)            | Topics                                       | `Array<string>`                             |
+| **`rating`** (\*)            | Rating of the movie                          | `number`                                    |
+| **`online_rating`** (\*)     | Online rating                                | `number`                                    |
+| **`last_time_watched`** (\*) | Last time watched                            | `string`                                    |
+| **`times_watched`** (\*)     | Times watched                                | `number`                                    |
+| **`type`** (\*)              |                                              | `'[[Sources]]'`                             |
+| **`format`** (\*)            |                                              | `'[[Movies]]'`                              |
+| **`areas`** (\*)             |                                              | `Array<'[[Creativity]]'>`                   |
+| **`color`** (\*)             |                                              | `'#BE9207'`                                 |
+| **`icon`** (\*)              |                                              | `'movie'`                                   |
+| `cover`                      |                                              | `string`                                    |
+| **`url`** (\*)               | URL of the movie in IMDB or similar          | `string`                                    |
+| **`watch_url`** (\*)         | URL of the movie in streaming                | `string`                                    |
+
+_(\*) Required._
+
+## Note
+
+Note: Union of all note types
+
+_Union of the following possible types:_
+
+- [Article](#article)
+- [Book](#book)
+- [Clothing](#clothing)
+- [Movie](#movie)

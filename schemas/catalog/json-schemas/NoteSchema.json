@@ -1,0 +1,745 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of the article"
+        },
+        "description": {
+          "description": "Description",
+          "type": "string"
+        },
+        "excerpt": {
+          "description": "Extract of the article",
+          "type": "string"
+        },
+        "author": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Authors"
+        },
+        "published": {
+          "description": "Year of publication",
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Pending",
+            "In Progress",
+            "Read",
+            "Consolidated"
+          ],
+          "description": "Reading status"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Projects"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Topics"
+        },
+        "rating": {
+          "type": "number",
+          "description": "Rating of the article"
+        },
+        "type": {
+          "type": "string",
+          "const": "[[Sources]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Articles]]"
+        },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "const": "[[Knowledge]]"
+          }
+        },
+        "color": {
+          "type": "string",
+          "const": "#3171B2"
+        },
+        "icon": {
+          "type": "string",
+          "const": "newspaper"
+        },
+        "banner": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL of the article"
+        }
+      },
+      "required": [
+        "title",
+        "author",
+        "status",
+        "projects",
+        "topics",
+        "rating",
+        "type",
+        "format",
+        "areas",
+        "color",
+        "icon",
+        "url"
+      ],
+      "additionalProperties": false,
+      "description": "Article"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of the book"
+        },
+        "subtitle": {
+          "description": "Subtitle of the book",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the book",
+          "type": "string"
+        },
+        "author": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Authors"
+        },
+        "published": {
+          "type": "string",
+          "description": "Year of publication"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Categories"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Pending",
+            "In Progress",
+            "Read",
+            "Consolidated"
+          ],
+          "description": "Reading status"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Topics"
+        },
+        "rating": {
+          "type": "number",
+          "description": "Rating of the book"
+        },
+        "online_rating": {
+          "type": "number",
+          "description": "Online rating"
+        },
+        "last_time_read": {
+          "type": "string",
+          "description": "Last time read"
+        },
+        "times_read": {
+          "type": "number",
+          "description": "Times read"
+        },
+        "type": {
+          "type": "string",
+          "const": "[[Sources]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Books]]"
+        },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "const": "[[Knowledge]]"
+          }
+        },
+        "color": {
+          "type": "string",
+          "const": "#3171B2"
+        },
+        "icon": {
+          "type": "string",
+          "const": "book"
+        },
+        "cover": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL of the book in Amazon or similar"
+        },
+        "read_url": {
+          "type": "string",
+          "description": "URL of the reading of the book"
+        }
+      },
+      "required": [
+        "title",
+        "author",
+        "published",
+        "categories",
+        "status",
+        "topics",
+        "rating",
+        "online_rating",
+        "last_time_read",
+        "times_read",
+        "type",
+        "format",
+        "areas",
+        "color",
+        "icon",
+        "url",
+        "read_url"
+      ],
+      "additionalProperties": false,
+      "description": "Book"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Descriptive name of the clothing item"
+        },
+        "garment": {
+          "type": "string",
+          "enum": [
+            "Undershirts",
+            "Boxers",
+            "Panties",
+            "Bras",
+            "Socks",
+            "T-Shirts",
+            "Polo Shirts",
+            "Shirts",
+            "Blouses",
+            "Tops",
+            "Sweaters",
+            "Hoodies",
+            "Cardigans",
+            "Jackets",
+            "Pants",
+            "Jeans",
+            "Chinos",
+            "Skirts",
+            "Shorts",
+            "Blazers",
+            "Coats",
+            "Trench Coats",
+            "Parkas",
+            "Vests",
+            "Leggings",
+            "Technical Wear",
+            "Sports Shorts",
+            "Technical T-Shirts",
+            "Dresses",
+            "Jumpsuits",
+            "Sneakers",
+            "Shoes",
+            "Boots",
+            "Sandals",
+            "Belts",
+            "Caps",
+            "Hats",
+            "Scarves",
+            "Gloves",
+            "Handbags",
+            "Backpacks",
+            "Sunglasses",
+            "Handkerchiefs",
+            "Watches",
+            "Jewelry",
+            "Pajamas",
+            "Robes",
+            "Swimsuits",
+            "Bikinis"
+          ],
+          "description": "Garment Type"
+        },
+        "slot": {
+          "type": "string",
+          "enum": [
+            "Top",
+            "Bottom",
+            "Full Body",
+            "Outer",
+            "Footwear",
+            "Accessories"
+          ],
+          "description": "Outfit part"
+        },
+        "variants": {
+          "description": "Structural Details",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Sleeveless",
+              "Short Sleeves",
+              "Long Sleeves",
+              "Round Neck",
+              "V-Neck",
+              "High Neck",
+              "Shirt Collar",
+              "Polo Collar",
+              "Boat Neck",
+              "Mandarin Collar",
+              "Funnel Neck",
+              "Hood",
+              "Overshirt",
+              "Cropped",
+              "Long",
+              "Straight Leg",
+              "Skinny",
+              "Wide",
+              "Cargo",
+              "Flared",
+              "Trench",
+              "Puffer",
+              "Double Breasted",
+              "Buttons",
+              "Zipper",
+              "Velcro",
+              "Laces",
+              "Snaps",
+              "Pockets",
+              "No Pockets",
+              "Reversible"
+            ]
+          }
+        },
+        "fit": {
+          "description": "Fit",
+          "type": "string",
+          "enum": [
+            "Fitted",
+            "Slim",
+            "Regular",
+            "Relaxed",
+            "Loose",
+            "Oversized"
+          ]
+        },
+        "primary_color": {
+          "type": "string",
+          "enum": [
+            "White",
+            "Black",
+            "Gray",
+            "Beige",
+            "Brown",
+            "Blue",
+            "Green",
+            "Red",
+            "Burgundy",
+            "Pink",
+            "Yellow",
+            "Orange",
+            "Purple",
+            "Camel",
+            "Khaki",
+            "Navy",
+            "Cream",
+            "Gold",
+            "Silver",
+            "Bronze"
+          ],
+          "description": "Primary color"
+        },
+        "secondary_color": {
+          "description": "Secondary color",
+          "type": "string",
+          "enum": [
+            "White",
+            "Black",
+            "Gray",
+            "Beige",
+            "Brown",
+            "Blue",
+            "Green",
+            "Red",
+            "Burgundy",
+            "Pink",
+            "Yellow",
+            "Orange",
+            "Purple",
+            "Camel",
+            "Khaki",
+            "Navy",
+            "Cream",
+            "Gold",
+            "Silver",
+            "Bronze"
+          ]
+        },
+        "pattern": {
+          "description": "Pattern",
+          "type": "string",
+          "enum": [
+            "Solid",
+            "Stripes",
+            "Plaid",
+            "Polka Dots",
+            "Animal Print",
+            "Floral",
+            "Geometric",
+            "Camouflage",
+            "Graphic Print",
+            "Gradient"
+          ]
+        },
+        "materials": {
+          "description": "Materials",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Cotton",
+              "Linen",
+              "Wool",
+              "Silk",
+              "Leather",
+              "Cashmere",
+              "Suede",
+              "Polyester",
+              "Nylon",
+              "Elastane",
+              "Viscose",
+              "Synthetic Leather",
+              "Gore-Tex",
+              "Denim",
+              "Knit",
+              "Fleece",
+              "Tweed",
+              "Satin",
+              "Velvet",
+              "Jacquard",
+              "Flannel",
+              "Gabardine"
+            ]
+          }
+        },
+        "layer": {
+          "type": "string",
+          "enum": [
+            "Base",
+            "Mid",
+            "Outer"
+          ],
+          "description": "Thermal Layer"
+        },
+        "season": {
+          "description": "Seasons",
+          "type": "string",
+          "enum": [
+            "Winter",
+            "Summer",
+            "Spring/Fall",
+            "All Year"
+          ]
+        },
+        "use_case": {
+          "description": "Use cases",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Capsule",
+              "Favorite",
+              "Basic",
+              "Sport",
+              "Work",
+              "Event",
+              "Travel",
+              "Home",
+              "Party",
+              "Beach",
+              "Rain",
+              "Extreme Cold"
+            ]
+          }
+        },
+        "formality": {
+          "description": "Formality",
+          "type": "string",
+          "enum": [
+            "Very Casual",
+            "Casual",
+            "Smart Casual",
+            "Formal",
+            "Black Tie"
+          ]
+        },
+        "brand": {
+          "description": "The brand of the clothing",
+          "type": "string"
+        },
+        "cares": {
+          "description": "Care Instructions",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Hand Wash",
+              "Machine Wash",
+              "Dry Clean",
+              "Cold",
+              "Hot",
+              "Ironing",
+              "Steam Ironing"
+            ]
+          }
+        },
+        "status": {
+          "default": "Good",
+          "description": "Status",
+          "type": "string",
+          "enum": [
+            "New",
+            "Good",
+            "Worn",
+            "Damaged",
+            "Retire"
+          ]
+        },
+        "size": {
+          "type": "string",
+          "enum": [
+            "28",
+            "30",
+            "32",
+            "34",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "48",
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "XXXL"
+          ]
+        },
+        "measurements": {
+          "description": "Measurements",
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "type": {
+          "type": "string",
+          "const": "[[Resources]]"
+        },
+        "subtype": {
+          "type": "string",
+          "const": "[[Clothes]]"
+        },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "const": "[[Home]]"
+          }
+        },
+        "color": {
+          "type": "string",
+          "const": "#CB6120"
+        },
+        "icon": {
+          "type": "string",
+          "const": "shirt"
+        },
+        "cover": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "garment",
+        "slot",
+        "primary_color",
+        "layer",
+        "status",
+        "size",
+        "type",
+        "subtype",
+        "areas",
+        "color",
+        "icon"
+      ],
+      "additionalProperties": false,
+      "description": "Clothing item"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of the movie"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the movie"
+        },
+        "author": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Authors. Writers, directors, producers, etc."
+        },
+        "actors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Actors"
+        },
+        "published": {
+          "type": "string",
+          "description": "Year of publication"
+        },
+        "genres": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Genres"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Pending",
+            "In Progress",
+            "Completed"
+          ],
+          "description": "Watching status"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Topics"
+        },
+        "rating": {
+          "type": "number",
+          "description": "Rating of the movie"
+        },
+        "online_rating": {
+          "type": "number",
+          "description": "Online rating"
+        },
+        "last_time_watched": {
+          "type": "string",
+          "description": "Last time watched"
+        },
+        "times_watched": {
+          "type": "number",
+          "description": "Times watched"
+        },
+        "type": {
+          "type": "string",
+          "const": "[[Sources]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Movies]]"
+        },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "const": "[[Creativity]]"
+          }
+        },
+        "color": {
+          "type": "string",
+          "const": "#BE9207"
+        },
+        "icon": {
+          "type": "string",
+          "const": "movie"
+        },
+        "cover": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL of the movie in IMDB or similar"
+        },
+        "watch_url": {
+          "type": "string",
+          "description": "URL of the movie in streaming"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "author",
+        "actors",
+        "published",
+        "genres",
+        "status",
+        "topics",
+        "rating",
+        "online_rating",
+        "last_time_watched",
+        "times_watched",
+        "type",
+        "format",
+        "areas",
+        "color",
+        "icon",
+        "url",
+        "watch_url"
+      ],
+      "additionalProperties": false,
+      "description": "Movie"
+    }
+  ],
+  "description": "Note: Union of all note types"
+}

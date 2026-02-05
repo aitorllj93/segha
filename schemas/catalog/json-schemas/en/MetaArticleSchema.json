@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "[[Sources]]"
+    },
+    "format": {
+      "type": "string",
+      "const": "[[Articles]]"
+    },
+    "areas": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "const": "[[Knowledge]]"
+      }
+    },
+    "color": {
+      "type": "string",
+      "const": "#3171B2"
+    },
+    "icon": {
+      "type": "string",
+      "const": "newspaper"
+    },
+    "banner": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "description": "URL of the article"
+    }
+  },
+  "required": [
+    "type",
+    "format",
+    "areas",
+    "color",
+    "icon",
+    "url"
+  ],
+  "additionalProperties": false,
+  "description": "Article: Metadata of Note"
+}

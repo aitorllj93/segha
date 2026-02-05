@@ -1,0 +1,746 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Título del artículo"
+        },
+        "description": {
+          "description": "Descripción",
+          "type": "string"
+        },
+        "excerpt": {
+          "description": "Extracto del artículo",
+          "type": "string"
+        },
+        "author": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Autores"
+        },
+        "published": {
+          "description": "Año de publicación",
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Pendiente",
+            "En Proceso",
+            "Leído",
+            "Consolidado"
+          ],
+          "description": "Estado de lectura"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Proyectos"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Temas"
+        },
+        "rating": {
+          "type": "number",
+          "description": "Puntuación del artículo"
+        },
+        "type": {
+          "type": "string",
+          "const": "[[Fuentes]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Artículos]]"
+        },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "const": "[[Conocimiento]]"
+          }
+        },
+        "color": {
+          "type": "string",
+          "const": "#3171B2"
+        },
+        "icon": {
+          "type": "string",
+          "const": "newspaper"
+        },
+        "banner": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL del artículo"
+        }
+      },
+      "required": [
+        "title",
+        "author",
+        "status",
+        "projects",
+        "topics",
+        "rating",
+        "type",
+        "format",
+        "areas",
+        "color",
+        "icon",
+        "url"
+      ],
+      "additionalProperties": false,
+      "description": "Artículo"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Título del libro"
+        },
+        "subtitle": {
+          "description": "Subtítulo del libro",
+          "type": "string"
+        },
+        "description": {
+          "description": "Descripción del libro",
+          "type": "string"
+        },
+        "author": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Autores"
+        },
+        "published": {
+          "type": "string",
+          "description": "Año de publicación"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Géneros"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Pendiente",
+            "En Proceso",
+            "Leído",
+            "Consolidado"
+          ],
+          "description": "Estado de lectura"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Temas"
+        },
+        "rating": {
+          "type": "number",
+          "description": "Puntuación del libro"
+        },
+        "online_rating": {
+          "type": "number",
+          "description": "Puntuación en línea"
+        },
+        "last_time_read": {
+          "type": "string",
+          "description": "Última vez leído"
+        },
+        "times_read": {
+          "type": "number",
+          "description": "Veces leído"
+        },
+        "type": {
+          "type": "string",
+          "const": "[[Fuentes]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Libros]]"
+        },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "const": "[[Knowledge]]"
+          }
+        },
+        "color": {
+          "type": "string",
+          "const": "#3171B2"
+        },
+        "icon": {
+          "type": "string",
+          "const": "book"
+        },
+        "cover": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL del libro en Amazon o similar"
+        },
+        "read_url": {
+          "type": "string",
+          "description": "URL de la lectura del libro"
+        }
+      },
+      "required": [
+        "title",
+        "author",
+        "published",
+        "categories",
+        "status",
+        "topics",
+        "rating",
+        "online_rating",
+        "last_time_read",
+        "times_read",
+        "type",
+        "format",
+        "areas",
+        "color",
+        "icon",
+        "url",
+        "read_url"
+      ],
+      "additionalProperties": false,
+      "description": "Libro"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Nombre descriptivo de la prenda de ropa"
+        },
+        "garment": {
+          "type": "string",
+          "enum": [
+            "Camisetas Interiores",
+            "Calzoncillos",
+            "Bragas",
+            "Sujetadores",
+            "Calcetines",
+            "Camisetas",
+            "Polos",
+            "Camisas",
+            "Blusas",
+            "Tops",
+            "Jerseys",
+            "Sudaderas",
+            "Cárdigans",
+            "Chaquetas",
+            "Pantalones",
+            "Vaqueros",
+            "Chinos",
+            "Faldas",
+            "Shorts",
+            "Americanas",
+            "Abrigos",
+            "Gabardinas",
+            "Parkas",
+            "Cazadoras",
+            "Chalecos",
+            "Mallas",
+            "Ropa Técnica",
+            "Shorts Deportivos",
+            "Camisetas Técnicas",
+            "Vestidos",
+            "Monos",
+            "Zapatillas",
+            "Zapatos",
+            "Botas",
+            "Sandalias",
+            "Cinturones",
+            "Gorras",
+            "Sombreros",
+            "Bufandas",
+            "Guantes",
+            "Bolsos",
+            "Mochilas",
+            "Gafas de Sol",
+            "Pañuelos",
+            "Relojes",
+            "Joyas",
+            "Pijamas",
+            "Batas",
+            "Bañadores",
+            "Bikinis"
+          ],
+          "description": "Tipo de Prenda"
+        },
+        "slot": {
+          "type": "string",
+          "enum": [
+            "Superior",
+            "Inferior",
+            "Cuerpo Completo",
+            "Exterior",
+            "Calzado",
+            "Accesorios"
+          ],
+          "description": "Parte del outfit"
+        },
+        "variants": {
+          "description": "Detalles Estructurales",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Sin Mangas",
+              "Mangas Cortas",
+              "Mangas Largas",
+              "Cuello Redondo",
+              "Cuello Pico",
+              "Cuello Alto",
+              "Cuello Camisa",
+              "Cuello Polo",
+              "Cuello Panadero",
+              "Cuello Mao",
+              "Cuello Chimenea",
+              "Capucha",
+              "Overshirt",
+              "Cropped",
+              "Larga",
+              "Pierna Recta",
+              "Pitillo",
+              "Ancha",
+              "Cargo",
+              "Acampanado",
+              "Trench",
+              "Plumífero",
+              "Doble botonadura",
+              "Botones",
+              "Cremallera",
+              "Velcro",
+              "Cordones",
+              "Broches",
+              "Bolsillos",
+              "Sin Bolsillos",
+              "Reversible"
+            ]
+          }
+        },
+        "fit": {
+          "description": "Ajuste",
+          "type": "string",
+          "enum": [
+            "Entallado",
+            "Ajustado",
+            "Regular",
+            "Relajado",
+            "Holgado",
+            "Extragrande"
+          ]
+        },
+        "primary_color": {
+          "type": "string",
+          "enum": [
+            "Blanco",
+            "Negro",
+            "Gris",
+            "Beige",
+            "Marrón",
+            "Azul",
+            "Verde",
+            "Rojo",
+            "Burdeos",
+            "Rosa",
+            "Amarillo",
+            "Naranja",
+            "Morado",
+            "Camel",
+            "Caqui",
+            "Marino",
+            "Crema",
+            "Oro",
+            "Plata",
+            "Bronce"
+          ],
+          "description": "Color principal"
+        },
+        "secondary_color": {
+          "description": "Color secundario",
+          "type": "string",
+          "enum": [
+            "Blanco",
+            "Negro",
+            "Gris",
+            "Beige",
+            "Marrón",
+            "Azul",
+            "Verde",
+            "Rojo",
+            "Burdeos",
+            "Rosa",
+            "Amarillo",
+            "Naranja",
+            "Morado",
+            "Camel",
+            "Caqui",
+            "Marino",
+            "Crema",
+            "Oro",
+            "Plata",
+            "Bronce"
+          ]
+        },
+        "pattern": {
+          "description": "Estampado",
+          "type": "string",
+          "enum": [
+            "Liso",
+            "Rayas",
+            "Cuadros",
+            "Lunares",
+            "Animal Print",
+            "Floral",
+            "Geométrico",
+            "Camuflaje",
+            "EstampadoGráfico",
+            "Degradado"
+          ]
+        },
+        "materials": {
+          "description": "Materiales",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Algodón",
+              "Lino",
+              "Lana",
+              "Seda",
+              "Cuero",
+              "Cachemir",
+              "Ante",
+              "Poliéster",
+              "Nylon",
+              "Elastano",
+              "Viscosa",
+              "Piel Sintética",
+              "Gore-Tex",
+              "Denim",
+              "Punto",
+              "Felpa",
+              "Tweed",
+              "Satén",
+              "Terciopelo",
+              "Jacquard",
+              "Franela",
+              "Gabardina"
+            ]
+          }
+        },
+        "layer": {
+          "type": "string",
+          "enum": [
+            "Base",
+            "Intermedia",
+            "Exterior"
+          ],
+          "description": "Capa Térmica"
+        },
+        "season": {
+          "description": "Estaciones",
+          "type": "string",
+          "enum": [
+            "Invierno",
+            "Verano",
+            "Entretiempo",
+            "Todo el año"
+          ]
+        },
+        "use_case": {
+          "description": "Casos de uso",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Capsula",
+              "Favorita",
+              "Básico",
+              "Deporte",
+              "Trabajo",
+              "Evento",
+              "Viaje",
+              "Casa",
+              "Fiesta",
+              "Playa",
+              "Lluvia",
+              "Frío Extremo"
+            ]
+          }
+        },
+        "formality": {
+          "description": "Formalidad",
+          "type": "string",
+          "enum": [
+            "Muy Informal",
+            "Casual",
+            "Arreglado",
+            "Formal",
+            "Etiqueta"
+          ]
+        },
+        "brand": {
+          "description": "The brand of the clothing",
+          "type": "string"
+        },
+        "cares": {
+          "description": "Cuidados",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Lavado a mano",
+              "Lavado a máquina",
+              "Lavado en seco",
+              "Frio",
+              "Caliente",
+              "Planchado",
+              "Planchado a vapor"
+            ]
+          }
+        },
+        "status": {
+          "default": "Bien",
+          "description": "Estado",
+          "type": "string",
+          "enum": [
+            "Nuevo",
+            "Bien",
+            "Gastado",
+            "Dañado",
+            "Retirar"
+          ]
+        },
+        "size": {
+          "type": "string",
+          "enum": [
+            "28",
+            "30",
+            "32",
+            "34",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "48",
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "XXXL"
+          ]
+        },
+        "measurements": {
+          "description": "Medidas",
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "type": {
+          "type": "string",
+          "const": "[[Recursos]]"
+        },
+        "subtype": {
+          "type": "string",
+          "const": "[[Prendas]]"
+        },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "const": "[[Hogar]]"
+          }
+        },
+        "color": {
+          "type": "string",
+          "const": "#CB6120"
+        },
+        "icon": {
+          "type": "string",
+          "const": "shirt"
+        },
+        "cover": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "garment",
+        "slot",
+        "primary_color",
+        "layer",
+        "status",
+        "size",
+        "type",
+        "subtype",
+        "areas",
+        "color",
+        "icon"
+      ],
+      "additionalProperties": false,
+      "description": "Prenda de ropa"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Título de la película"
+        },
+        "description": {
+          "type": "string",
+          "description": "Descripción de la película"
+        },
+        "author": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Autores. Guionistas, directores, productores, etc."
+        },
+        "actors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Actores"
+        },
+        "published": {
+          "type": "string",
+          "description": "Año de publicación"
+        },
+        "genres": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Géneros"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Pendiente",
+            "En progreso",
+            "Completado"
+          ],
+          "description": "Estado de visualización"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Temas"
+        },
+        "rating": {
+          "type": "number",
+          "description": "Puntuación de la película"
+        },
+        "online_rating": {
+          "type": "number",
+          "description": "Puntuación en línea"
+        },
+        "last_time_watched": {
+          "type": "string",
+          "description": "Última vez vista"
+        },
+        "times_watched": {
+          "type": "number",
+          "description": "Veces vista"
+        },
+        "type": {
+          "type": "string",
+          "const": "[[Fuentes]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Películas]]"
+        },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "const": "[[Creatividad]]"
+          }
+        },
+        "color": {
+          "type": "string",
+          "const": "#BE9207"
+        },
+        "icon": {
+          "type": "string",
+          "const": "movie"
+        },
+        "cover": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL de la película en IMDB o similar"
+        },
+        "watch_url": {
+          "type": "string",
+          "description": "URL de la película en streaming"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "author",
+        "actors",
+        "published",
+        "genres",
+        "status",
+        "topics",
+        "rating",
+        "online_rating",
+        "last_time_watched",
+        "times_watched",
+        "type",
+        "format",
+        "areas",
+        "color",
+        "icon",
+        "url",
+        "watch_url"
+      ],
+      "additionalProperties": false,
+      "description": "Película"
+    }
+  ],
+  "description": "Nota: Unión de todos los tipos de notas"
+}

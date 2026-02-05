@@ -15,6 +15,15 @@ import { Status } from "./Status";
 import { UseCases } from "./UseCases";
 import { Variants } from "./Variants";
 
+export const MetaClothingSchema = z.object({
+  type: z.literal("[[Resources]]"),
+  subtype: z.literal("[[Clothes]]"),
+  areas: z.array(z.literal("[[Home]]")),
+  color: z.literal("#CB6120"),
+  icon: z.literal("shirt"),
+  cover: z.string().optional(),
+}).describe('Clothing item: Note metadata');
+
 export const CatalogClothingSchema = z.object({
   name: z.string().describe('Descriptive name of the clothing item'),
   garment: Garment,
@@ -38,14 +47,5 @@ export const DetailedClothingSchema = z.object({
   size: Size,
   measurements: Measurements,
 }).describe('Clothing item: Additional hard-to-obtain data');
-
-export const MetaClothingSchema = z.object({
-  type: z.literal("[[Resources]]"),
-  subtype: z.literal("[[Clothes]]"),
-  areas: z.array(z.literal("[[Home]]")),
-  color: z.literal("#CB6120"),
-  icon: z.literal("shirt"),
-  cover: z.string().optional(),
-}).describe('Clothing item: Note metadata');
 
 export const ClothingSchema = CatalogClothingSchema.extend(DetailedClothingSchema.shape).extend(MetaClothingSchema.shape).describe('Clothing item');
