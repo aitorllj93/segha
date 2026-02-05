@@ -1,6 +1,14 @@
 # @segha/catalog
 
 
+
+## 1.0.0
+
+### Major Changes
+
+- **BREAKING**: Enum values removed: Oversize
+- **BREAKING**: Enum values removed: Oversize
+
 ## 0.1.0
 
 ### Minor Changes
