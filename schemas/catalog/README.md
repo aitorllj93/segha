@@ -1,6 +1,13 @@
 # @segha/catalog
 
+[![npm version](https://img.shields.io/npm/v/%40segha%2Fcatalog.svg)](https://www.npmjs.com/package/@segha/catalog) [![npm downloads](https://img.shields.io/npm/dm/%40segha%2Fcatalog.svg)](https://www.npmjs.com/package/@segha/catalog) [![license](https://img.shields.io/npm/l/%40segha%2Fcatalog.svg)](https://github.com/aitorllj93/segha) [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/) [![zod](https://img.shields.io/badge/zod-schema-3068b7.svg)](https://zod.dev/)
+
 Schemas for Petroglyph Catalog
+
+## Requirements
+
+- `zod`
+
 
 ## Installation
 
@@ -23,8 +30,7 @@ type Clothing = z.infer<typeof ClothingSchema>;
 You can also import specific submodules:
 
 ```typescript
-import { ... } from '@segha/catalog/es';
-import { ... } from '@segha/catalog/es/clothing';
+import { CatalogClothingSchema, DetailedClothingSchema, MetaClothingSchema } from '@segha/catalog/es/clothing';
 ```
 
 ### Schemas

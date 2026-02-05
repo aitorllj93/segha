@@ -1,6 +1,13 @@
 # @segha/schemaorg
 
+[![npm version](https://img.shields.io/npm/v/%40segha%2Fschemaorg.svg)](https://www.npmjs.com/package/@segha/schemaorg) [![npm downloads](https://img.shields.io/npm/dm/%40segha%2Fschemaorg.svg)](https://www.npmjs.com/package/@segha/schemaorg) [![license](https://img.shields.io/npm/l/%40segha%2Fschemaorg.svg)](https://github.com/aitorllj93/segha) [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/) [![zod](https://img.shields.io/badge/zod-schema-3068b7.svg)](https://zod.dev/)
+
 Schemas for Schema.org
+
+## Requirements
+
+- `zod`
+
 
 ## Installation
 
@@ -23,7 +30,7 @@ type Thing = z.infer<typeof ThingSchema>;
 You can also import specific submodules:
 
 ```typescript
-import { ... } from '@segha/schemaorg/thing';
+import { ThingSchema } from '@segha/schemaorg/thing';
 ```
 
 ### Schemas

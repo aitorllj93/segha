@@ -1,5 +1,5 @@
 
-import type z from 'zod/v3';
+import type z from 'zod';
 
 import type { DocumentSchema } from './Document';
 

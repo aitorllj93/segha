@@ -9,9 +9,14 @@ interface PackageConfig {
   version?: string;
   exports?: Record<string, string>;
   repository?: {
+    type?: string;
     url?: string;
+    directory?: string;
   };
   homepage?: string;
+  license?: string;
+  author?: string;
+  peerDependencies?: Record<string, string>;
 }
 
 interface SchemaInfo {
@@ -28,6 +33,32 @@ function readPackageJson(cwd: string): PackageConfig {
     throw new Error(`package.json not found in ${cwd}`);
   }
   return JSON.parse(readFileSync(packagePath, 'utf-8'));
+}
+
+/**
+ * Extracts export names from a TypeScript file
+ */
+function extractExportsFromFile(filePath: string): string[] {
+  if (!existsSync(filePath)) return [];
+
+  const content = readFileSync(filePath, 'utf-8');
+  const exports: string[] = [];
+
+  // Match: export const FooSchema, export { Foo }, export * from
+  const constExportRegex = /export\s+const\s+(\w+Schema)/g;
+  const namedExportRegex = /export\s+\{\s*([^}]+)\s*\}/g;
+
+  let match;
+  while ((match = constExportRegex.exec(content)) !== null) {
+    exports.push(match[1]);
+  }
+
+  while ((match = namedExportRegex.exec(content)) !== null) {
+    const names = match[1].split(',').map(n => n.trim().split(' ')[0]);
+    exports.push(...names.filter(n => n.endsWith('Schema')));
+  }
+
+  return exports.slice(0, 3); // Limit to 3 exports for readability
 }
 
 /**
@@ -65,7 +96,7 @@ ${links}
 /**
  * Generates usage examples based on actual schemas
  */
-function generateUsageSection(pkg: PackageConfig, schemas: SchemaInfo[]): string {
+function generateUsageSection(pkg: PackageConfig, schemas: SchemaInfo[], cwd: string): string {
   if (schemas.length === 0) {
     return `\`\`\`typescript
 import { /* schemas */ } from '${pkg.name}';
@@ -103,13 +134,25 @@ type ${mainSchema.name} = z.infer<typeof ${mainSchema.exportName}>;
       .slice(0, 2);
 
     if (alternativeExports.length > 0) {
-      usage += `
+      const submoduleImports = alternativeExports
+        .map(([key, filePath]) => {
+          const fullPath = join(cwd, filePath);
+          const exports = extractExportsFromFile(fullPath);
+          if (exports.length === 0) return null; // Skip if no direct exports found
+          return `import { ${exports.join(', ')} } from '${pkg.name}${key.slice(1)}';`;
+        })
+        .filter(Boolean)
+        .join('\n');
+
+      if (submoduleImports) {
+        usage += `
 You can also import specific submodules:
 
 \`\`\`typescript
-${alternativeExports.map(([key]) => `import { ... } from '${pkg.name}${key.slice(1)}';`).join('\n')}
+${submoduleImports}
 \`\`\`
 `;
+      }
     }
   }
 
@@ -117,13 +160,67 @@ ${alternativeExports.map(([key]) => `import { ... } from '${pkg.name}${key.slice
 }
 
 /**
+ * Generates badges for the README
+ */
+function generateBadges(pkg: PackageConfig): string {
+  const badges: string[] = [];
+  const encodedName = encodeURIComponent(pkg.name);
+
+  // npm version badge
+  badges.push(`[![npm version](https://img.shields.io/npm/v/${encodedName}.svg)](https://www.npmjs.com/package/${pkg.name})`);
+
+  // npm downloads badge
+  badges.push(`[![npm downloads](https://img.shields.io/npm/dm/${encodedName}.svg)](https://www.npmjs.com/package/${pkg.name})`);
+
+  // License badge
+  if (pkg.license) {
+    badges.push(`[![license](https://img.shields.io/npm/l/${encodedName}.svg)](${pkg.homepage || '#'})`);
+  }
+
+  // TypeScript badge (always for zod schemas)
+  badges.push(`[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)`);
+
+  // Zod badge if it's a peer dependency
+  if (pkg.peerDependencies?.zod) {
+    badges.push(`[![zod](https://img.shields.io/badge/zod-schema-3068b7.svg)](https://zod.dev/)`);
+  }
+
+  return badges.join(' ');
+}
+
+/**
+ * Generates requirements section
+ */
+function generateRequirements(pkg: PackageConfig): string {
+  if (!pkg.peerDependencies || Object.keys(pkg.peerDependencies).length === 0) {
+    return '';
+  }
+
+  const deps = Object.keys(pkg.peerDependencies)
+    .filter(dep => dep !== 'catalog:')
+    .map(dep => `- \`${dep}\``)
+    .join('\n');
+
+  if (!deps) return '';
+
+  return `
+## Requirements
+
+${deps}
+
+`;
+}
+
+/**
  * Generates standard npm README header
  */
-function generateHeader(pkg: PackageConfig, title: string, schemas: SchemaInfo[]): string {
+function generateHeader(pkg: PackageConfig, title: string, schemas: SchemaInfo[], cwd: string): string {
   return `# ${title}
 
-${pkg.description || 'Zod schema definitions.'}
+${generateBadges(pkg)}
 
+${pkg.description || 'Zod schema definitions.'}
+${generateRequirements(pkg)}
 ## Installation
 
 \`\`\`bash
@@ -132,7 +229,7 @@ pnpm add ${pkg.name}
 
 ## Usage
 
-${generateUsageSection(pkg, schemas)}
+${generateUsageSection(pkg, schemas, cwd)}
 ${generateTOC(schemas)}## API Reference
 
 `;
@@ -172,7 +269,7 @@ async function generateDocs(options: {
     .replace(/^\n+/, ''); // Remove leading empty lines
 
   // Generate header with schema info
-  const header = generateHeader(pkg, title, schemas);
+  const header = generateHeader(pkg, title, schemas, cwd);
 
   // Combine header + zod2md output (without duplicate title)
   const finalMarkdown = header + zodContent;
