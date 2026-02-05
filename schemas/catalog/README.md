@@ -30,7 +30,7 @@ type Article = z.infer<typeof ArticleSchema>;
 You can also import specific submodules:
 
 ```typescript
-import { CatalogClothingSchema, DetailedClothingSchema, MetaClothingSchema } from '@segha/catalog/en/clothing';
+import { MetaClothingSchema, CatalogClothingSchema, DetailedClothingSchema } from '@segha/catalog/en/clothing';
 ```
 
 ### Schemas

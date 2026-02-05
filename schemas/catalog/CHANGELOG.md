@@ -5,6 +5,24 @@ All notable changes to @segha/catalog will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2026-02-05
+
+### Added
+
+- Schema `ArticleSchema` was added
+- Schema `BookSchema` was added
+- Schema `CatalogArticleSchema` was added
+- Schema `CatalogBookSchema` was added
+- Schema `CatalogMovieSchema` was added
+- Schema `DetailedArticleSchema` was added
+- Schema `DetailedBookSchema` was added
+- Schema `DetailedMovieSchema` was added
+- Schema `MetaArticleSchema` was added
+- Schema `MetaBookSchema` was added
+- Schema `MetaMovieSchema` was added
+- Schema `MovieSchema` was added
+- Schema `NoteSchema` was added
+
 ## [2.0.0] - 2026-02-05
 
 ### Added
