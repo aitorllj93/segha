@@ -2,8 +2,8 @@
   "name": "@segha/schemaorg",
   "description": "Schemas for Schema.org",
   "scripts": {
-    "docs": "pnpx tsx ../../utils/generate-docs.ts --entry ./index.ts --cwd .",
-    "json-schema": "pnpx tsx ../../utils/generate-json-schema.ts --entry ./",
+    "docs": "pnpm tsx ../../utils/generate-docs.ts --entry ./index.ts --cwd .",
+    "json-schema": "pnpm tsx ../../utils/generate-json-schema.ts --entry ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "index.ts",

@@ -20,37 +20,69 @@ interface PackageReleaseInfo {
 }
 
 /**
- * Detects which packages have changes compared to the previous commit
+ * Gets all packages in the schemas directory
  */
-function getChangedPackages(): string[] {
-  try {
-    // Get list of changed files
-    const changedFiles = execSync('git diff --name-only HEAD~1 HEAD', {
-      encoding: 'utf-8',
-      cwd: workspaceRoot,
-    }).trim().split('\n').filter(Boolean);
-
-    const changedPackages = new Set<string>();
-
-    for (const file of changedFiles) {
-      // Check if file is in a package directory
-      if (file.startsWith('schemas/')) {
-        const parts = file.split('/');
-        if (parts.length >= 2) {
-          const packageName = parts[1];
-          const packagePath = join(workspaceRoot, 'schemas', packageName);
-          if (existsSync(join(packagePath, 'package.json'))) {
-            changedPackages.add(packagePath);
-          }
-        }
-      }
-    }
-
-    return Array.from(changedPackages);
-  } catch (error) {
-    console.error('Error detecting changed packages:', error);
+function getAllPackages(): string[] {
+  const schemasDir = join(workspaceRoot, 'schemas');
+  if (!existsSync(schemasDir)) {
     return [];
   }
+
+  const packages: string[] = [];
+  const entries = execSync('ls -d */', {
+    encoding: 'utf-8',
+    cwd: schemasDir,
+  }).trim().split('\n').filter(Boolean);
+
+  for (const entry of entries) {
+    const packagePath = join(schemasDir, entry.replace('/', ''));
+    if (existsSync(join(packagePath, 'package.json'))) {
+      packages.push(packagePath);
+    }
+  }
+
+  return packages;
+}
+
+/**
+ * Detects which packages have changes compared to their last release tag
+ */
+function getChangedPackages(): string[] {
+  const allPackages = getAllPackages();
+  const changedPackages: string[] = [];
+
+  for (const packagePath of allPackages) {
+    const packageJsonPath = join(packagePath, 'package.json');
+    const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
+    const packageName = packageJson.name;
+
+    // Get the last tag for this package
+    const lastTag = getLastTag(packageName);
+
+    if (!lastTag) {
+      // No tag exists, this is a new package - check if it has any commits
+      changedPackages.push(packagePath);
+      continue;
+    }
+
+    // Check if there are any changes since the last tag
+    try {
+      const relativePath = packagePath.replace(workspaceRoot + '/', '');
+      const changes = execSync(`git diff --name-only ${lastTag} HEAD -- ${relativePath}`, {
+        encoding: 'utf-8',
+        cwd: workspaceRoot,
+      }).trim();
+
+      if (changes) {
+        changedPackages.push(packagePath);
+      }
+    } catch (error) {
+      // If comparison fails, include the package to be safe
+      changedPackages.push(packagePath);
+    }
+  }
+
+  return changedPackages;
 }
 
 /**
@@ -99,16 +131,21 @@ async function processPackage(packagePath: string): Promise<PackageReleaseInfo |
 
   try {
     // Generate JSON schemas first
-    const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
     if (packageJson.scripts?.['json-schema']) {
       try {
         console.log(`  🔧 Generating JSON schemas...`);
-        execSync(packageJson.scripts['json-schema'], {
+        execSync(`pnpm run json-schema`, {
           cwd: packagePath,
-          stdio: 'ignore'
+          stdio: 'pipe'
         });
-      } catch (error) {
+      } catch (error: any) {
         console.warn(`  ⚠️  Warning: Could not generate JSON schemas`);
+        if (error.stderr) {
+          console.warn(`  stderr: ${error.stderr.toString()}`);
+        }
+        if (error.stdout) {
+          console.warn(`  stdout: ${error.stdout.toString()}`);
+        }
       }
     }
 

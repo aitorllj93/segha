@@ -24,9 +24,9 @@ export async function extractPackageShapes(packagePath: string): Promise<Record<
       if (existsSync(packageJsonPath)) {
         const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
         if (packageJson.scripts?.['json-schema']) {
-          execSync(packageJson.scripts['json-schema'], {
+          execSync(`pnpm run json-schema`, {
             cwd: packagePath,
-            stdio: 'ignore'
+            stdio: 'pipe'
           });
         }
       }

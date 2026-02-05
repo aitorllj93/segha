@@ -53,7 +53,7 @@ export function compareShapes(
       changes.push({
         type: 'removed',
         schema: schemaName,
-        description: `Schema ${schemaName} was removed`,
+        description: `Schema \`${schemaName}\` was removed`,
       });
       hasMajor = true;
     }
@@ -65,7 +65,7 @@ export function compareShapes(
       changes.push({
         type: 'added',
         schema: schemaName,
-        description: `Schema ${schemaName} was added`,
+        description: `Schema \`${schemaName}\` was added`,
       });
       hasMinor = true;
     }
@@ -144,7 +144,7 @@ function compareJSONSchema(
       type: 'type-changed',
       schema: schemaName,
       property: propertyPath || undefined,
-      description: `Type changed from ${oldSchema.type} to ${newSchema.type}`,
+      description: `\`${schemaName}\` type changed from \`${oldSchema.type}\` to \`${newSchema.type}\``,
     });
     return changes; // Early return, type change is breaking
   }
@@ -155,7 +155,7 @@ function compareJSONSchema(
       type: 'modified',
       schema: schemaName,
       property: propertyPath || undefined,
-      description: 'Description changed',
+      description: `Description changed in \`${schemaName}\``,
     });
   }
 
@@ -173,7 +173,7 @@ function compareJSONSchema(
           type: 'removed',
           schema: schemaName,
           property: propertyPath ? `${propertyPath}.${propName}` : propName,
-          description: `Property ${propName} was removed`,
+          description: `Property \`${propName}\` was removed from \`${schemaName}\``,
         });
       }
     }
@@ -186,7 +186,7 @@ function compareJSONSchema(
           type: 'added',
           schema: schemaName,
           property: propertyPath ? `${propertyPath}.${propName}` : propName,
-          description: `${isRequired ? 'Required' : 'Optional'} property ${propName} was added`,
+          description: `${isRequired ? 'Required' : 'Optional'} property \`${propName}\` was added to \`${schemaName}\``,
         });
       }
     }
@@ -210,14 +210,14 @@ function compareJSONSchema(
             type: 'removed',
             schema: schemaName,
             property: propPath,
-            description: `Property ${propName} changed from optional to required`,
+            description: `Property \`${propName}\` in \`${schemaName}\` changed from optional to required`,
           });
         } else {
           changes.push({
             type: 'added',
             schema: schemaName,
             property: propPath,
-            description: `Property ${propName} changed from required to optional`,
+            description: `Property \`${propName}\` in \`${schemaName}\` changed from required to optional`,
           });
         }
       }
@@ -230,7 +230,7 @@ function compareJSONSchema(
           type: 'type-changed',
           schema: schemaName,
           property: propPath,
-          description: `Property ${propName} type changed from ${oldProp.type} to ${newProp.type}`,
+          description: `Property \`${propName}\` in \`${schemaName}\` type changed from \`${oldProp.type}\` to \`${newProp.type}\``,
         });
       } else if (!deepEqual(oldProp, newProp)) {
         // Other changes (enum values, etc.)
@@ -243,7 +243,7 @@ function compareJSONSchema(
               type: 'removed',
               schema: schemaName,
               property: propPath,
-              description: `Enum values removed: ${removedValues.join(', ')}`,
+              description: `Enum values removed from \`${schemaName}\`.\`${propName}\`: ${removedValues.map(v => `\`${v}\``).join(', ')}`,
             });
           }
           if (addedValues.length > 0) {
@@ -251,7 +251,7 @@ function compareJSONSchema(
               type: 'added',
               schema: schemaName,
               property: propPath,
-              description: `Enum values added: ${addedValues.join(', ')}`,
+              description: `Enum values added to \`${schemaName}\`.\`${propName}\`: ${addedValues.map(v => `\`${v}\``).join(', ')}`,
             });
           }
         } else {
@@ -259,7 +259,7 @@ function compareJSONSchema(
             type: 'modified',
             schema: schemaName,
             property: propPath,
-            description: `Property ${propName} was modified`,
+            description: `Property \`${propName}\` in \`${schemaName}\` was modified`,
           });
         }
       }
@@ -276,7 +276,7 @@ function compareJSONSchema(
         type: 'removed',
         schema: schemaName,
         property: propertyPath || undefined,
-        description: `Enum values removed: ${removedValues.join(', ')}`,
+        description: `Enum values removed from \`${schemaName}\`: ${removedValues.map(v => `\`${v}\``).join(', ')}`,
       });
     }
     if (addedValues.length > 0) {
@@ -284,7 +284,7 @@ function compareJSONSchema(
         type: 'added',
         schema: schemaName,
         property: propertyPath || undefined,
-        description: `Enum values added: ${addedValues.join(', ')}`,
+        description: `Enum values added to \`${schemaName}\`: ${addedValues.map(v => `\`${v}\``).join(', ')}`,
       });
     }
   }
