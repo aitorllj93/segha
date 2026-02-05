@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Seasons",
+  "type": "string",
+  "enum": [
+    "Winter",
+    "Summer",
+    "Spring/Fall",
+    "All Year"
+  ]
+}

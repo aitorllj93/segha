@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Materials",
+  "type": "array",
+  "items": {
+    "type": "string",
+    "enum": [
+      "Cotton",
+      "Linen",
+      "Wool",
+      "Silk",
+      "Leather",
+      "Cashmere",
+      "Suede",
+      "Polyester",
+      "Nylon",
+      "Elastane",
+      "Viscose",
+      "Synthetic Leather",
+      "Gore-Tex",
+      "Denim",
+      "Knit",
+      "Fleece",
+      "Tweed",
+      "Satin",
+      "Velvet",
+      "Jacquard",
+      "Flannel",
+      "Gabardine"
+    ]
+  }
+}

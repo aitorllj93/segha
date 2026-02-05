@@ -1,8 +1,807 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "@segha/catalog",
+  "title": "@segha/catalog/en/Clothing",
   "description": "Schemas for Petroglyph Catalog",
   "$defs": {
+    "Care": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Hand Wash",
+        "Machine Wash",
+        "Dry Clean",
+        "Cold",
+        "Hot",
+        "Ironing",
+        "Steam Ironing"
+      ]
+    },
+    "Cares": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Care Instructions",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Hand Wash",
+          "Machine Wash",
+          "Dry Clean",
+          "Cold",
+          "Hot",
+          "Ironing",
+          "Steam Ironing"
+        ]
+      }
+    },
+    "Ironing": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Ironing",
+        "Steam Ironing"
+      ]
+    },
+    "Temperature": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Cold",
+        "Hot"
+      ]
+    },
+    "WashType": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Hand Wash",
+        "Machine Wash",
+        "Dry Clean"
+      ]
+    },
+    "BaseColor": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "White",
+        "Black",
+        "Gray",
+        "Beige",
+        "Brown",
+        "Blue",
+        "Green",
+        "Red",
+        "Burgundy",
+        "Pink",
+        "Yellow",
+        "Orange",
+        "Purple"
+      ]
+    },
+    "Color": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "White",
+        "Black",
+        "Gray",
+        "Beige",
+        "Brown",
+        "Blue",
+        "Green",
+        "Red",
+        "Burgundy",
+        "Pink",
+        "Yellow",
+        "Orange",
+        "Purple",
+        "Camel",
+        "Khaki",
+        "Navy",
+        "Cream",
+        "Gold",
+        "Silver",
+        "Bronze"
+      ]
+    },
+    "MetallicColor": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Gold",
+        "Silver",
+        "Bronze"
+      ]
+    },
+    "Pattern": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Pattern",
+      "type": "string",
+      "enum": [
+        "Solid",
+        "Stripes",
+        "Plaid",
+        "Polka Dots",
+        "Animal Print",
+        "Floral",
+        "Geometric",
+        "Camouflage",
+        "Graphic Print",
+        "Gradient"
+      ]
+    },
+    "PrimaryColor": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "White",
+        "Black",
+        "Gray",
+        "Beige",
+        "Brown",
+        "Blue",
+        "Green",
+        "Red",
+        "Burgundy",
+        "Pink",
+        "Yellow",
+        "Orange",
+        "Purple",
+        "Camel",
+        "Khaki",
+        "Navy",
+        "Cream",
+        "Gold",
+        "Silver",
+        "Bronze"
+      ],
+      "description": "Primary color"
+    },
+    "SecondaryColor": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Secondary color",
+      "type": "string",
+      "enum": [
+        "White",
+        "Black",
+        "Gray",
+        "Beige",
+        "Brown",
+        "Blue",
+        "Green",
+        "Red",
+        "Burgundy",
+        "Pink",
+        "Yellow",
+        "Orange",
+        "Purple",
+        "Camel",
+        "Khaki",
+        "Navy",
+        "Cream",
+        "Gold",
+        "Silver",
+        "Bronze"
+      ]
+    },
+    "SpecialColor": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Camel",
+        "Khaki",
+        "Navy",
+        "Cream"
+      ]
+    },
+    "Fit": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Fit",
+      "type": "string",
+      "enum": [
+        "Fitted",
+        "Slim",
+        "Regular",
+        "Relaxed",
+        "Loose",
+        "Oversized"
+      ]
+    },
+    "Formality": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Formality",
+      "type": "string",
+      "enum": [
+        "Very Casual",
+        "Casual",
+        "Smart Casual",
+        "Formal",
+        "Black Tie"
+      ]
+    },
+    "Accessories": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Belts",
+        "Caps",
+        "Hats",
+        "Scarves",
+        "Gloves",
+        "Handbags",
+        "Backpacks",
+        "Sunglasses",
+        "Handkerchiefs",
+        "Watches",
+        "Jewelry"
+      ],
+      "description": "Accessories"
+    },
+    "Bottom": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Pants",
+        "Jeans",
+        "Chinos",
+        "Skirts",
+        "Shorts"
+      ],
+      "description": "Bottom"
+    },
+    "Dress": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Dresses",
+        "Jumpsuits"
+      ],
+      "description": "One-piece"
+    },
+    "Garment": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Undershirts",
+        "Boxers",
+        "Panties",
+        "Bras",
+        "Socks",
+        "T-Shirts",
+        "Polo Shirts",
+        "Shirts",
+        "Blouses",
+        "Tops",
+        "Sweaters",
+        "Hoodies",
+        "Cardigans",
+        "Jackets",
+        "Pants",
+        "Jeans",
+        "Chinos",
+        "Skirts",
+        "Shorts",
+        "Blazers",
+        "Coats",
+        "Trench Coats",
+        "Parkas",
+        "Vests",
+        "Leggings",
+        "Technical Wear",
+        "Sports Shorts",
+        "Technical T-Shirts",
+        "Dresses",
+        "Jumpsuits",
+        "Sneakers",
+        "Shoes",
+        "Boots",
+        "Sandals",
+        "Belts",
+        "Caps",
+        "Hats",
+        "Scarves",
+        "Gloves",
+        "Handbags",
+        "Backpacks",
+        "Sunglasses",
+        "Handkerchiefs",
+        "Watches",
+        "Jewelry",
+        "Pajamas",
+        "Robes",
+        "Swimsuits",
+        "Bikinis"
+      ],
+      "description": "Garment Type"
+    },
+    "Home": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Pajamas",
+        "Robes"
+      ],
+      "description": "Homewear"
+    },
+    "Outerwear": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Trench",
+        "Puffer",
+        "Double Breasted"
+      ]
+    },
+    "Shoes": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Sneakers",
+        "Shoes",
+        "Boots",
+        "Sandals"
+      ],
+      "description": "Footwear"
+    },
+    "Sportswear": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Leggings",
+        "Technical Wear",
+        "Sports Shorts",
+        "Technical T-Shirts"
+      ],
+      "description": "Sportswear"
+    },
+    "Swimsuits": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Swimsuits",
+        "Bikinis"
+      ],
+      "description": "Swimwear"
+    },
+    "Top": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "T-Shirts",
+        "Polo Shirts",
+        "Shirts",
+        "Blouses",
+        "Tops",
+        "Sweaters",
+        "Hoodies",
+        "Cardigans",
+        "Jackets"
+      ],
+      "description": "Top"
+    },
+    "Underwear": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Undershirts",
+        "Boxers",
+        "Panties",
+        "Bras",
+        "Socks"
+      ],
+      "description": "Underwear"
+    },
+    "Layer": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Base",
+        "Mid",
+        "Outer"
+      ],
+      "description": "Thermal Layer"
+    },
+    "CommonFabric": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Denim",
+        "Knit",
+        "Fleece",
+        "Tweed",
+        "Satin",
+        "Velvet",
+        "Jacquard",
+        "Flannel",
+        "Gabardine"
+      ]
+    },
+    "Material": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Cotton",
+        "Linen",
+        "Wool",
+        "Silk",
+        "Leather",
+        "Cashmere",
+        "Suede",
+        "Polyester",
+        "Nylon",
+        "Elastane",
+        "Viscose",
+        "Synthetic Leather",
+        "Gore-Tex",
+        "Denim",
+        "Knit",
+        "Fleece",
+        "Tweed",
+        "Satin",
+        "Velvet",
+        "Jacquard",
+        "Flannel",
+        "Gabardine"
+      ]
+    },
+    "Materials": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Materials",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Cotton",
+          "Linen",
+          "Wool",
+          "Silk",
+          "Leather",
+          "Cashmere",
+          "Suede",
+          "Polyester",
+          "Nylon",
+          "Elastane",
+          "Viscose",
+          "Synthetic Leather",
+          "Gore-Tex",
+          "Denim",
+          "Knit",
+          "Fleece",
+          "Tweed",
+          "Satin",
+          "Velvet",
+          "Jacquard",
+          "Flannel",
+          "Gabardine"
+        ]
+      }
+    },
+    "NaturalMaterial": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Cotton",
+        "Linen",
+        "Wool",
+        "Silk",
+        "Leather",
+        "Cashmere",
+        "Suede"
+      ]
+    },
+    "SyntheticMaterial": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Polyester",
+        "Nylon",
+        "Elastane",
+        "Viscose",
+        "Synthetic Leather",
+        "Gore-Tex"
+      ]
+    },
+    "Measurements": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Measurements",
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "Season": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Seasons",
+      "type": "string",
+      "enum": [
+        "Winter",
+        "Summer",
+        "Spring/Fall",
+        "All Year"
+      ]
+    },
+    "PantsSize": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36",
+        "38",
+        "40",
+        "42",
+        "44",
+        "46",
+        "48"
+      ]
+    },
+    "ShoesSize": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ]
+    },
+    "Size": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46",
+        "48",
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ]
+    },
+    "TopsSize": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ]
+    },
+    "Slot": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Top",
+        "Bottom",
+        "Full Body",
+        "Outer",
+        "Footwear",
+        "Accessories"
+      ],
+      "description": "Outfit part"
+    },
+    "Status": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "default": "Good",
+      "description": "Status",
+      "type": "string",
+      "enum": [
+        "New",
+        "Good",
+        "Worn",
+        "Damaged",
+        "Retire"
+      ]
+    },
+    "UseCase": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Capsule",
+        "Favorite",
+        "Basic",
+        "Sport",
+        "Work",
+        "Event",
+        "Travel",
+        "Home",
+        "Party",
+        "Beach",
+        "Rain",
+        "Extreme Cold"
+      ]
+    },
+    "UseCases": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Use cases",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Capsule",
+          "Favorite",
+          "Basic",
+          "Sport",
+          "Work",
+          "Event",
+          "Travel",
+          "Home",
+          "Party",
+          "Beach",
+          "Rain",
+          "Extreme Cold"
+        ]
+      }
+    },
+    "AdditionalFeatures": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Pockets",
+        "No Pockets",
+        "Reversible"
+      ]
+    },
+    "Closures": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Buttons",
+        "Zipper",
+        "Velcro",
+        "Laces",
+        "Snaps"
+      ]
+    },
+    "Necks": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Round Neck",
+        "V-Neck",
+        "High Neck",
+        "Shirt Collar",
+        "Polo Collar",
+        "Boat Neck",
+        "Mandarin Collar",
+        "Funnel Neck",
+        "Hood"
+      ]
+    },
+    "Pants": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Straight Leg",
+        "Skinny",
+        "Wide",
+        "Cargo",
+        "Flared"
+      ]
+    },
+    "Sleeves": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Sleeveless",
+        "Short Sleeves",
+        "Long Sleeves"
+      ]
+    },
+    "SpecialCuts": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Overshirt",
+        "Cropped",
+        "Long"
+      ]
+    },
+    "Variant": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Sleeveless",
+        "Short Sleeves",
+        "Long Sleeves",
+        "Round Neck",
+        "V-Neck",
+        "High Neck",
+        "Shirt Collar",
+        "Polo Collar",
+        "Boat Neck",
+        "Mandarin Collar",
+        "Funnel Neck",
+        "Hood",
+        "Overshirt",
+        "Cropped",
+        "Long",
+        "Straight Leg",
+        "Skinny",
+        "Wide",
+        "Cargo",
+        "Flared",
+        "Trench",
+        "Puffer",
+        "Double Breasted",
+        "Buttons",
+        "Zipper",
+        "Velcro",
+        "Laces",
+        "Snaps",
+        "Pockets",
+        "No Pockets",
+        "Reversible"
+      ]
+    },
+    "Variants": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Structural Details",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Sleeveless",
+          "Short Sleeves",
+          "Long Sleeves",
+          "Round Neck",
+          "V-Neck",
+          "High Neck",
+          "Shirt Collar",
+          "Polo Collar",
+          "Boat Neck",
+          "Mandarin Collar",
+          "Funnel Neck",
+          "Hood",
+          "Overshirt",
+          "Cropped",
+          "Long",
+          "Straight Leg",
+          "Skinny",
+          "Wide",
+          "Cargo",
+          "Flared",
+          "Trench",
+          "Puffer",
+          "Double Breasted",
+          "Buttons",
+          "Zipper",
+          "Velcro",
+          "Laces",
+          "Snaps",
+          "Pockets",
+          "No Pockets",
+          "Reversible"
+        ]
+      }
+    },
     "CatalogClothingSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",

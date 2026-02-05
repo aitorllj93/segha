@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "enum": [
+    "Round Neck",
+    "V-Neck",
+    "High Neck",
+    "Shirt Collar",
+    "Polo Collar",
+    "Boat Neck",
+    "Mandarin Collar",
+    "Funnel Neck",
+    "Hood"
+  ]
+}

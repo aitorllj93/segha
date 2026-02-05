@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "enum": [
+    "White",
+    "Black",
+    "Gray",
+    "Beige",
+    "Brown",
+    "Blue",
+    "Green",
+    "Red",
+    "Burgundy",
+    "Pink",
+    "Yellow",
+    "Orange",
+    "Purple"
+  ]
+}

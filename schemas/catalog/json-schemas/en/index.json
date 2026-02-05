@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "@segha/catalog",
+  "title": "@segha/catalog/en",
   "description": "Schemas for Petroglyph Catalog",
   "$defs": {
     "CatalogClothingSchema": {
