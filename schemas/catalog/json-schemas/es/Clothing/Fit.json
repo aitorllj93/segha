@@ -4,8 +4,10 @@
   "type": "string",
   "enum": [
     "Entallado",
+    "Ajustado",
     "Regular",
     "Relajado",
-    "Oversize"
+    "Holgado",
+    "Extragrande"
   ]
 }

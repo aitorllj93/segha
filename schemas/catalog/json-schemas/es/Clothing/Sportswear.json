@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "enum": [
+    "Mallas",
+    "Ropa Técnica",
+    "Shorts Deportivos",
+    "Camisetas Técnicas"
+  ],
+  "description": "Ropa Deportiva"
+}

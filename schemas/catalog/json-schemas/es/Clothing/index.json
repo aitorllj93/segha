@@ -97,7 +97,19 @@
         "Camel",
         "Caqui",
         "Marino",
-        "Crema"
+        "Crema",
+        "Oro",
+        "Plata",
+        "Bronce"
+      ]
+    },
+    "MetallicColor": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Oro",
+        "Plata",
+        "Bronce"
       ]
     },
     "Pattern": {
@@ -107,7 +119,14 @@
       "enum": [
         "Liso",
         "Rayas",
-        "Cuadros"
+        "Cuadros",
+        "Lunares",
+        "Animal Print",
+        "Floral",
+        "Geométrico",
+        "Camuflaje",
+        "EstampadoGráfico",
+        "Degradado"
       ]
     },
     "PrimaryColor": {
@@ -130,7 +149,10 @@
         "Camel",
         "Caqui",
         "Marino",
-        "Crema"
+        "Crema",
+        "Oro",
+        "Plata",
+        "Bronce"
       ],
       "description": "Color principal"
     },
@@ -155,7 +177,10 @@
         "Camel",
         "Caqui",
         "Marino",
-        "Crema"
+        "Crema",
+        "Oro",
+        "Plata",
+        "Bronce"
       ]
     },
     "SpecialColor": {
@@ -174,9 +199,11 @@
       "type": "string",
       "enum": [
         "Entallado",
+        "Ajustado",
         "Regular",
         "Relajado",
-        "Oversize"
+        "Holgado",
+        "Extragrande"
       ]
     },
     "Formality": {
@@ -201,8 +228,13 @@
         "Bufandas",
         "Guantes",
         "Bolsos",
-        "Mochilas"
-      ]
+        "Mochilas",
+        "Gafas de Sol",
+        "Pañuelos",
+        "Relojes",
+        "Joyas"
+      ],
+      "description": "Accesorios"
     },
     "Bottom": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -213,7 +245,8 @@
         "Chinos",
         "Faldas",
         "Shorts"
-      ]
+      ],
+      "description": "Ropa Inferior"
     },
     "Dress": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -221,12 +254,18 @@
       "enum": [
         "Vestidos",
         "Monos"
-      ]
+      ],
+      "description": "Pieza única"
     },
     "Garment": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "string",
       "enum": [
+        "Camisetas Interiores",
+        "Calzoncillos",
+        "Bragas",
+        "Sujetadores",
+        "Calcetines",
         "Camisetas",
         "Polos",
         "Camisas",
@@ -241,11 +280,16 @@
         "Chinos",
         "Faldas",
         "Shorts",
+        "Americanas",
         "Abrigos",
         "Gabardinas",
         "Parkas",
         "Cazadoras",
         "Chalecos",
+        "Mallas",
+        "Ropa Técnica",
+        "Shorts Deportivos",
+        "Camisetas Técnicas",
         "Vestidos",
         "Monos",
         "Zapatillas",
@@ -258,9 +302,26 @@
         "Bufandas",
         "Guantes",
         "Bolsos",
-        "Mochilas"
+        "Mochilas",
+        "Gafas de Sol",
+        "Pañuelos",
+        "Relojes",
+        "Joyas",
+        "Pijamas",
+        "Batas",
+        "Bañadores",
+        "Bikinis"
       ],
       "description": "Tipo de Prenda"
+    },
+    "Home": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Pijamas",
+        "Batas"
+      ],
+      "description": "Ropa de Casa"
     },
     "Outerwear": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -279,7 +340,28 @@
         "Zapatos",
         "Botas",
         "Sandalias"
-      ]
+      ],
+      "description": "Calzado"
+    },
+    "Sportswear": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Mallas",
+        "Ropa Técnica",
+        "Shorts Deportivos",
+        "Camisetas Técnicas"
+      ],
+      "description": "Ropa Deportiva"
+    },
+    "Swimsuits": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Bañadores",
+        "Bikinis"
+      ],
+      "description": "Trajes de baño"
     },
     "Top": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -294,7 +376,20 @@
         "Sudaderas",
         "Cárdigans",
         "Chaquetas"
-      ]
+      ],
+      "description": "Ropa Superior"
+    },
+    "Underwear": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Camisetas Interiores",
+        "Calzoncillos",
+        "Bragas",
+        "Sujetadores",
+        "Calcetines"
+      ],
+      "description": "Ropa Interior"
     },
     "CatalogClothingSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -303,6 +398,11 @@
         "garment": {
           "type": "string",
           "enum": [
+            "Camisetas Interiores",
+            "Calzoncillos",
+            "Bragas",
+            "Sujetadores",
+            "Calcetines",
             "Camisetas",
             "Polos",
             "Camisas",
@@ -317,11 +417,16 @@
             "Chinos",
             "Faldas",
             "Shorts",
+            "Americanas",
             "Abrigos",
             "Gabardinas",
             "Parkas",
             "Cazadoras",
             "Chalecos",
+            "Mallas",
+            "Ropa Técnica",
+            "Shorts Deportivos",
+            "Camisetas Técnicas",
             "Vestidos",
             "Monos",
             "Zapatillas",
@@ -334,7 +439,15 @@
             "Bufandas",
             "Guantes",
             "Bolsos",
-            "Mochilas"
+            "Mochilas",
+            "Gafas de Sol",
+            "Pañuelos",
+            "Relojes",
+            "Joyas",
+            "Pijamas",
+            "Batas",
+            "Bañadores",
+            "Bikinis"
           ],
           "description": "Tipo de Prenda"
         },
@@ -363,6 +476,11 @@
               "Cuello Pico",
               "Cuello Alto",
               "Cuello Camisa",
+              "Cuello Polo",
+              "Cuello Panadero",
+              "Cuello Mao",
+              "Cuello Chimenea",
+              "Capucha",
               "Overshirt",
               "Cropped",
               "Larga",
@@ -370,9 +488,18 @@
               "Pitillo",
               "Ancha",
               "Cargo",
+              "Acampanado",
               "Trench",
               "Plumífero",
-              "Doble botonadura"
+              "Doble botonadura",
+              "Botones",
+              "Cremallera",
+              "Velcro",
+              "Cordones",
+              "Broches",
+              "Bolsillos",
+              "Sin Bolsillos",
+              "Reversible"
             ]
           }
         },
@@ -381,9 +508,11 @@
           "type": "string",
           "enum": [
             "Entallado",
+            "Ajustado",
             "Regular",
             "Relajado",
-            "Oversize"
+            "Holgado",
+            "Extragrande"
           ]
         },
         "primary_color": {
@@ -405,7 +534,10 @@
             "Camel",
             "Caqui",
             "Marino",
-            "Crema"
+            "Crema",
+            "Oro",
+            "Plata",
+            "Bronce"
           ],
           "description": "Color principal"
         },
@@ -429,7 +561,10 @@
             "Camel",
             "Caqui",
             "Marino",
-            "Crema"
+            "Crema",
+            "Oro",
+            "Plata",
+            "Bronce"
           ]
         },
         "pattern": {
@@ -438,7 +573,14 @@
           "enum": [
             "Liso",
             "Rayas",
-            "Cuadros"
+            "Cuadros",
+            "Lunares",
+            "Animal Print",
+            "Floral",
+            "Geométrico",
+            "Camuflaje",
+            "EstampadoGráfico",
+            "Degradado"
           ]
         },
         "materials": {
@@ -452,13 +594,23 @@
               "Lana",
               "Seda",
               "Cuero",
+              "Cachemir",
+              "Ante",
               "Poliéster",
               "Nylon",
               "Elastano",
               "Viscosa",
+              "Piel Sintética",
+              "Gore-Tex",
               "Denim",
               "Punto",
-              "Felpa"
+              "Felpa",
+              "Tweed",
+              "Satén",
+              "Terciopelo",
+              "Jacquard",
+              "Franela",
+              "Gabardina"
             ]
           }
         },
@@ -494,7 +646,11 @@
               "Trabajo",
               "Evento",
               "Viaje",
-              "Casa"
+              "Casa",
+              "Fiesta",
+              "Playa",
+              "Lluvia",
+              "Frío Extremo"
             ]
           }
         },
@@ -530,6 +686,11 @@
         "garment": {
           "type": "string",
           "enum": [
+            "Camisetas Interiores",
+            "Calzoncillos",
+            "Bragas",
+            "Sujetadores",
+            "Calcetines",
             "Camisetas",
             "Polos",
             "Camisas",
@@ -544,11 +705,16 @@
             "Chinos",
             "Faldas",
             "Shorts",
+            "Americanas",
             "Abrigos",
             "Gabardinas",
             "Parkas",
             "Cazadoras",
             "Chalecos",
+            "Mallas",
+            "Ropa Técnica",
+            "Shorts Deportivos",
+            "Camisetas Técnicas",
             "Vestidos",
             "Monos",
             "Zapatillas",
@@ -561,7 +727,15 @@
             "Bufandas",
             "Guantes",
             "Bolsos",
-            "Mochilas"
+            "Mochilas",
+            "Gafas de Sol",
+            "Pañuelos",
+            "Relojes",
+            "Joyas",
+            "Pijamas",
+            "Batas",
+            "Bañadores",
+            "Bikinis"
           ],
           "description": "Tipo de Prenda"
         },
@@ -590,6 +764,11 @@
               "Cuello Pico",
               "Cuello Alto",
               "Cuello Camisa",
+              "Cuello Polo",
+              "Cuello Panadero",
+              "Cuello Mao",
+              "Cuello Chimenea",
+              "Capucha",
               "Overshirt",
               "Cropped",
               "Larga",
@@ -597,9 +776,18 @@
               "Pitillo",
               "Ancha",
               "Cargo",
+              "Acampanado",
               "Trench",
               "Plumífero",
-              "Doble botonadura"
+              "Doble botonadura",
+              "Botones",
+              "Cremallera",
+              "Velcro",
+              "Cordones",
+              "Broches",
+              "Bolsillos",
+              "Sin Bolsillos",
+              "Reversible"
             ]
           }
         },
@@ -608,9 +796,11 @@
           "type": "string",
           "enum": [
             "Entallado",
+            "Ajustado",
             "Regular",
             "Relajado",
-            "Oversize"
+            "Holgado",
+            "Extragrande"
           ]
         },
         "primary_color": {
@@ -632,7 +822,10 @@
             "Camel",
             "Caqui",
             "Marino",
-            "Crema"
+            "Crema",
+            "Oro",
+            "Plata",
+            "Bronce"
           ],
           "description": "Color principal"
         },
@@ -656,7 +849,10 @@
             "Camel",
             "Caqui",
             "Marino",
-            "Crema"
+            "Crema",
+            "Oro",
+            "Plata",
+            "Bronce"
           ]
         },
         "pattern": {
@@ -665,7 +861,14 @@
           "enum": [
             "Liso",
             "Rayas",
-            "Cuadros"
+            "Cuadros",
+            "Lunares",
+            "Animal Print",
+            "Floral",
+            "Geométrico",
+            "Camuflaje",
+            "EstampadoGráfico",
+            "Degradado"
           ]
         },
         "materials": {
@@ -679,13 +882,23 @@
               "Lana",
               "Seda",
               "Cuero",
+              "Cachemir",
+              "Ante",
               "Poliéster",
               "Nylon",
               "Elastano",
               "Viscosa",
+              "Piel Sintética",
+              "Gore-Tex",
               "Denim",
               "Punto",
-              "Felpa"
+              "Felpa",
+              "Tweed",
+              "Satén",
+              "Terciopelo",
+              "Jacquard",
+              "Franela",
+              "Gabardina"
             ]
           }
         },
@@ -721,7 +934,11 @@
               "Trabajo",
               "Evento",
               "Viaje",
-              "Casa"
+              "Casa",
+              "Fiesta",
+              "Playa",
+              "Lluvia",
+              "Frío Extremo"
             ]
           }
         },
@@ -978,7 +1195,13 @@
       "enum": [
         "Denim",
         "Punto",
-        "Felpa"
+        "Felpa",
+        "Tweed",
+        "Satén",
+        "Terciopelo",
+        "Jacquard",
+        "Franela",
+        "Gabardina"
       ]
     },
     "Material": {
@@ -990,13 +1213,23 @@
         "Lana",
         "Seda",
         "Cuero",
+        "Cachemir",
+        "Ante",
         "Poliéster",
         "Nylon",
         "Elastano",
         "Viscosa",
+        "Piel Sintética",
+        "Gore-Tex",
         "Denim",
         "Punto",
-        "Felpa"
+        "Felpa",
+        "Tweed",
+        "Satén",
+        "Terciopelo",
+        "Jacquard",
+        "Franela",
+        "Gabardina"
       ]
     },
     "Materials": {
@@ -1011,13 +1244,23 @@
           "Lana",
           "Seda",
           "Cuero",
+          "Cachemir",
+          "Ante",
           "Poliéster",
           "Nylon",
           "Elastano",
           "Viscosa",
+          "Piel Sintética",
+          "Gore-Tex",
           "Denim",
           "Punto",
-          "Felpa"
+          "Felpa",
+          "Tweed",
+          "Satén",
+          "Terciopelo",
+          "Jacquard",
+          "Franela",
+          "Gabardina"
         ]
       }
     },
@@ -1029,7 +1272,9 @@
         "Lino",
         "Lana",
         "Seda",
-        "Cuero"
+        "Cuero",
+        "Cachemir",
+        "Ante"
       ]
     },
     "SyntheticMaterial": {
@@ -1039,7 +1284,9 @@
         "Poliéster",
         "Nylon",
         "Elastano",
-        "Viscosa"
+        "Viscosa",
+        "Piel Sintética",
+        "Gore-Tex"
       ]
     },
     "Measurements": {
@@ -1173,7 +1420,11 @@
         "Trabajo",
         "Evento",
         "Viaje",
-        "Casa"
+        "Casa",
+        "Fiesta",
+        "Playa",
+        "Lluvia",
+        "Frío Extremo"
       ]
     },
     "UseCases": {
@@ -1190,9 +1441,33 @@
           "Trabajo",
           "Evento",
           "Viaje",
-          "Casa"
+          "Casa",
+          "Fiesta",
+          "Playa",
+          "Lluvia",
+          "Frío Extremo"
         ]
       }
+    },
+    "AdditionalFeatures": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Bolsillos",
+        "Sin Bolsillos",
+        "Reversible"
+      ]
+    },
+    "Closures": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "Botones",
+        "Cremallera",
+        "Velcro",
+        "Cordones",
+        "Broches"
+      ]
     },
     "Necks": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -1201,7 +1476,12 @@
         "Cuello Redondo",
         "Cuello Pico",
         "Cuello Alto",
-        "Cuello Camisa"
+        "Cuello Camisa",
+        "Cuello Polo",
+        "Cuello Panadero",
+        "Cuello Mao",
+        "Cuello Chimenea",
+        "Capucha"
       ]
     },
     "Pants": {
@@ -1211,7 +1491,8 @@
         "Pierna Recta",
         "Pitillo",
         "Ancha",
-        "Cargo"
+        "Cargo",
+        "Acampanado"
       ]
     },
     "Sleeves": {
@@ -1243,6 +1524,11 @@
         "Cuello Pico",
         "Cuello Alto",
         "Cuello Camisa",
+        "Cuello Polo",
+        "Cuello Panadero",
+        "Cuello Mao",
+        "Cuello Chimenea",
+        "Capucha",
         "Overshirt",
         "Cropped",
         "Larga",
@@ -1250,9 +1536,18 @@
         "Pitillo",
         "Ancha",
         "Cargo",
+        "Acampanado",
         "Trench",
         "Plumífero",
-        "Doble botonadura"
+        "Doble botonadura",
+        "Botones",
+        "Cremallera",
+        "Velcro",
+        "Cordones",
+        "Broches",
+        "Bolsillos",
+        "Sin Bolsillos",
+        "Reversible"
       ]
     },
     "Variants": {
@@ -1269,6 +1564,11 @@
           "Cuello Pico",
           "Cuello Alto",
           "Cuello Camisa",
+          "Cuello Polo",
+          "Cuello Panadero",
+          "Cuello Mao",
+          "Cuello Chimenea",
+          "Capucha",
           "Overshirt",
           "Cropped",
           "Larga",
@@ -1276,9 +1576,18 @@
           "Pitillo",
           "Ancha",
           "Cargo",
+          "Acampanado",
           "Trench",
           "Plumífero",
-          "Doble botonadura"
+          "Doble botonadura",
+          "Botones",
+          "Cremallera",
+          "Velcro",
+          "Cordones",
+          "Broches",
+          "Bolsillos",
+          "Sin Bolsillos",
+          "Reversible"
         ]
       }
     }

@@ -7,6 +7,8 @@ export const NaturalMaterial = z.enum([
   'Lana',
   'Seda',
   'Cuero',
+  'Cachemir',
+  'Ante',
 ]);
 
 // Sintéticos
@@ -15,6 +17,8 @@ export const SyntheticMaterial = z.enum([
   'Nylon',
   'Elastano',
   'Viscosa',
+  'Piel Sintética',
+  'Gore-Tex',
 ]);
 
 // Tejidos Comunes
@@ -22,6 +26,12 @@ export const CommonFabric = z.enum([
   'Denim',
   'Punto',
   'Felpa',
+  'Tweed',
+  'Satén',
+  'Terciopelo',
+  'Jacquard',
+  'Franela',
+  'Gabardina',
 ]);
 
 export const Material = z.enum([

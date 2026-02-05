@@ -12,6 +12,11 @@
       "Cuello Pico",
       "Cuello Alto",
       "Cuello Camisa",
+      "Cuello Polo",
+      "Cuello Panadero",
+      "Cuello Mao",
+      "Cuello Chimenea",
+      "Capucha",
       "Overshirt",
       "Cropped",
       "Larga",
@@ -19,9 +24,18 @@
       "Pitillo",
       "Ancha",
       "Cargo",
+      "Acampanado",
       "Trench",
       "Plumífero",
-      "Doble botonadura"
+      "Doble botonadura",
+      "Botones",
+      "Cremallera",
+      "Velcro",
+      "Cordones",
+      "Broches",
+      "Bolsillos",
+      "Sin Bolsillos",
+      "Reversible"
     ]
   }
 }

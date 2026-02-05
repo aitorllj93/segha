@@ -5,6 +5,13 @@
   "enum": [
     "Liso",
     "Rayas",
-    "Cuadros"
+    "Cuadros",
+    "Lunares",
+    "Animal Print",
+    "Floral",
+    "Geométrico",
+    "Camuflaje",
+    "EstampadoGráfico",
+    "Degradado"
   ]
 }

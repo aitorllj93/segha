@@ -8,6 +8,11 @@
     "Bufandas",
     "Guantes",
     "Bolsos",
-    "Mochilas"
-  ]
+    "Mochilas",
+    "Gafas de Sol",
+    "Pañuelos",
+    "Relojes",
+    "Joyas"
+  ],
+  "description": "Accesorios"
 }

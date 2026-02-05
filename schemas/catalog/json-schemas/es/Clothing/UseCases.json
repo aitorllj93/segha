@@ -12,7 +12,11 @@
       "Trabajo",
       "Evento",
       "Viaje",
-      "Casa"
+      "Casa",
+      "Fiesta",
+      "Playa",
+      "Lluvia",
+      "Frío Extremo"
     ]
   }
 }

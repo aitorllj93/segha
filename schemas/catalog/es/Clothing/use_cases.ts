@@ -9,6 +9,10 @@ export const UseCase = z.enum([
   'Evento',
   'Viaje',
   'Casa',
+  'Fiesta',
+  'Playa',
+  'Lluvia',
+  'Frío Extremo',
 ])
 
 export const UseCases = z.array(UseCase)

@@ -2,7 +2,9 @@ import z from "zod";
 
 export const Fit = z.enum([
   'Entallado',
+  'Ajustado',
   'Regular',
   'Relajado',
-  'Oversize',
+  'Holgado',
+  'Extragrande',
 ]).optional().describe('Ajuste');

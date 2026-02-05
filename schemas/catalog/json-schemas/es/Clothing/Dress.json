@@ -4,5 +4,6 @@
   "enum": [
     "Vestidos",
     "Monos"
-  ]
+  ],
+  "description": "Pieza única"
 }

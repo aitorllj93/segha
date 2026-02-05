@@ -12,7 +12,21 @@ export const Necks = z.enum([
   'Cuello Redondo',
   'Cuello Pico',
   'Cuello Alto',
-  'Cuello Camisa'
+  'Cuello Camisa',
+  'Cuello Polo',
+  'Cuello Panadero',
+  'Cuello Mao',
+  'Cuello Chimenea',
+  'Capucha',
+]);
+
+// Cierres
+export const Closures = z.enum([
+  'Botones',
+  'Cremallera',
+  'Velcro',
+  'Cordones',
+  'Broches',
 ]);
 
 // Cortes especiales
@@ -27,7 +41,8 @@ export const Pants = z.enum([
   'Pierna Recta',
   'Pitillo',
   'Ancha',
-  'Cargo'
+  'Cargo',
+  'Acampanado',
 ]);
 
 // Abrigos
@@ -37,12 +52,20 @@ export const Outerwear = z.enum([
   'Doble botonadura'
 ]);
 
+export const AdditionalFeatures = z.enum([
+  'Bolsillos',
+  'Sin Bolsillos',
+  'Reversible',
+]);
+
 export const Variant = z.enum([
   ...Sleeves.options,
   ...Necks.options,
   ...SpecialCuts.options,
   ...Pants.options,
   ...Outerwear.options,
+  ...Closures.options,
+  ...AdditionalFeatures.options,
 ]);
 
 export const Variants = z.array(Variant)

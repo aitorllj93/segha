@@ -4,6 +4,12 @@
   "enum": [
     "Denim",
     "Punto",
-    "Felpa"
+    "Felpa",
+    "Tweed",
+    "Satén",
+    "Terciopelo",
+    "Jacquard",
+    "Franela",
+    "Gabardina"
   ]
 }

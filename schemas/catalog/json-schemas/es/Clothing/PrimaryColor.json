@@ -18,7 +18,10 @@
     "Camel",
     "Caqui",
     "Marino",
-    "Crema"
+    "Crema",
+    "Oro",
+    "Plata",
+    "Bronce"
   ],
   "description": "Color principal"
 }

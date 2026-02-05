@@ -25,9 +25,16 @@ export const SpecialColor = z.enum([
   'Crema'
 ]);
 
+export const MetallicColor = z.enum([
+  'Oro',
+  'Plata',
+  'Bronce',
+]);
+
 export const Color = z.enum([
   ...BaseColor.options,
   ...SpecialColor.options,
+  ...MetallicColor.options,
 ]);
 
 export const PrimaryColor = Color.describe('Color principal');
@@ -37,4 +44,11 @@ export const Pattern = z.enum([
   'Liso',
   'Rayas',
   'Cuadros',
+  'Lunares',
+  'Animal Print',
+  'Floral',
+  'Geométrico',
+  'Camuflaje',
+  'EstampadoGráfico',
+  'Degradado'
 ]).optional().describe('Estampado');
