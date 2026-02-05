@@ -15,6 +15,24 @@
   ],
   "author": "Aitor Llamas Jiménez <aitorllj93@gmail.com>",
   "homepage": "https://github.com/aitorllj93/segha",
+  "funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/aitorllj93"
+		},
+		{
+			"type": "ko_fi",
+			"url": "https://ko-fi.com/aitorllj93"
+		},
+		{
+			"type": "buy_me_a_coffee",
+			"url": "https://buymeacoffee.com/aitorllj93"
+		},
+		{
+			"type": "individual",
+			"url": "https://www.paypal.com/paypalme/aitorllj93"
+		}
+	],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aitorllj93/segha.git",
