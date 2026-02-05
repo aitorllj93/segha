@@ -5,23 +5,34 @@ Schemas for Petroglyph Catalog
 ## Installation
 
 ```bash
-npm install @segha/catalog
-```
-
-or
-
-```bash
 pnpm add @segha/catalog
 ```
 
 ## Usage
 
 ```typescript
-import { /* schemas */ } from '@segha/catalog';
+import { CatalogClothingSchema, ClothingSchema, DetailedClothingSchema, ... } from '@segha/catalog';
 
-// Example: Validate data with a schema
-// const result = YourSchema.parse(data);
+// Validate data
+const result = ClothingSchema.parse(data);
+
+// Infer TypeScript types
+type Clothing = z.infer<typeof ClothingSchema>;
 ```
+
+You can also import specific submodules:
+
+```typescript
+import { ... } from '@segha/catalog/es';
+import { ... } from '@segha/catalog/es/clothing';
+```
+
+### Schemas
+
+- [CatalogClothing](#catalogclothing)
+- [Clothing](#clothing)
+- [DetailedClothing](#detailedclothing)
+- [MetaClothing](#metaclothing)
 
 ## API Reference
 

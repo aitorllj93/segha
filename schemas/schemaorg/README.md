@@ -5,23 +5,32 @@ Schemas for Schema.org
 ## Installation
 
 ```bash
-npm install @segha/schemaorg
-```
-
-or
-
-```bash
 pnpm add @segha/schemaorg
 ```
 
 ## Usage
 
 ```typescript
-import { /* schemas */ } from '@segha/schemaorg';
+import { TextSchema, ThingSchema, URLSchema } from '@segha/schemaorg';
 
-// Example: Validate data with a schema
-// const result = YourSchema.parse(data);
+// Validate data
+const result = ThingSchema.parse(data);
+
+// Infer TypeScript types
+type Thing = z.infer<typeof ThingSchema>;
 ```
+
+You can also import specific submodules:
+
+```typescript
+import { ... } from '@segha/schemaorg/thing';
+```
+
+### Schemas
+
+- [Text](#text)
+- [Thing](#thing)
+- [URL](#url)
 
 ## API Reference
 
