@@ -12,7 +12,7 @@
     "zod",
     "obsidianmd"
   ],
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Aitor Llamas Jiménez <aitorllj93@gmail.com>",
   "homepage": "https://github.com/aitorllj93/segha",
   "repository": {

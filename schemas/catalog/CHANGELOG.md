@@ -5,6 +5,17 @@ All notable changes to @segha/catalog will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-02-06
+
+### Added
+
+- Schema `CatalogWikipediaSchema` was added
+- Schema `DetailedWikipediaSchema` was added
+- Schema `MetaWikipediaSchema` was added
+- Schema `WikipediaSchema` was added
+- **BREAKING** Property `status` in `ClothingSchema` changed from required to optional
+- **BREAKING** Property `status` in `DetailedClothingSchema` changed from required to optional
+
 ## [2.1.0] - 2026-02-05
 
 ### Added

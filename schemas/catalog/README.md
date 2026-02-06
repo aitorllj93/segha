@@ -41,17 +41,21 @@ import { MetaClothingSchema, CatalogClothingSchema, DetailedClothingSchema } fro
 - [CatalogBook](#catalogbook)
 - [CatalogClothing](#catalogclothing)
 - [CatalogMovie](#catalogmovie)
+- [CatalogWikipedia](#catalogwikipedia)
 - [Clothing](#clothing)
 - [DetailedArticle](#detailedarticle)
 - [DetailedBook](#detailedbook)
 - [DetailedClothing](#detailedclothing)
 - [DetailedMovie](#detailedmovie)
+- [DetailedWikipedia](#detailedwikipedia)
 - [MetaArticle](#metaarticle)
 - [MetaBook](#metabook)
 - [MetaClothing](#metaclothing)
 - [MetaMovie](#metamovie)
+- [MetaWikipedia](#metawikipedia)
 - [Movie](#movie)
 - [Note](#note)
+- [Wikipedia](#wikipedia)
 
 ## API Reference
 
@@ -188,6 +192,22 @@ _Object containing the following properties:_
 
 _(\*) Required._
 
+## CatalogWikipedia
+
+Wikipedia entry: Data obtainable from cataloging
+
+_Object containing the following properties:_
+
+| Property          | Description                  | Type            |
+| :---------------- | :--------------------------- | :-------------- |
+| **`title`** (\*)  | Title of the Wikipedia entry | `string`        |
+| `description`     | Description                  | `string`        |
+| `excerpt`         | Extract of the article       | `string`        |
+| **`author`** (\*) | Authors                      | `Array<string>` |
+| `published`       | Year of publication          | `string`        |
+
+_(\*) Required._
+
 ## Clothing
 
 Clothing item
@@ -287,6 +307,21 @@ _Object containing the following properties:_
 
 _(\*) Required._
 
+## DetailedWikipedia
+
+Wikipedia entry: Additional data
+
+_Object containing the following properties:_
+
+| Property            | Description           | Type                                                     |
+| :------------------ | :-------------------- | :------------------------------------------------------- |
+| **`status`** (\*)   | Reading status        | `'Pending' \| 'In Progress' \| 'Read' \| 'Consolidated'` |
+| **`projects`** (\*) | Projects              | `Array<string>`                                          |
+| **`topics`** (\*)   | Topics                | `Array<string>`                                          |
+| **`rating`** (\*)   | Rating of the article | `number`                                                 |
+
+_(\*) Required._
+
 ## MetaArticle
 
 Article: Metadata of Note
@@ -360,6 +395,25 @@ _Object containing the following properties:_
 
 _(\*) Required._
 
+## MetaWikipedia
+
+Wikipedia entry: Metadata of Note
+
+_Object containing the following properties:_
+
+| Property            | Description        | Type                         | Default       |
+| :------------------ | :----------------- | :--------------------------- | :------------ |
+| **`type`** (\*)     |                    | `'[[Sources]]'`              |               |
+| **`format`** (\*)   |                    | `'[[Encyclopedia Entries]]'` |               |
+| **`areas`** (\*)    |                    | `Array<'[[Knowledge]]'>`     |               |
+| **`color`** (\*)    |                    | `'#3171B2'`                  |               |
+| `icon`              | Lucide icon.       | `string`                     | `'wikipedia'` |
+| `banner`            |                    | `string`                     |               |
+| **`url`** (\*)      | URL of the article | `string`                     |               |
+| **`platform`** (\*) |                    | `'Wikipedia'`                |               |
+
+_(\*) Required._
+
 ## Movie
 
 Movie
@@ -401,3 +455,32 @@ _Union of the following possible types:_
 - [Book](#book)
 - [Clothing](#clothing)
 - [Movie](#movie)
+- [Wikipedia](#wikipedia)
+
+## Wikipedia
+
+Wikipedia entry
+
+_Object containing the following properties:_
+
+| Property            | Description                  | Type                                                     | Default       |
+| :------------------ | :--------------------------- | :------------------------------------------------------- | :------------ |
+| **`title`** (\*)    | Title of the Wikipedia entry | `string`                                                 |               |
+| `description`       | Description                  | `string`                                                 |               |
+| `excerpt`           | Extract of the article       | `string`                                                 |               |
+| **`author`** (\*)   | Authors                      | `Array<string>`                                          |               |
+| `published`         | Year of publication          | `string`                                                 |               |
+| **`status`** (\*)   | Reading status               | `'Pending' \| 'In Progress' \| 'Read' \| 'Consolidated'` |               |
+| **`projects`** (\*) | Projects                     | `Array<string>`                                          |               |
+| **`topics`** (\*)   | Topics                       | `Array<string>`                                          |               |
+| **`rating`** (\*)   | Rating of the article        | `number`                                                 |               |
+| **`type`** (\*)     |                              | `'[[Sources]]'`                                          |               |
+| **`format`** (\*)   |                              | `'[[Encyclopedia Entries]]'`                             |               |
+| **`areas`** (\*)    |                              | `Array<'[[Knowledge]]'>`                                 |               |
+| **`color`** (\*)    |                              | `'#3171B2'`                                              |               |
+| `icon`              | Lucide icon.                 | `string`                                                 | `'wikipedia'` |
+| `banner`            |                              | `string`                                                 |               |
+| **`url`** (\*)      | URL of the article           | `string`                                                 |               |
+| **`platform`** (\*) |                              | `'Wikipedia'`                                            |               |
+
+_(\*) Required._
