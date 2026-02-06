@@ -13,37 +13,31 @@
       "description": "Estado de lectura"
     },
     "topics": {
+      "description": "Temas",
       "type": "array",
       "items": {
         "type": "string"
-      },
-      "description": "Temas"
+      }
     },
     "rating": {
-      "type": "number",
-      "description": "Puntuación del libro"
+      "description": "Puntuación del libro",
+      "type": "number"
     },
     "online_rating": {
-      "type": "number",
-      "description": "Puntuación en línea"
+      "description": "Puntuación en línea",
+      "type": "number"
     },
     "last_time_read": {
-      "type": "string",
-      "description": "Última vez leído"
+      "description": "Última vez leído",
+      "type": "string"
     },
     "times_read": {
-      "type": "number",
-      "description": "Veces leído"
+      "description": "Veces leído",
+      "type": "number"
     }
   },
   "required": [
-    "status",
-    "topics",
-    "rating",
-    "online_rating",
-    "last_time_read",
-    "times_read"
+    "status"
   ],
-  "additionalProperties": false,
   "description": "Libro: Datos adicionales"
 }

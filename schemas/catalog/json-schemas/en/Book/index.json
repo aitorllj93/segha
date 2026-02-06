@@ -124,7 +124,6 @@
         "url",
         "read_url"
       ],
-      "additionalProperties": false,
       "description": "Book"
     },
     "CatalogBookSchema": {
@@ -168,7 +167,6 @@
         "published",
         "categories"
       ],
-      "additionalProperties": false,
       "description": "Book: Data obtained from catalogation"
     },
     "DetailedBookSchema": {
@@ -217,7 +215,6 @@
         "last_time_read",
         "times_read"
       ],
-      "additionalProperties": false,
       "description": "Book: Additional data"
     },
     "MetaBookSchema": {
@@ -268,7 +265,6 @@
         "url",
         "read_url"
       ],
-      "additionalProperties": false,
       "description": "Book: Metadata of Note"
     }
   }

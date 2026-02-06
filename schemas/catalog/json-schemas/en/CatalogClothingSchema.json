@@ -287,6 +287,5 @@
     "primary_color",
     "layer"
   ],
-  "additionalProperties": false,
   "description": "Clothing item: Catalogable data"
 }

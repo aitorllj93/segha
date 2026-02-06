@@ -14,14 +14,15 @@ import { Slot } from "./Slot";
 import { Status } from "./Status";
 import { UseCases } from "./UseCases";
 import { Variants } from "./Variants";
+import { Areas } from "../Areas";
 
 export const MetaClothingSchema = z.object({
   type: z.literal("[[Recursos]]"),
   subtype: z.literal("[[Prendas]]"),
-  areas: z.array(z.literal("[[Hogar]]")),
-  color: z.literal("#CB6120"),
-  icon: z.literal("shirt"),
-  cover: z.string().optional(),
+  areas: Areas.default(["[[Hogar]]"]),
+  color: z.string().optional().default("#CB6120").describe('Color de la nota.'),
+  icon: z.string().optional().default('shirt').describe('Icono de Lucide.'),
+  cover: z.string().optional().describe('Foto de la prenda de ropa.'),
 }).describe('Prenda de ropa: Metadatos de Nota');
 
 export const CatalogClothingSchema = z.object({

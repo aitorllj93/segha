@@ -119,6 +119,5 @@
     "url",
     "read_url"
   ],
-  "additionalProperties": false,
   "description": "Book"
 }

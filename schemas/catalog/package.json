@@ -62,9 +62,9 @@
     "zod": "catalog:"
   },
   "devDependencies": {
+    "tsx": "catalog:",
     "zod": "catalog:",
-    "zod2md": "catalog:",
-    "tsx": "catalog:"
+    "zod2md": "catalog:"
   },
   "publishConfig": {
     "access": "public"

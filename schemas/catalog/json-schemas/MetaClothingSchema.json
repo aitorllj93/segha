@@ -36,6 +36,5 @@
     "color",
     "icon"
   ],
-  "additionalProperties": false,
   "description": "Clothing item: Note metadata"
 }

@@ -22,23 +22,27 @@
       "description": "Autores"
     },
     "published": {
-      "type": "string",
-      "description": "Año de publicación"
+      "description": "Año de publicación",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        }
+      ]
     },
     "categories": {
+      "description": "Géneros",
       "type": "array",
       "items": {
         "type": "string"
-      },
-      "description": "Géneros"
+      }
     }
   },
   "required": [
     "title",
-    "author",
-    "published",
-    "categories"
+    "author"
   ],
-  "additionalProperties": false,
   "description": "Libro: Datos obtenibles de catalogación"
 }

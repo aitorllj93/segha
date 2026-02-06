@@ -41,6 +41,5 @@
     "icon",
     "url"
   ],
-  "additionalProperties": false,
   "description": "Article: Metadata of Note"
 }

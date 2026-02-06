@@ -7,43 +7,44 @@
       "description": "Título de la película"
     },
     "description": {
-      "type": "string",
-      "description": "Descripción de la película"
+      "description": "Descripción de la película",
+      "type": "string"
     },
     "author": {
+      "description": "Autores. Guionistas, directores, productores, etc.",
       "type": "array",
       "items": {
         "type": "string"
-      },
-      "description": "Autores. Guionistas, directores, productores, etc."
+      }
     },
     "actors": {
+      "description": "Actores",
       "type": "array",
       "items": {
         "type": "string"
-      },
-      "description": "Actores"
+      }
     },
     "published": {
-      "type": "string",
-      "description": "Año de publicación"
+      "description": "Año de publicación",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        }
+      ]
     },
     "genres": {
+      "description": "Géneros",
       "type": "array",
       "items": {
         "type": "string"
-      },
-      "description": "Géneros"
+      }
     }
   },
   "required": [
-    "title",
-    "description",
-    "author",
-    "actors",
-    "published",
-    "genres"
+    "title"
   ],
-  "additionalProperties": false,
   "description": "Película: Datos obtenibles de catalogación"
 }

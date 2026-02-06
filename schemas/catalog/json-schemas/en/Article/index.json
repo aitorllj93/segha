@@ -103,7 +103,6 @@
         "icon",
         "url"
       ],
-      "additionalProperties": false,
       "description": "Article"
     },
     "CatalogArticleSchema": {
@@ -138,7 +137,6 @@
         "title",
         "author"
       ],
-      "additionalProperties": false,
       "description": "Article: Data obtained from catalogation"
     },
     "DetailedArticleSchema": {
@@ -180,7 +178,6 @@
         "topics",
         "rating"
       ],
-      "additionalProperties": false,
       "description": "Article: Additional data"
     },
     "MetaArticleSchema": {
@@ -226,7 +223,6 @@
         "icon",
         "url"
       ],
-      "additionalProperties": false,
       "description": "Article: Metadata of Note"
     }
   }

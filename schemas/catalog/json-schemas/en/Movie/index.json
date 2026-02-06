@@ -49,7 +49,6 @@
         "published",
         "genres"
       ],
-      "additionalProperties": false,
       "description": "Movie: Data obtained from catalogation"
     },
     "DetailedMovieSchema": {
@@ -97,7 +96,6 @@
         "last_time_watched",
         "times_watched"
       ],
-      "additionalProperties": false,
       "description": "Movie: Additional data"
     },
     "MetaMovieSchema": {
@@ -148,7 +146,6 @@
         "url",
         "watch_url"
       ],
-      "additionalProperties": false,
       "description": "Movie: Metadata of Note"
     },
     "MovieSchema": {
@@ -276,7 +273,6 @@
         "url",
         "watch_url"
       ],
-      "additionalProperties": false,
       "description": "Movie"
     }
   }

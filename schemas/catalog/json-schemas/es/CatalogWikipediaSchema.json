@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Título de la entrada de Wikipedia"
+    },
+    "description": {
+      "description": "Descripción",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "excerpt": {
+      "description": "Extracto del artículo",
+      "type": "string"
+    },
+    "author": {
+      "description": "Autores",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "published": {
+      "description": "Año de publicación",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        }
+      ]
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "description": "Entrada de Wikipedia: Datos obtenibles de catalogación"
+}

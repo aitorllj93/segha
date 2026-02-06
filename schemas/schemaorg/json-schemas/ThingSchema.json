@@ -145,6 +145,5 @@
       ]
     }
   },
-  "additionalProperties": false,
   "description": "The most generic type of item."
 }

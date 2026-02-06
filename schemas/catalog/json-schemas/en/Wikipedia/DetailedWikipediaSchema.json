@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "Pending",
+        "In Progress",
+        "Read",
+        "Consolidated"
+      ],
+      "description": "Reading status"
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Projects"
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Topics"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Rating of the article"
+    }
+  },
+  "required": [
+    "status",
+    "projects",
+    "topics",
+    "rating"
+  ],
+  "description": "Wikipedia entry: Additional data"
+}

@@ -43,6 +43,5 @@
     "last_time_watched",
     "times_watched"
   ],
-  "additionalProperties": false,
   "description": "Movie: Additional data"
 }

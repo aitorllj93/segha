@@ -1,0 +1,309 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "@segha/catalog/es/Youtube",
+  "description": "Schemas for Petroglyph Catalog",
+  "$defs": {
+    "CatalogYoutubeSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Título del vídeo de YouTube"
+        },
+        "description": {
+          "description": "Descripción",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "excerpt": {
+          "description": "Extracto del artículo",
+          "type": "string"
+        },
+        "author": {
+          "description": "Autores",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "published": {
+          "description": "Año de publicación",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "description": "Vídeo de YouTube: Datos obtenibles de catalogación"
+    },
+    "DetailedYoutubeSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "Pendiente",
+            "En progreso",
+            "Visto"
+          ],
+          "description": "Estado de visualización"
+        },
+        "projects": {
+          "description": "Proyectos",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "topics": {
+          "description": "Temas",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rating": {
+          "description": "Puntuación del artículo",
+          "type": "number"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "description": "Vídeo de YouTube: Datos adicionales"
+    },
+    "MetaYoutubeSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "[[Fuentes]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Vídeos]]"
+        },
+        "areas": {
+          "default": [
+            "[[Conocimiento]]"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "[[Alimentación]]",
+              "[[Salud]]",
+              "[[Conocimiento]]",
+              "[[Pensamiento Estructurado]]",
+              "[[Hogar]]",
+              "[[Productividad]]",
+              "[[Exploración]]",
+              "[[Vínculos]]",
+              "[[Ejercicio]]",
+              "[[Energía Vital]]",
+              "[[Trabajo]]",
+              "[[Finanzas]]",
+              "[[Salud Mental]]",
+              "[[Creatividad]]"
+            ],
+            "description": "Área"
+          },
+          "description": "Áreas"
+        },
+        "color": {
+          "default": "#3171B2",
+          "description": "Color de la nota.",
+          "type": "string"
+        },
+        "icon": {
+          "default": "youtube",
+          "description": "Icono de Lucide.",
+          "type": "string"
+        },
+        "banner": {
+          "description": "Banner de la nota.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "url": {
+          "description": "URL del artículo",
+          "type": "string"
+        },
+        "platform": {
+          "type": "string",
+          "const": "YouTube"
+        }
+      },
+      "required": [
+        "type",
+        "format",
+        "platform"
+      ],
+      "description": "Vídeo de YouTube: Metadatos de Nota"
+    },
+    "YoutubeSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Título del vídeo de YouTube"
+        },
+        "description": {
+          "description": "Descripción",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "excerpt": {
+          "description": "Extracto del artículo",
+          "type": "string"
+        },
+        "author": {
+          "description": "Autores",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "published": {
+          "description": "Año de publicación",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Pendiente",
+            "En progreso",
+            "Visto"
+          ],
+          "description": "Estado de visualización"
+        },
+        "projects": {
+          "description": "Proyectos",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "topics": {
+          "description": "Temas",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rating": {
+          "description": "Puntuación del artículo",
+          "type": "number"
+        },
+        "type": {
+          "type": "string",
+          "const": "[[Fuentes]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Vídeos]]"
+        },
+        "areas": {
+          "default": [
+            "[[Conocimiento]]"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "[[Alimentación]]",
+              "[[Salud]]",
+              "[[Conocimiento]]",
+              "[[Pensamiento Estructurado]]",
+              "[[Hogar]]",
+              "[[Productividad]]",
+              "[[Exploración]]",
+              "[[Vínculos]]",
+              "[[Ejercicio]]",
+              "[[Energía Vital]]",
+              "[[Trabajo]]",
+              "[[Finanzas]]",
+              "[[Salud Mental]]",
+              "[[Creatividad]]"
+            ],
+            "description": "Área"
+          },
+          "description": "Áreas"
+        },
+        "color": {
+          "default": "#3171B2",
+          "description": "Color de la nota.",
+          "type": "string"
+        },
+        "icon": {
+          "default": "youtube",
+          "description": "Icono de Lucide.",
+          "type": "string"
+        },
+        "banner": {
+          "description": "Banner de la nota.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "url": {
+          "description": "URL del artículo",
+          "type": "string"
+        },
+        "platform": {
+          "type": "string",
+          "const": "YouTube"
+        }
+      },
+      "required": [
+        "title",
+        "status",
+        "type",
+        "format",
+        "platform"
+      ],
+      "description": "Vídeo de YouTube"
+    }
+  }
+}

@@ -67,9 +67,7 @@
     }
   },
   "required": [
-    "status",
     "size"
   ],
-  "additionalProperties": false,
   "description": "Clothing item: Additional hard-to-obtain data"
 }

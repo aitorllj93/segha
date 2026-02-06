@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "collection": {
+      "description": "Colección",
+      "type": "string"
+    },
+    "position": {
+      "description": "Posición en la colección",
+      "type": "string"
+    },
+    "projects": {
+      "description": "Proyectos",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "topics": {
+      "description": "Temas",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rating": {
+      "description": "Puntuación del artículo",
+      "type": "number"
+    }
+  },
+  "description": "Pintura: Datos adicionales"
+}

@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "@segha/catalog/es/Painting",
+  "description": "Schemas for Petroglyph Catalog",
+  "$defs": {
+    "CatalogPaintingSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "Título de la pintura",
+          "type": "string"
+        },
+        "description": {
+          "description": "Descripción",
+          "type": "string"
+        },
+        "author": {
+          "description": "Autores",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "published": {
+          "description": "Año de publicación",
+          "type": "string"
+        }
+      },
+      "description": "Pintura: Datos obtenibles de catalogación"
+    },
+    "DetailedPaintingSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "collection": {
+          "description": "Colección",
+          "type": "string"
+        },
+        "position": {
+          "description": "Posición en la colección",
+          "type": "string"
+        },
+        "projects": {
+          "description": "Proyectos",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "topics": {
+          "description": "Temas",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rating": {
+          "description": "Puntuación del artículo",
+          "type": "number"
+        }
+      },
+      "description": "Pintura: Datos adicionales"
+    },
+    "MetaPaintingSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "[[Fuentes]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Pinturas]]"
+        },
+        "areas": {
+          "default": [
+            "[[Creatividad]]"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "[[Alimentación]]",
+              "[[Salud]]",
+              "[[Conocimiento]]",
+              "[[Pensamiento Estructurado]]",
+              "[[Hogar]]",
+              "[[Productividad]]",
+              "[[Exploración]]",
+              "[[Vínculos]]",
+              "[[Ejercicio]]",
+              "[[Energía Vital]]",
+              "[[Trabajo]]",
+              "[[Finanzas]]",
+              "[[Salud Mental]]",
+              "[[Creatividad]]"
+            ],
+            "description": "Área"
+          },
+          "description": "Áreas"
+        },
+        "color": {
+          "default": "#BE9207",
+          "description": "Color de la nota.",
+          "type": "string"
+        },
+        "icon": {
+          "default": "frame",
+          "description": "Icono de Lucide.",
+          "type": "string"
+        },
+        "cover": {
+          "type": "string",
+          "description": "Imagen de la pintura."
+        }
+      },
+      "required": [
+        "type",
+        "format",
+        "cover"
+      ],
+      "description": "Pintura: Metadatos de Nota"
+    },
+    "PaintingSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "Título de la pintura",
+          "type": "string"
+        },
+        "description": {
+          "description": "Descripción",
+          "type": "string"
+        },
+        "author": {
+          "description": "Autores",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "published": {
+          "description": "Año de publicación",
+          "type": "string"
+        },
+        "collection": {
+          "description": "Colección",
+          "type": "string"
+        },
+        "position": {
+          "description": "Posición en la colección",
+          "type": "string"
+        },
+        "projects": {
+          "description": "Proyectos",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "topics": {
+          "description": "Temas",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rating": {
+          "description": "Puntuación del artículo",
+          "type": "number"
+        },
+        "type": {
+          "type": "string",
+          "const": "[[Fuentes]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Pinturas]]"
+        },
+        "areas": {
+          "default": [
+            "[[Creatividad]]"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "[[Alimentación]]",
+              "[[Salud]]",
+              "[[Conocimiento]]",
+              "[[Pensamiento Estructurado]]",
+              "[[Hogar]]",
+              "[[Productividad]]",
+              "[[Exploración]]",
+              "[[Vínculos]]",
+              "[[Ejercicio]]",
+              "[[Energía Vital]]",
+              "[[Trabajo]]",
+              "[[Finanzas]]",
+              "[[Salud Mental]]",
+              "[[Creatividad]]"
+            ],
+            "description": "Área"
+          },
+          "description": "Áreas"
+        },
+        "color": {
+          "default": "#BE9207",
+          "description": "Color de la nota.",
+          "type": "string"
+        },
+        "icon": {
+          "default": "frame",
+          "description": "Icono de Lucide.",
+          "type": "string"
+        },
+        "cover": {
+          "type": "string",
+          "description": "Imagen de la pintura."
+        }
+      },
+      "required": [
+        "type",
+        "format",
+        "cover"
+      ],
+      "description": "Pintura"
+    }
+  }
+}

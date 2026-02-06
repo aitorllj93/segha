@@ -39,6 +39,5 @@
     "published",
     "categories"
   ],
-  "additionalProperties": false,
   "description": "Book: Data obtained from catalogation"
 }

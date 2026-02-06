@@ -46,6 +46,5 @@
     "url",
     "watch_url"
   ],
-  "additionalProperties": false,
   "description": "Movie: Metadata of Note"
 }

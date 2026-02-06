@@ -7,65 +7,79 @@
       "description": "Título de la película"
     },
     "description": {
-      "type": "string",
-      "description": "Descripción de la película"
+      "description": "Descripción de la película",
+      "type": "string"
     },
     "author": {
+      "description": "Autores. Guionistas, directores, productores, etc.",
       "type": "array",
       "items": {
         "type": "string"
-      },
-      "description": "Autores. Guionistas, directores, productores, etc."
+      }
     },
     "actors": {
+      "description": "Actores",
       "type": "array",
       "items": {
         "type": "string"
-      },
-      "description": "Actores"
+      }
     },
     "published": {
-      "type": "string",
-      "description": "Año de publicación"
+      "description": "Año de publicación",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        }
+      ]
     },
     "genres": {
+      "description": "Géneros",
       "type": "array",
       "items": {
         "type": "string"
-      },
-      "description": "Géneros"
+      }
     },
     "status": {
       "type": "string",
       "enum": [
         "Pendiente",
         "En progreso",
-        "Completado"
+        "Visto"
       ],
       "description": "Estado de visualización"
     },
     "topics": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "description": "Temas"
+      "description": "Temas",
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "rating": {
-      "type": "number",
-      "description": "Puntuación de la película"
+      "description": "Puntuación de la película",
+      "type": "number"
     },
     "online_rating": {
-      "type": "number",
-      "description": "Puntuación en línea"
+      "description": "Puntuación en línea",
+      "type": "number"
     },
     "last_time_watched": {
-      "type": "string",
-      "description": "Última vez vista"
+      "description": "Última vez vista",
+      "type": "string"
     },
     "times_watched": {
-      "type": "number",
-      "description": "Veces vista"
+      "description": "Veces vista",
+      "type": "number"
     },
     "type": {
       "type": "string",
@@ -76,21 +90,44 @@
       "const": "[[Películas]]"
     },
     "areas": {
+      "default": [
+        "[[Creatividad]]"
+      ],
       "type": "array",
       "items": {
         "type": "string",
-        "const": "[[Creatividad]]"
-      }
+        "enum": [
+          "[[Alimentación]]",
+          "[[Salud]]",
+          "[[Conocimiento]]",
+          "[[Pensamiento Estructurado]]",
+          "[[Hogar]]",
+          "[[Productividad]]",
+          "[[Exploración]]",
+          "[[Vínculos]]",
+          "[[Ejercicio]]",
+          "[[Energía Vital]]",
+          "[[Trabajo]]",
+          "[[Finanzas]]",
+          "[[Salud Mental]]",
+          "[[Creatividad]]"
+        ],
+        "description": "Área"
+      },
+      "description": "Áreas"
     },
     "color": {
-      "type": "string",
-      "const": "#BE9207"
+      "default": "#BE9207",
+      "description": "Color de la nota.",
+      "type": "string"
     },
     "icon": {
-      "type": "string",
-      "const": "movie"
+      "default": "movie",
+      "description": "Icono de Lucide.",
+      "type": "string"
     },
     "cover": {
+      "description": "Portada de la película.",
       "type": "string"
     },
     "url": {
@@ -98,31 +135,16 @@
       "description": "URL de la película en IMDB o similar"
     },
     "watch_url": {
-      "type": "string",
-      "description": "URL de la película en streaming"
+      "description": "URL de la película en streaming",
+      "type": "string"
     }
   },
   "required": [
     "title",
-    "description",
-    "author",
-    "actors",
-    "published",
-    "genres",
     "status",
-    "topics",
-    "rating",
-    "online_rating",
-    "last_time_watched",
-    "times_watched",
     "type",
     "format",
-    "areas",
-    "color",
-    "icon",
-    "url",
-    "watch_url"
+    "url"
   ],
-  "additionalProperties": false,
   "description": "Película"
 }

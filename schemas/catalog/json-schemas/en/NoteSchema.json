@@ -100,7 +100,6 @@
         "icon",
         "url"
       ],
-      "additionalProperties": false,
       "description": "Article"
     },
     {
@@ -223,7 +222,6 @@
         "url",
         "read_url"
       ],
-      "additionalProperties": false,
       "description": "Book"
     },
     {
@@ -602,7 +600,6 @@
         "slot",
         "primary_color",
         "layer",
-        "status",
         "size",
         "type",
         "subtype",
@@ -610,7 +607,6 @@
         "color",
         "icon"
       ],
-      "additionalProperties": false,
       "description": "Clothing item"
     },
     {
@@ -737,8 +733,113 @@
         "url",
         "watch_url"
       ],
-      "additionalProperties": false,
       "description": "Movie"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of the Wikipedia entry"
+        },
+        "description": {
+          "description": "Description",
+          "type": "string"
+        },
+        "excerpt": {
+          "description": "Extract of the article",
+          "type": "string"
+        },
+        "author": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Authors"
+        },
+        "published": {
+          "description": "Year of publication",
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Pending",
+            "In Progress",
+            "Read",
+            "Consolidated"
+          ],
+          "description": "Reading status"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Projects"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Topics"
+        },
+        "rating": {
+          "type": "number",
+          "description": "Rating of the article"
+        },
+        "type": {
+          "type": "string",
+          "const": "[[Sources]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Encyclopedia Entries]]"
+        },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "const": "[[Knowledge]]"
+          }
+        },
+        "color": {
+          "type": "string",
+          "const": "#3171B2"
+        },
+        "icon": {
+          "default": "wikipedia",
+          "description": "Lucide icon.",
+          "type": "string"
+        },
+        "banner": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL of the article"
+        },
+        "platform": {
+          "type": "string",
+          "const": "Wikipedia"
+        }
+      },
+      "required": [
+        "title",
+        "author",
+        "status",
+        "projects",
+        "topics",
+        "rating",
+        "type",
+        "format",
+        "areas",
+        "color",
+        "url",
+        "platform"
+      ],
+      "description": "Wikipedia entry"
     }
   ],
   "description": "Note: Union of all note types"

@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Título de la entrada de Wikipedia"
+    },
+    "description": {
+      "description": "Descripción",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "excerpt": {
+      "description": "Extracto del artículo",
+      "type": "string"
+    },
+    "author": {
+      "description": "Autores",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "published": {
+      "description": "Año de publicación",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        }
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Pendiente",
+        "En Proceso",
+        "Leído",
+        "Consolidado"
+      ],
+      "description": "Estado de lectura"
+    },
+    "projects": {
+      "description": "Proyectos",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "topics": {
+      "description": "Temas",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rating": {
+      "description": "Puntuación del artículo",
+      "type": "number"
+    },
+    "type": {
+      "type": "string",
+      "const": "[[Fuentes]]"
+    },
+    "format": {
+      "type": "string",
+      "const": "[[Entradas de Enciclopedia]]"
+    },
+    "areas": {
+      "default": [
+        "[[Conocimiento]]"
+      ],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "[[Alimentación]]",
+          "[[Salud]]",
+          "[[Conocimiento]]",
+          "[[Pensamiento Estructurado]]",
+          "[[Hogar]]",
+          "[[Productividad]]",
+          "[[Exploración]]",
+          "[[Vínculos]]",
+          "[[Ejercicio]]",
+          "[[Energía Vital]]",
+          "[[Trabajo]]",
+          "[[Finanzas]]",
+          "[[Salud Mental]]",
+          "[[Creatividad]]"
+        ],
+        "description": "Área"
+      },
+      "description": "Áreas"
+    },
+    "color": {
+      "default": "#3171B2",
+      "description": "Color de la nota.",
+      "type": "string"
+    },
+    "icon": {
+      "default": "wikipedia",
+      "description": "Icono de Lucide.",
+      "type": "string"
+    },
+    "banner": {
+      "description": "Banner de la nota.",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "url": {
+      "description": "URL del artículo",
+      "type": "string"
+    },
+    "platform": {
+      "type": "string",
+      "const": "Wikipedia"
+    }
+  },
+  "required": [
+    "title",
+    "status",
+    "type",
+    "format",
+    "platform"
+  ],
+  "description": "Entrada de Wikipedia"
+}

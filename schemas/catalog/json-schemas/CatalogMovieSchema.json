@@ -44,6 +44,5 @@
     "published",
     "genres"
   ],
-  "additionalProperties": false,
   "description": "Movie: Data obtained from catalogation"
 }

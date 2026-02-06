@@ -13,22 +13,36 @@
         },
         "description": {
           "description": "Descripción",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "excerpt": {
           "description": "Extracto del artículo",
           "type": "string"
         },
         "author": {
+          "description": "Autores",
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "description": "Autores"
+          }
         },
         "published": {
           "description": "Año de publicación",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ]
         },
         "status": {
           "type": "string",
@@ -41,22 +55,22 @@
           "description": "Estado de lectura"
         },
         "projects": {
+          "description": "Proyectos",
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "description": "Proyectos"
+          }
         },
         "topics": {
+          "description": "Temas",
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "description": "Temas"
+          }
         },
         "rating": {
-          "type": "number",
-          "description": "Puntuación del artículo"
+          "description": "Puntuación del artículo",
+          "type": "number"
         },
         "type": {
           "type": "string",
@@ -67,43 +81,64 @@
           "const": "[[Artículos]]"
         },
         "areas": {
+          "default": [
+            "[[Conocimiento]]"
+          ],
           "type": "array",
           "items": {
             "type": "string",
-            "const": "[[Conocimiento]]"
-          }
+            "enum": [
+              "[[Alimentación]]",
+              "[[Salud]]",
+              "[[Conocimiento]]",
+              "[[Pensamiento Estructurado]]",
+              "[[Hogar]]",
+              "[[Productividad]]",
+              "[[Exploración]]",
+              "[[Vínculos]]",
+              "[[Ejercicio]]",
+              "[[Energía Vital]]",
+              "[[Trabajo]]",
+              "[[Finanzas]]",
+              "[[Salud Mental]]",
+              "[[Creatividad]]"
+            ],
+            "description": "Área"
+          },
+          "description": "Áreas"
         },
         "color": {
-          "type": "string",
-          "const": "#3171B2"
-        },
-        "icon": {
-          "type": "string",
-          "const": "newspaper"
-        },
-        "banner": {
+          "default": "#3171B2",
+          "description": "Color de la nota.",
           "type": "string"
         },
+        "icon": {
+          "default": "newspaper",
+          "description": "Icono de Lucide.",
+          "type": "string"
+        },
+        "banner": {
+          "description": "Banner de la nota.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "url": {
-          "type": "string",
-          "description": "URL del artículo"
+          "description": "URL del artículo",
+          "type": "string"
         }
       },
       "required": [
         "title",
-        "author",
         "status",
-        "projects",
-        "topics",
-        "rating",
         "type",
-        "format",
-        "areas",
-        "color",
-        "icon",
-        "url"
+        "format"
       ],
-      "additionalProperties": false,
       "description": "Artículo"
     },
     "CatalogArticleSchema": {
@@ -116,29 +151,41 @@
         },
         "description": {
           "description": "Descripción",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "excerpt": {
           "description": "Extracto del artículo",
           "type": "string"
         },
         "author": {
+          "description": "Autores",
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "description": "Autores"
+          }
         },
         "published": {
           "description": "Año de publicación",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ]
         }
       },
       "required": [
-        "title",
-        "author"
+        "title"
       ],
-      "additionalProperties": false,
       "description": "Artículo: Datos obtenibles de catalogación"
     },
     "DetailedArticleSchema": {
@@ -156,31 +203,27 @@
           "description": "Estado de lectura"
         },
         "projects": {
+          "description": "Proyectos",
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "description": "Proyectos"
+          }
         },
         "topics": {
+          "description": "Temas",
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "description": "Temas"
+          }
         },
         "rating": {
-          "type": "number",
-          "description": "Puntuación del artículo"
+          "description": "Puntuación del artículo",
+          "type": "number"
         }
       },
       "required": [
-        "status",
-        "projects",
-        "topics",
-        "rating"
+        "status"
       ],
-      "additionalProperties": false,
       "description": "Artículo: Datos adicionales"
     },
     "MetaArticleSchema": {
@@ -196,37 +239,62 @@
           "const": "[[Artículos]]"
         },
         "areas": {
+          "default": [
+            "[[Conocimiento]]"
+          ],
           "type": "array",
           "items": {
             "type": "string",
-            "const": "[[Conocimiento]]"
-          }
+            "enum": [
+              "[[Alimentación]]",
+              "[[Salud]]",
+              "[[Conocimiento]]",
+              "[[Pensamiento Estructurado]]",
+              "[[Hogar]]",
+              "[[Productividad]]",
+              "[[Exploración]]",
+              "[[Vínculos]]",
+              "[[Ejercicio]]",
+              "[[Energía Vital]]",
+              "[[Trabajo]]",
+              "[[Finanzas]]",
+              "[[Salud Mental]]",
+              "[[Creatividad]]"
+            ],
+            "description": "Área"
+          },
+          "description": "Áreas"
         },
         "color": {
-          "type": "string",
-          "const": "#3171B2"
-        },
-        "icon": {
-          "type": "string",
-          "const": "newspaper"
-        },
-        "banner": {
+          "default": "#3171B2",
+          "description": "Color de la nota.",
           "type": "string"
         },
+        "icon": {
+          "default": "newspaper",
+          "description": "Icono de Lucide.",
+          "type": "string"
+        },
+        "banner": {
+          "description": "Banner de la nota.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "url": {
-          "type": "string",
-          "description": "URL del artículo"
+          "description": "URL del artículo",
+          "type": "string"
         }
       },
       "required": [
         "type",
-        "format",
-        "areas",
-        "color",
-        "icon",
-        "url"
+        "format"
       ],
-      "additionalProperties": false,
       "description": "Artículo: Metadatos de Nota"
     }
   }

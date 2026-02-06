@@ -27,15 +27,22 @@
           "description": "Autores"
         },
         "published": {
-          "type": "string",
-          "description": "Año de publicación"
+          "description": "Año de publicación",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ]
         },
         "categories": {
+          "description": "Géneros",
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "description": "Géneros"
+          }
         },
         "status": {
           "type": "string",
@@ -48,27 +55,27 @@
           "description": "Estado de lectura"
         },
         "topics": {
+          "description": "Temas",
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "description": "Temas"
+          }
         },
         "rating": {
-          "type": "number",
-          "description": "Puntuación del libro"
+          "description": "Puntuación del libro",
+          "type": "number"
         },
         "online_rating": {
-          "type": "number",
-          "description": "Puntuación en línea"
+          "description": "Puntuación en línea",
+          "type": "number"
         },
         "last_time_read": {
-          "type": "string",
-          "description": "Última vez leído"
+          "description": "Última vez leído",
+          "type": "string"
         },
         "times_read": {
-          "type": "number",
-          "description": "Veces leído"
+          "description": "Veces leído",
+          "type": "number"
         },
         "type": {
           "type": "string",
@@ -79,52 +86,62 @@
           "const": "[[Libros]]"
         },
         "areas": {
+          "default": [
+            "[[Conocimiento]]"
+          ],
           "type": "array",
           "items": {
             "type": "string",
-            "const": "[[Knowledge]]"
-          }
+            "enum": [
+              "[[Alimentación]]",
+              "[[Salud]]",
+              "[[Conocimiento]]",
+              "[[Pensamiento Estructurado]]",
+              "[[Hogar]]",
+              "[[Productividad]]",
+              "[[Exploración]]",
+              "[[Vínculos]]",
+              "[[Ejercicio]]",
+              "[[Energía Vital]]",
+              "[[Trabajo]]",
+              "[[Finanzas]]",
+              "[[Salud Mental]]",
+              "[[Creatividad]]"
+            ],
+            "description": "Área"
+          },
+          "description": "Áreas"
         },
         "color": {
-          "type": "string",
-          "const": "#3171B2"
+          "default": "#3171B2",
+          "description": "Color de la nota.",
+          "type": "string"
         },
         "icon": {
-          "type": "string",
-          "const": "book"
+          "default": "book",
+          "description": "Icono de Lucide.",
+          "type": "string"
         },
         "cover": {
+          "description": "Portada del libro.",
           "type": "string"
         },
         "url": {
-          "type": "string",
-          "description": "URL del libro en Amazon o similar"
+          "description": "URL del libro en Amazon o similar",
+          "type": "string"
         },
         "read_url": {
-          "type": "string",
-          "description": "URL de la lectura del libro"
+          "description": "URL de la lectura del libro",
+          "type": "string"
         }
       },
       "required": [
         "title",
         "author",
-        "published",
-        "categories",
         "status",
-        "topics",
-        "rating",
-        "online_rating",
-        "last_time_read",
-        "times_read",
         "type",
-        "format",
-        "areas",
-        "color",
-        "icon",
-        "url",
-        "read_url"
+        "format"
       ],
-      "additionalProperties": false,
       "description": "Libro"
     },
     "CatalogBookSchema": {
@@ -151,24 +168,28 @@
           "description": "Autores"
         },
         "published": {
-          "type": "string",
-          "description": "Año de publicación"
+          "description": "Año de publicación",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ]
         },
         "categories": {
+          "description": "Géneros",
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "description": "Géneros"
+          }
         }
       },
       "required": [
         "title",
-        "author",
-        "published",
-        "categories"
+        "author"
       ],
-      "additionalProperties": false,
       "description": "Libro: Datos obtenibles de catalogación"
     },
     "DetailedBookSchema": {
@@ -186,38 +207,32 @@
           "description": "Estado de lectura"
         },
         "topics": {
+          "description": "Temas",
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "description": "Temas"
+          }
         },
         "rating": {
-          "type": "number",
-          "description": "Puntuación del libro"
+          "description": "Puntuación del libro",
+          "type": "number"
         },
         "online_rating": {
-          "type": "number",
-          "description": "Puntuación en línea"
+          "description": "Puntuación en línea",
+          "type": "number"
         },
         "last_time_read": {
-          "type": "string",
-          "description": "Última vez leído"
+          "description": "Última vez leído",
+          "type": "string"
         },
         "times_read": {
-          "type": "number",
-          "description": "Veces leído"
+          "description": "Veces leído",
+          "type": "number"
         }
       },
       "required": [
-        "status",
-        "topics",
-        "rating",
-        "online_rating",
-        "last_time_read",
-        "times_read"
+        "status"
       ],
-      "additionalProperties": false,
       "description": "Libro: Datos adicionales"
     },
     "MetaBookSchema": {
@@ -233,42 +248,59 @@
           "const": "[[Libros]]"
         },
         "areas": {
+          "default": [
+            "[[Conocimiento]]"
+          ],
           "type": "array",
           "items": {
             "type": "string",
-            "const": "[[Knowledge]]"
-          }
+            "enum": [
+              "[[Alimentación]]",
+              "[[Salud]]",
+              "[[Conocimiento]]",
+              "[[Pensamiento Estructurado]]",
+              "[[Hogar]]",
+              "[[Productividad]]",
+              "[[Exploración]]",
+              "[[Vínculos]]",
+              "[[Ejercicio]]",
+              "[[Energía Vital]]",
+              "[[Trabajo]]",
+              "[[Finanzas]]",
+              "[[Salud Mental]]",
+              "[[Creatividad]]"
+            ],
+            "description": "Área"
+          },
+          "description": "Áreas"
         },
         "color": {
-          "type": "string",
-          "const": "#3171B2"
+          "default": "#3171B2",
+          "description": "Color de la nota.",
+          "type": "string"
         },
         "icon": {
-          "type": "string",
-          "const": "book"
+          "default": "book",
+          "description": "Icono de Lucide.",
+          "type": "string"
         },
         "cover": {
+          "description": "Portada del libro.",
           "type": "string"
         },
         "url": {
-          "type": "string",
-          "description": "URL del libro en Amazon o similar"
+          "description": "URL del libro en Amazon o similar",
+          "type": "string"
         },
         "read_url": {
-          "type": "string",
-          "description": "URL de la lectura del libro"
+          "description": "URL de la lectura del libro",
+          "type": "string"
         }
       },
       "required": [
         "type",
-        "format",
-        "areas",
-        "color",
-        "icon",
-        "url",
-        "read_url"
+        "format"
       ],
-      "additionalProperties": false,
       "description": "Libro: Metadatos de Nota"
     }
   }

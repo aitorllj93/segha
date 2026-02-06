@@ -37,6 +37,5 @@
     "topics",
     "rating"
   ],
-  "additionalProperties": false,
   "description": "Article: Additional data"
 }

@@ -13,30 +13,26 @@
       "description": "Estado de lectura"
     },
     "projects": {
+      "description": "Proyectos",
       "type": "array",
       "items": {
         "type": "string"
-      },
-      "description": "Proyectos"
+      }
     },
     "topics": {
+      "description": "Temas",
       "type": "array",
       "items": {
         "type": "string"
-      },
-      "description": "Temas"
+      }
     },
     "rating": {
-      "type": "number",
-      "description": "Puntuación del artículo"
+      "description": "Puntuación del artículo",
+      "type": "number"
     }
   },
   "required": [
-    "status",
-    "projects",
-    "topics",
-    "rating"
+    "status"
   ],
-  "additionalProperties": false,
   "description": "Artículo: Datos adicionales"
 }

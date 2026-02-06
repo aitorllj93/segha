@@ -67,9 +67,7 @@
     }
   },
   "required": [
-    "status",
     "size"
   ],
-  "additionalProperties": false,
   "description": "Prenda de ropa: Datos adicionales"
 }

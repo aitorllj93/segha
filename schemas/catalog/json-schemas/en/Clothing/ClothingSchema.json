@@ -375,7 +375,6 @@
     "slot",
     "primary_color",
     "layer",
-    "status",
     "size",
     "type",
     "subtype",
@@ -383,6 +382,5 @@
     "color",
     "icon"
   ],
-  "additionalProperties": false,
   "description": "Clothing item"
 }

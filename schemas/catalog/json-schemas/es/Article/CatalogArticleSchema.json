@@ -8,28 +8,40 @@
     },
     "description": {
       "description": "Descripción",
-      "type": "string"
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "excerpt": {
       "description": "Extracto del artículo",
       "type": "string"
     },
     "author": {
+      "description": "Autores",
       "type": "array",
       "items": {
         "type": "string"
-      },
-      "description": "Autores"
+      }
     },
     "published": {
       "description": "Año de publicación",
-      "type": "string"
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        }
+      ]
     }
   },
   "required": [
-    "title",
-    "author"
+    "title"
   ],
-  "additionalProperties": false,
   "description": "Artículo: Datos obtenibles de catalogación"
 }

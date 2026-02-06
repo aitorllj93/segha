@@ -65,6 +65,8 @@
       "type": "string"
     }
   },
-  "additionalProperties": false,
+  "required": [
+    "publish"
+  ],
   "description": "Obsidian document frontmatter schema"
 }

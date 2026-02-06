@@ -1093,7 +1093,6 @@
         "primary_color",
         "layer"
       ],
-      "additionalProperties": false,
       "description": "Prenda de ropa: Datos obtenibles de catalogación"
     },
     "ClothingSchema": {
@@ -1450,21 +1449,44 @@
           "const": "[[Prendas]]"
         },
         "areas": {
+          "default": [
+            "[[Hogar]]"
+          ],
           "type": "array",
           "items": {
             "type": "string",
-            "const": "[[Hogar]]"
-          }
+            "enum": [
+              "[[Alimentación]]",
+              "[[Salud]]",
+              "[[Conocimiento]]",
+              "[[Pensamiento Estructurado]]",
+              "[[Hogar]]",
+              "[[Productividad]]",
+              "[[Exploración]]",
+              "[[Vínculos]]",
+              "[[Ejercicio]]",
+              "[[Energía Vital]]",
+              "[[Trabajo]]",
+              "[[Finanzas]]",
+              "[[Salud Mental]]",
+              "[[Creatividad]]"
+            ],
+            "description": "Área"
+          },
+          "description": "Áreas"
         },
         "color": {
-          "type": "string",
-          "const": "#CB6120"
+          "default": "#CB6120",
+          "description": "Color de la nota.",
+          "type": "string"
         },
         "icon": {
-          "type": "string",
-          "const": "shirt"
+          "default": "shirt",
+          "description": "Icono de Lucide.",
+          "type": "string"
         },
         "cover": {
+          "description": "Foto de la prenda de ropa.",
           "type": "string"
         }
       },
@@ -1474,15 +1496,10 @@
         "slot",
         "primary_color",
         "layer",
-        "status",
         "size",
         "type",
-        "subtype",
-        "areas",
-        "color",
-        "icon"
+        "subtype"
       ],
-      "additionalProperties": false,
       "description": "Prenda de ropa"
     },
     "DetailedClothingSchema": {
@@ -1554,10 +1571,8 @@
         }
       },
       "required": [
-        "status",
         "size"
       ],
-      "additionalProperties": false,
       "description": "Prenda de ropa: Datos adicionales"
     },
     "MetaClothingSchema": {
@@ -1573,32 +1588,51 @@
           "const": "[[Prendas]]"
         },
         "areas": {
+          "default": [
+            "[[Hogar]]"
+          ],
           "type": "array",
           "items": {
             "type": "string",
-            "const": "[[Hogar]]"
-          }
+            "enum": [
+              "[[Alimentación]]",
+              "[[Salud]]",
+              "[[Conocimiento]]",
+              "[[Pensamiento Estructurado]]",
+              "[[Hogar]]",
+              "[[Productividad]]",
+              "[[Exploración]]",
+              "[[Vínculos]]",
+              "[[Ejercicio]]",
+              "[[Energía Vital]]",
+              "[[Trabajo]]",
+              "[[Finanzas]]",
+              "[[Salud Mental]]",
+              "[[Creatividad]]"
+            ],
+            "description": "Área"
+          },
+          "description": "Áreas"
         },
         "color": {
-          "type": "string",
-          "const": "#CB6120"
+          "default": "#CB6120",
+          "description": "Color de la nota.",
+          "type": "string"
         },
         "icon": {
-          "type": "string",
-          "const": "shirt"
+          "default": "shirt",
+          "description": "Icono de Lucide.",
+          "type": "string"
         },
         "cover": {
+          "description": "Foto de la prenda de ropa.",
           "type": "string"
         }
       },
       "required": [
         "type",
-        "subtype",
-        "areas",
-        "color",
-        "icon"
+        "subtype"
       ],
-      "additionalProperties": false,
       "description": "Prenda de ropa: Metadatos de Nota"
     }
   }

@@ -44,6 +44,5 @@
     "last_time_read",
     "times_read"
   ],
-  "additionalProperties": false,
   "description": "Book: Additional data"
 }

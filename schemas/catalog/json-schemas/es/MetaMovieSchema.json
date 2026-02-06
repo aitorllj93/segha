@@ -11,21 +11,44 @@
       "const": "[[Películas]]"
     },
     "areas": {
+      "default": [
+        "[[Creatividad]]"
+      ],
       "type": "array",
       "items": {
         "type": "string",
-        "const": "[[Creatividad]]"
-      }
+        "enum": [
+          "[[Alimentación]]",
+          "[[Salud]]",
+          "[[Conocimiento]]",
+          "[[Pensamiento Estructurado]]",
+          "[[Hogar]]",
+          "[[Productividad]]",
+          "[[Exploración]]",
+          "[[Vínculos]]",
+          "[[Ejercicio]]",
+          "[[Energía Vital]]",
+          "[[Trabajo]]",
+          "[[Finanzas]]",
+          "[[Salud Mental]]",
+          "[[Creatividad]]"
+        ],
+        "description": "Área"
+      },
+      "description": "Áreas"
     },
     "color": {
-      "type": "string",
-      "const": "#BE9207"
+      "default": "#BE9207",
+      "description": "Color de la nota.",
+      "type": "string"
     },
     "icon": {
-      "type": "string",
-      "const": "movie"
+      "default": "movie",
+      "description": "Icono de Lucide.",
+      "type": "string"
     },
     "cover": {
+      "description": "Portada de la película.",
       "type": "string"
     },
     "url": {
@@ -33,19 +56,14 @@
       "description": "URL de la película en IMDB o similar"
     },
     "watch_url": {
-      "type": "string",
-      "description": "URL de la película en streaming"
+      "description": "URL de la película en streaming",
+      "type": "string"
     }
   },
   "required": [
     "type",
     "format",
-    "areas",
-    "color",
-    "icon",
-    "url",
-    "watch_url"
+    "url"
   ],
-  "additionalProperties": false,
   "description": "Película: Metadatos de Nota"
 }

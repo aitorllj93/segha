@@ -89,7 +89,7 @@ function toJSONSchema(schema: z.ZodType, name: string): object {
   try {
     return z.toJSONSchema(schema, {
       target: 'draft-2020-12',
-      io: 'output',
+      io: 'input',
     });
   } catch (error) {
     console.warn(`   ⚠️ Warning: Could not convert ${name} to JSON Schema`);

@@ -7,42 +7,43 @@
       "enum": [
         "Pendiente",
         "En progreso",
-        "Completado"
+        "Visto"
       ],
       "description": "Estado de visualización"
     },
     "topics": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "description": "Temas"
+      "description": "Temas",
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "rating": {
-      "type": "number",
-      "description": "Puntuación de la película"
+      "description": "Puntuación de la película",
+      "type": "number"
     },
     "online_rating": {
-      "type": "number",
-      "description": "Puntuación en línea"
+      "description": "Puntuación en línea",
+      "type": "number"
     },
     "last_time_watched": {
-      "type": "string",
-      "description": "Última vez vista"
+      "description": "Última vez vista",
+      "type": "string"
     },
     "times_watched": {
-      "type": "number",
-      "description": "Veces vista"
+      "description": "Veces vista",
+      "type": "number"
     }
   },
   "required": [
-    "status",
-    "topics",
-    "rating",
-    "online_rating",
-    "last_time_watched",
-    "times_watched"
+    "status"
   ],
-  "additionalProperties": false,
   "description": "Película: Datos adicionales"
 }

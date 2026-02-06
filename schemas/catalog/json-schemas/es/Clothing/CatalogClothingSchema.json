@@ -288,6 +288,5 @@
     "primary_color",
     "layer"
   ],
-  "additionalProperties": false,
   "description": "Prenda de ropa: Datos obtenibles de catalogación"
 }

@@ -1091,7 +1091,6 @@
         "primary_color",
         "layer"
       ],
-      "additionalProperties": false,
       "description": "Clothing item: Catalogable data"
     },
     "ClothingSchema": {
@@ -1471,7 +1470,6 @@
         "slot",
         "primary_color",
         "layer",
-        "status",
         "size",
         "type",
         "subtype",
@@ -1479,7 +1477,6 @@
         "color",
         "icon"
       ],
-      "additionalProperties": false,
       "description": "Clothing item"
     },
     "DetailedClothingSchema": {
@@ -1551,10 +1548,8 @@
         }
       },
       "required": [
-        "status",
         "size"
       ],
-      "additionalProperties": false,
       "description": "Clothing item: Additional hard-to-obtain data"
     },
     "MetaClothingSchema": {
@@ -1595,7 +1590,6 @@
         "color",
         "icon"
       ],
-      "additionalProperties": false,
       "description": "Clothing item: Note metadata"
     }
   }

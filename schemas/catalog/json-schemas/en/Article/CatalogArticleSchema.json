@@ -30,6 +30,5 @@
     "title",
     "author"
   ],
-  "additionalProperties": false,
   "description": "Article: Data obtained from catalogation"
 }

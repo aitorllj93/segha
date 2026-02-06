@@ -103,7 +103,6 @@
         "icon",
         "url"
       ],
-      "additionalProperties": false,
       "description": "Article"
     },
     "BookSchema": {
@@ -227,7 +226,6 @@
         "url",
         "read_url"
       ],
-      "additionalProperties": false,
       "description": "Book"
     },
     "CatalogArticleSchema": {
@@ -262,7 +260,6 @@
         "title",
         "author"
       ],
-      "additionalProperties": false,
       "description": "Article: Data obtained from catalogation"
     },
     "CatalogBookSchema": {
@@ -306,7 +303,6 @@
         "published",
         "categories"
       ],
-      "additionalProperties": false,
       "description": "Book: Data obtained from catalogation"
     },
     "CatalogClothingSchema": {
@@ -598,7 +594,6 @@
         "primary_color",
         "layer"
       ],
-      "additionalProperties": false,
       "description": "Clothing item: Catalogable data"
     },
     "CatalogMovieSchema": {
@@ -647,8 +642,41 @@
         "published",
         "genres"
       ],
-      "additionalProperties": false,
       "description": "Movie: Data obtained from catalogation"
+    },
+    "CatalogWikipediaSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of the Wikipedia entry"
+        },
+        "description": {
+          "description": "Description",
+          "type": "string"
+        },
+        "excerpt": {
+          "description": "Extract of the article",
+          "type": "string"
+        },
+        "author": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Authors"
+        },
+        "published": {
+          "description": "Year of publication",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "author"
+      ],
+      "description": "Wikipedia entry: Data obtainable from cataloging"
     },
     "ClothingSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -1027,7 +1055,6 @@
         "slot",
         "primary_color",
         "layer",
-        "status",
         "size",
         "type",
         "subtype",
@@ -1035,7 +1062,6 @@
         "color",
         "icon"
       ],
-      "additionalProperties": false,
       "description": "Clothing item"
     },
     "DetailedArticleSchema": {
@@ -1077,7 +1103,6 @@
         "topics",
         "rating"
       ],
-      "additionalProperties": false,
       "description": "Article: Additional data"
     },
     "DetailedBookSchema": {
@@ -1126,7 +1151,6 @@
         "last_time_read",
         "times_read"
       ],
-      "additionalProperties": false,
       "description": "Book: Additional data"
     },
     "DetailedClothingSchema": {
@@ -1198,10 +1222,8 @@
         }
       },
       "required": [
-        "status",
         "size"
       ],
-      "additionalProperties": false,
       "description": "Clothing item: Additional hard-to-obtain data"
     },
     "DetailedMovieSchema": {
@@ -1249,8 +1271,48 @@
         "last_time_watched",
         "times_watched"
       ],
-      "additionalProperties": false,
       "description": "Movie: Additional data"
+    },
+    "DetailedWikipediaSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "Pending",
+            "In Progress",
+            "Read",
+            "Consolidated"
+          ],
+          "description": "Reading status"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Projects"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Topics"
+        },
+        "rating": {
+          "type": "number",
+          "description": "Rating of the article"
+        }
+      },
+      "required": [
+        "status",
+        "projects",
+        "topics",
+        "rating"
+      ],
+      "description": "Wikipedia entry: Additional data"
     },
     "MetaArticleSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -1295,7 +1357,6 @@
         "icon",
         "url"
       ],
-      "additionalProperties": false,
       "description": "Article: Metadata of Note"
     },
     "MetaBookSchema": {
@@ -1346,7 +1407,6 @@
         "url",
         "read_url"
       ],
-      "additionalProperties": false,
       "description": "Book: Metadata of Note"
     },
     "MetaClothingSchema": {
@@ -1387,7 +1447,6 @@
         "color",
         "icon"
       ],
-      "additionalProperties": false,
       "description": "Clothing item: Note metadata"
     },
     "MetaMovieSchema": {
@@ -1438,8 +1497,57 @@
         "url",
         "watch_url"
       ],
-      "additionalProperties": false,
       "description": "Movie: Metadata of Note"
+    },
+    "MetaWikipediaSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "[[Sources]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Encyclopedia Entries]]"
+        },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "const": "[[Knowledge]]"
+          }
+        },
+        "color": {
+          "type": "string",
+          "const": "#3171B2"
+        },
+        "icon": {
+          "default": "wikipedia",
+          "description": "Lucide icon.",
+          "type": "string"
+        },
+        "banner": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL of the article"
+        },
+        "platform": {
+          "type": "string",
+          "const": "Wikipedia"
+        }
+      },
+      "required": [
+        "type",
+        "format",
+        "areas",
+        "color",
+        "url",
+        "platform"
+      ],
+      "description": "Wikipedia entry: Metadata of Note"
     },
     "MovieSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -1566,7 +1674,6 @@
         "url",
         "watch_url"
       ],
-      "additionalProperties": false,
       "description": "Movie"
     },
     "NoteSchema": {
@@ -1671,7 +1778,6 @@
             "icon",
             "url"
           ],
-          "additionalProperties": false,
           "description": "Article"
         },
         {
@@ -1794,7 +1900,6 @@
             "url",
             "read_url"
           ],
-          "additionalProperties": false,
           "description": "Book"
         },
         {
@@ -2173,7 +2278,6 @@
             "slot",
             "primary_color",
             "layer",
-            "status",
             "size",
             "type",
             "subtype",
@@ -2181,7 +2285,6 @@
             "color",
             "icon"
           ],
-          "additionalProperties": false,
           "description": "Clothing item"
         },
         {
@@ -2308,11 +2411,223 @@
             "url",
             "watch_url"
           ],
-          "additionalProperties": false,
           "description": "Movie"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Title of the Wikipedia entry"
+            },
+            "description": {
+              "description": "Description",
+              "type": "string"
+            },
+            "excerpt": {
+              "description": "Extract of the article",
+              "type": "string"
+            },
+            "author": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Authors"
+            },
+            "published": {
+              "description": "Year of publication",
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "Pending",
+                "In Progress",
+                "Read",
+                "Consolidated"
+              ],
+              "description": "Reading status"
+            },
+            "projects": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Projects"
+            },
+            "topics": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Topics"
+            },
+            "rating": {
+              "type": "number",
+              "description": "Rating of the article"
+            },
+            "type": {
+              "type": "string",
+              "const": "[[Sources]]"
+            },
+            "format": {
+              "type": "string",
+              "const": "[[Encyclopedia Entries]]"
+            },
+            "areas": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "const": "[[Knowledge]]"
+              }
+            },
+            "color": {
+              "type": "string",
+              "const": "#3171B2"
+            },
+            "icon": {
+              "default": "wikipedia",
+              "description": "Lucide icon.",
+              "type": "string"
+            },
+            "banner": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string",
+              "description": "URL of the article"
+            },
+            "platform": {
+              "type": "string",
+              "const": "Wikipedia"
+            }
+          },
+          "required": [
+            "title",
+            "author",
+            "status",
+            "projects",
+            "topics",
+            "rating",
+            "type",
+            "format",
+            "areas",
+            "color",
+            "url",
+            "platform"
+          ],
+          "description": "Wikipedia entry"
         }
       ],
       "description": "Note: Union of all note types"
+    },
+    "WikipediaSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of the Wikipedia entry"
+        },
+        "description": {
+          "description": "Description",
+          "type": "string"
+        },
+        "excerpt": {
+          "description": "Extract of the article",
+          "type": "string"
+        },
+        "author": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Authors"
+        },
+        "published": {
+          "description": "Year of publication",
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Pending",
+            "In Progress",
+            "Read",
+            "Consolidated"
+          ],
+          "description": "Reading status"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Projects"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Topics"
+        },
+        "rating": {
+          "type": "number",
+          "description": "Rating of the article"
+        },
+        "type": {
+          "type": "string",
+          "const": "[[Sources]]"
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Encyclopedia Entries]]"
+        },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "const": "[[Knowledge]]"
+          }
+        },
+        "color": {
+          "type": "string",
+          "const": "#3171B2"
+        },
+        "icon": {
+          "default": "wikipedia",
+          "description": "Lucide icon.",
+          "type": "string"
+        },
+        "banner": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL of the article"
+        },
+        "platform": {
+          "type": "string",
+          "const": "Wikipedia"
+        }
+      },
+      "required": [
+        "title",
+        "author",
+        "status",
+        "projects",
+        "topics",
+        "rating",
+        "type",
+        "format",
+        "areas",
+        "color",
+        "url",
+        "platform"
+      ],
+      "description": "Wikipedia entry"
     }
   }
 }
