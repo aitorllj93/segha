@@ -5,15 +5,15 @@ import { BookSchema } from "./Book";
 import { ClothingSchema } from "./Clothing";
 import { MovieSchema } from "./Movie";
 import { PaintingSchema } from "./Painting";
-import { WikipediaSchema } from "./Wikipedia";
-import { YoutubeSchema } from "./Youtube";
+import { VideoSchema } from "./Video";
+import { EncyclopediaEntrySchema } from "./EncyclopediaEntry";
 
 export const NoteSchema = z.union([
   ArticleSchema,
   BookSchema,
   ClothingSchema,
+  EncyclopediaEntrySchema,
   MovieSchema,
   PaintingSchema,
-  WikipediaSchema,
-  YoutubeSchema,
+  VideoSchema,
 ]).describe('Nota: Unión de todos los tipos de notas');

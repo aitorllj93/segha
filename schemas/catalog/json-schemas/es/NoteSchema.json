@@ -4,6 +4,216 @@
     {
       "type": "object",
       "properties": {
+        "type": {
+          "type": "string",
+          "const": "[[Fuentes]]",
+          "description": "Bibliografías, recursos validados sobre los que acumular información."
+        },
+        "areas": {
+          "default": [
+            "[[Conocimiento]]"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "[[Alimentación]]",
+              "[[Salud]]",
+              "[[Conocimiento]]",
+              "[[Pensamiento Estructurado]]",
+              "[[Hogar]]",
+              "[[Productividad]]",
+              "[[Exploración]]",
+              "[[Vínculos]]",
+              "[[Ejercicio]]",
+              "[[Energía Vital]]",
+              "[[Trabajo]]",
+              "[[Finanzas]]",
+              "[[Salud Mental]]",
+              "[[Creatividad]]"
+            ],
+            "description": "Área"
+          },
+          "description": "Áreas"
+        },
+        "color": {
+          "default": "#3171B2",
+          "description": "Color de la nota.",
+          "type": "string",
+          "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+        },
+        "icon": {
+          "default": "newspaper",
+          "description": "Icono de Lucide.",
+          "type": "string",
+          "pattern": "^[a-z-]+$"
+        },
+        "banner": {
+          "description": "Banner de la nota.",
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "string",
+                  "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                  "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+                }
+              ],
+              "description": "Imagen: URL o Wikilink de una imagen."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cover": {
+          "description": "Cubierta",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "string",
+              "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+              "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+            }
+          ]
+        },
+        "projects": {
+          "description": "Proyectos asociados.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+            "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+          }
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "description": "Temas: Wikilink o texto libre",
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Pendiente"
+            },
+            {
+              "type": "string",
+              "const": "En Proceso"
+            },
+            {
+              "type": "string",
+              "const": "Leído"
+            },
+            {
+              "type": "string",
+              "const": "Consolidado"
+            }
+          ],
+          "description": "Estado de procesamiento del artículo"
+        },
+        "rating": {
+          "description": "Valoración personal de la fuente.",
+          "anyOf": [
+            {
+              "type": "number",
+              "const": 7,
+              "description": "Perfecto, hay que probarlo, te cambia la vida, haz un esfuerzo por buscarlo."
+            },
+            {
+              "type": "number",
+              "const": 6,
+              "description": "Excelente, vale la pena repetirlo"
+            },
+            {
+              "type": "number",
+              "const": 5,
+              "description": "Bueno, no hagas un esfuerzo especial, pero es agradable."
+            },
+            {
+              "type": "number",
+              "const": 4,
+              "description": "Aceptable, sirve en caso de apuro."
+            },
+            {
+              "type": "number",
+              "const": 3,
+              "description": "Malo, no lo hagas si puedes evitarlo."
+            },
+            {
+              "type": "number",
+              "const": 2,
+              "description": "Atroz, evítalo activamente, repulsivo"
+            },
+            {
+              "type": "number",
+              "const": 1,
+              "description": "Malvado, te cambia la vida para mal."
+            }
+          ]
+        },
+        "aliases": {
+          "description": "Alias de la nota.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Artículos]]",
+          "description": "Artículos"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL del artículo"
+        },
+        "author": {
+          "description": "Autores de la fuente.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "published": {
+          "description": "Fecha de publicación de la fuente.",
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}$",
+              "description": "Año: YYYY"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}$",
+              "description": "Mes: YYYY-MM"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+              "description": "Fecha: YYYY-MM-DD"
+            }
+          ]
+        },
         "title": {
           "type": "string",
           "description": "Título del artículo"
@@ -22,60 +232,25 @@
         "excerpt": {
           "description": "Extracto del artículo",
           "type": "string"
-        },
-        "author": {
-          "description": "Autores",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "published": {
-          "description": "Año de publicación",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "number"
-            }
-          ]
-        },
-        "status": {
-          "type": "string",
-          "enum": [
-            "Pendiente",
-            "En Proceso",
-            "Leído",
-            "Consolidado"
-          ],
-          "description": "Estado de lectura"
-        },
-        "projects": {
-          "description": "Proyectos",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "topics": {
-          "description": "Temas",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "rating": {
-          "description": "Puntuación del artículo",
-          "type": "number"
-        },
+        }
+      },
+      "required": [
+        "type",
+        "topics",
+        "status",
+        "format",
+        "url",
+        "title"
+      ],
+      "description": "Artículo"
+    },
+    {
+      "type": "object",
+      "properties": {
         "type": {
           "type": "string",
-          "const": "[[Fuentes]]"
-        },
-        "format": {
-          "type": "string",
-          "const": "[[Artículos]]"
+          "const": "[[Fuentes]]",
+          "description": "Bibliografías, recursos validados sobre los que acumular información."
         },
         "areas": {
           "default": [
@@ -107,67 +282,202 @@
         "color": {
           "default": "#3171B2",
           "description": "Color de la nota.",
-          "type": "string"
+          "type": "string",
+          "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
         },
         "icon": {
-          "default": "newspaper",
+          "default": "book",
           "description": "Icono de Lucide.",
-          "type": "string"
+          "type": "string",
+          "pattern": "^[a-z-]+$"
         },
         "banner": {
-          "description": "Banner de la nota.",
+          "description": "Imagen",
           "anyOf": [
             {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "string",
+              "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+              "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+            }
+          ]
+        },
+        "cover": {
+          "description": "Portada del libro.",
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "string",
+                  "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                  "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+                }
+              ],
+              "description": "Imagen: URL o Wikilink de una imagen."
             },
             {
               "type": "null"
             }
           ]
         },
+        "projects": {
+          "description": "Proyectos asociados.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+            "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+          }
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "description": "Temas: Wikilink o texto libre",
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Pendiente"
+            },
+            {
+              "type": "string",
+              "const": "En Proceso"
+            },
+            {
+              "type": "string",
+              "const": "Leído"
+            },
+            {
+              "type": "string",
+              "const": "Consolidado"
+            }
+          ],
+          "description": "Estado de procesamiento del libro"
+        },
+        "rating": {
+          "description": "Valoración personal de la fuente.",
+          "anyOf": [
+            {
+              "type": "number",
+              "const": 7,
+              "description": "Perfecto, hay que probarlo, te cambia la vida, haz un esfuerzo por buscarlo."
+            },
+            {
+              "type": "number",
+              "const": 6,
+              "description": "Excelente, vale la pena repetirlo"
+            },
+            {
+              "type": "number",
+              "const": 5,
+              "description": "Bueno, no hagas un esfuerzo especial, pero es agradable."
+            },
+            {
+              "type": "number",
+              "const": 4,
+              "description": "Aceptable, sirve en caso de apuro."
+            },
+            {
+              "type": "number",
+              "const": 3,
+              "description": "Malo, no lo hagas si puedes evitarlo."
+            },
+            {
+              "type": "number",
+              "const": 2,
+              "description": "Atroz, evítalo activamente, repulsivo"
+            },
+            {
+              "type": "number",
+              "const": 1,
+              "description": "Malvado, te cambia la vida para mal."
+            }
+          ]
+        },
+        "aliases": {
+          "description": "Alias de la nota.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Libros]]",
+          "description": "Libros"
+        },
         "url": {
-          "description": "URL del artículo",
-          "type": "string"
-        }
-      },
-      "required": [
-        "title",
-        "status",
-        "type",
-        "format"
-      ],
-      "description": "Artículo"
-    },
-    {
-      "type": "object",
-      "properties": {
+          "description": "URL del libro en Amazon o similar",
+          "type": "string",
+          "format": "uri"
+        },
+        "author": {
+          "description": "Autores de la fuente.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "published": {
+          "description": "Fecha de publicación de la fuente.",
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}$",
+              "description": "Año: YYYY"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}$",
+              "description": "Mes: YYYY-MM"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+              "description": "Fecha: YYYY-MM-DD"
+            }
+          ]
+        },
         "title": {
           "type": "string",
           "description": "Título del libro"
+        },
+        "read_url": {
+          "description": "URL de la lectura del libro",
+          "type": "string",
+          "format": "uri"
         },
         "subtitle": {
           "description": "Subtítulo del libro",
           "type": "string"
         },
         "description": {
-          "description": "Descripción del libro",
-          "type": "string"
-        },
-        "author": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Autores"
-        },
-        "published": {
-          "description": "Año de publicación",
+          "description": "Descripción",
           "anyOf": [
             {
               "type": "string"
             },
             {
-              "type": "number"
+              "type": "null"
             }
           ]
         },
@@ -178,50 +488,55 @@
             "type": "string"
           }
         },
-        "status": {
-          "type": "string",
-          "enum": [
-            "Pendiente",
-            "En Proceso",
-            "Leído",
-            "Consolidado"
-          ],
-          "description": "Estado de lectura"
-        },
-        "topics": {
-          "description": "Temas",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "rating": {
-          "description": "Puntuación del libro",
-          "type": "number"
-        },
         "online_rating": {
           "description": "Puntuación en línea",
           "type": "number"
         },
         "last_time_read": {
           "description": "Última vez leído",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}$",
+              "description": "Año: YYYY"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}$",
+              "description": "Mes: YYYY-MM"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+              "description": "Fecha: YYYY-MM-DD"
+            }
+          ]
         },
         "times_read": {
           "description": "Veces leído",
           "type": "number"
-        },
+        }
+      },
+      "required": [
+        "type",
+        "topics",
+        "status",
+        "format",
+        "title"
+      ],
+      "description": "Libro"
+    },
+    {
+      "type": "object",
+      "properties": {
         "type": {
           "type": "string",
-          "const": "[[Fuentes]]"
-        },
-        "format": {
-          "type": "string",
-          "const": "[[Libros]]"
+          "const": "[[Fuentes]]",
+          "description": "Bibliografías, recursos validados sobre los que acumular información."
         },
         "areas": {
           "default": [
-            "[[Conocimiento]]"
+            "[[Hogar]]"
           ],
           "type": "array",
           "items": {
@@ -247,40 +562,142 @@
           "description": "Áreas"
         },
         "color": {
-          "default": "#3171B2",
+          "default": "#CB6120",
           "description": "Color de la nota.",
-          "type": "string"
+          "type": "string",
+          "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
         },
         "icon": {
-          "default": "book",
+          "default": "shirt",
           "description": "Icono de Lucide.",
-          "type": "string"
+          "type": "string",
+          "pattern": "^[a-z-]+$"
+        },
+        "banner": {
+          "description": "Imagen",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "string",
+              "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+              "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+            }
+          ]
         },
         "cover": {
-          "description": "Portada del libro.",
-          "type": "string"
+          "description": "Portada de la prenda de ropa.",
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "string",
+                  "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                  "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+                }
+              ],
+              "description": "Imagen: URL o Wikilink de una imagen."
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
-        "url": {
-          "description": "URL del libro en Amazon o similar",
-          "type": "string"
+        "projects": {
+          "description": "Proyectos asociados.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+            "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+          }
         },
-        "read_url": {
-          "description": "URL de la lectura del libro",
-          "type": "string"
-        }
-      },
-      "required": [
-        "title",
-        "author",
-        "status",
-        "type",
-        "format"
-      ],
-      "description": "Libro"
-    },
-    {
-      "type": "object",
-      "properties": {
+        "topics": {
+          "type": "array",
+          "items": {
+            "description": "Temas: Wikilink o texto libre",
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "status": {
+          "default": "Bien",
+          "description": "Estado",
+          "type": "string",
+          "enum": [
+            "Nuevo",
+            "Bien",
+            "Gastado",
+            "Dañado",
+            "Retirar"
+          ]
+        },
+        "rating": {
+          "description": "Puntuación de la nota.",
+          "anyOf": [
+            {
+              "type": "number",
+              "const": 7,
+              "description": "Perfecto, hay que probarlo, te cambia la vida, haz un esfuerzo por buscarlo."
+            },
+            {
+              "type": "number",
+              "const": 6,
+              "description": "Excelente, vale la pena repetirlo"
+            },
+            {
+              "type": "number",
+              "const": 5,
+              "description": "Bueno, no hagas un esfuerzo especial, pero es agradable."
+            },
+            {
+              "type": "number",
+              "const": 4,
+              "description": "Aceptable, sirve en caso de apuro."
+            },
+            {
+              "type": "number",
+              "const": 3,
+              "description": "Malo, no lo hagas si puedes evitarlo."
+            },
+            {
+              "type": "number",
+              "const": 2,
+              "description": "Atroz, evítalo activamente, repulsivo"
+            },
+            {
+              "type": "number",
+              "const": 1,
+              "description": "Malvado, te cambia la vida para mal."
+            }
+          ]
+        },
+        "aliases": {
+          "description": "Alias de la nota.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "subtype": {
+          "type": "string",
+          "const": "[[Prendas]]",
+          "description": "Prendas de ropa"
+        },
         "name": {
           "type": "string",
           "description": "Nombre descriptivo de la prenda de ropa"
@@ -575,18 +992,6 @@
             ]
           }
         },
-        "status": {
-          "default": "Bien",
-          "description": "Estado",
-          "type": "string",
-          "enum": [
-            "Nuevo",
-            "Bien",
-            "Gastado",
-            "Dañado",
-            "Retirar"
-          ]
-        },
         "size": {
           "type": "string",
           "enum": [
@@ -621,18 +1026,32 @@
           "items": {
             "type": "number"
           }
-        },
+        }
+      },
+      "required": [
+        "type",
+        "topics",
+        "subtype",
+        "name",
+        "garment",
+        "slot",
+        "primary_color",
+        "layer",
+        "size"
+      ],
+      "description": "Prenda de ropa"
+    },
+    {
+      "type": "object",
+      "properties": {
         "type": {
           "type": "string",
-          "const": "[[Recursos]]"
-        },
-        "subtype": {
-          "type": "string",
-          "const": "[[Prendas]]"
+          "const": "[[Fuentes]]",
+          "description": "Bibliografías, recursos validados sobre los que acumular información."
         },
         "areas": {
           "default": [
-            "[[Hogar]]"
+            "[[Conocimiento]]"
           ],
           "type": "array",
           "items": {
@@ -658,48 +1077,445 @@
           "description": "Áreas"
         },
         "color": {
-          "default": "#CB6120",
+          "default": "#3171B2",
           "description": "Color de la nota.",
-          "type": "string"
+          "type": "string",
+          "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
         },
         "icon": {
-          "default": "shirt",
+          "default": "book",
           "description": "Icono de Lucide.",
-          "type": "string"
+          "type": "string",
+          "pattern": "^[a-z-]+$"
+        },
+        "banner": {
+          "description": "Banner de la nota.",
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "string",
+                  "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                  "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+                }
+              ],
+              "description": "Imagen: URL o Wikilink de una imagen."
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "cover": {
-          "description": "Foto de la prenda de ropa.",
+          "description": "Portada de la nota.",
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "string",
+                  "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                  "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+                }
+              ],
+              "description": "Imagen: URL o Wikilink de una imagen."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "projects": {
+          "description": "Proyectos asociados.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+            "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+          }
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "description": "Temas: Wikilink o texto libre",
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Pendiente"
+            },
+            {
+              "type": "string",
+              "const": "En Proceso"
+            },
+            {
+              "type": "string",
+              "const": "Leído"
+            },
+            {
+              "type": "string",
+              "const": "Consolidado"
+            }
+          ],
+          "description": "Estado de procesamiento del artículo"
+        },
+        "rating": {
+          "description": "Valoración personal de la fuente.",
+          "anyOf": [
+            {
+              "type": "number",
+              "const": 7,
+              "description": "Perfecto, hay que probarlo, te cambia la vida, haz un esfuerzo por buscarlo."
+            },
+            {
+              "type": "number",
+              "const": 6,
+              "description": "Excelente, vale la pena repetirlo"
+            },
+            {
+              "type": "number",
+              "const": 5,
+              "description": "Bueno, no hagas un esfuerzo especial, pero es agradable."
+            },
+            {
+              "type": "number",
+              "const": 4,
+              "description": "Aceptable, sirve en caso de apuro."
+            },
+            {
+              "type": "number",
+              "const": 3,
+              "description": "Malo, no lo hagas si puedes evitarlo."
+            },
+            {
+              "type": "number",
+              "const": 2,
+              "description": "Atroz, evítalo activamente, repulsivo"
+            },
+            {
+              "type": "number",
+              "const": 1,
+              "description": "Malvado, te cambia la vida para mal."
+            }
+          ]
+        },
+        "aliases": {
+          "description": "Alias de la nota.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Entradas de Enciclopedia]]",
+          "description": "Entradas de Enciclopedia"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL de la entrada"
+        },
+        "author": {
+          "description": "Autores de la fuente.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "published": {
+          "description": "Fecha de publicación de la fuente.",
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}$",
+              "description": "Año: YYYY"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}$",
+              "description": "Mes: YYYY-MM"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+              "description": "Fecha: YYYY-MM-DD"
+            }
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "Título de la entrada"
+        },
+        "description": {
+          "description": "Descripción",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "excerpt": {
+          "description": "Extracto de la entrada",
           "type": "string"
         }
       },
       "required": [
-        "name",
-        "garment",
-        "slot",
-        "primary_color",
-        "layer",
-        "size",
         "type",
-        "subtype"
+        "topics",
+        "status",
+        "format",
+        "url",
+        "title"
       ],
-      "description": "Prenda de ropa"
+      "description": "Entrada de Enciclopedia"
     },
     {
       "type": "object",
       "properties": {
+        "type": {
+          "type": "string",
+          "const": "[[Fuentes]]",
+          "description": "Bibliografías, recursos validados sobre los que acumular información."
+        },
+        "areas": {
+          "default": [
+            "[[Creatividad]]"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "[[Alimentación]]",
+              "[[Salud]]",
+              "[[Conocimiento]]",
+              "[[Pensamiento Estructurado]]",
+              "[[Hogar]]",
+              "[[Productividad]]",
+              "[[Exploración]]",
+              "[[Vínculos]]",
+              "[[Ejercicio]]",
+              "[[Energía Vital]]",
+              "[[Trabajo]]",
+              "[[Finanzas]]",
+              "[[Salud Mental]]",
+              "[[Creatividad]]"
+            ],
+            "description": "Área"
+          },
+          "description": "Áreas"
+        },
+        "color": {
+          "default": "#BE9207",
+          "description": "Color de la nota.",
+          "type": "string",
+          "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+        },
+        "icon": {
+          "default": "movie",
+          "description": "Icono de Lucide.",
+          "type": "string",
+          "pattern": "^[a-z-]+$"
+        },
+        "banner": {
+          "description": "Imagen",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "string",
+              "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+              "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+            }
+          ]
+        },
+        "cover": {
+          "description": "Portada de la película.",
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "string",
+                  "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                  "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+                }
+              ],
+              "description": "Imagen: URL o Wikilink de una imagen."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "projects": {
+          "description": "Proyectos asociados.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+            "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+          }
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "description": "Temas: Wikilink o texto libre",
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Pendiente"
+            },
+            {
+              "type": "string",
+              "const": "En Proceso"
+            },
+            {
+              "type": "string",
+              "const": "Visto"
+            }
+          ],
+          "description": "Estado de visualización de la película"
+        },
+        "rating": {
+          "description": "Valoración personal de la fuente.",
+          "anyOf": [
+            {
+              "type": "number",
+              "const": 7,
+              "description": "Perfecto, hay que probarlo, te cambia la vida, haz un esfuerzo por buscarlo."
+            },
+            {
+              "type": "number",
+              "const": 6,
+              "description": "Excelente, vale la pena repetirlo"
+            },
+            {
+              "type": "number",
+              "const": 5,
+              "description": "Bueno, no hagas un esfuerzo especial, pero es agradable."
+            },
+            {
+              "type": "number",
+              "const": 4,
+              "description": "Aceptable, sirve en caso de apuro."
+            },
+            {
+              "type": "number",
+              "const": 3,
+              "description": "Malo, no lo hagas si puedes evitarlo."
+            },
+            {
+              "type": "number",
+              "const": 2,
+              "description": "Atroz, evítalo activamente, repulsivo"
+            },
+            {
+              "type": "number",
+              "const": 1,
+              "description": "Malvado, te cambia la vida para mal."
+            }
+          ]
+        },
+        "aliases": {
+          "description": "Alias de la nota.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Películas]]",
+          "description": "Películas"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL de la película en IMDB o similar"
+        },
+        "author": {
+          "description": "Autores de la fuente.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "published": {
+          "description": "Año de publicación",
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}$",
+              "description": "Año: YYYY"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}$",
+              "description": "Mes: YYYY-MM"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+              "description": "Fecha: YYYY-MM-DD"
+            }
+          ]
+        },
         "title": {
           "type": "string",
           "description": "Título de la película"
         },
-        "description": {
-          "description": "Descripción de la película",
-          "type": "string"
+        "watch_url": {
+          "description": "URL de la película en streaming",
+          "type": "string",
+          "format": "uri"
         },
-        "author": {
-          "description": "Autores. Guionistas, directores, productores, etc.",
+        "external_ids": {
+          "description": "IDs externos de la película",
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "pattern": "^(tmdb|imdb|watchmode|tvmaze|tvdb):.+$"
           }
         },
         "actors": {
@@ -709,17 +1525,6 @@
             "type": "string"
           }
         },
-        "published": {
-          "description": "Año de publicación",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "number"
-            }
-          ]
-        },
         "genres": {
           "description": "Géneros",
           "type": "array",
@@ -727,52 +1532,52 @@
             "type": "string"
           }
         },
-        "status": {
-          "type": "string",
-          "enum": [
-            "Pendiente",
-            "En progreso",
-            "Visto"
-          ],
-          "description": "Estado de visualización"
-        },
-        "topics": {
-          "description": "Temas",
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "rating": {
-          "description": "Puntuación de la película",
-          "type": "number"
-        },
         "online_rating": {
           "description": "Puntuación en línea",
           "type": "number"
         },
         "last_time_watched": {
           "description": "Última vez vista",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}$",
+              "description": "Año: YYYY"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}$",
+              "description": "Mes: YYYY-MM"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+              "description": "Fecha: YYYY-MM-DD"
+            }
+          ]
         },
         "times_watched": {
           "description": "Veces vista",
           "type": "number"
-        },
+        }
+      },
+      "required": [
+        "type",
+        "topics",
+        "status",
+        "format",
+        "url",
+        "title"
+      ],
+      "description": "Película"
+    },
+    {
+      "type": "object",
+      "properties": {
         "type": {
           "type": "string",
-          "const": "[[Fuentes]]"
-        },
-        "format": {
-          "type": "string",
-          "const": "[[Películas]]"
+          "const": "[[Fuentes]]",
+          "description": "Bibliografías, recursos validados sobre los que acumular información."
         },
         "areas": {
           "default": [
@@ -804,48 +1609,152 @@
         "color": {
           "default": "#BE9207",
           "description": "Color de la nota.",
-          "type": "string"
+          "type": "string",
+          "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
         },
         "icon": {
-          "default": "movie",
+          "default": "frame",
           "description": "Icono de Lucide.",
-          "type": "string"
+          "type": "string",
+          "pattern": "^[a-z-]+$"
+        },
+        "banner": {
+          "description": "Imagen",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "string",
+              "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+              "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+            }
+          ]
         },
         "cover": {
-          "description": "Portada de la película.",
-          "type": "string"
+          "description": "Portada de la pintura.",
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "string",
+                  "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                  "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+                }
+              ],
+              "description": "Imagen: URL o Wikilink de una imagen."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "projects": {
+          "description": "Proyectos asociados.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+            "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+          }
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "description": "Temas: Wikilink o texto libre",
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Pendiente"
+            },
+            {
+              "type": "string",
+              "const": "En Proceso"
+            },
+            {
+              "type": "string",
+              "const": "Visto"
+            }
+          ],
+          "description": "Estado de procesamiento de la pintura"
+        },
+        "rating": {
+          "description": "Valoración personal de la fuente.",
+          "anyOf": [
+            {
+              "type": "number",
+              "const": 7,
+              "description": "Perfecto, hay que probarlo, te cambia la vida, haz un esfuerzo por buscarlo."
+            },
+            {
+              "type": "number",
+              "const": 6,
+              "description": "Excelente, vale la pena repetirlo"
+            },
+            {
+              "type": "number",
+              "const": 5,
+              "description": "Bueno, no hagas un esfuerzo especial, pero es agradable."
+            },
+            {
+              "type": "number",
+              "const": 4,
+              "description": "Aceptable, sirve en caso de apuro."
+            },
+            {
+              "type": "number",
+              "const": 3,
+              "description": "Malo, no lo hagas si puedes evitarlo."
+            },
+            {
+              "type": "number",
+              "const": 2,
+              "description": "Atroz, evítalo activamente, repulsivo"
+            },
+            {
+              "type": "number",
+              "const": 1,
+              "description": "Malvado, te cambia la vida para mal."
+            }
+          ]
+        },
+        "aliases": {
+          "description": "Alias de la nota.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Pinturas]]",
+          "description": "Pinturas"
         },
         "url": {
+          "description": "URL de la fuente.",
           "type": "string",
-          "description": "URL de la película en IMDB o similar"
-        },
-        "watch_url": {
-          "description": "URL de la película en streaming",
-          "type": "string"
-        }
-      },
-      "required": [
-        "title",
-        "status",
-        "type",
-        "format",
-        "url"
-      ],
-      "description": "Película"
-    },
-    {
-      "type": "object",
-      "properties": {
-        "title": {
-          "description": "Título de la pintura",
-          "type": "string"
-        },
-        "description": {
-          "description": "Descripción",
-          "type": "string"
+          "format": "uri"
         },
         "author": {
-          "description": "Autores",
+          "description": "Autores de la fuente.",
           "type": "array",
           "items": {
             "type": "string"
@@ -853,7 +1762,27 @@
         },
         "published": {
           "description": "Año de publicación",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}$",
+              "description": "Año: YYYY"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}$",
+              "description": "Mes: YYYY-MM"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+              "description": "Fecha: YYYY-MM-DD"
+            }
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "Título de la película"
         },
         "collection": {
           "description": "Colección",
@@ -862,157 +1791,24 @@
         "position": {
           "description": "Posición en la colección",
           "type": "string"
-        },
-        "projects": {
-          "description": "Proyectos",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "topics": {
-          "description": "Temas",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "rating": {
-          "description": "Puntuación del artículo",
-          "type": "number"
-        },
-        "type": {
-          "type": "string",
-          "const": "[[Fuentes]]"
-        },
-        "format": {
-          "type": "string",
-          "const": "[[Pinturas]]"
-        },
-        "areas": {
-          "default": [
-            "[[Creatividad]]"
-          ],
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "[[Alimentación]]",
-              "[[Salud]]",
-              "[[Conocimiento]]",
-              "[[Pensamiento Estructurado]]",
-              "[[Hogar]]",
-              "[[Productividad]]",
-              "[[Exploración]]",
-              "[[Vínculos]]",
-              "[[Ejercicio]]",
-              "[[Energía Vital]]",
-              "[[Trabajo]]",
-              "[[Finanzas]]",
-              "[[Salud Mental]]",
-              "[[Creatividad]]"
-            ],
-            "description": "Área"
-          },
-          "description": "Áreas"
-        },
-        "color": {
-          "default": "#BE9207",
-          "description": "Color de la nota.",
-          "type": "string"
-        },
-        "icon": {
-          "default": "frame",
-          "description": "Icono de Lucide.",
-          "type": "string"
-        },
-        "cover": {
-          "type": "string",
-          "description": "Imagen de la pintura."
         }
       },
       "required": [
         "type",
+        "topics",
+        "status",
         "format",
-        "cover"
+        "title"
       ],
       "description": "Pintura"
     },
     {
       "type": "object",
       "properties": {
-        "title": {
-          "type": "string",
-          "description": "Título de la entrada de Wikipedia"
-        },
-        "description": {
-          "description": "Descripción",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "excerpt": {
-          "description": "Extracto del artículo",
-          "type": "string"
-        },
-        "author": {
-          "description": "Autores",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "published": {
-          "description": "Año de publicación",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "number"
-            }
-          ]
-        },
-        "status": {
-          "type": "string",
-          "enum": [
-            "Pendiente",
-            "En Proceso",
-            "Leído",
-            "Consolidado"
-          ],
-          "description": "Estado de lectura"
-        },
-        "projects": {
-          "description": "Proyectos",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "topics": {
-          "description": "Temas",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "rating": {
-          "description": "Puntuación del artículo",
-          "type": "number"
-        },
         "type": {
           "type": "string",
-          "const": "[[Fuentes]]"
-        },
-        "format": {
-          "type": "string",
-          "const": "[[Entradas de Enciclopedia]]"
+          "const": "[[Fuentes]]",
+          "description": "Bibliografías, recursos validados sobre los que acumular información."
         },
         "areas": {
           "default": [
@@ -1044,182 +1840,196 @@
         "color": {
           "default": "#3171B2",
           "description": "Color de la nota.",
-          "type": "string"
+          "type": "string",
+          "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
         },
         "icon": {
-          "default": "wikipedia",
+          "default": "video",
           "description": "Icono de Lucide.",
-          "type": "string"
+          "type": "string",
+          "pattern": "^[a-z-]+$"
         },
         "banner": {
-          "description": "Banner de la nota.",
+          "description": "Imagen",
           "anyOf": [
             {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             {
-              "type": "null"
+              "type": "string",
+              "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+              "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
             }
           ]
+        },
+        "cover": {
+          "description": "Cubierta",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "string",
+              "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+              "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+            }
+          ]
+        },
+        "projects": {
+          "description": "Proyectos asociados.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+            "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+          }
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "description": "Temas: Wikilink o texto libre",
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Pendiente"
+            },
+            {
+              "type": "string",
+              "const": "En Proceso"
+            },
+            {
+              "type": "string",
+              "const": "Visto"
+            }
+          ],
+          "description": "Estado de visualización de la película"
+        },
+        "rating": {
+          "description": "Valoración personal de la fuente.",
+          "anyOf": [
+            {
+              "type": "number",
+              "const": 7,
+              "description": "Perfecto, hay que probarlo, te cambia la vida, haz un esfuerzo por buscarlo."
+            },
+            {
+              "type": "number",
+              "const": 6,
+              "description": "Excelente, vale la pena repetirlo"
+            },
+            {
+              "type": "number",
+              "const": 5,
+              "description": "Bueno, no hagas un esfuerzo especial, pero es agradable."
+            },
+            {
+              "type": "number",
+              "const": 4,
+              "description": "Aceptable, sirve en caso de apuro."
+            },
+            {
+              "type": "number",
+              "const": 3,
+              "description": "Malo, no lo hagas si puedes evitarlo."
+            },
+            {
+              "type": "number",
+              "const": 2,
+              "description": "Atroz, evítalo activamente, repulsivo"
+            },
+            {
+              "type": "number",
+              "const": 1,
+              "description": "Malvado, te cambia la vida para mal."
+            }
+          ]
+        },
+        "aliases": {
+          "description": "Alias de la nota.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "format": {
+          "type": "string",
+          "const": "[[Vídeos]]",
+          "description": "Vídeos"
         },
         "url": {
-          "description": "URL del artículo",
-          "type": "string"
-        },
-        "platform": {
+          "description": "URL de la fuente.",
           "type": "string",
-          "const": "Wikipedia"
-        }
-      },
-      "required": [
-        "title",
-        "status",
-        "type",
-        "format",
-        "platform"
-      ],
-      "description": "Entrada de Wikipedia"
-    },
-    {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string",
-          "description": "Título del vídeo de YouTube"
-        },
-        "description": {
-          "description": "Descripción",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "excerpt": {
-          "description": "Extracto del artículo",
-          "type": "string"
+          "format": "uri"
         },
         "author": {
-          "description": "Autores",
+          "description": "Autores de la fuente.",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
         "published": {
-          "description": "Año de publicación",
+          "description": "Fecha de publicación de la fuente.",
           "anyOf": [
             {
-              "type": "string"
+              "type": "string",
+              "pattern": "^[0-9]{4}$",
+              "description": "Año: YYYY"
             },
             {
-              "type": "number"
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}$",
+              "description": "Mes: YYYY-MM"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+              "description": "Fecha: YYYY-MM-DD"
             }
           ]
         },
-        "status": {
+        "title": {
           "type": "string",
-          "enum": [
-            "Pendiente",
-            "En progreso",
-            "Visto"
-          ],
-          "description": "Estado de visualización"
-        },
-        "projects": {
-          "description": "Proyectos",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "topics": {
-          "description": "Temas",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "rating": {
-          "description": "Puntuación del artículo",
-          "type": "number"
-        },
-        "type": {
-          "type": "string",
-          "const": "[[Fuentes]]"
-        },
-        "format": {
-          "type": "string",
-          "const": "[[Vídeos]]"
-        },
-        "areas": {
-          "default": [
-            "[[Conocimiento]]"
-          ],
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "[[Alimentación]]",
-              "[[Salud]]",
-              "[[Conocimiento]]",
-              "[[Pensamiento Estructurado]]",
-              "[[Hogar]]",
-              "[[Productividad]]",
-              "[[Exploración]]",
-              "[[Vínculos]]",
-              "[[Ejercicio]]",
-              "[[Energía Vital]]",
-              "[[Trabajo]]",
-              "[[Finanzas]]",
-              "[[Salud Mental]]",
-              "[[Creatividad]]"
-            ],
-            "description": "Área"
-          },
-          "description": "Áreas"
-        },
-        "color": {
-          "default": "#3171B2",
-          "description": "Color de la nota.",
-          "type": "string"
-        },
-        "icon": {
-          "default": "youtube",
-          "description": "Icono de Lucide.",
-          "type": "string"
-        },
-        "banner": {
-          "description": "Banner de la nota.",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "url": {
-          "description": "URL del artículo",
-          "type": "string"
+          "description": "Título de la película"
         },
         "platform": {
-          "type": "string",
-          "const": "YouTube"
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "YouTube"
+            },
+            {
+              "type": "string",
+              "const": "Vimeo"
+            }
+          ],
+          "description": "Plataforma de visualización del vídeo"
         }
       },
       "required": [
-        "title",
-        "status",
         "type",
+        "topics",
+        "status",
         "format",
+        "title",
         "platform"
       ],
-      "description": "Vídeo de YouTube"
+      "description": "Vídeo"
     }
   ],
   "description": "Nota: Unión de todos los tipos de notas"

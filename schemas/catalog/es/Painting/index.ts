@@ -1,30 +1,23 @@
-
 import z from "zod";
 
-import { Areas } from '../Areas';
+import { Areas, Creativity, Paintings, SourceSchema } from '../Core';
+import { Color, Date, Icon, Image, InProgress, Pending, Seen, Yellow } from "../DataTypes";
 
-export const MetaPaintingSchema = z.object({
-  type: z.literal("[[Fuentes]]"),
-  format: z.literal("[[Pinturas]]"),
-  areas: Areas.default(["[[Creatividad]]"]),
-  color: z.string().optional().default("#BE9207").describe('Color de la nota.'),
-  icon: z.string().optional().default('frame').describe('Icono de Lucide.'),
-  cover: z.string().describe('Imagen de la pintura.'),
-}).describe('Pintura: Metadatos de Nota');
+const PaintingStatus = z
+  .union([Pending, InProgress, Seen])
+  .describe('Estado de procesamiento de la pintura');
 
-export const CatalogPaintingSchema = z.object({
-  title: z.string().optional().describe('Título de la pintura'),
-  description: z.string().optional().describe('Descripción'),
-  author: z.array(z.string()).optional().describe('Autores'),
-  published: z.string().optional().describe('Año de publicación'),
-}).describe('Pintura: Datos obtenibles de catalogación');
+const PaintingIcon = z.literal("frame");
 
-export const DetailedPaintingSchema = z.object({
+export const PaintingSchema = SourceSchema.extend({
+  format: Paintings,
+  status: PaintingStatus,
+  areas: Areas.default([Creativity.value]),
+  color: Color.optional().default(Yellow.value).describe('Color de la nota.'),
+  icon: Icon.optional().default(PaintingIcon.value).describe('Icono de Lucide.'),
+  cover: Image.nullable().optional().describe('Portada de la pintura.'),
+  title: z.string().describe('Título de la película'),
+  published: Date.optional().describe('Año de publicación'),
   collection: z.string().optional().describe('Colección'),
   position: z.string().optional().describe('Posición en la colección'),
-  projects: z.array(z.string()).optional().describe('Proyectos'),
-  topics: z.array(z.string()).optional().describe('Temas'),
-  rating: z.number().optional().describe('Puntuación del artículo'),
-}).describe('Pintura: Datos adicionales');
-
-export const PaintingSchema = CatalogPaintingSchema.extend(DetailedPaintingSchema.shape).extend(MetaPaintingSchema.shape).describe('Pintura');
+}).describe('Pintura');

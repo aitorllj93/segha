@@ -35,6 +35,10 @@ importers:
         version: 0.2.5(zod@4.3.6)
 
   schemas/catalog:
+    dependencies:
+      arkregex:
+        specifier: ^0.0.5
+        version: 0.0.5
     devDependencies:
       tsx:
         specifier: 'catalog:'
@@ -71,6 +75,9 @@ importers:
         version: 0.2.5(zod@4.3.6)
 
 packages:
+
+  '@ark/util@0.56.0':
+    resolution: {integrity: sha512-BghfRC8b9pNs3vBoDJhcta0/c1J1rsoS1+HgVUreMFPdhz/CRAKReAu57YEllNaSy98rWAdY1gE+gFup7OXpgA==}
 
   '@commander-js/extra-typings@12.1.0':
     resolution: {integrity: sha512-wf/lwQvWAA0goIghcb91dQYpkLBcyhOhQNqG/VgWhnKzgt+UOMvra7EX/2fv70arm5RW+PUHoQHHDa6/p77Eqg==}
@@ -392,6 +399,9 @@ packages:
   '@types/node@25.2.1':
     resolution: {integrity: sha512-CPrnr8voK8vC6eEtyRzvMpgp3VyVRhgclonE7qYi6P9sXwYb59ucfrnmFBTaP0yUi8Gk4yZg/LlTJULGxvTNsg==}
 
+  arkregex@0.0.5:
+    resolution: {integrity: sha512-ncYjBdLlh5/QnVsAA8De16Tc9EqmYM7y/WU9j+236KcyYNUXogpz3sC4ATIZYzzLxwI+0sEOaQLEmLmRleaEXw==}
+
   bundle-require@5.1.0:
     resolution: {integrity: sha512-3WrrOuZiyaaZPWiEt4G3+IffISVC9HYlWueJEBWED4ZH4aIAC2PnkdnuRrR94M+w6yGWn4AglWtJtBI8YqvgoA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -445,6 +455,8 @@ packages:
     resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
 
 snapshots:
+
+  '@ark/util@0.56.0': {}
 
   '@commander-js/extra-typings@12.1.0(commander@12.1.0)':
     dependencies:
@@ -609,6 +621,10 @@ snapshots:
   '@types/node@25.2.1':
     dependencies:
       undici-types: 7.16.0
+
+  arkregex@0.0.5:
+    dependencies:
+      '@ark/util': 0.56.0
 
   bundle-require@5.1.0(esbuild@0.25.12):
     dependencies:

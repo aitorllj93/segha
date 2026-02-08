@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "[[Capacidades]]",
+        "[[Fuentes]]",
+        "[[Extractos]]",
+        "[[Publicaciones]]",
+        "[[Crónicas]]",
+        "[[Entidades]]",
+        "[[Recursos]]",
+        "[[Escenarios]]"
+      ],
+      "description": "Tipo de nota."
+    },
+    "areas": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "[[Alimentación]]",
+          "[[Salud]]",
+          "[[Conocimiento]]",
+          "[[Pensamiento Estructurado]]",
+          "[[Hogar]]",
+          "[[Productividad]]",
+          "[[Exploración]]",
+          "[[Vínculos]]",
+          "[[Ejercicio]]",
+          "[[Energía Vital]]",
+          "[[Trabajo]]",
+          "[[Finanzas]]",
+          "[[Salud Mental]]",
+          "[[Creatividad]]"
+        ],
+        "description": "Área"
+      },
+      "description": "Áreas de la nota."
+    },
+    "color": {
+      "description": "Color",
+      "type": "string",
+      "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+    },
+    "icon": {
+      "description": "Icono",
+      "type": "string",
+      "pattern": "^[a-z-]+$"
+    },
+    "banner": {
+      "description": "Imagen",
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri"
+        },
+        {
+          "type": "string",
+          "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+          "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+        }
+      ]
+    },
+    "cover": {
+      "description": "Cubierta",
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri"
+        },
+        {
+          "type": "string",
+          "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+          "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+        }
+      ]
+    },
+    "projects": {
+      "description": "Proyectos asociados.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+        "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+      }
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "description": "Temas: Wikilink o texto libre",
+        "anyOf": [
+          {
+            "type": "string",
+            "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+            "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "status": {
+      "description": "Estado de la nota.",
+      "type": "string"
+    },
+    "rating": {
+      "description": "Puntuación de la nota.",
+      "anyOf": [
+        {
+          "type": "number",
+          "const": 7,
+          "description": "Perfecto, hay que probarlo, te cambia la vida, haz un esfuerzo por buscarlo."
+        },
+        {
+          "type": "number",
+          "const": 6,
+          "description": "Excelente, vale la pena repetirlo"
+        },
+        {
+          "type": "number",
+          "const": 5,
+          "description": "Bueno, no hagas un esfuerzo especial, pero es agradable."
+        },
+        {
+          "type": "number",
+          "const": 4,
+          "description": "Aceptable, sirve en caso de apuro."
+        },
+        {
+          "type": "number",
+          "const": 3,
+          "description": "Malo, no lo hagas si puedes evitarlo."
+        },
+        {
+          "type": "number",
+          "const": 2,
+          "description": "Atroz, evítalo activamente, repulsivo"
+        },
+        {
+          "type": "number",
+          "const": 1,
+          "description": "Malvado, te cambia la vida para mal."
+        }
+      ]
+    },
+    "aliases": {
+      "description": "Alias de la nota.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "type",
+    "areas",
+    "topics"
+  ],
+  "description": "Notas"
+}

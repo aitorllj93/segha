@@ -1099,6 +1099,175 @@
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
+        "type": {
+          "type": "string",
+          "const": "[[Fuentes]]",
+          "description": "Bibliografías, recursos validados sobre los que acumular información."
+        },
+        "areas": {
+          "default": [
+            "[[Hogar]]"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "[[Alimentación]]",
+              "[[Salud]]",
+              "[[Conocimiento]]",
+              "[[Pensamiento Estructurado]]",
+              "[[Hogar]]",
+              "[[Productividad]]",
+              "[[Exploración]]",
+              "[[Vínculos]]",
+              "[[Ejercicio]]",
+              "[[Energía Vital]]",
+              "[[Trabajo]]",
+              "[[Finanzas]]",
+              "[[Salud Mental]]",
+              "[[Creatividad]]"
+            ],
+            "description": "Área"
+          },
+          "description": "Áreas"
+        },
+        "color": {
+          "default": "#CB6120",
+          "description": "Color de la nota.",
+          "type": "string",
+          "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+        },
+        "icon": {
+          "default": "shirt",
+          "description": "Icono de Lucide.",
+          "type": "string",
+          "pattern": "^[a-z-]+$"
+        },
+        "banner": {
+          "description": "Imagen",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "string",
+              "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+              "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+            }
+          ]
+        },
+        "cover": {
+          "description": "Portada de la prenda de ropa.",
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "string",
+                  "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                  "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+                }
+              ],
+              "description": "Imagen: URL o Wikilink de una imagen."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "projects": {
+          "description": "Proyectos asociados.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+            "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+          }
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "description": "Temas: Wikilink o texto libre",
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+                "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "status": {
+          "default": "Bien",
+          "description": "Estado",
+          "type": "string",
+          "enum": [
+            "Nuevo",
+            "Bien",
+            "Gastado",
+            "Dañado",
+            "Retirar"
+          ]
+        },
+        "rating": {
+          "description": "Puntuación de la nota.",
+          "anyOf": [
+            {
+              "type": "number",
+              "const": 7,
+              "description": "Perfecto, hay que probarlo, te cambia la vida, haz un esfuerzo por buscarlo."
+            },
+            {
+              "type": "number",
+              "const": 6,
+              "description": "Excelente, vale la pena repetirlo"
+            },
+            {
+              "type": "number",
+              "const": 5,
+              "description": "Bueno, no hagas un esfuerzo especial, pero es agradable."
+            },
+            {
+              "type": "number",
+              "const": 4,
+              "description": "Aceptable, sirve en caso de apuro."
+            },
+            {
+              "type": "number",
+              "const": 3,
+              "description": "Malo, no lo hagas si puedes evitarlo."
+            },
+            {
+              "type": "number",
+              "const": 2,
+              "description": "Atroz, evítalo activamente, repulsivo"
+            },
+            {
+              "type": "number",
+              "const": 1,
+              "description": "Malvado, te cambia la vida para mal."
+            }
+          ]
+        },
+        "aliases": {
+          "description": "Alias de la nota.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "subtype": {
+          "type": "string",
+          "const": "[[Prendas]]",
+          "description": "Prendas de ropa"
+        },
         "name": {
           "type": "string",
           "description": "Nombre descriptivo de la prenda de ropa"
@@ -1393,18 +1562,6 @@
             ]
           }
         },
-        "status": {
-          "default": "Bien",
-          "description": "Estado",
-          "type": "string",
-          "enum": [
-            "Nuevo",
-            "Bien",
-            "Gastado",
-            "Dañado",
-            "Retirar"
-          ]
-        },
         "size": {
           "type": "string",
           "enum": [
@@ -1439,201 +1596,20 @@
           "items": {
             "type": "number"
           }
-        },
-        "type": {
-          "type": "string",
-          "const": "[[Recursos]]"
-        },
-        "subtype": {
-          "type": "string",
-          "const": "[[Prendas]]"
-        },
-        "areas": {
-          "default": [
-            "[[Hogar]]"
-          ],
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "[[Alimentación]]",
-              "[[Salud]]",
-              "[[Conocimiento]]",
-              "[[Pensamiento Estructurado]]",
-              "[[Hogar]]",
-              "[[Productividad]]",
-              "[[Exploración]]",
-              "[[Vínculos]]",
-              "[[Ejercicio]]",
-              "[[Energía Vital]]",
-              "[[Trabajo]]",
-              "[[Finanzas]]",
-              "[[Salud Mental]]",
-              "[[Creatividad]]"
-            ],
-            "description": "Área"
-          },
-          "description": "Áreas"
-        },
-        "color": {
-          "default": "#CB6120",
-          "description": "Color de la nota.",
-          "type": "string"
-        },
-        "icon": {
-          "default": "shirt",
-          "description": "Icono de Lucide.",
-          "type": "string"
-        },
-        "cover": {
-          "description": "Foto de la prenda de ropa.",
-          "type": "string"
         }
       },
       "required": [
+        "type",
+        "topics",
+        "subtype",
         "name",
         "garment",
         "slot",
         "primary_color",
         "layer",
-        "size",
-        "type",
-        "subtype"
-      ],
-      "description": "Prenda de ropa"
-    },
-    "DetailedClothingSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "cares": {
-          "description": "Cuidados",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "Lavado a mano",
-              "Lavado a máquina",
-              "Lavado en seco",
-              "Frio",
-              "Caliente",
-              "Planchado",
-              "Planchado a vapor"
-            ]
-          }
-        },
-        "status": {
-          "default": "Bien",
-          "description": "Estado",
-          "type": "string",
-          "enum": [
-            "Nuevo",
-            "Bien",
-            "Gastado",
-            "Dañado",
-            "Retirar"
-          ]
-        },
-        "size": {
-          "type": "string",
-          "enum": [
-            "28",
-            "30",
-            "32",
-            "34",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "48",
-            "XS",
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL",
-            "XXXL"
-          ]
-        },
-        "measurements": {
-          "description": "Medidas",
-          "type": "array",
-          "items": {
-            "type": "number"
-          }
-        }
-      },
-      "required": [
         "size"
       ],
-      "description": "Prenda de ropa: Datos adicionales"
-    },
-    "MetaClothingSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "const": "[[Recursos]]"
-        },
-        "subtype": {
-          "type": "string",
-          "const": "[[Prendas]]"
-        },
-        "areas": {
-          "default": [
-            "[[Hogar]]"
-          ],
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "[[Alimentación]]",
-              "[[Salud]]",
-              "[[Conocimiento]]",
-              "[[Pensamiento Estructurado]]",
-              "[[Hogar]]",
-              "[[Productividad]]",
-              "[[Exploración]]",
-              "[[Vínculos]]",
-              "[[Ejercicio]]",
-              "[[Energía Vital]]",
-              "[[Trabajo]]",
-              "[[Finanzas]]",
-              "[[Salud Mental]]",
-              "[[Creatividad]]"
-            ],
-            "description": "Área"
-          },
-          "description": "Áreas"
-        },
-        "color": {
-          "default": "#CB6120",
-          "description": "Color de la nota.",
-          "type": "string"
-        },
-        "icon": {
-          "default": "shirt",
-          "description": "Icono de Lucide.",
-          "type": "string"
-        },
-        "cover": {
-          "description": "Foto de la prenda de ropa.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "subtype"
-      ],
-      "description": "Prenda de ropa: Metadatos de Nota"
+      "description": "Prenda de ropa"
     }
   }
 }

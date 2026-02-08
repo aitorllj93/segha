@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "const": "[[Recursos]]",
+  "description": "Elementos materiales o digitales (herramientas, dispositivos, software) que facilitan la acción."
+}

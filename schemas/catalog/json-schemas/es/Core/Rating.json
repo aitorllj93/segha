@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "anyOf": [
+    {
+      "type": "number",
+      "const": 7,
+      "description": "Perfecto, hay que probarlo, te cambia la vida, haz un esfuerzo por buscarlo."
+    },
+    {
+      "type": "number",
+      "const": 6,
+      "description": "Excelente, vale la pena repetirlo"
+    },
+    {
+      "type": "number",
+      "const": 5,
+      "description": "Bueno, no hagas un esfuerzo especial, pero es agradable."
+    },
+    {
+      "type": "number",
+      "const": 4,
+      "description": "Aceptable, sirve en caso de apuro."
+    },
+    {
+      "type": "number",
+      "const": 3,
+      "description": "Malo, no lo hagas si puedes evitarlo."
+    },
+    {
+      "type": "number",
+      "const": 2,
+      "description": "Atroz, evítalo activamente, repulsivo"
+    },
+    {
+      "type": "number",
+      "const": 1,
+      "description": "Malvado, te cambia la vida para mal."
+    }
+  ],
+  "description": "Puntuación de la nota."
+}

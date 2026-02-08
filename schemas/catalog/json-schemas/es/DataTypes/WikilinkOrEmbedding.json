@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "pattern": "(!)?\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+  "description": "Wikilink o Embedding: [[Wikilink]] o ![[Wikilink]] o [[Wikilink|Display Text]] o ![[Wikilink|Display Text]]"
+}

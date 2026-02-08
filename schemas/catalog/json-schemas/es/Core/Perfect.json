@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "number",
+  "const": 7,
+  "description": "Perfecto, hay que probarlo, te cambia la vida, haz un esfuerzo por buscarlo."
+}

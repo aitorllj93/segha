@@ -14,16 +14,37 @@ import { Slot } from "./Slot";
 import { Status } from "./Status";
 import { UseCases } from "./UseCases";
 import { Variants } from "./Variants";
-import { Areas } from "../Areas";
+import { Areas, Home, ResourceSchema } from "../Core";
+import { Clothes } from "../Core/Subtype";
+import { Color, Icon, Image, Orange } from "../DataTypes";
 
-export const MetaClothingSchema = z.object({
-  type: z.literal("[[Recursos]]"),
-  subtype: z.literal("[[Prendas]]"),
-  areas: Areas.default(["[[Hogar]]"]),
-  color: z.string().optional().default("#CB6120").describe('Color de la nota.'),
-  icon: z.string().optional().default('shirt').describe('Icono de Lucide.'),
-  cover: z.string().optional().describe('Foto de la prenda de ropa.'),
-}).describe('Prenda de ropa: Metadatos de Nota');
+const ClothingIcon = z.literal("shirt");
+
+export const ClothingSchema = ResourceSchema.extend({
+  subtype: Clothes,
+  areas: Areas.default([Home.value]),
+  color: Color.optional().default(Orange.value).describe('Color de la nota.'),
+  icon: Icon.optional().default(ClothingIcon.value).describe('Icono de Lucide.'),
+  cover: Image.nullable().optional().describe('Portada de la prenda de ropa.'),
+  name: z.string().describe('Nombre descriptivo de la prenda de ropa'),
+  garment: Garment,
+  slot: Slot,
+  variants: Variants,
+  fit: Fit,
+  primary_color: PrimaryColor,
+  secondary_color: SecondaryColor,
+  pattern: Pattern,
+  materials: Materials,
+  layer: Layer,
+  season: Season,
+  use_case: UseCases,
+  formality: Formality,
+  brand: z.string().optional().describe('The brand of the clothing'),
+  cares: Cares,
+  status: Status,
+  size: Size,
+  measurements: Measurements,
+}).describe('Prenda de ropa');
 
 export const CatalogClothingSchema = z.object({
   name: z.string().describe('Nombre descriptivo de la prenda de ropa'),
@@ -41,12 +62,3 @@ export const CatalogClothingSchema = z.object({
   formality: Formality,
   brand: z.string().optional().describe('The brand of the clothing'),
 }).describe('Prenda de ropa: Datos obtenibles de catalogación');
-
-export const DetailedClothingSchema = z.object({
-  cares: Cares,
-  status: Status,
-  size: Size,
-  measurements: Measurements,
-}).describe('Prenda de ropa: Datos adicionales');
-
-export const ClothingSchema = CatalogClothingSchema.extend(DetailedClothingSchema.shape).extend(MetaClothingSchema.shape).describe('Prenda de ropa');

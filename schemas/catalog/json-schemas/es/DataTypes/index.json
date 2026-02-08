@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "@segha/catalog/es/DataTypes",
+  "description": "Schemas for Petroglyph Catalog",
+  "$defs": {
+    "Blue": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "const": "#3171B2",
+      "description": "Color: Azul"
+    },
+    "Color": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$",
+      "description": "Color: Código hexadecimal de 6 o 8 dígitos."
+    },
+    "Hex": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$",
+      "description": "Color: Código hexadecimal de 6 o 8 dígitos."
+    },
+    "Orange": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "const": "#CB6120",
+      "description": "Color: Naranja"
+    },
+    "Yellow": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "const": "#BE9207",
+      "description": "Color: Amarillo"
+    },
+    "Date": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9]{4}$",
+          "description": "Año: YYYY"
+        },
+        {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}$",
+          "description": "Mes: YYYY-MM"
+        },
+        {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+          "description": "Fecha: YYYY-MM-DD"
+        }
+      ],
+      "description": "Fecha: YYYY, YYYY-MM o YYYY-MM-DD"
+    },
+    "DateTime": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$",
+      "description": "Fecha y hora: YYYY-MM-DDTHH:MM:SSZ"
+    },
+    "DateTimeOffset": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z[+-][0-9]{2}:[0-9]{2}$",
+      "description": "Fecha y hora con offset: YYYY-MM-DDTHH:MM:SSZ[+-][0-9]{2}:[0-9]{2}"
+    },
+    "FullDate": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "Fecha: YYYY-MM-DD"
+    },
+    "Month": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}$",
+      "description": "Mes: YYYY-MM"
+    },
+    "OrdinalDate": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{3}$",
+      "description": "Fecha ordinal: YYYY-DDD"
+    },
+    "Time": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "^[0-9]{2}:[0-9]{2}:[0-9]{2}Z$",
+      "description": "Hora: HH:MM:SSZ"
+    },
+    "Week": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "^[0-9]{4}-W[0-9]{2}$",
+      "description": "Semana: YYYY-Www"
+    },
+    "WeekWithWeekDay": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "^[0-9]{4}-W[0-9]{2}-[1-7]$",
+      "description": "Semana con día de la semana: YYYY-Www-D"
+    },
+    "Year": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "^[0-9]{4}$",
+      "description": "Año: YYYY"
+    },
+    "Icon": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "^[a-z-]+$",
+      "description": "Icono: Código de icono (Lucide)."
+    },
+    "Image": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri"
+        },
+        {
+          "type": "string",
+          "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+          "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+        }
+      ],
+      "description": "Imagen: URL o Wikilink de una imagen."
+    },
+    "Language": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "^[a-z]{2,3}$",
+      "description": "Idioma: Código de idioma (ISO 639-1 o ISO 639-3)."
+    },
+    "LanguageTag": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(?:[-_][a-z]{2})?$",
+      "description": "Idioma: Tag de idioma (BCP 47)."
+    },
+    "Consolidated": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "const": "Consolidado"
+    },
+    "InProgress": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "const": "En Proceso"
+    },
+    "Pending": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "const": "Pendiente"
+    },
+    "Read": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "const": "Leído"
+    },
+    "Seen": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "const": "Visto"
+    },
+    "Watched": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "const": "Visto"
+    },
+    "Embedding": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "!\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+      "description": "Embedding: ![[Wikilink]] o ![[Wikilink|Display Text]]"
+    },
+    "Wikilink": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+      "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+    },
+    "WikilinkOrEmbedding": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "pattern": "(!)?\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+      "description": "Wikilink o Embedding: [[Wikilink]] o ![[Wikilink]] o [[Wikilink|Display Text]] o ![[Wikilink|Display Text]]"
+    }
+  }
+}

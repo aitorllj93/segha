@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "anyOf": [
+    {
+      "type": "string",
+      "format": "uri"
+    },
+    {
+      "type": "string",
+      "pattern": "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]",
+      "description": "Wikilink: [[Wikilink]] o [[Wikilink|Display Text]]"
+    }
+  ],
+  "description": "Imagen: URL o Wikilink de una imagen."
+}

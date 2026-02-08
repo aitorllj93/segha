@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "pattern": "^[a-z]{2,3}(?:[-_][a-z]{2})?$",
+  "description": "Idioma: Tag de idioma (BCP 47)."
+}

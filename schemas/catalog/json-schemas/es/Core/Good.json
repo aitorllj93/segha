@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "number",
+  "const": 5,
+  "description": "Bueno, no hagas un esfuerzo especial, pero es agradable."
+}

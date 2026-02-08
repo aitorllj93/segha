@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "@segha/catalog/common",
+  "description": "Schemas for Petroglyph Catalog",
+  "$defs": {
+    "Palette": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "cyan",
+        "blue",
+        "purple",
+        "magenta"
+      ]
+    },
+    "Scheme": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "primary",
+        "semaphore",
+        "rainbow",
+        "contrast",
+        "monochrome"
+      ]
+    }
+  }
+}

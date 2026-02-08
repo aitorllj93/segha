@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "number",
+  "const": 4,
+  "description": "Aceptable, sirve en caso de apuro."
+}
