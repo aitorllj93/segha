@@ -5,6 +5,25 @@ All notable changes to @segha/catalog will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - 2026-02-08
+
+### Spanish (es)
+
+#### Added
+
+- **BREAKING** Property `size` in `ClothingSchema` changed from required to optional
+
+#### Changed
+
+- Property `variants` in `ClothingSchema` was modified
+- Property `materials` in `ClothingSchema` was modified
+- Property `use_case` in `ClothingSchema` was modified
+- Property `cares` in `ClothingSchema` was modified
+
+#### Removed
+
+- **BREAKING** Schema `CatalogClothingSchema` was removed
+
 ## [3.0.0] - 2026-02-08
 
 ### COMMON (common)
