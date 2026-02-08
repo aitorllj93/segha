@@ -10,6 +10,7 @@
           "type": "object",
           "properties": {
             "type": {
+              "default": "[[Fuentes]]",
               "type": "string",
               "const": "[[Fuentes]]",
               "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -115,6 +116,7 @@
               }
             },
             "status": {
+              "default": "Pendiente",
               "anyOf": [
                 {
                   "type": "string",
@@ -183,6 +185,7 @@
               }
             },
             "format": {
+              "default": "[[Artículos]]",
               "type": "string",
               "const": "[[Artículos]]",
               "description": "Artículos"
@@ -240,10 +243,7 @@
             }
           },
           "required": [
-            "type",
             "topics",
-            "status",
-            "format",
             "url",
             "title"
           ],
@@ -253,6 +253,7 @@
           "type": "object",
           "properties": {
             "type": {
+              "default": "[[Fuentes]]",
               "type": "string",
               "const": "[[Fuentes]]",
               "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -358,6 +359,7 @@
               }
             },
             "status": {
+              "default": "Pendiente",
               "anyOf": [
                 {
                   "type": "string",
@@ -426,6 +428,7 @@
               }
             },
             "format": {
+              "default": "[[Libros]]",
               "type": "string",
               "const": "[[Libros]]",
               "description": "Libros"
@@ -519,14 +522,12 @@
             },
             "times_read": {
               "description": "Veces leído",
+              "default": 0,
               "type": "number"
             }
           },
           "required": [
-            "type",
             "topics",
-            "status",
-            "format",
             "title"
           ],
           "description": "Libro"
@@ -535,9 +536,10 @@
           "type": "object",
           "properties": {
             "type": {
+              "default": "[[Recursos]]",
               "type": "string",
-              "const": "[[Fuentes]]",
-              "description": "Bibliografías, recursos validados sobre los que acumular información."
+              "const": "[[Recursos]]",
+              "description": "Elementos materiales o digitales (herramientas, dispositivos, software) que facilitan la acción."
             },
             "areas": {
               "default": [
@@ -699,6 +701,7 @@
               }
             },
             "subtype": {
+              "default": "[[Prendas]]",
               "type": "string",
               "const": "[[Prendas]]",
               "description": "Prendas de ropa"
@@ -1034,9 +1037,7 @@
             }
           },
           "required": [
-            "type",
             "topics",
-            "subtype",
             "name",
             "garment",
             "slot",
@@ -1050,6 +1051,7 @@
           "type": "object",
           "properties": {
             "type": {
+              "default": "[[Fuentes]]",
               "type": "string",
               "const": "[[Fuentes]]",
               "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -1163,6 +1165,7 @@
               }
             },
             "status": {
+              "default": "Pendiente",
               "anyOf": [
                 {
                   "type": "string",
@@ -1231,6 +1234,7 @@
               }
             },
             "format": {
+              "default": "[[Entradas de Enciclopedia]]",
               "type": "string",
               "const": "[[Entradas de Enciclopedia]]",
               "description": "Entradas de Enciclopedia"
@@ -1288,10 +1292,7 @@
             }
           },
           "required": [
-            "type",
             "topics",
-            "status",
-            "format",
             "url",
             "title"
           ],
@@ -1301,6 +1302,7 @@
           "type": "object",
           "properties": {
             "type": {
+              "default": "[[Fuentes]]",
               "type": "string",
               "const": "[[Fuentes]]",
               "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -1406,6 +1408,7 @@
               }
             },
             "status": {
+              "default": "Pendiente",
               "anyOf": [
                 {
                   "type": "string",
@@ -1470,6 +1473,7 @@
               }
             },
             "format": {
+              "default": "[[Películas]]",
               "type": "string",
               "const": "[[Películas]]",
               "description": "Películas"
@@ -1563,14 +1567,12 @@
             },
             "times_watched": {
               "description": "Veces vista",
+              "default": 0,
               "type": "number"
             }
           },
           "required": [
-            "type",
             "topics",
-            "status",
-            "format",
             "url",
             "title"
           ],
@@ -1580,6 +1582,7 @@
           "type": "object",
           "properties": {
             "type": {
+              "default": "[[Fuentes]]",
               "type": "string",
               "const": "[[Fuentes]]",
               "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -1685,6 +1688,7 @@
               }
             },
             "status": {
+              "default": "Pendiente",
               "anyOf": [
                 {
                   "type": "string",
@@ -1749,6 +1753,7 @@
               }
             },
             "format": {
+              "default": "[[Pinturas]]",
               "type": "string",
               "const": "[[Pinturas]]",
               "description": "Pinturas"
@@ -1799,10 +1804,7 @@
             }
           },
           "required": [
-            "type",
             "topics",
-            "status",
-            "format",
             "title"
           ],
           "description": "Pintura"
@@ -1811,6 +1813,7 @@
           "type": "object",
           "properties": {
             "type": {
+              "default": "[[Fuentes]]",
               "type": "string",
               "const": "[[Fuentes]]",
               "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -1908,6 +1911,7 @@
               }
             },
             "status": {
+              "default": "Pendiente",
               "anyOf": [
                 {
                   "type": "string",
@@ -1972,6 +1976,7 @@
               }
             },
             "format": {
+              "default": "[[Vídeos]]",
               "type": "string",
               "const": "[[Vídeos]]",
               "description": "Vídeos"
@@ -2027,10 +2032,7 @@
             }
           },
           "required": [
-            "type",
             "topics",
-            "status",
-            "format",
             "title",
             "platform"
           ],
@@ -2044,6 +2046,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Fuentes]]",
           "type": "string",
           "const": "[[Fuentes]]",
           "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -2149,6 +2152,7 @@
           }
         },
         "status": {
+          "default": "Pendiente",
           "anyOf": [
             {
               "type": "string",
@@ -2217,6 +2221,7 @@
           }
         },
         "format": {
+          "default": "[[Artículos]]",
           "type": "string",
           "const": "[[Artículos]]",
           "description": "Artículos"
@@ -2274,10 +2279,7 @@
         }
       },
       "required": [
-        "type",
         "topics",
-        "status",
-        "format",
         "url",
         "title"
       ],
@@ -2288,6 +2290,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Fuentes]]",
           "type": "string",
           "const": "[[Fuentes]]",
           "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -2393,6 +2396,7 @@
           }
         },
         "status": {
+          "default": "Pendiente",
           "anyOf": [
             {
               "type": "string",
@@ -2461,6 +2465,7 @@
           }
         },
         "format": {
+          "default": "[[Libros]]",
           "type": "string",
           "const": "[[Libros]]",
           "description": "Libros"
@@ -2554,14 +2559,12 @@
         },
         "times_read": {
           "description": "Veces leído",
+          "default": 0,
           "type": "number"
         }
       },
       "required": [
-        "type",
         "topics",
-        "status",
-        "format",
         "title"
       ],
       "description": "Libro"
@@ -2863,9 +2866,10 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Recursos]]",
           "type": "string",
-          "const": "[[Fuentes]]",
-          "description": "Bibliografías, recursos validados sobre los que acumular información."
+          "const": "[[Recursos]]",
+          "description": "Elementos materiales o digitales (herramientas, dispositivos, software) que facilitan la acción."
         },
         "areas": {
           "default": [
@@ -3027,6 +3031,7 @@
           }
         },
         "subtype": {
+          "default": "[[Prendas]]",
           "type": "string",
           "const": "[[Prendas]]",
           "description": "Prendas de ropa"
@@ -3362,9 +3367,7 @@
         }
       },
       "required": [
-        "type",
         "topics",
-        "subtype",
         "name",
         "garment",
         "slot",
@@ -3379,6 +3382,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Fuentes]]",
           "type": "string",
           "const": "[[Fuentes]]",
           "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -3492,6 +3496,7 @@
           }
         },
         "status": {
+          "default": "Pendiente",
           "anyOf": [
             {
               "type": "string",
@@ -3560,6 +3565,7 @@
           }
         },
         "format": {
+          "default": "[[Entradas de Enciclopedia]]",
           "type": "string",
           "const": "[[Entradas de Enciclopedia]]",
           "description": "Entradas de Enciclopedia"
@@ -3617,10 +3623,7 @@
         }
       },
       "required": [
-        "type",
         "topics",
-        "status",
-        "format",
         "url",
         "title"
       ],
@@ -3631,6 +3634,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Fuentes]]",
           "type": "string",
           "const": "[[Fuentes]]",
           "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -3736,6 +3740,7 @@
           }
         },
         "status": {
+          "default": "Pendiente",
           "anyOf": [
             {
               "type": "string",
@@ -3800,6 +3805,7 @@
           }
         },
         "format": {
+          "default": "[[Películas]]",
           "type": "string",
           "const": "[[Películas]]",
           "description": "Películas"
@@ -3893,14 +3899,12 @@
         },
         "times_watched": {
           "description": "Veces vista",
+          "default": 0,
           "type": "number"
         }
       },
       "required": [
-        "type",
         "topics",
-        "status",
-        "format",
         "url",
         "title"
       ],
@@ -3911,6 +3915,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Fuentes]]",
           "type": "string",
           "const": "[[Fuentes]]",
           "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -4016,6 +4021,7 @@
           }
         },
         "status": {
+          "default": "Pendiente",
           "anyOf": [
             {
               "type": "string",
@@ -4080,6 +4086,7 @@
           }
         },
         "format": {
+          "default": "[[Pinturas]]",
           "type": "string",
           "const": "[[Pinturas]]",
           "description": "Pinturas"
@@ -4130,10 +4137,7 @@
         }
       },
       "required": [
-        "type",
         "topics",
-        "status",
-        "format",
         "title"
       ],
       "description": "Pintura"
@@ -4143,6 +4147,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Fuentes]]",
           "type": "string",
           "const": "[[Fuentes]]",
           "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -4240,6 +4245,7 @@
           }
         },
         "status": {
+          "default": "Pendiente",
           "anyOf": [
             {
               "type": "string",
@@ -4304,6 +4310,7 @@
           }
         },
         "format": {
+          "default": "[[Vídeos]]",
           "type": "string",
           "const": "[[Vídeos]]",
           "description": "Vídeos"
@@ -4359,10 +4366,7 @@
         }
       },
       "required": [
-        "type",
         "topics",
-        "status",
-        "format",
         "title",
         "platform"
       ],
@@ -4373,6 +4377,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Fuentes]]",
           "type": "string",
           "const": "[[Fuentes]]",
           "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -4470,6 +4475,7 @@
           }
         },
         "status": {
+          "default": "Pendiente",
           "anyOf": [
             {
               "type": "string",
@@ -4534,6 +4540,7 @@
           }
         },
         "format": {
+          "default": "[[Vídeos]]",
           "type": "string",
           "const": "[[Vídeos]]",
           "description": "Vídeos"
@@ -4580,10 +4587,7 @@
         }
       },
       "required": [
-        "type",
         "topics",
-        "status",
-        "format",
         "title",
         "platform"
       ],
@@ -4594,6 +4598,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Fuentes]]",
           "type": "string",
           "const": "[[Fuentes]]",
           "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -4707,6 +4712,7 @@
           }
         },
         "status": {
+          "default": "Pendiente",
           "anyOf": [
             {
               "type": "string",
@@ -4775,6 +4781,7 @@
           }
         },
         "format": {
+          "default": "[[Entradas de Enciclopedia]]",
           "type": "string",
           "const": "[[Entradas de Enciclopedia]]",
           "description": "Entradas de Enciclopedia"
@@ -4836,10 +4843,7 @@
         }
       },
       "required": [
-        "type",
         "topics",
-        "status",
-        "format",
         "url",
         "title",
         "platform"
@@ -4851,6 +4855,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Fuentes]]",
           "type": "string",
           "const": "[[Fuentes]]",
           "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -4948,6 +4953,7 @@
           }
         },
         "status": {
+          "default": "Pendiente",
           "anyOf": [
             {
               "type": "string",
@@ -5012,6 +5018,7 @@
           }
         },
         "format": {
+          "default": "[[Vídeos]]",
           "type": "string",
           "const": "[[Vídeos]]",
           "description": "Vídeos"
@@ -5058,10 +5065,7 @@
         }
       },
       "required": [
-        "type",
         "topics",
-        "status",
-        "format",
         "title",
         "platform"
       ],

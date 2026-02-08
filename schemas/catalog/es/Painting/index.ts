@@ -10,8 +10,8 @@ const PaintingStatus = z
 const PaintingIcon = z.literal("frame");
 
 export const PaintingSchema = SourceSchema.extend({
-  format: Paintings,
-  status: PaintingStatus,
+  format: Paintings.default(Paintings.value),
+  status: PaintingStatus.default(Pending.value),
   areas: Areas.default([Creativity.value]),
   color: Color.optional().default(Yellow.value).describe('Color de la nota.'),
   icon: Icon.optional().default(PaintingIcon.value).describe('Icono de Lucide.'),

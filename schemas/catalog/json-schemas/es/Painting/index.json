@@ -8,6 +8,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Fuentes]]",
           "type": "string",
           "const": "[[Fuentes]]",
           "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -113,6 +114,7 @@
           }
         },
         "status": {
+          "default": "Pendiente",
           "anyOf": [
             {
               "type": "string",
@@ -177,6 +179,7 @@
           }
         },
         "format": {
+          "default": "[[Pinturas]]",
           "type": "string",
           "const": "[[Pinturas]]",
           "description": "Pinturas"
@@ -227,10 +230,7 @@
         }
       },
       "required": [
-        "type",
         "topics",
-        "status",
-        "format",
         "title"
       ],
       "description": "Pintura"

@@ -8,6 +8,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Fuentes]]",
           "type": "string",
           "const": "[[Fuentes]]",
           "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -105,6 +106,7 @@
           }
         },
         "status": {
+          "default": "Pendiente",
           "anyOf": [
             {
               "type": "string",
@@ -169,6 +171,7 @@
           }
         },
         "format": {
+          "default": "[[Vídeos]]",
           "type": "string",
           "const": "[[Vídeos]]",
           "description": "Vídeos"
@@ -224,10 +227,7 @@
         }
       },
       "required": [
-        "type",
         "topics",
-        "status",
-        "format",
         "title",
         "platform"
       ],
@@ -238,6 +238,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Fuentes]]",
           "type": "string",
           "const": "[[Fuentes]]",
           "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -335,6 +336,7 @@
           }
         },
         "status": {
+          "default": "Pendiente",
           "anyOf": [
             {
               "type": "string",
@@ -399,6 +401,7 @@
           }
         },
         "format": {
+          "default": "[[Vídeos]]",
           "type": "string",
           "const": "[[Vídeos]]",
           "description": "Vídeos"
@@ -445,10 +448,7 @@
         }
       },
       "required": [
-        "type",
         "topics",
-        "status",
-        "format",
         "title",
         "platform"
       ],
@@ -459,6 +459,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Fuentes]]",
           "type": "string",
           "const": "[[Fuentes]]",
           "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -556,6 +557,7 @@
           }
         },
         "status": {
+          "default": "Pendiente",
           "anyOf": [
             {
               "type": "string",
@@ -620,6 +622,7 @@
           }
         },
         "format": {
+          "default": "[[Vídeos]]",
           "type": "string",
           "const": "[[Vídeos]]",
           "description": "Vídeos"
@@ -666,10 +669,7 @@
         }
       },
       "required": [
-        "type",
         "topics",
-        "status",
-        "format",
         "title",
         "platform"
       ],

@@ -4,7 +4,10 @@
   "main": "index.ts",
   "description": "Schemas for Petroglyph Catalog",
   "scripts": {
-    "docs": "pnpm tsx ../../utils/generate-docs.ts --entry ./index.ts --cwd .",
+    "docs": "pnpm run docs:root && pnpm run docs:en && pnpm run docs:es",
+    "docs:root": "pnpm tsx ../../utils/generate-docs.ts --entry ./index.ts --output ./README.md --cwd .",
+    "docs:en": "pnpm tsx ../../utils/generate-docs.ts --entry ./en/index.ts --output ./en/README.md --cwd .",
+    "docs:es": "pnpm tsx ../../utils/generate-docs.ts --entry ./es/index.ts --output ./es/README.md --cwd .",
     "json-schema": "pnpm tsx ../../utils/generate-json-schema.ts --entry ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

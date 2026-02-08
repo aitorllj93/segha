@@ -21,7 +21,7 @@ import { Color, Icon, Image, Orange } from "../DataTypes";
 const ClothingIcon = z.literal("shirt");
 
 export const ClothingSchema = ResourceSchema.extend({
-  subtype: Clothes,
+  subtype: Clothes.default(Clothes.value),
   areas: Areas.default([Home.value]),
   color: Color.optional().default(Orange.value).describe('Color de la nota.'),
   icon: Icon.optional().default(ClothingIcon.value).describe('Icono de Lucide.'),

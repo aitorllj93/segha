@@ -3,9 +3,10 @@
   "type": "object",
   "properties": {
     "type": {
+      "default": "[[Recursos]]",
       "type": "string",
-      "const": "[[Fuentes]]",
-      "description": "Bibliografías, recursos validados sobre los que acumular información."
+      "const": "[[Recursos]]",
+      "description": "Elementos materiales o digitales (herramientas, dispositivos, software) que facilitan la acción."
     },
     "areas": {
       "default": [
@@ -167,6 +168,7 @@
       }
     },
     "subtype": {
+      "default": "[[Prendas]]",
       "type": "string",
       "const": "[[Prendas]]",
       "description": "Prendas de ropa"
@@ -502,9 +504,7 @@
     }
   },
   "required": [
-    "type",
     "topics",
-    "subtype",
     "name",
     "garment",
     "slot",

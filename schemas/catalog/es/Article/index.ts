@@ -12,8 +12,8 @@ const ArticleStatus = z
 const ArticleIcon = z.literal("newspaper");
 
 export const ArticleSchema = SourceSchema.extend({
-  format: Articles,
-  status: ArticleStatus,
+  format: Articles.default(Articles.value),
+  status: ArticleStatus.default(Pending.value),
   areas: Areas.default([Knowledge.value]),
   color: Color.optional().default(Blue.value).describe('Color de la nota.'),
   icon: Icon.optional().default(ArticleIcon.value).describe('Icono de Lucide.'),

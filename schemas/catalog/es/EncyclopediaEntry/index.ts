@@ -11,8 +11,8 @@ const EntryStatus = z
 const EntryIcon = z.literal("book");
 
   export const EncyclopediaEntrySchema = SourceSchema.extend({
-    format: EncyclopediaEntries,
-    status: EntryStatus,
+    format: EncyclopediaEntries.default(EncyclopediaEntries.value),
+    status: EntryStatus.default(Pending.value),
     areas: Areas.default([Knowledge.value]),
     color: Color.optional().default(Blue.value).describe('Color de la nota.'),
     icon: Icon.optional().default(EntryIcon.value).describe('Icono de Lucide.'),

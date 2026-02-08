@@ -12,8 +12,8 @@ const MovieStatus = z
 const MovieIcon = z.literal("movie");
 
 export const MovieSchema = SourceSchema.extend({
-  format: Movies,
-  status: MovieStatus,
+  format: Movies.default(Movies.value),
+  status: MovieStatus.default(Pending.value),
   areas: Areas.default([Creativity.value]),
   color: Color.optional().default(Yellow.value).describe('Color de la nota.'),
   icon: Icon.optional().default(MovieIcon.value).describe('Icono de Lucide.'),
@@ -27,5 +27,5 @@ export const MovieSchema = SourceSchema.extend({
   genres: z.array(z.string()).optional().describe('Géneros'),
   online_rating: z.number().optional().describe('Puntuación en línea'),
   last_time_watched: Date.optional().describe('Última vez vista'),
-  times_watched: z.number().optional().describe('Veces vista'),
+  times_watched: z.number().default(0).optional().describe('Veces vista'),
 }).describe('Película');

@@ -16,8 +16,8 @@ const VideoPlatform = z.union([
 ]).describe('Plataforma de visualización del vídeo');
 
 export const VideoSchema = SourceSchema.extend({
-  format: Videos,
-  status: VideoStatus,
+  format: Videos.default(Videos.value),
+  status: VideoStatus.default(Pending.value),
   areas: Areas.default([Knowledge.value]),
   color: Color.optional().default(Blue.value).describe('Color de la nota.'),
   icon: Icon.optional().default(VideoIcon.value).describe('Icono de Lucide.'),

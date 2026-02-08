@@ -13,6 +13,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "default": "[[Fuentes]]",
           "type": "string",
           "const": "[[Fuentes]]",
           "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -118,6 +119,7 @@
           }
         },
         "status": {
+          "default": "Pendiente",
           "anyOf": [
             {
               "type": "string",
@@ -182,6 +184,7 @@
           }
         },
         "format": {
+          "default": "[[Películas]]",
           "type": "string",
           "const": "[[Películas]]",
           "description": "Películas"
@@ -275,14 +278,12 @@
         },
         "times_watched": {
           "description": "Veces vista",
+          "default": 0,
           "type": "number"
         }
       },
       "required": [
-        "type",
         "topics",
-        "status",
-        "format",
         "url",
         "title"
       ],

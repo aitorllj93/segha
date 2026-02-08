@@ -3,6 +3,7 @@
   "type": "object",
   "properties": {
     "type": {
+      "default": "[[Fuentes]]",
       "type": "string",
       "const": "[[Fuentes]]",
       "description": "Bibliografías, recursos validados sobre los que acumular información."
@@ -116,6 +117,7 @@
       }
     },
     "status": {
+      "default": "Pendiente",
       "anyOf": [
         {
           "type": "string",
@@ -184,6 +186,7 @@
       }
     },
     "format": {
+      "default": "[[Entradas de Enciclopedia]]",
       "type": "string",
       "const": "[[Entradas de Enciclopedia]]",
       "description": "Entradas de Enciclopedia"
@@ -241,10 +244,7 @@
     }
   },
   "required": [
-    "type",
     "topics",
-    "status",
-    "format",
     "url",
     "title"
   ],

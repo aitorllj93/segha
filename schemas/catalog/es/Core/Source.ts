@@ -13,7 +13,7 @@ export const SourcesFormat = z.union([
 ]).describe('Formato de la fuente.');
 
 export const SourceSchema = CommonSchema.extend({
-  type: Sources,
+  type: Sources.default(Sources.value),
   format: SourcesFormat,
   status: z.string()
     .optional()
