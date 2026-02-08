@@ -29,8 +29,8 @@ export const CommonSchema = z.object({
   topics: z.array(z.union([
     Wikilink,
     z.string(),
-  ]).optional()
-    .describe('Temas: Wikilink o texto libre')),
+  ])).optional()
+    .describe('Temas: Wikilink o texto libre'),
   status: z.string()
     .optional()
     .describe('Estado de la nota.'),
