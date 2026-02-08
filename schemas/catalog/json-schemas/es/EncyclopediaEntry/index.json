@@ -106,9 +106,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -249,7 +249,6 @@
         }
       },
       "required": [
-        "topics",
         "url",
         "title"
       ],
@@ -358,9 +357,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -505,7 +504,6 @@
         }
       },
       "required": [
-        "topics",
         "url",
         "title",
         "platform"

@@ -5,6 +5,36 @@ All notable changes to @segha/catalog will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.1.0] - 2026-02-08
+
+### Spanish (es)
+
+#### Added
+
+- **BREAKING** Property `topics` in `ArticleSchema` changed from required to optional
+- **BREAKING** Property `topics` in `BookSchema` changed from required to optional
+- **BREAKING** Property `topics` in `ClothingSchema` changed from required to optional
+- **BREAKING** Property `topics` in `EncyclopediaEntrySchema` changed from required to optional
+- **BREAKING** Property `topics` in `MovieSchema` changed from required to optional
+- **BREAKING** Property `topics` in `PaintingSchema` changed from required to optional
+- **BREAKING** Property `topics` in `VideoSchema` changed from required to optional
+- **BREAKING** Property `topics` in `VimeoSchema` changed from required to optional
+- **BREAKING** Property `topics` in `WikipediaEntrySchema` changed from required to optional
+- **BREAKING** Property `topics` in `YoutubeSchema` changed from required to optional
+
+#### Changed
+
+- Property `topics` in `ArticleSchema` was modified
+- Property `topics` in `BookSchema` was modified
+- Property `topics` in `ClothingSchema` was modified
+- Property `topics` in `EncyclopediaEntrySchema` was modified
+- Property `topics` in `MovieSchema` was modified
+- Property `topics` in `PaintingSchema` was modified
+- Property `topics` in `VideoSchema` was modified
+- Property `topics` in `VimeoSchema` was modified
+- Property `topics` in `WikipediaEntrySchema` was modified
+- Property `topics` in `YoutubeSchema` was modified
+
 ## [4.0.0] - 2026-02-08
 
 ### Spanish (es)

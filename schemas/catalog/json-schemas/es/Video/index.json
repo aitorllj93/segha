@@ -90,9 +90,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -227,7 +227,6 @@
         }
       },
       "required": [
-        "topics",
         "title",
         "platform"
       ],
@@ -320,9 +319,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -448,7 +447,6 @@
         }
       },
       "required": [
-        "topics",
         "title",
         "platform"
       ],
@@ -541,9 +539,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -669,7 +667,6 @@
         }
       },
       "required": [
-        "topics",
         "title",
         "platform"
       ],

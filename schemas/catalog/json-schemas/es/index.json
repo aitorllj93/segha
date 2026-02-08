@@ -100,9 +100,9 @@
               }
             },
             "topics": {
+              "description": "Temas: Wikilink o texto libre",
               "type": "array",
               "items": {
-                "description": "Temas: Wikilink o texto libre",
                 "anyOf": [
                   {
                     "type": "string",
@@ -243,7 +243,6 @@
             }
           },
           "required": [
-            "topics",
             "url",
             "title"
           ],
@@ -343,9 +342,9 @@
               }
             },
             "topics": {
+              "description": "Temas: Wikilink o texto libre",
               "type": "array",
               "items": {
-                "description": "Temas: Wikilink o texto libre",
                 "anyOf": [
                   {
                     "type": "string",
@@ -527,7 +526,6 @@
             }
           },
           "required": [
-            "topics",
             "title"
           ],
           "description": "Libro"
@@ -626,9 +624,9 @@
               }
             },
             "topics": {
+              "description": "Temas: Wikilink o texto libre",
               "type": "array",
               "items": {
-                "description": "Temas: Wikilink o texto libre",
                 "anyOf": [
                   {
                     "type": "string",
@@ -1043,7 +1041,6 @@
             }
           },
           "required": [
-            "topics",
             "name",
             "garment",
             "slot",
@@ -1154,9 +1151,9 @@
               }
             },
             "topics": {
+              "description": "Temas: Wikilink o texto libre",
               "type": "array",
               "items": {
-                "description": "Temas: Wikilink o texto libre",
                 "anyOf": [
                   {
                     "type": "string",
@@ -1297,7 +1294,6 @@
             }
           },
           "required": [
-            "topics",
             "url",
             "title"
           ],
@@ -1397,9 +1393,9 @@
               }
             },
             "topics": {
+              "description": "Temas: Wikilink o texto libre",
               "type": "array",
               "items": {
-                "description": "Temas: Wikilink o texto libre",
                 "anyOf": [
                   {
                     "type": "string",
@@ -1577,7 +1573,6 @@
             }
           },
           "required": [
-            "topics",
             "url",
             "title"
           ],
@@ -1677,9 +1672,9 @@
               }
             },
             "topics": {
+              "description": "Temas: Wikilink o texto libre",
               "type": "array",
               "items": {
-                "description": "Temas: Wikilink o texto libre",
                 "anyOf": [
                   {
                     "type": "string",
@@ -1809,7 +1804,6 @@
             }
           },
           "required": [
-            "topics",
             "title"
           ],
           "description": "Pintura"
@@ -1900,9 +1894,9 @@
               }
             },
             "topics": {
+              "description": "Temas: Wikilink o texto libre",
               "type": "array",
               "items": {
-                "description": "Temas: Wikilink o texto libre",
                 "anyOf": [
                   {
                     "type": "string",
@@ -2037,7 +2031,6 @@
             }
           },
           "required": [
-            "topics",
             "title",
             "platform"
           ],
@@ -2141,9 +2134,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -2284,7 +2277,6 @@
         }
       },
       "required": [
-        "topics",
         "url",
         "title"
       ],
@@ -2385,9 +2377,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -2569,7 +2561,6 @@
         }
       },
       "required": [
-        "topics",
         "title"
       ],
       "description": "Libro"
@@ -2669,9 +2660,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -3086,7 +3077,6 @@
         }
       },
       "required": [
-        "topics",
         "name",
         "garment",
         "slot",
@@ -3198,9 +3188,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -3341,7 +3331,6 @@
         }
       },
       "required": [
-        "topics",
         "url",
         "title"
       ],
@@ -3442,9 +3431,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -3622,7 +3611,6 @@
         }
       },
       "required": [
-        "topics",
         "url",
         "title"
       ],
@@ -3723,9 +3711,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -3855,7 +3843,6 @@
         }
       },
       "required": [
-        "topics",
         "title"
       ],
       "description": "Pintura"
@@ -3947,9 +3934,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -4084,7 +4071,6 @@
         }
       },
       "required": [
-        "topics",
         "title",
         "platform"
       ],
@@ -4177,9 +4163,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -4305,7 +4291,6 @@
         }
       },
       "required": [
-        "topics",
         "title",
         "platform"
       ],
@@ -4414,9 +4399,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -4561,7 +4546,6 @@
         }
       },
       "required": [
-        "topics",
         "url",
         "title",
         "platform"
@@ -4655,9 +4639,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -4783,7 +4767,6 @@
         }
       },
       "required": [
-        "topics",
         "title",
         "platform"
       ],

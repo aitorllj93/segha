@@ -245,9 +245,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -314,8 +314,7 @@
       },
       "required": [
         "type",
-        "areas",
-        "topics"
+        "areas"
       ],
       "description": "Notas"
     },
@@ -534,9 +533,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -617,7 +616,6 @@
       },
       "required": [
         "areas",
-        "topics",
         "subtype"
       ],
       "description": "Fuentes Bibliográficas"
@@ -716,9 +714,9 @@
           }
         },
         "topics": {
+          "description": "Temas: Wikilink o texto libre",
           "type": "array",
           "items": {
-            "description": "Temas: Wikilink o texto libre",
             "anyOf": [
               {
                 "type": "string",
@@ -837,7 +835,6 @@
       },
       "required": [
         "areas",
-        "topics",
         "format"
       ],
       "description": "Fuentes Bibliográficas"
