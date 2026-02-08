@@ -5,6 +5,174 @@ All notable changes to @segha/catalog will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2026-02-08
+
+### COMMON (common)
+
+#### Added
+
+- Schema `Palette` was added
+- Schema `Scheme` was added
+
+### Spanish (es)
+
+#### Added
+
+- Schema `EncyclopediaEntrySchema` was added
+- Schema `VideoSchema` was added
+- Schema `VimeoSchema` was added
+- Schema `WikipediaEntrySchema` was added
+- Optional property `cover` was added to `ArticleSchema`
+- Optional property `aliases` was added to `ArticleSchema`
+- **BREAKING** Property `type` in `ArticleSchema` changed from required to optional
+- **BREAKING** Property `status` in `ArticleSchema` changed from required to optional
+- **BREAKING** Property `format` in `ArticleSchema` changed from required to optional
+- Optional property `banner` was added to `BookSchema`
+- Optional property `projects` was added to `BookSchema`
+- Optional property `aliases` was added to `BookSchema`
+- **BREAKING** Property `type` in `BookSchema` changed from required to optional
+- **BREAKING** Property `status` in `BookSchema` changed from required to optional
+- **BREAKING** Property `format` in `BookSchema` changed from required to optional
+- **BREAKING** Property `author` in `BookSchema` changed from required to optional
+- Optional property `banner` was added to `ClothingSchema`
+- Optional property `projects` was added to `ClothingSchema`
+- **BREAKING** Required property `topics` was added to `ClothingSchema`
+- Optional property `rating` was added to `ClothingSchema`
+- Optional property `aliases` was added to `ClothingSchema`
+- **BREAKING** Property `type` in `ClothingSchema` changed from required to optional
+- **BREAKING** Property `subtype` in `ClothingSchema` changed from required to optional
+- Optional property `banner` was added to `MovieSchema`
+- Optional property `projects` was added to `MovieSchema`
+- Optional property `aliases` was added to `MovieSchema`
+- Optional property `external_ids` was added to `MovieSchema`
+- **BREAKING** Property `type` in `MovieSchema` changed from required to optional
+- **BREAKING** Property `status` in `MovieSchema` changed from required to optional
+- **BREAKING** Property `format` in `MovieSchema` changed from required to optional
+- Optional property `banner` was added to `PaintingSchema`
+- Optional property `status` was added to `PaintingSchema`
+- Optional property `aliases` was added to `PaintingSchema`
+- Optional property `url` was added to `PaintingSchema`
+- **BREAKING** Property `type` in `PaintingSchema` changed from required to optional
+- **BREAKING** Property `cover` in `PaintingSchema` changed from required to optional
+- **BREAKING** Property `format` in `PaintingSchema` changed from required to optional
+- Optional property `cover` was added to `YoutubeSchema`
+- Optional property `aliases` was added to `YoutubeSchema`
+- **BREAKING** Property `type` in `YoutubeSchema` changed from required to optional
+- **BREAKING** Property `status` in `YoutubeSchema` changed from required to optional
+- **BREAKING** Property `format` in `YoutubeSchema` changed from required to optional
+
+#### Changed
+
+- **BREAKING** Property `status` in `ArticleSchema` type changed from `string` to `undefined`
+- **BREAKING** Property `rating` in `ArticleSchema` type changed from `number` to `undefined`
+- **BREAKING** Property `cover` in `BookSchema` type changed from `string` to `undefined`
+- **BREAKING** Property `status` in `BookSchema` type changed from `string` to `undefined`
+- **BREAKING** Property `rating` in `BookSchema` type changed from `number` to `undefined`
+- **BREAKING** Property `description` in `BookSchema` type changed from `string` to `undefined`
+- **BREAKING** Property `last_time_read` in `BookSchema` type changed from `string` to `undefined`
+- **BREAKING** Property `cover` in `ClothingSchema` type changed from `string` to `undefined`
+- **BREAKING** Property `cover` in `MovieSchema` type changed from `string` to `undefined`
+- **BREAKING** Property `topics` in `MovieSchema` type changed from `undefined` to `array`
+- **BREAKING** Property `status` in `MovieSchema` type changed from `string` to `undefined`
+- **BREAKING** Property `rating` in `MovieSchema` type changed from `number` to `undefined`
+- **BREAKING** Property `last_time_watched` in `MovieSchema` type changed from `string` to `undefined`
+- **BREAKING** Property `cover` in `PaintingSchema` type changed from `string` to `undefined`
+- **BREAKING** Property `rating` in `PaintingSchema` type changed from `number` to `undefined`
+- **BREAKING** Property `published` in `PaintingSchema` type changed from `string` to `undefined`
+- **BREAKING** Property `status` in `YoutubeSchema` type changed from `string` to `undefined`
+- **BREAKING** Property `rating` in `YoutubeSchema` type changed from `number` to `undefined`
+- Property `type` in `ArticleSchema` was modified
+- Property `color` in `ArticleSchema` was modified
+- Property `icon` in `ArticleSchema` was modified
+- Property `banner` in `ArticleSchema` was modified
+- Property `projects` in `ArticleSchema` was modified
+- Property `topics` in `ArticleSchema` was modified
+- Property `format` in `ArticleSchema` was modified
+- Property `url` in `ArticleSchema` was modified
+- Property `author` in `ArticleSchema` was modified
+- Property `published` in `ArticleSchema` was modified
+- Property `type` in `BookSchema` was modified
+- Property `color` in `BookSchema` was modified
+- Property `icon` in `BookSchema` was modified
+- Property `topics` in `BookSchema` was modified
+- Property `format` in `BookSchema` was modified
+- Property `url` in `BookSchema` was modified
+- Property `author` in `BookSchema` was modified
+- Property `published` in `BookSchema` was modified
+- Property `read_url` in `BookSchema` was modified
+- Property `times_read` in `BookSchema` was modified
+- Property `type` in `ClothingSchema` was modified
+- Property `color` in `ClothingSchema` was modified
+- Property `icon` in `ClothingSchema` was modified
+- Property `subtype` in `ClothingSchema` was modified
+- Property `type` in `MovieSchema` was modified
+- Property `color` in `MovieSchema` was modified
+- Property `icon` in `MovieSchema` was modified
+- Property `format` in `MovieSchema` was modified
+- Property `url` in `MovieSchema` was modified
+- Property `author` in `MovieSchema` was modified
+- Property `published` in `MovieSchema` was modified
+- Property `watch_url` in `MovieSchema` was modified
+- Property `times_watched` in `MovieSchema` was modified
+- Property `type` in `PaintingSchema` was modified
+- Property `color` in `PaintingSchema` was modified
+- Property `icon` in `PaintingSchema` was modified
+- Property `projects` in `PaintingSchema` was modified
+- Property `topics` in `PaintingSchema` was modified
+- Property `format` in `PaintingSchema` was modified
+- Property `author` in `PaintingSchema` was modified
+- Property `title` in `PaintingSchema` was modified
+- Property `type` in `YoutubeSchema` was modified
+- Property `color` in `YoutubeSchema` was modified
+- Property `icon` in `YoutubeSchema` was modified
+- Property `banner` in `YoutubeSchema` was modified
+- Property `projects` in `YoutubeSchema` was modified
+- Property `topics` in `YoutubeSchema` was modified
+- Property `format` in `YoutubeSchema` was modified
+- Property `url` in `YoutubeSchema` was modified
+- Property `author` in `YoutubeSchema` was modified
+- Property `published` in `YoutubeSchema` was modified
+- Property `title` in `YoutubeSchema` was modified
+
+#### Removed
+
+- **BREAKING** Schema `Area` was removed
+- **BREAKING** Schema `Areas` was removed
+- **BREAKING** Schema `FirstLevelArea` was removed
+- **BREAKING** Schema `Icon` was removed
+- **BREAKING** Schema `CatalogArticleSchema` was removed
+- **BREAKING** Schema `CatalogBookSchema` was removed
+- **BREAKING** Schema `CatalogMovieSchema` was removed
+- **BREAKING** Schema `CatalogPaintingSchema` was removed
+- **BREAKING** Schema `CatalogWikipediaSchema` was removed
+- **BREAKING** Schema `CatalogYoutubeSchema` was removed
+- **BREAKING** Schema `DetailedArticleSchema` was removed
+- **BREAKING** Schema `DetailedBookSchema` was removed
+- **BREAKING** Schema `DetailedClothingSchema` was removed
+- **BREAKING** Schema `DetailedMovieSchema` was removed
+- **BREAKING** Schema `DetailedPaintingSchema` was removed
+- **BREAKING** Schema `DetailedWikipediaSchema` was removed
+- **BREAKING** Schema `DetailedYoutubeSchema` was removed
+- **BREAKING** Schema `MetaArticleSchema` was removed
+- **BREAKING** Schema `MetaBookSchema` was removed
+- **BREAKING** Schema `MetaClothingSchema` was removed
+- **BREAKING** Schema `MetaMovieSchema` was removed
+- **BREAKING** Schema `MetaPaintingSchema` was removed
+- **BREAKING** Schema `MetaWikipediaSchema` was removed
+- **BREAKING** Schema `MetaYoutubeSchema` was removed
+- **BREAKING** Schema `WikipediaSchema` was removed
+- **BREAKING** Property `topics` in `ArticleSchema` changed from optional to required
+- **BREAKING** Property `url` in `ArticleSchema` changed from optional to required
+- **BREAKING** Property `topics` in `BookSchema` changed from optional to required
+- **BREAKING** Property `description` was removed from `MovieSchema`
+- **BREAKING** Property `topics` in `MovieSchema` changed from optional to required
+- **BREAKING** Property `description` was removed from `PaintingSchema`
+- **BREAKING** Property `topics` in `PaintingSchema` changed from optional to required
+- **BREAKING** Property `title` in `PaintingSchema` changed from optional to required
+- **BREAKING** Property `description` was removed from `YoutubeSchema`
+- **BREAKING** Property `excerpt` was removed from `YoutubeSchema`
+- **BREAKING** Property `topics` in `YoutubeSchema` changed from optional to required
+
 ## [2.2.0] - 2026-02-06
 
 ### Added

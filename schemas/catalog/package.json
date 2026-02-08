@@ -1,6 +1,6 @@
 {
   "name": "@segha/catalog",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "main": "index.ts",
   "description": "Schemas for Petroglyph Catalog",
   "scripts": {
