@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { SchemaChange, BumpType } from './compare-schemas.js';
+import { SchemaChange, BumpType, LanguageComparisonResult } from './compare-schemas.js';
 
 /**
  * Gets the current date in ISO 8601 format (YYYY-MM-DD)
@@ -14,21 +14,125 @@ function getISODate(): string {
 }
 
 /**
+ * Generates a changelog entry for a single language
+ */
+function generateLanguageChangelogSection(language: string, changes: SchemaChange[]): string {
+  if (changes.length === 0) {
+    return '';
+  }
+
+  const lines: string[] = [`### ${language}\n`];
+
+  // Group changes by Keep a Changelog categories
+  const added = changes.filter(c => c.type === 'added');
+  const removed = changes.filter(c => c.type === 'removed');
+  const modified = changes.filter(c => c.type === 'modified');
+  const typeChanged = changes.filter(c => c.type === 'type-changed');
+
+  // Added - for new features
+  if (added.length > 0) {
+    lines.push('#### Added\n');
+
+    for (const change of added) {
+      const isRequired = change.description?.includes('Required') || change.description?.includes('required');
+      const prefix = isRequired ? '**BREAKING** ' : '';
+      lines.push(`- ${prefix}${change.description || `${change.schema}${change.property ? `.${change.property}` : ''}`}`);
+    }
+
+    lines.push('');
+  }
+
+  // Changed - for changes in existing functionality (including type changes)
+  if (modified.length > 0 || typeChanged.length > 0) {
+    lines.push('#### Changed\n');
+
+    for (const change of typeChanged) {
+      lines.push(`- **BREAKING** ${change.description || `Type changed in ${change.schema}${change.property ? `.${change.property}` : ''}`}`);
+    }
+
+    for (const change of modified) {
+      lines.push(`- ${change.description || `Modified ${change.schema}${change.property ? `.${change.property}` : ''}`}`);
+    }
+
+    lines.push('');
+  }
+
+  // Removed - for now removed features
+  if (removed.length > 0) {
+    lines.push('#### Removed\n');
+
+    for (const change of removed) {
+      lines.push(`- **BREAKING** ${change.description || `${change.schema}${change.property ? `.${change.property}` : ''}`}`);
+    }
+
+    lines.push('');
+  }
+
+  return lines.join('\n');
+}
+
+/**
+ * Gets a human-readable language name from a language code
+ */
+function getLanguageName(languageCode: string): string {
+  const languageNames: Record<string, string> = {
+    es: 'Spanish',
+    en: 'English',
+    fr: 'French',
+    de: 'German',
+    it: 'Italian',
+    pt: 'Portuguese',
+    ja: 'Japanese',
+    zh: 'Chinese',
+    ko: 'Korean',
+    ru: 'Russian',
+  };
+
+  return languageNames[languageCode] || languageCode.toUpperCase();
+}
+
+/**
  * Generates a changelog entry based on detected changes
  * Following Keep a Changelog format: https://keepachangelog.com/en/1.1.0/
+ * @param version Version number
+ * @param bump Bump type
+ * @param changes Changes for single-language packages
+ * @param languageResults Optional language-specific results for multi-language packages
  */
 export function generateChangelogEntry(
   version: string,
   bump: BumpType,
-  changes: SchemaChange[]
+  changes: SchemaChange[],
+  languageResults?: LanguageComparisonResult[]
 ): string {
   const date = getISODate();
+  const lines: string[] = [`## [${version}] - ${date}\n`];
 
-  if (changes.length === 0) {
-    return `## [${version}] - ${date}\n\n### Changed\n\n- Internal changes and improvements\n`;
+  // Multi-language mode
+  if (languageResults && languageResults.length > 0) {
+    for (const langResult of languageResults) {
+      if (langResult.changes.length > 0) {
+        const languageName = getLanguageName(langResult.language);
+        const section = generateLanguageChangelogSection(`${languageName} (${langResult.language})`, langResult.changes);
+        if (section) {
+          lines.push(section);
+        }
+      }
+    }
+
+    // If no changes in any language, add a note
+    if (lines.length === 1) {
+      lines.push('### Changed\n\n- Internal changes and improvements\n');
+    }
+
+    return lines.join('\n');
   }
 
-  const lines: string[] = [`## [${version}] - ${date}\n`];
+  // Single-language mode (backward compatible)
+  if (changes.length === 0) {
+    lines.push('### Changed\n\n- Internal changes and improvements\n');
+    return lines.join('\n');
+  }
 
   // Group changes by Keep a Changelog categories
   const added = changes.filter(c => c.type === 'added');
@@ -94,12 +198,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 /**
  * Updates the CHANGELOG.md file for a package
  * Following Keep a Changelog format: https://keepachangelog.com/en/1.1.0/
+ * @param packagePath Path to the package directory
+ * @param version Version number
+ * @param bump Bump type
+ * @param changes Changes for single-language packages
+ * @param languageResults Optional language-specific results for multi-language packages
  */
 export function updateChangelog(
   packagePath: string,
   version: string,
   bump: BumpType,
-  changes: SchemaChange[]
+  changes: SchemaChange[],
+  languageResults?: LanguageComparisonResult[]
 ): void {
   const changelogPath = join(packagePath, 'CHANGELOG.md');
 
@@ -108,7 +218,7 @@ export function updateChangelog(
     existingContent = readFileSync(changelogPath, 'utf-8');
   }
 
-  const entry = generateChangelogEntry(version, bump, changes);
+  const entry = generateChangelogEntry(version, bump, changes, languageResults);
 
   // Check if the file has a Keep a Changelog header
   const keepAChangelogHeaderMatch = existingContent.match(/^# Changelog\n\nAll notable changes.*?\n\n(?:The format is based on.*?\n\n)?/s);

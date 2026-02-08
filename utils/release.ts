@@ -2,8 +2,8 @@ import { execSync } from 'node:child_process';
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { extractPackageShapes, extractShapesFromGit } from './extract-schema-shape.js';
-import { compareShapes, ComparisonResult } from './compare-schemas.js';
+import { extractPackageShapes, extractShapesFromGit, detectLanguageFolders } from './extract-schema-shape.js';
+import { compareShapes, ComparisonResult, LanguageComparisonResult, compareMultiLanguage } from './compare-schemas.js';
 import { updateChangelog, bumpVersion } from './generate-changelog.js';
 import { generateJSONSchemas } from './generate-json-schema.js';
 
@@ -18,6 +18,7 @@ interface PackageReleaseInfo {
   newVersion: string;
   bump: 'major' | 'minor' | 'patch' | 'none';
   changes: ComparisonResult['changes'];
+  languageResults?: LanguageComparisonResult[];
 }
 
 /**
@@ -144,43 +145,111 @@ async function processPackage(packagePath: string): Promise<PackageReleaseInfo |
       console.warn(`  Error: ${error.message}`);
     }
 
-    // Extract current shapes from JSON schemas
-    const currentShapes = await extractPackageShapes(packagePath);
+    // Check if this is a multi-language package
+    const languageFolders = detectLanguageFolders(packagePath);
+    const isMultiLanguage = languageFolders.length > 0;
 
-    if (Object.keys(currentShapes).length === 0) {
-      console.log(`  ⚠️  No schemas found in ${packageName}, skipping`);
-      return null;
+    if (isMultiLanguage) {
+      console.log(`  🌐 Multi-language package detected: ${languageFolders.join(', ')}`);
+
+      // Get previous version ref
+      const lastRef = getLastReleaseRef(packageName);
+      console.log(`  📍 Comparing with ${lastRef}`);
+
+      // Process each language
+      const languageResults: LanguageComparisonResult[] = [];
+
+      for (const lang of languageFolders) {
+        // Extract current shapes for this language
+        const currentShapes = await extractPackageShapes(packagePath, lang);
+
+        if (Object.keys(currentShapes).length === 0) {
+          console.log(`  ⚠️  No schemas found for ${lang}, skipping`);
+          continue;
+        }
+
+        // Extract previous shapes for this language
+        const previousShapes = await extractShapesFromGit(packagePath, lastRef, lang);
+
+        // Compare shapes for this language
+        const comparison = compareShapes(previousShapes, currentShapes);
+
+        languageResults.push({
+          language: lang,
+          bump: comparison.bump,
+          changes: comparison.changes,
+        });
+
+        if (comparison.changes.length > 0) {
+          console.log(`  📝 ${lang} changes: ${comparison.changes.length}`);
+        }
+      }
+
+      // Combine results from all languages
+      const multiLanguageComparison = compareMultiLanguage(languageResults);
+
+      if (multiLanguageComparison.bump === 'none') {
+        console.log(`  ✅ No changes detected in any language, skipping release`);
+        return null;
+      }
+
+      // Bump version based on highest bump type
+      const newVersion = bumpVersion(currentVersion, multiLanguageComparison.bump);
+
+      console.log(`  🔢 Version: ${currentVersion} → ${newVersion} (${multiLanguageComparison.bump})`);
+
+      // Collect all changes for backward compatibility
+      const allChanges = languageResults.flatMap(r => r.changes);
+
+      return {
+        packagePath,
+        packageName,
+        currentVersion,
+        newVersion,
+        bump: multiLanguageComparison.bump,
+        changes: allChanges,
+        languageResults: languageResults,
+      };
+    } else {
+      // Single-language mode (backward compatible)
+      // Extract current shapes from JSON schemas
+      const currentShapes = await extractPackageShapes(packagePath);
+
+      if (Object.keys(currentShapes).length === 0) {
+        console.log(`  ⚠️  No schemas found in ${packageName}, skipping`);
+        return null;
+      }
+
+      // Get previous version ref
+      const lastRef = getLastReleaseRef(packageName);
+      console.log(`  📍 Comparing with ${lastRef}`);
+
+      // Extract previous shapes
+      const previousShapes = await extractShapesFromGit(packagePath, lastRef);
+
+      // Compare shapes
+      const comparison = compareShapes(previousShapes, currentShapes);
+
+      if (comparison.bump === 'none') {
+        console.log(`  ✅ No changes detected, skipping release`);
+        return null;
+      }
+
+      // Bump version
+      const newVersion = bumpVersion(currentVersion, comparison.bump);
+
+      console.log(`  🔢 Version: ${currentVersion} → ${newVersion} (${comparison.bump})`);
+      console.log(`  📝 Changes: ${comparison.changes.length}`);
+
+      return {
+        packagePath,
+        packageName,
+        currentVersion,
+        newVersion,
+        bump: comparison.bump,
+        changes: comparison.changes,
+      };
     }
-
-    // Get previous version ref
-    const lastRef = getLastReleaseRef(packageName);
-    console.log(`  📍 Comparing with ${lastRef}`);
-
-    // Extract previous shapes
-    const previousShapes = await extractShapesFromGit(packagePath, lastRef);
-
-    // Compare shapes
-    const comparison = compareShapes(previousShapes, currentShapes);
-
-    if (comparison.bump === 'none') {
-      console.log(`  ✅ No changes detected, skipping release`);
-      return null;
-    }
-
-    // Bump version
-    const newVersion = bumpVersion(currentVersion, comparison.bump);
-
-    console.log(`  🔢 Version: ${currentVersion} → ${newVersion} (${comparison.bump})`);
-    console.log(`  📝 Changes: ${comparison.changes.length}`);
-
-    return {
-      packagePath,
-      packageName,
-      currentVersion,
-      newVersion,
-      bump: comparison.bump,
-      changes: comparison.changes,
-    };
   } catch (error) {
     console.error(`  ❌ Error processing ${packageName}:`, error);
     return null;
@@ -270,8 +339,14 @@ async function main() {
     updatePackageVersion(release.packagePath, release.newVersion);
     console.log(`  ✅ Version updated to ${release.newVersion}`);
 
-    // Update changelog
-    updateChangelog(release.packagePath, release.newVersion, release.bump, release.changes);
+    // Update changelog (pass languageResults if available for multi-language packages)
+    updateChangelog(
+      release.packagePath,
+      release.newVersion,
+      release.bump,
+      release.changes,
+      release.languageResults
+    );
     console.log(`  ✅ CHANGELOG.md updated`);
 
     // Generate JSON schemas (ensure they're up to date)

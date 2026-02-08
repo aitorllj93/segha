@@ -15,6 +15,23 @@ export interface ComparisonResult {
 }
 
 /**
+ * Result of comparing schemas for a specific language
+ */
+export interface LanguageComparisonResult {
+  language: string;
+  bump: BumpType;
+  changes: SchemaChange[];
+}
+
+/**
+ * Result of comparing multi-language schemas
+ */
+export interface MultiLanguageComparisonResult {
+  bump: BumpType; // The highest bump type among all languages
+  languages: LanguageComparisonResult[];
+}
+
+/**
  * Deep comparison of two JSON Schema objects
  */
 function deepEqual(obj1: any, obj2: any): boolean {
@@ -290,4 +307,39 @@ function compareJSONSchema(
   }
 
   return changes;
+}
+
+/**
+ * Compares schemas for multiple languages and combines the results
+ * The final bump type is the highest among all languages
+ */
+export function compareMultiLanguage(
+  languageResults: LanguageComparisonResult[]
+): MultiLanguageComparisonResult {
+  if (languageResults.length === 0) {
+    return {
+      bump: 'none',
+      languages: [],
+    };
+  }
+
+  // Determine the highest bump type
+  const bumpPriority: Record<BumpType, number> = {
+    none: 0,
+    patch: 1,
+    minor: 2,
+    major: 3,
+  };
+
+  let highestBump: BumpType = 'none';
+  for (const result of languageResults) {
+    if (bumpPriority[result.bump] > bumpPriority[highestBump]) {
+      highestBump = result.bump;
+    }
+  }
+
+  return {
+    bump: highestBump,
+    languages: languageResults,
+  };
 }
