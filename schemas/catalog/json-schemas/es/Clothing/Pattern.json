@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "description": "Estampado",
   "type": "string",
   "enum": [
     "Liso",
@@ -13,5 +12,6 @@
     "Camuflaje",
     "EstampadoGráfico",
     "Degradado"
-  ]
+  ],
+  "description": "Estampado"
 }

@@ -7,4 +7,4 @@ export const Fit = z.enum([
   'Relajado',
   'Holgado',
   'Extragrande',
-]).optional().describe('Ajuste');
+]).describe('Ajuste');

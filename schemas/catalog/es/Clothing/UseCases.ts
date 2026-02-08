@@ -13,8 +13,4 @@ export const UseCase = z.enum([
   'Playa',
   'Lluvia',
   'Frío Extremo',
-])
-
-export const UseCases = z.array(UseCase)
-  .optional()
-  .describe('Casos de uso');
+]).describe('Casos de uso');

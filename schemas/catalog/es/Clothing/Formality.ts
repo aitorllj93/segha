@@ -1,9 +1,15 @@
 import z from "zod";
 
+export const VeryCasual = z.literal('Muy Informal').describe('Muy Informal');
+export const Casual = z.literal('Casual').describe('Casual');
+export const SmartCasual = z.literal('Arreglado').describe('Arreglado');
+export const Formal = z.literal('Formal').describe('Formal');
+export const BlackTie = z.literal('Etiqueta').describe('Etiqueta');
+
 export const Formality = z.enum([
-  'Muy Informal', // 1,
-  'Casual', // 2,
-  'Arreglado', // 3,
-  'Formal', // 4,
-  'Etiqueta', // 5,
-]).optional().describe('Formalidad');
+  VeryCasual.value,
+  Casual.value,
+  SmartCasual.value,
+  Formal.value,
+  BlackTie.value,
+]).describe('Formalidad');

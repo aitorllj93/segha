@@ -643,7 +643,6 @@
             },
             "status": {
               "default": "Bien",
-              "description": "Estado",
               "type": "string",
               "enum": [
                 "Nuevo",
@@ -651,7 +650,8 @@
                 "Gastado",
                 "Dañado",
                 "Retirar"
-              ]
+              ],
+              "description": "Estado de la prenda de ropa"
             },
             "rating": {
               "description": "Puntuación de la nota.",
@@ -815,11 +815,11 @@
                   "Bolsillos",
                   "Sin Bolsillos",
                   "Reversible"
-                ]
+                ],
+                "description": "Detalles Estructurales"
               }
             },
             "fit": {
-              "description": "Ajuste",
               "type": "string",
               "enum": [
                 "Entallado",
@@ -828,7 +828,8 @@
                 "Relajado",
                 "Holgado",
                 "Extragrande"
-              ]
+              ],
+              "description": "Ajuste"
             },
             "primary_color": {
               "type": "string",
@@ -857,7 +858,6 @@
               "description": "Color principal"
             },
             "secondary_color": {
-              "description": "Color secundario",
               "type": "string",
               "enum": [
                 "Blanco",
@@ -880,10 +880,10 @@
                 "Oro",
                 "Plata",
                 "Bronce"
-              ]
+              ],
+              "description": "Color secundario"
             },
             "pattern": {
-              "description": "Estampado",
               "type": "string",
               "enum": [
                 "Liso",
@@ -896,7 +896,8 @@
                 "Camuflaje",
                 "EstampadoGráfico",
                 "Degradado"
-              ]
+              ],
+              "description": "Estampado"
             },
             "materials": {
               "description": "Materiales",
@@ -926,7 +927,8 @@
                   "Jacquard",
                   "Franela",
                   "Gabardina"
-                ]
+                ],
+                "description": "Materiales"
               }
             },
             "layer": {
@@ -939,14 +941,15 @@
               "description": "Capa Térmica"
             },
             "season": {
-              "description": "Estaciones",
+              "default": "Todo el año",
               "type": "string",
               "enum": [
                 "Invierno",
                 "Verano",
                 "Entretiempo",
                 "Todo el año"
-              ]
+              ],
+              "description": "Estaciones"
             },
             "use_case": {
               "description": "Casos de uso",
@@ -966,11 +969,12 @@
                   "Playa",
                   "Lluvia",
                   "Frío Extremo"
-                ]
+                ],
+                "description": "Casos de uso"
               }
             },
             "formality": {
-              "description": "Formalidad",
+              "default": "Casual",
               "type": "string",
               "enum": [
                 "Muy Informal",
@@ -978,14 +982,15 @@
                 "Arreglado",
                 "Formal",
                 "Etiqueta"
-              ]
+              ],
+              "description": "Formalidad"
             },
             "brand": {
               "description": "The brand of the clothing",
               "type": "string"
             },
             "cares": {
-              "description": "Cuidados",
+              "description": "Cuidado de la prenda",
               "type": "array",
               "items": {
                 "type": "string",
@@ -997,7 +1002,8 @@
                   "Caliente",
                   "Planchado",
                   "Planchado a vapor"
-                ]
+                ],
+                "description": "Cuidado de la prenda"
               }
             },
             "size": {
@@ -1029,11 +1035,11 @@
               ]
             },
             "measurements": {
-              "description": "Medidas",
               "type": "array",
               "items": {
                 "type": "number"
-              }
+              },
+              "description": "Medidas"
             }
           },
           "required": [
@@ -1042,8 +1048,7 @@
             "garment",
             "slot",
             "primary_color",
-            "layer",
-            "size"
+            "layer"
           ],
           "description": "Prenda de ropa"
         },
@@ -2569,299 +2574,6 @@
       ],
       "description": "Libro"
     },
-    "CatalogClothingSchema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Nombre descriptivo de la prenda de ropa"
-        },
-        "garment": {
-          "type": "string",
-          "enum": [
-            "Camisetas Interiores",
-            "Calzoncillos",
-            "Bragas",
-            "Sujetadores",
-            "Calcetines",
-            "Camisetas",
-            "Polos",
-            "Camisas",
-            "Blusas",
-            "Tops",
-            "Jerseys",
-            "Sudaderas",
-            "Cárdigans",
-            "Chaquetas",
-            "Pantalones",
-            "Vaqueros",
-            "Chinos",
-            "Faldas",
-            "Shorts",
-            "Americanas",
-            "Abrigos",
-            "Gabardinas",
-            "Parkas",
-            "Cazadoras",
-            "Chalecos",
-            "Mallas",
-            "Ropa Técnica",
-            "Shorts Deportivos",
-            "Camisetas Técnicas",
-            "Vestidos",
-            "Monos",
-            "Zapatillas",
-            "Zapatos",
-            "Botas",
-            "Sandalias",
-            "Cinturones",
-            "Gorras",
-            "Sombreros",
-            "Bufandas",
-            "Guantes",
-            "Bolsos",
-            "Mochilas",
-            "Gafas de Sol",
-            "Pañuelos",
-            "Relojes",
-            "Joyas",
-            "Pijamas",
-            "Batas",
-            "Bañadores",
-            "Bikinis"
-          ],
-          "description": "Tipo de Prenda"
-        },
-        "slot": {
-          "type": "string",
-          "enum": [
-            "Superior",
-            "Inferior",
-            "Cuerpo Completo",
-            "Exterior",
-            "Calzado",
-            "Accesorios"
-          ],
-          "description": "Parte del outfit"
-        },
-        "variants": {
-          "description": "Detalles Estructurales",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "Sin Mangas",
-              "Mangas Cortas",
-              "Mangas Largas",
-              "Cuello Redondo",
-              "Cuello Pico",
-              "Cuello Alto",
-              "Cuello Camisa",
-              "Cuello Polo",
-              "Cuello Panadero",
-              "Cuello Mao",
-              "Cuello Chimenea",
-              "Capucha",
-              "Overshirt",
-              "Cropped",
-              "Larga",
-              "Pierna Recta",
-              "Pitillo",
-              "Ancha",
-              "Cargo",
-              "Acampanado",
-              "Trench",
-              "Plumífero",
-              "Doble botonadura",
-              "Botones",
-              "Cremallera",
-              "Velcro",
-              "Cordones",
-              "Broches",
-              "Bolsillos",
-              "Sin Bolsillos",
-              "Reversible"
-            ]
-          }
-        },
-        "fit": {
-          "description": "Ajuste",
-          "type": "string",
-          "enum": [
-            "Entallado",
-            "Ajustado",
-            "Regular",
-            "Relajado",
-            "Holgado",
-            "Extragrande"
-          ]
-        },
-        "primary_color": {
-          "type": "string",
-          "enum": [
-            "Blanco",
-            "Negro",
-            "Gris",
-            "Beige",
-            "Marrón",
-            "Azul",
-            "Verde",
-            "Rojo",
-            "Burdeos",
-            "Rosa",
-            "Amarillo",
-            "Naranja",
-            "Morado",
-            "Camel",
-            "Caqui",
-            "Marino",
-            "Crema",
-            "Oro",
-            "Plata",
-            "Bronce"
-          ],
-          "description": "Color principal"
-        },
-        "secondary_color": {
-          "description": "Color secundario",
-          "type": "string",
-          "enum": [
-            "Blanco",
-            "Negro",
-            "Gris",
-            "Beige",
-            "Marrón",
-            "Azul",
-            "Verde",
-            "Rojo",
-            "Burdeos",
-            "Rosa",
-            "Amarillo",
-            "Naranja",
-            "Morado",
-            "Camel",
-            "Caqui",
-            "Marino",
-            "Crema",
-            "Oro",
-            "Plata",
-            "Bronce"
-          ]
-        },
-        "pattern": {
-          "description": "Estampado",
-          "type": "string",
-          "enum": [
-            "Liso",
-            "Rayas",
-            "Cuadros",
-            "Lunares",
-            "Animal Print",
-            "Floral",
-            "Geométrico",
-            "Camuflaje",
-            "EstampadoGráfico",
-            "Degradado"
-          ]
-        },
-        "materials": {
-          "description": "Materiales",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "Algodón",
-              "Lino",
-              "Lana",
-              "Seda",
-              "Cuero",
-              "Cachemir",
-              "Ante",
-              "Poliéster",
-              "Nylon",
-              "Elastano",
-              "Viscosa",
-              "Piel Sintética",
-              "Gore-Tex",
-              "Denim",
-              "Punto",
-              "Felpa",
-              "Tweed",
-              "Satén",
-              "Terciopelo",
-              "Jacquard",
-              "Franela",
-              "Gabardina"
-            ]
-          }
-        },
-        "layer": {
-          "type": "string",
-          "enum": [
-            "Base",
-            "Intermedia",
-            "Exterior"
-          ],
-          "description": "Capa Térmica"
-        },
-        "season": {
-          "description": "Estaciones",
-          "type": "string",
-          "enum": [
-            "Invierno",
-            "Verano",
-            "Entretiempo",
-            "Todo el año"
-          ]
-        },
-        "use_case": {
-          "description": "Casos de uso",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "Capsula",
-              "Favorita",
-              "Básico",
-              "Deporte",
-              "Trabajo",
-              "Evento",
-              "Viaje",
-              "Casa",
-              "Fiesta",
-              "Playa",
-              "Lluvia",
-              "Frío Extremo"
-            ]
-          }
-        },
-        "formality": {
-          "description": "Formalidad",
-          "type": "string",
-          "enum": [
-            "Muy Informal",
-            "Casual",
-            "Arreglado",
-            "Formal",
-            "Etiqueta"
-          ]
-        },
-        "brand": {
-          "description": "The brand of the clothing",
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
-        "garment",
-        "slot",
-        "primary_color",
-        "layer"
-      ],
-      "deprecated": true,
-      "description": "Prenda de ropa: Datos obtenibles de catalogación"
-    },
     "ClothingSchema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -2974,7 +2686,6 @@
         },
         "status": {
           "default": "Bien",
-          "description": "Estado",
           "type": "string",
           "enum": [
             "Nuevo",
@@ -2982,7 +2693,8 @@
             "Gastado",
             "Dañado",
             "Retirar"
-          ]
+          ],
+          "description": "Estado de la prenda de ropa"
         },
         "rating": {
           "description": "Puntuación de la nota.",
@@ -3146,11 +2858,11 @@
               "Bolsillos",
               "Sin Bolsillos",
               "Reversible"
-            ]
+            ],
+            "description": "Detalles Estructurales"
           }
         },
         "fit": {
-          "description": "Ajuste",
           "type": "string",
           "enum": [
             "Entallado",
@@ -3159,7 +2871,8 @@
             "Relajado",
             "Holgado",
             "Extragrande"
-          ]
+          ],
+          "description": "Ajuste"
         },
         "primary_color": {
           "type": "string",
@@ -3188,7 +2901,6 @@
           "description": "Color principal"
         },
         "secondary_color": {
-          "description": "Color secundario",
           "type": "string",
           "enum": [
             "Blanco",
@@ -3211,10 +2923,10 @@
             "Oro",
             "Plata",
             "Bronce"
-          ]
+          ],
+          "description": "Color secundario"
         },
         "pattern": {
-          "description": "Estampado",
           "type": "string",
           "enum": [
             "Liso",
@@ -3227,7 +2939,8 @@
             "Camuflaje",
             "EstampadoGráfico",
             "Degradado"
-          ]
+          ],
+          "description": "Estampado"
         },
         "materials": {
           "description": "Materiales",
@@ -3257,7 +2970,8 @@
               "Jacquard",
               "Franela",
               "Gabardina"
-            ]
+            ],
+            "description": "Materiales"
           }
         },
         "layer": {
@@ -3270,14 +2984,15 @@
           "description": "Capa Térmica"
         },
         "season": {
-          "description": "Estaciones",
+          "default": "Todo el año",
           "type": "string",
           "enum": [
             "Invierno",
             "Verano",
             "Entretiempo",
             "Todo el año"
-          ]
+          ],
+          "description": "Estaciones"
         },
         "use_case": {
           "description": "Casos de uso",
@@ -3297,11 +3012,12 @@
               "Playa",
               "Lluvia",
               "Frío Extremo"
-            ]
+            ],
+            "description": "Casos de uso"
           }
         },
         "formality": {
-          "description": "Formalidad",
+          "default": "Casual",
           "type": "string",
           "enum": [
             "Muy Informal",
@@ -3309,14 +3025,15 @@
             "Arreglado",
             "Formal",
             "Etiqueta"
-          ]
+          ],
+          "description": "Formalidad"
         },
         "brand": {
           "description": "The brand of the clothing",
           "type": "string"
         },
         "cares": {
-          "description": "Cuidados",
+          "description": "Cuidado de la prenda",
           "type": "array",
           "items": {
             "type": "string",
@@ -3328,7 +3045,8 @@
               "Caliente",
               "Planchado",
               "Planchado a vapor"
-            ]
+            ],
+            "description": "Cuidado de la prenda"
           }
         },
         "size": {
@@ -3360,11 +3078,11 @@
           ]
         },
         "measurements": {
-          "description": "Medidas",
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "description": "Medidas"
         }
       },
       "required": [
@@ -3373,8 +3091,7 @@
         "garment",
         "slot",
         "primary_color",
-        "layer",
-        "size"
+        "layer"
       ],
       "description": "Prenda de ropa"
     },

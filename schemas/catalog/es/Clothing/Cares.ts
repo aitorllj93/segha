@@ -20,8 +20,4 @@ export const Care = z.enum([
   ...WashType.options,
   ...Temperature.options,
   ...Ironing.options,
-]);
-
-export const Cares = z.array(Care)
-  .optional()
-  .describe('Cuidados');
+]).describe('Cuidado de la prenda');

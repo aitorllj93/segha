@@ -38,7 +38,7 @@ export const Color = z.enum([
 ]);
 
 export const PrimaryColor = Color.describe('Color principal');
-export const SecondaryColor = Color.optional().describe('Color secundario');
+export const SecondaryColor = Color.describe('Color secundario');
 
 export const Pattern = z.enum([
   'Liso',
@@ -51,4 +51,4 @@ export const Pattern = z.enum([
   'Camuflaje',
   'EstampadoGráfico',
   'Degradado'
-]).optional().describe('Estampado');
+]).describe('Estampado');

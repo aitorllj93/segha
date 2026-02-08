@@ -66,8 +66,5 @@ export const Variant = z.enum([
   ...Outerwear.options,
   ...Closures.options,
   ...AdditionalFeatures.options,
-]);
-
-export const Variants = z.array(Variant)
-  .optional()
-  .describe('Detalles Estructurales');
+])
+.describe('Detalles Estructurales');

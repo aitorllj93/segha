@@ -638,7 +638,6 @@
         },
         "status": {
           "default": "Bien",
-          "description": "Estado",
           "type": "string",
           "enum": [
             "Nuevo",
@@ -646,7 +645,8 @@
             "Gastado",
             "Dañado",
             "Retirar"
-          ]
+          ],
+          "description": "Estado de la prenda de ropa"
         },
         "rating": {
           "description": "Puntuación de la nota.",
@@ -810,11 +810,11 @@
               "Bolsillos",
               "Sin Bolsillos",
               "Reversible"
-            ]
+            ],
+            "description": "Detalles Estructurales"
           }
         },
         "fit": {
-          "description": "Ajuste",
           "type": "string",
           "enum": [
             "Entallado",
@@ -823,7 +823,8 @@
             "Relajado",
             "Holgado",
             "Extragrande"
-          ]
+          ],
+          "description": "Ajuste"
         },
         "primary_color": {
           "type": "string",
@@ -852,7 +853,6 @@
           "description": "Color principal"
         },
         "secondary_color": {
-          "description": "Color secundario",
           "type": "string",
           "enum": [
             "Blanco",
@@ -875,10 +875,10 @@
             "Oro",
             "Plata",
             "Bronce"
-          ]
+          ],
+          "description": "Color secundario"
         },
         "pattern": {
-          "description": "Estampado",
           "type": "string",
           "enum": [
             "Liso",
@@ -891,7 +891,8 @@
             "Camuflaje",
             "EstampadoGráfico",
             "Degradado"
-          ]
+          ],
+          "description": "Estampado"
         },
         "materials": {
           "description": "Materiales",
@@ -921,7 +922,8 @@
               "Jacquard",
               "Franela",
               "Gabardina"
-            ]
+            ],
+            "description": "Materiales"
           }
         },
         "layer": {
@@ -934,14 +936,15 @@
           "description": "Capa Térmica"
         },
         "season": {
-          "description": "Estaciones",
+          "default": "Todo el año",
           "type": "string",
           "enum": [
             "Invierno",
             "Verano",
             "Entretiempo",
             "Todo el año"
-          ]
+          ],
+          "description": "Estaciones"
         },
         "use_case": {
           "description": "Casos de uso",
@@ -961,11 +964,12 @@
               "Playa",
               "Lluvia",
               "Frío Extremo"
-            ]
+            ],
+            "description": "Casos de uso"
           }
         },
         "formality": {
-          "description": "Formalidad",
+          "default": "Casual",
           "type": "string",
           "enum": [
             "Muy Informal",
@@ -973,14 +977,15 @@
             "Arreglado",
             "Formal",
             "Etiqueta"
-          ]
+          ],
+          "description": "Formalidad"
         },
         "brand": {
           "description": "The brand of the clothing",
           "type": "string"
         },
         "cares": {
-          "description": "Cuidados",
+          "description": "Cuidado de la prenda",
           "type": "array",
           "items": {
             "type": "string",
@@ -992,7 +997,8 @@
               "Caliente",
               "Planchado",
               "Planchado a vapor"
-            ]
+            ],
+            "description": "Cuidado de la prenda"
           }
         },
         "size": {
@@ -1024,11 +1030,11 @@
           ]
         },
         "measurements": {
-          "description": "Medidas",
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "description": "Medidas"
         }
       },
       "required": [
@@ -1037,8 +1043,7 @@
         "garment",
         "slot",
         "primary_color",
-        "layer",
-        "size"
+        "layer"
       ],
       "description": "Prenda de ropa"
     },

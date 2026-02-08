@@ -1,22 +1,22 @@
 import z from "zod";
 
-import { Cares } from "./Cares";
-import { Pattern, PrimaryColor, SecondaryColor } from "./Colors";
-import { Fit } from "./Fit";
-import { Formality } from "./Formality";
-import { Garment } from "./Garment";
-import { Layer } from "./Layer";
-import { Materials } from "./Materials";
-import { Measurements } from "./Measurements";
-import { Season } from "./Season";
-import { Size } from "./Size";
-import { Slot } from "./Slot";
-import { Status } from "./Status";
-import { UseCases } from "./UseCases";
-import { Variants } from "./Variants";
 import { Areas, Home, ResourceSchema } from "../Core";
 import { Clothes } from "../Core/Subtype";
 import { Color, Icon, Image, Orange } from "../DataTypes";
+import { Care } from "./Cares";
+import { Pattern, PrimaryColor, SecondaryColor } from "./Colors";
+import { Fit } from "./Fit";
+import { Casual, Formality } from "./Formality";
+import { Garment } from "./Garment";
+import { Layer } from "./Layer";
+import { Material } from "./Materials";
+import { Measurements } from "./Measurements";
+import { AllYear, Season } from "./Season";
+import { Size } from "./Size";
+import { Slot } from "./Slot";
+import { Good, Status } from "./Status";
+import { UseCase } from "./UseCases";
+import { Variant } from "./Variants";
 
 const ClothingIcon = z.literal("shirt");
 
@@ -29,38 +29,19 @@ export const ClothingSchema = ResourceSchema.extend({
   name: z.string().describe('Nombre descriptivo de la prenda de ropa'),
   garment: Garment,
   slot: Slot,
-  variants: Variants,
-  fit: Fit,
+  variants: z.array(Variant).optional().describe('Detalles Estructurales'),
+  fit: Fit.optional(),
   primary_color: PrimaryColor,
-  secondary_color: SecondaryColor,
-  pattern: Pattern,
-  materials: Materials,
+  secondary_color: SecondaryColor.optional(),
+  pattern: Pattern.optional(),
+  materials: z.array(Material).optional().describe('Materiales'),
   layer: Layer,
-  season: Season,
-  use_case: UseCases,
-  formality: Formality,
+  season: Season.optional().default(AllYear.value),
+  use_case: z.array(UseCase).optional().describe('Casos de uso'),
+  formality: Formality.optional().default(Casual.value),
   brand: z.string().optional().describe('The brand of the clothing'),
-  cares: Cares,
-  status: Status,
-  size: Size,
-  measurements: Measurements,
+  cares: z.array(Care).optional().describe('Cuidado de la prenda'),
+  status: Status.optional().default(Good.value),
+  size: Size.optional(),
+  measurements: Measurements.optional(),
 }).describe('Prenda de ropa');
-
-export const CatalogClothingSchema = ClothingSchema.pick({
-  name: true,
-  garment: true,
-  slot: true,
-  variants: true,
-  fit: true,
-  primary_color: true,
-  secondary_color: true,
-  pattern: true,
-  materials: true,
-  layer: true,
-  season: true,
-  use_case: true,
-  formality: true,
-  brand: true,
-}).meta({
-  deprecated: true,
-}).describe('Prenda de ropa: Datos obtenibles de catalogación');

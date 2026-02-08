@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "description": "Color secundario",
   "type": "string",
   "enum": [
     "Blanco",
@@ -23,5 +22,6 @@
     "Oro",
     "Plata",
     "Bronce"
-  ]
+  ],
+  "description": "Color secundario"
 }

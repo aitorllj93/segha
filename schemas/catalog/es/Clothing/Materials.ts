@@ -38,8 +38,4 @@ export const Material = z.enum([
   ...NaturalMaterial.options,
   ...SyntheticMaterial.options,
   ...CommonFabric.options,
-]);
-
-export const Materials = z.array(Material)
-  .optional()
-  .describe('Materiales');
+]).describe('Materiales');
