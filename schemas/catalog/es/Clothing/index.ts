@@ -46,19 +46,21 @@ export const ClothingSchema = ResourceSchema.extend({
   measurements: Measurements,
 }).describe('Prenda de ropa');
 
-export const CatalogClothingSchema = z.object({
-  name: z.string().describe('Nombre descriptivo de la prenda de ropa'),
-  garment: Garment,
-  slot: Slot,
-  variants: Variants,
-  fit: Fit,
-  primary_color: PrimaryColor,
-  secondary_color: SecondaryColor,
-  pattern: Pattern,
-  materials: Materials,
-  layer: Layer,
-  season: Season,
-  use_case: UseCases,
-  formality: Formality,
-  brand: z.string().optional().describe('The brand of the clothing'),
+export const CatalogClothingSchema = ClothingSchema.pick({
+  name: true,
+  garment: true,
+  slot: true,
+  variants: true,
+  fit: true,
+  primary_color: true,
+  secondary_color: true,
+  pattern: true,
+  materials: true,
+  layer: true,
+  season: true,
+  use_case: true,
+  formality: true,
+  brand: true,
+}).meta({
+  deprecated: true,
 }).describe('Prenda de ropa: Datos obtenibles de catalogación');
