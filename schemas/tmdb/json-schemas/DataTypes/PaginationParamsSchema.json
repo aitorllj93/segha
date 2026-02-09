@@ -3,17 +3,13 @@
   "type": "object",
   "properties": {
     "page": {
-      "type": "number",
-      "description": "Page number"
+      "description": "Page number",
+      "type": "number"
     },
     "language": {
-      "type": "string",
-      "description": "Language code"
+      "description": "Language code",
+      "type": "string"
     }
   },
-  "required": [
-    "page",
-    "language"
-  ],
   "description": "Pagination parameters"
 }

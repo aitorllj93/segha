@@ -209,12 +209,12 @@ Pagination parameters
 
 _Object containing the following properties:_
 
-| Property            | Description   | Type     |
-| :------------------ | :------------ | :------- |
-| **`page`** (\*)     | Page number   | `number` |
-| **`language`** (\*) | Language code | `string` |
+| Property   | Description   | Type     |
+| :--------- | :------------ | :------- |
+| `page`     | Page number   | `number` |
+| `language` | Language code | `string` |
 
-_(\*) Required._
+_All properties are optional._
 
 ## PosterSize
 
@@ -258,13 +258,13 @@ _(\*) Required._
 
 _Object containing the following properties:_
 
-| Property            | Description          | Type      |
-| :------------------ | :------------------- | :-------- |
-| **`page`** (\*)     | Page number          | `number`  |
-| **`language`** (\*) | Language code        | `string`  |
-| **`query`** (\*)    | Search query         | `string`  |
-| `include_adult`     | Include adult movies | `boolean` |
-| `year`              | Year                 | `number`  |
+| Property         | Description          | Type      |
+| :--------------- | :------------------- | :-------- |
+| `page`           | Page number          | `number`  |
+| `language`       | Language code        | `string`  |
+| **`query`** (\*) | Search query         | `string`  |
+| `include_adult`  | Include adult movies | `boolean` |
+| `year`           | Year                 | `number`  |
 
 _(\*) Required._
 
@@ -272,13 +272,13 @@ _(\*) Required._
 
 _Object containing the following properties:_
 
-| Property            | Description          | Type      |
-| :------------------ | :------------------- | :-------- |
-| **`page`** (\*)     | Page number          | `number`  |
-| **`language`** (\*) | Language code        | `string`  |
-| **`query`** (\*)    | Search query         | `string`  |
-| `include_adult`     | Include adult movies | `boolean` |
-| `year`              | Year                 | `number`  |
+| Property         | Description          | Type      |
+| :--------------- | :------------------- | :-------- |
+| `page`           | Page number          | `number`  |
+| `language`       | Language code        | `string`  |
+| **`query`** (\*) | Search query         | `string`  |
+| `include_adult`  | Include adult movies | `boolean` |
+| `year`           | Year                 | `number`  |
 
 _(\*) Required._
 
