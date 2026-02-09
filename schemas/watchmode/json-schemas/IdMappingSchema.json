@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "Watchmode ID": {
+        "type": "string",
+        "description": "Watchmode ID"
+      },
+      "IMDB ID": {
+        "type": "string",
+        "description": "IMDB ID"
+      },
+      "TMDB ID": {
+        "type": "string",
+        "description": "TMDB ID"
+      },
+      "TMDB Type": {
+        "type": "string",
+        "description": "TMDB Type"
+      },
+      "Title": {
+        "type": "string",
+        "description": "Title"
+      },
+      "Year": {
+        "type": "string",
+        "description": "Year"
+      }
+    },
+    "required": [
+      "Watchmode ID",
+      "IMDB ID",
+      "TMDB ID",
+      "TMDB Type",
+      "Title",
+      "Year"
+    ]
+  }
+}

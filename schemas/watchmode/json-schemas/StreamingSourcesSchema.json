@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "number",
+        "description": "ID"
+      },
+      "name": {
+        "type": "string",
+        "description": "Name"
+      },
+      "type": {
+        "anyOf": [
+          {
+            "type": "string",
+            "const": "sub",
+            "description": "Subscription services (Netflix, Hulu, etc.)"
+          },
+          {
+            "type": "string",
+            "const": "purchase",
+            "description": "Rental/purchase services (iTunes, Vudu, etc.)"
+          },
+          {
+            "type": "string",
+            "const": "free",
+            "description": "Free ad-supported services (Tubi, Pluto TV, etc.)"
+          },
+          {
+            "type": "string",
+            "const": "tve",
+            "description": "TV Channel App (cable login required)"
+          }
+        ],
+        "description": "Streaming source type"
+      },
+      "logo_100px": {
+        "type": "string",
+        "description": "Logo 100px"
+      },
+      "ios_appstore_url": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "iOS App Store URL"
+      },
+      "android_playstore_url": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Android Play Store URL"
+      },
+      "android_tv_url": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Android TV URL"
+      },
+      "fire_tv_url": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Fire TV URL"
+      },
+      "roku_url": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Roku URL"
+      },
+      "tvos_url": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "tvOS URL"
+      },
+      "regions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Regions"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "type",
+      "logo_100px",
+      "ios_appstore_url",
+      "android_playstore_url",
+      "android_tv_url",
+      "fire_tv_url",
+      "roku_url",
+      "tvos_url",
+      "regions"
+    ]
+  }
+}

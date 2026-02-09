@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "anyOf": [
+    {
+      "anyOf": [
+        {
+          "type": "string",
+          "const": "/sources",
+          "description": "List all sources"
+        }
+      ]
+    },
+    {
+      "anyOf": [
+        {
+          "type": "string",
+          "const": "/title/{title_id}/sources",
+          "description": "Title sources"
+        }
+      ]
+    }
+  ]
+}

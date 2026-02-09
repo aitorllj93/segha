@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "const": "/title/{title_id}/sources",
+  "description": "Title sources"
+}

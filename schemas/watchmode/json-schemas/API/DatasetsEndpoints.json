@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "anyOf": [
+    {
+      "type": "string",
+      "const": "/title_id_map.csv",
+      "description": "ID mapping dataset"
+    }
+  ]
+}

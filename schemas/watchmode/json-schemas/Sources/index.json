@@ -1,0 +1,336 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "@segha/watchmode/Sources",
+  "description": "Schemas for Watchmode",
+  "$defs": {
+    "FreeServiceType": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "const": "free",
+      "description": "Free ad-supported services (Tubi, Pluto TV, etc.)"
+    },
+    "PurchaseServiceType": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "const": "purchase",
+      "description": "Rental/purchase services (iTunes, Vudu, etc.)"
+    },
+    "StreamingSourceSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "sub",
+              "description": "Subscription services (Netflix, Hulu, etc.)"
+            },
+            {
+              "type": "string",
+              "const": "purchase",
+              "description": "Rental/purchase services (iTunes, Vudu, etc.)"
+            },
+            {
+              "type": "string",
+              "const": "free",
+              "description": "Free ad-supported services (Tubi, Pluto TV, etc.)"
+            },
+            {
+              "type": "string",
+              "const": "tve",
+              "description": "TV Channel App (cable login required)"
+            }
+          ],
+          "description": "Streaming source type"
+        },
+        "logo_100px": {
+          "type": "string",
+          "description": "Logo 100px"
+        },
+        "ios_appstore_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "iOS App Store URL"
+        },
+        "android_playstore_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Android Play Store URL"
+        },
+        "android_tv_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Android TV URL"
+        },
+        "fire_tv_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Fire TV URL"
+        },
+        "roku_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Roku URL"
+        },
+        "tvos_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "tvOS URL"
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Regions"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type",
+        "logo_100px",
+        "ios_appstore_url",
+        "android_playstore_url",
+        "android_tv_url",
+        "fire_tv_url",
+        "roku_url",
+        "tvos_url",
+        "regions"
+      ]
+    },
+    "StreamingSourceTypeSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "anyOf": [
+        {
+          "type": "string",
+          "const": "sub",
+          "description": "Subscription services (Netflix, Hulu, etc.)"
+        },
+        {
+          "type": "string",
+          "const": "purchase",
+          "description": "Rental/purchase services (iTunes, Vudu, etc.)"
+        },
+        {
+          "type": "string",
+          "const": "free",
+          "description": "Free ad-supported services (Tubi, Pluto TV, etc.)"
+        },
+        {
+          "type": "string",
+          "const": "tve",
+          "description": "TV Channel App (cable login required)"
+        }
+      ],
+      "description": "Streaming source type"
+    },
+    "StreamingSourcesParametersSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "regions": {
+          "type": "string",
+          "description": "Filter sources by region. Pass one or multiple 2-letter country codes comma-separated (e.g., US,GB,CA)."
+        },
+        "types": {
+          "type": "string",
+          "description": "Filter sources by type. Pass one or multiple types comma-separated."
+        }
+      },
+      "required": [
+        "regions",
+        "types"
+      ]
+    },
+    "StreamingSourcesSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name"
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "const": "sub",
+                "description": "Subscription services (Netflix, Hulu, etc.)"
+              },
+              {
+                "type": "string",
+                "const": "purchase",
+                "description": "Rental/purchase services (iTunes, Vudu, etc.)"
+              },
+              {
+                "type": "string",
+                "const": "free",
+                "description": "Free ad-supported services (Tubi, Pluto TV, etc.)"
+              },
+              {
+                "type": "string",
+                "const": "tve",
+                "description": "TV Channel App (cable login required)"
+              }
+            ],
+            "description": "Streaming source type"
+          },
+          "logo_100px": {
+            "type": "string",
+            "description": "Logo 100px"
+          },
+          "ios_appstore_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "iOS App Store URL"
+          },
+          "android_playstore_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Android Play Store URL"
+          },
+          "android_tv_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Android TV URL"
+          },
+          "fire_tv_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Fire TV URL"
+          },
+          "roku_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Roku URL"
+          },
+          "tvos_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "tvOS URL"
+          },
+          "regions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Regions"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "type",
+          "logo_100px",
+          "ios_appstore_url",
+          "android_playstore_url",
+          "android_tv_url",
+          "fire_tv_url",
+          "roku_url",
+          "tvos_url",
+          "regions"
+        ]
+      }
+    },
+    "SubscriptionServiceType": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "const": "sub",
+      "description": "Subscription services (Netflix, Hulu, etc.)"
+    },
+    "TVEServiceType": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "const": "tve",
+      "description": "TV Channel App (cable login required)"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "regions": {
+      "type": "string",
+      "description": "Filter sources by region. Pass one or multiple 2-letter country codes comma-separated (e.g., US,GB,CA)."
+    }
+  },
+  "required": [
+    "regions"
+  ]
+}

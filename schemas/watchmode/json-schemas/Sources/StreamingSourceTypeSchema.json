@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "anyOf": [
+    {
+      "type": "string",
+      "const": "sub",
+      "description": "Subscription services (Netflix, Hulu, etc.)"
+    },
+    {
+      "type": "string",
+      "const": "purchase",
+      "description": "Rental/purchase services (iTunes, Vudu, etc.)"
+    },
+    {
+      "type": "string",
+      "const": "free",
+      "description": "Free ad-supported services (Tubi, Pluto TV, etc.)"
+    },
+    {
+      "type": "string",
+      "const": "tve",
+      "description": "TV Channel App (cable login required)"
+    }
+  ],
+  "description": "Streaming source type"
+}

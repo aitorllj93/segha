@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "datasets": {
+      "type": "object",
+      "properties": {
+        "id_mapping": {
+          "type": "string",
+          "const": "/title_id_map.csv",
+          "description": "ID mapping dataset"
+        }
+      },
+      "required": [
+        "id_mapping"
+      ]
+    },
+    "sources": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "string",
+          "const": "/sources",
+          "description": "List all sources"
+        }
+      },
+      "required": [
+        "list"
+      ]
+    },
+    "titles": {
+      "type": "object",
+      "properties": {
+        "sources": {
+          "type": "string",
+          "const": "/title/{title_id}/sources",
+          "description": "Title sources"
+        }
+      },
+      "required": [
+        "sources"
+      ]
+    }
+  },
+  "required": [
+    "datasets",
+    "sources",
+    "titles"
+  ]
+}
