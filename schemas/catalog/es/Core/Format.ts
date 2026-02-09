@@ -15,6 +15,9 @@ export const Movies = z.literal("[[Películas]]")
 export const Paintings = z.literal("[[Pinturas]]")
   .describe('Pinturas');
 
+export const TVSeries = z.literal("[[Series]]")
+  .describe('Series');
+
 export const Videos = z.literal("[[Vídeos]]")
   .describe('Vídeos');
 
@@ -24,5 +27,6 @@ export const Format = z.enum([
   EncyclopediaEntries.value,
   Movies.value,
   Paintings.value,
+  TVSeries.value,
   Videos.value,
 ]).describe('Formato de nota.');

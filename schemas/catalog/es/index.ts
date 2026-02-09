@@ -5,6 +5,7 @@ export * from './EncyclopediaEntry';
 export * from './Movie';
 export * from './Note';
 export * from './Painting';
+export * from './TVSeries';
 export * from './Video';
 
 export * from './types';

@@ -345,6 +345,7 @@
         "[[Entradas de Enciclopedia]]",
         "[[Películas]]",
         "[[Pinturas]]",
+        "[[Series]]",
         "[[Vídeos]]"
       ],
       "description": "Formato de nota."
@@ -360,6 +361,12 @@
       "type": "string",
       "const": "[[Pinturas]]",
       "description": "Pinturas"
+    },
+    "TVSeries": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "const": "[[Series]]",
+      "description": "Series"
     },
     "Videos": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
