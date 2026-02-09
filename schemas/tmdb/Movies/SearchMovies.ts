@@ -8,3 +8,5 @@ export const SearchMoviesParamsSchema = PaginationParamsSchema.extend({
   include_adult: z.boolean().optional().describe('Include adult movies'),
   year: z.number().optional().describe('Year'),
 })
+
+export type SearchMoviesParams = z.infer<typeof SearchMoviesParamsSchema>;
