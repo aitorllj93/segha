@@ -1,6 +1,6 @@
 {
   "name": "@segha/watchmode",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Schemas for Watchmode",
   "scripts": {
     "docs": "pnpm tsx ../../utils/generate-docs.ts --entry ./index.ts --cwd .",
