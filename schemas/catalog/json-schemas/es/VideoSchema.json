@@ -207,6 +207,10 @@
       "type": "string",
       "description": "Título de la película"
     },
+    "description": {
+      "description": "Descripción de la fuente.",
+      "type": "string"
+    },
     "platform": {
       "anyOf": [
         {

@@ -220,6 +220,10 @@
           "type": "string",
           "description": "Título de la película"
         },
+        "description": {
+          "description": "Descripción de la fuente.",
+          "type": "string"
+        },
         "collection": {
           "description": "Colección",
           "type": "string"

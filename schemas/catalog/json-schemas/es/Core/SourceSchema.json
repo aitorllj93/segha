@@ -198,6 +198,10 @@
     "title": {
       "description": "Título de la fuente.",
       "type": "string"
+    },
+    "description": {
+      "description": "Descripción de la fuente.",
+      "type": "string"
     }
   },
   "required": [

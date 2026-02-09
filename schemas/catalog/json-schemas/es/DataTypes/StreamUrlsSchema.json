@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "hbo_max_url": {
+      "description": "URL de HBO Max",
+      "type": "string",
+      "format": "uri"
+    },
+    "netflix_url": {
+      "description": "URL de Netflix",
+      "type": "string",
+      "format": "uri"
+    },
+    "apple_tv_url": {
+      "description": "URL de Apple TV",
+      "type": "string",
+      "format": "uri"
+    },
+    "amazon_prime_url": {
+      "description": "URL de Amazon Prime",
+      "type": "string",
+      "format": "uri"
+    },
+    "disney_plus_url": {
+      "description": "URL de Disney Plus",
+      "type": "string",
+      "format": "uri"
+    },
+    "hulu_url": {
+      "description": "URL de Hulu",
+      "type": "string",
+      "format": "uri"
+    },
+    "pluto_tv_url": {
+      "description": "URL de Pluto TV",
+      "type": "string",
+      "format": "uri"
+    },
+    "youtube_url": {
+      "description": "URL de YouTube",
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "description": "URLs de streaming"
+}

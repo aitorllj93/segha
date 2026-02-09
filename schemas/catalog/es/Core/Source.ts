@@ -34,4 +34,5 @@ export const SourceSchema = CommonSchema.extend({
   title: z.string()
     .optional()
     .describe('Título de la fuente.'),
+  description: z.string().optional().describe('Descripción de la fuente.'),
 }).describe('Fuentes Bibliográficas');

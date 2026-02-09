@@ -224,15 +224,6 @@
           "type": "string",
           "description": "Título del libro"
         },
-        "read_url": {
-          "description": "URL de la lectura del libro",
-          "type": "string",
-          "format": "uri"
-        },
-        "subtitle": {
-          "description": "Subtítulo del libro",
-          "type": "string"
-        },
         "description": {
           "description": "Descripción",
           "anyOf": [
@@ -243,6 +234,15 @@
               "type": "null"
             }
           ]
+        },
+        "read_url": {
+          "description": "URL de la lectura del libro",
+          "type": "string",
+          "format": "uri"
+        },
+        "subtitle": {
+          "description": "Subtítulo del libro",
+          "type": "string"
         },
         "categories": {
           "description": "Géneros",
