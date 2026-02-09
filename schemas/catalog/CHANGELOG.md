@@ -5,6 +5,22 @@ All notable changes to @segha/catalog will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.0.0] - 2026-02-09
+
+### Spanish (es)
+
+#### Added
+
+- Schema `TVSeriesSchema` was added
+- Optional property `description` was added to `PaintingSchema`
+- Optional property `description` was added to `VideoSchema`
+- Optional property `description` was added to `VimeoSchema`
+- Optional property `description` was added to `YoutubeSchema`
+
+#### Changed
+
+- **BREAKING** `MovieSchema` type changed from `object` to `undefined`
+
 ## [4.1.0] - 2026-02-08
 
 ### Spanish (es)
