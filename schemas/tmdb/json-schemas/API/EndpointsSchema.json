@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "search": {
+      "type": "object",
+      "properties": {
+        "movies": {
+          "type": "string",
+          "const": "/search/movie",
+          "description": "Search for movies by their original, translated and alternative titles."
+        },
+        "tv": {
+          "type": "string",
+          "const": "/search/tv",
+          "description": "Search for TV shows by their original, translated and also known as names."
+        }
+      },
+      "required": [
+        "movies",
+        "tv"
+      ]
+    },
+    "movie": {
+      "type": "object",
+      "properties": {
+        "now_playing": {
+          "type": "string",
+          "const": "/movie/now_playing",
+          "description": "Get a list of movies that are currently in theatres."
+        },
+        "popular": {
+          "type": "string",
+          "const": "/movie/popular",
+          "description": "Get a list of movies ordered by popularity."
+        },
+        "top_rated": {
+          "type": "string",
+          "const": "/movie/top_rated",
+          "description": "Get a list of movies ordered by rating."
+        },
+        "upcoming": {
+          "type": "string",
+          "const": "/movie/upcoming",
+          "description": "Get a list of movies that are being released soon."
+        },
+        "details": {
+          "type": "string",
+          "const": "/movie/{movie_id}",
+          "description": "Get the top level details of a movie by ID."
+        },
+        "images": {
+          "type": "string",
+          "const": "/movie/{movie_id}/images",
+          "description": "Get the images that belong to a movie."
+        },
+        "videos": {
+          "type": "string",
+          "const": "/movie/{movie_id}/videos",
+          "description": "Get the videos that belong to a movie."
+        },
+        "similar": {
+          "type": "string",
+          "const": "/movie/{movie_id}/similar",
+          "description": "Get the similar movies based on genres and keywords."
+        }
+      },
+      "required": [
+        "now_playing",
+        "popular",
+        "top_rated",
+        "upcoming",
+        "details",
+        "images",
+        "videos",
+        "similar"
+      ]
+    },
+    "tv": {
+      "type": "object",
+      "properties": {
+        "airing_today": {
+          "type": "string",
+          "const": "/tv/airing_today",
+          "description": "Get a list of TV shows airing today."
+        },
+        "on_the_air": {
+          "type": "string",
+          "const": "/tv/on_the_air",
+          "description": "Get a list of TV shows that air in the next 7 days."
+        },
+        "popular": {
+          "type": "string",
+          "const": "/tv/popular",
+          "description": "Get a list of TV shows ordered by popularity."
+        },
+        "top_rated": {
+          "type": "string",
+          "const": "/tv/top_rated",
+          "description": "Get a list of TV shows ordered by rating."
+        },
+        "details": {
+          "type": "string",
+          "const": "/tv/{tv_id}",
+          "description": "Get the top level details of a TV show by ID."
+        },
+        "images": {
+          "type": "string",
+          "const": "/tv/{tv_id}/images",
+          "description": "Get the images that belong to a TV show."
+        },
+        "videos": {
+          "type": "string",
+          "const": "/tv/{tv_id}/videos",
+          "description": "Get the videos that belong to a TV show."
+        },
+        "similar": {
+          "type": "string",
+          "const": "/tv/{tv_id}/similar",
+          "description": "Get the similar TV shows."
+        }
+      },
+      "required": [
+        "airing_today",
+        "on_the_air",
+        "popular",
+        "top_rated",
+        "details",
+        "images",
+        "videos",
+        "similar"
+      ]
+    }
+  },
+  "required": [
+    "search",
+    "movie",
+    "tv"
+  ],
+  "description": "API Endpoints"
+}

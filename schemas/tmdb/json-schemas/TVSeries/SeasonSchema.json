@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "air_date": {
+      "type": "string",
+      "description": "Air date (YYYY-MM-DD format)"
+    },
+    "episode_count": {
+      "type": "number",
+      "description": "Episode count"
+    },
+    "id": {
+      "type": "number",
+      "description": "Unique identifier for the season"
+    },
+    "name": {
+      "type": "string",
+      "description": "Season name"
+    },
+    "overview": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Season overview/synopsis"
+    },
+    "poster_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Poster path (relative URL)"
+    },
+    "season_number": {
+      "type": "number",
+      "description": "Season number"
+    }
+  },
+  "required": [
+    "air_date",
+    "episode_count",
+    "id",
+    "name",
+    "overview",
+    "poster_path",
+    "season_number"
+  ]
+}

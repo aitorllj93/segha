@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "enum": [
+    "w92",
+    "w154",
+    "w185",
+    "w342",
+    "w500",
+    "w780",
+    "original"
+  ],
+  "description": "Poster size"
+}

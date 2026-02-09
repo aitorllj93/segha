@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "Unique identifier for the episode"
+    },
+    "name": {
+      "type": "string",
+      "description": "Episode name"
+    },
+    "overview": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Episode overview/synopsis"
+    },
+    "vote_average": {
+      "type": "number",
+      "description": "Average vote rating (0-10)"
+    },
+    "vote_count": {
+      "type": "number",
+      "description": "Total number of votes"
+    },
+    "air_date": {
+      "type": "string",
+      "description": "Air date (YYYY-MM-DD format)"
+    },
+    "episode_number": {
+      "type": "number",
+      "description": "Episode number"
+    },
+    "production_code": {
+      "type": "string",
+      "description": "Production code"
+    },
+    "runtime": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Runtime in minutes"
+    },
+    "season_number": {
+      "type": "number",
+      "description": "Season number"
+    },
+    "show_id": {
+      "type": "number",
+      "description": "Show ID"
+    },
+    "still_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Still path (relative URL)"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "overview",
+    "vote_average",
+    "vote_count",
+    "air_date",
+    "episode_number",
+    "production_code",
+    "runtime",
+    "season_number",
+    "show_id",
+    "still_path"
+  ]
+}

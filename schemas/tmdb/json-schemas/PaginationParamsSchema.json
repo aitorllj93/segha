@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "page": {
+      "type": "number",
+      "description": "Page number"
+    },
+    "language": {
+      "type": "string",
+      "description": "Language code"
+    }
+  },
+  "required": [
+    "page",
+    "language"
+  ],
+  "description": "Pagination parameters"
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "Unique identifier for the network"
+    },
+    "name": {
+      "type": "string",
+      "description": "Network name"
+    },
+    "logo_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Logo path (relative URL)"
+    },
+    "origin_country": {
+      "type": "string",
+      "description": "Network origin country"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "logo_path",
+    "origin_country"
+  ]
+}

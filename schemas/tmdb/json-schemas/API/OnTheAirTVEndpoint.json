@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "const": "/tv/on_the_air",
+  "description": "Get a list of TV shows that air in the next 7 days."
+}

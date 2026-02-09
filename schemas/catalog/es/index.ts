@@ -6,3 +6,5 @@ export * from './Movie';
 export * from './Note';
 export * from './Painting';
 export * from './Video';
+
+export * from './types';

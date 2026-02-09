@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "page": {
+      "type": "number",
+      "description": "Page number"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "backdrop_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Backdrop path (relative URL)"
+          },
+          "first_air_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "First air date (YYYY-MM-DD format)"
+          },
+          "genre_ids": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "description": "Array of genre IDs"
+          },
+          "id": {
+            "type": "number",
+            "description": "Unique identifier for the serie"
+          },
+          "name": {
+            "type": "string",
+            "description": "Serie name"
+          },
+          "origin_country": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of origin countries"
+          },
+          "original_language": {
+            "type": "string",
+            "description": "Original language code (e.g., 'en', 'es', 'fr')"
+          },
+          "original_name": {
+            "type": "string",
+            "description": "Original serie name (in original language)"
+          },
+          "overview": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Serie overview/synopsis"
+          },
+          "popularity": {
+            "type": "number",
+            "description": "Popularity score"
+          },
+          "poster_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Poster path (relative URL)"
+          },
+          "vote_average": {
+            "type": "number",
+            "description": "Average vote rating (0-10)"
+          },
+          "vote_count": {
+            "type": "number",
+            "description": "Total number of votes"
+          }
+        },
+        "required": [
+          "backdrop_path",
+          "first_air_date",
+          "genre_ids",
+          "id",
+          "name",
+          "origin_country",
+          "original_language",
+          "original_name",
+          "overview",
+          "popularity",
+          "poster_path",
+          "vote_average",
+          "vote_count"
+        ]
+      },
+      "description": "Series"
+    },
+    "total_pages": {
+      "type": "number",
+      "description": "Total pages"
+    },
+    "total_results": {
+      "type": "number",
+      "description": "Total results"
+    }
+  },
+  "required": [
+    "page",
+    "results",
+    "total_pages",
+    "total_results"
+  ]
+}

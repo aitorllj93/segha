@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "Unique identifier for the production company"
+    },
+    "name": {
+      "type": "string",
+      "description": "Production company name"
+    },
+    "logo_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Logo path (relative URL)"
+    },
+    "origin_country": {
+      "type": "string",
+      "description": "Production company origin country"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "logo_path",
+    "origin_country"
+  ]
+}

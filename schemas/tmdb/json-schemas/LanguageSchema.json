@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "iso_639_1": {
+      "type": "string",
+      "description": "Spoken language ISO 639-1 code"
+    },
+    "name": {
+      "type": "string",
+      "description": "Spoken language name"
+    },
+    "english_name": {
+      "type": "string",
+      "description": "Spoken language English name"
+    }
+  },
+  "required": [
+    "iso_639_1",
+    "name",
+    "english_name"
+  ]
+}

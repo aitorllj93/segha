@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "enum": [
+    "w300",
+    "w780",
+    "w1280",
+    "original"
+  ],
+  "description": "Backdrop size"
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "Unique identifier for the creator"
+    },
+    "credit_id": {
+      "type": "string",
+      "description": "Credit ID"
+    },
+    "name": {
+      "type": "string",
+      "description": "Creator name"
+    },
+    "gender": {
+      "type": "number",
+      "description": "Creator gender"
+    },
+    "profile_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Creator profile path (relative URL)"
+    }
+  },
+  "required": [
+    "id",
+    "credit_id",
+    "name",
+    "gender",
+    "profile_path"
+  ]
+}

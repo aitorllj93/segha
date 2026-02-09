@@ -27,12 +27,6 @@ const result = ArticleSchema.parse(data);
 type Article = z.infer<typeof ArticleSchema>;
 ```
 
-You can also import specific submodules:
-
-```typescript
-import { MetaClothingSchema, CatalogClothingSchema, DetailedClothingSchema } from '@segha/catalog/en/clothing';
-```
-
 ### Schemas
 
 - [Article](#article)

@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "const": "/search/tv",
+  "description": "Search for TV shows by their original, translated and also known as names."
+}

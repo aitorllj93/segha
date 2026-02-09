@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "const": "https://image.tmdb.org/t/p",
+  "description": "Base URL for images"
+}

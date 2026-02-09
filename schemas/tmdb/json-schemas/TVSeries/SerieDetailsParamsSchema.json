@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "append_to_response": {
+      "description": "Append to response",
+      "type": "string"
+    },
+    "include_image_language": {
+      "description": "Include image language",
+      "type": "string"
+    },
+    "language": {
+      "description": "Language",
+      "type": "string"
+    }
+  }
+}

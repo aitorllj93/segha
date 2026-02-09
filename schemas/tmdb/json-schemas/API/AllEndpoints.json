@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "anyOf": [
+    {
+      "anyOf": [
+        {
+          "type": "string",
+          "const": "/search/movie",
+          "description": "Search for movies by their original, translated and alternative titles."
+        },
+        {
+          "type": "string",
+          "const": "/search/tv",
+          "description": "Search for TV shows by their original, translated and also known as names."
+        }
+      ]
+    },
+    {
+      "anyOf": [
+        {
+          "type": "string",
+          "const": "/movie/now_playing",
+          "description": "Get a list of movies that are currently in theatres."
+        },
+        {
+          "type": "string",
+          "const": "/movie/popular",
+          "description": "Get a list of movies ordered by popularity."
+        },
+        {
+          "type": "string",
+          "const": "/movie/top_rated",
+          "description": "Get a list of movies ordered by rating."
+        },
+        {
+          "type": "string",
+          "const": "/movie/upcoming",
+          "description": "Get a list of movies that are being released soon."
+        },
+        {
+          "type": "string",
+          "const": "/movie/{movie_id}",
+          "description": "Get the top level details of a movie by ID."
+        },
+        {
+          "type": "string",
+          "const": "/movie/{movie_id}/images",
+          "description": "Get the images that belong to a movie."
+        },
+        {
+          "type": "string",
+          "const": "/movie/{movie_id}/videos",
+          "description": "Get the videos that belong to a movie."
+        },
+        {
+          "type": "string",
+          "const": "/movie/{movie_id}/similar",
+          "description": "Get the similar movies based on genres and keywords."
+        }
+      ]
+    },
+    {
+      "anyOf": [
+        {
+          "type": "string",
+          "const": "/tv/airing_today",
+          "description": "Get a list of TV shows airing today."
+        },
+        {
+          "type": "string",
+          "const": "/tv/on_the_air",
+          "description": "Get a list of TV shows that air in the next 7 days."
+        },
+        {
+          "type": "string",
+          "const": "/tv/popular",
+          "description": "Get a list of TV shows ordered by popularity."
+        },
+        {
+          "type": "string",
+          "const": "/tv/top_rated",
+          "description": "Get a list of TV shows ordered by rating."
+        },
+        {
+          "type": "string",
+          "const": "/tv/{tv_id}",
+          "description": "Get the top level details of a TV show by ID."
+        },
+        {
+          "type": "string",
+          "const": "/tv/{tv_id}/images",
+          "description": "Get the images that belong to a TV show."
+        },
+        {
+          "type": "string",
+          "const": "/tv/{tv_id}/videos",
+          "description": "Get the videos that belong to a TV show."
+        },
+        {
+          "type": "string",
+          "const": "/tv/{tv_id}/similar",
+          "description": "Get the similar TV shows."
+        }
+      ]
+    }
+  ]
+}

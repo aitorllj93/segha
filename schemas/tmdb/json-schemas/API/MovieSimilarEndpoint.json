@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "const": "/movie/{movie_id}/similar",
+  "description": "Get the similar movies based on genres and keywords."
+}

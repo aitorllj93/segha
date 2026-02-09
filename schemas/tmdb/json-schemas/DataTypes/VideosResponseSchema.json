@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "Video ID"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "iso_639_1": {
+            "type": "string",
+            "description": "Spoken language ISO 639-1 code"
+          },
+          "iso_3166_1": {
+            "type": "string",
+            "description": "Production country ISO 3166-1 Alpha-2 code"
+          },
+          "name": {
+            "type": "string",
+            "description": "Video name"
+          },
+          "key": {
+            "type": "string",
+            "description": "Video key"
+          },
+          "site": {
+            "type": "string",
+            "description": "Video site"
+          },
+          "size": {
+            "type": "number",
+            "description": "Video size"
+          },
+          "type": {
+            "type": "string",
+            "description": "Video type"
+          },
+          "official": {
+            "type": "boolean",
+            "description": "Video official"
+          },
+          "published_at": {
+            "type": "string",
+            "description": "Video published at"
+          },
+          "id": {
+            "type": "string",
+            "description": "Video ID"
+          }
+        },
+        "required": [
+          "iso_639_1",
+          "iso_3166_1",
+          "name",
+          "key",
+          "site",
+          "size",
+          "type",
+          "official",
+          "published_at",
+          "id"
+        ]
+      },
+      "description": "Videos"
+    }
+  },
+  "required": [
+    "id",
+    "results"
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "Unique identifier for the movie"
+    },
+    "title": {
+      "type": "string",
+      "description": "Movie title"
+    },
+    "original_title": {
+      "type": "string",
+      "description": "Original movie title (in original language)"
+    },
+    "original_language": {
+      "type": "string",
+      "description": "Original language code (e.g., 'en', 'es', 'fr')"
+    },
+    "overview": {
+      "type": "string",
+      "description": "Movie overview/synopsis"
+    },
+    "poster_path": {
+      "type": "string",
+      "description": "Poster path (relative URL)"
+    },
+    "backdrop_path": {
+      "type": "string",
+      "description": "Backdrop path (relative URL)"
+    },
+    "release_date": {
+      "type": "string",
+      "description": "Release date (YYYY-MM-DD format)"
+    },
+    "vote_average": {
+      "type": "number",
+      "description": "Average vote rating (0-10)"
+    },
+    "vote_count": {
+      "type": "number",
+      "description": "Total number of votes"
+    },
+    "popularity": {
+      "type": "number",
+      "description": "Popularity score"
+    },
+    "adult": {
+      "type": "boolean",
+      "description": "Adult content flag"
+    },
+    "video": {
+      "type": "boolean",
+      "description": "Video flag"
+    },
+    "genres": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Unique identifier for the genre"
+          },
+          "name": {
+            "type": "string",
+            "description": "Genre name"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
+      },
+      "description": "Movie genres"
+    },
+    "runtime": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Movie runtime in minutes"
+    },
+    "budget": {
+      "type": "number",
+      "description": "Budget in USD"
+    },
+    "revenue": {
+      "type": "number",
+      "description": "Revenue in USD"
+    },
+    "homepage": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Homepage URL"
+    },
+    "imdb_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "IMDB ID"
+    },
+    "production_companies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Unique identifier for the production company"
+          },
+          "name": {
+            "type": "string",
+            "description": "Production company name"
+          },
+          "logo_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Logo path (relative URL)"
+          },
+          "origin_country": {
+            "type": "string",
+            "description": "Production company origin country"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "logo_path",
+          "origin_country"
+        ]
+      },
+      "description": "Production companies"
+    },
+    "production_countries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "iso_3166_1": {
+            "type": "string",
+            "description": "Production country ISO 3166-1 Alpha-2 code"
+          },
+          "name": {
+            "type": "string",
+            "description": "Production country name"
+          }
+        },
+        "required": [
+          "iso_3166_1",
+          "name"
+        ]
+      },
+      "description": "Production countries"
+    },
+    "spoken_languages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "iso_639_1": {
+            "type": "string",
+            "description": "Spoken language ISO 639-1 code"
+          },
+          "name": {
+            "type": "string",
+            "description": "Spoken language name"
+          },
+          "english_name": {
+            "type": "string",
+            "description": "Spoken language English name"
+          }
+        },
+        "required": [
+          "iso_639_1",
+          "name",
+          "english_name"
+        ]
+      },
+      "description": "Spoken languages"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status (Released, Post Production, etc.)"
+    },
+    "tagline": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Tagline"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "original_title",
+    "original_language",
+    "overview",
+    "poster_path",
+    "backdrop_path",
+    "release_date",
+    "vote_average",
+    "vote_count",
+    "popularity",
+    "adult",
+    "video",
+    "genres",
+    "runtime",
+    "budget",
+    "revenue",
+    "homepage",
+    "imdb_id",
+    "production_companies",
+    "production_countries",
+    "spoken_languages",
+    "status",
+    "tagline"
+  ]
+}

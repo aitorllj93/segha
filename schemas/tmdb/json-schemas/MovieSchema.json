@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "Unique identifier for the movie"
+    },
+    "title": {
+      "type": "string",
+      "description": "Movie title"
+    },
+    "original_title": {
+      "type": "string",
+      "description": "Original movie title (in original language)"
+    },
+    "original_language": {
+      "type": "string",
+      "description": "Original language code (e.g., 'en', 'es', 'fr')"
+    },
+    "overview": {
+      "type": "string",
+      "description": "Movie overview/synopsis"
+    },
+    "poster_path": {
+      "type": "string",
+      "description": "Poster path (relative URL)"
+    },
+    "backdrop_path": {
+      "type": "string",
+      "description": "Backdrop path (relative URL)"
+    },
+    "release_date": {
+      "type": "string",
+      "description": "Release date (YYYY-MM-DD format)"
+    },
+    "vote_average": {
+      "type": "number",
+      "description": "Average vote rating (0-10)"
+    },
+    "vote_count": {
+      "type": "number",
+      "description": "Total number of votes"
+    },
+    "popularity": {
+      "type": "number",
+      "description": "Popularity score"
+    },
+    "adult": {
+      "type": "boolean",
+      "description": "Adult content flag"
+    },
+    "genre_ids": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "description": "Array of genre IDs"
+    },
+    "video": {
+      "type": "boolean",
+      "description": "Video flag"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "original_title",
+    "original_language",
+    "overview",
+    "poster_path",
+    "backdrop_path",
+    "release_date",
+    "vote_average",
+    "vote_count",
+    "popularity",
+    "adult",
+    "genre_ids",
+    "video"
+  ]
+}

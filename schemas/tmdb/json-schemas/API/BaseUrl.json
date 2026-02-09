@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "const": "https://api.themoviedb.org/3",
+  "description": "Base URL for the API"
+}

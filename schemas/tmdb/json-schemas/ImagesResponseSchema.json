@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "Image ID"
+    },
+    "backdrops": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "aspect_ratio": {
+            "type": "number",
+            "description": "Aspect ratio"
+          },
+          "height": {
+            "type": "number",
+            "description": "Height"
+          },
+          "iso_639_1": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Spoken language ISO 639-1 code"
+          },
+          "file_path": {
+            "type": "string",
+            "description": "File path"
+          },
+          "vote_average": {
+            "type": "number",
+            "description": "Vote average"
+          },
+          "vote_count": {
+            "type": "number",
+            "description": "Vote count"
+          },
+          "width": {
+            "type": "number",
+            "description": "Width"
+          }
+        },
+        "required": [
+          "aspect_ratio",
+          "height",
+          "iso_639_1",
+          "file_path",
+          "vote_average",
+          "vote_count",
+          "width"
+        ]
+      },
+      "description": "Backdrops"
+    },
+    "logos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "aspect_ratio": {
+            "type": "number",
+            "description": "Aspect ratio"
+          },
+          "height": {
+            "type": "number",
+            "description": "Height"
+          },
+          "iso_639_1": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Spoken language ISO 639-1 code"
+          },
+          "file_path": {
+            "type": "string",
+            "description": "File path"
+          },
+          "vote_average": {
+            "type": "number",
+            "description": "Vote average"
+          },
+          "vote_count": {
+            "type": "number",
+            "description": "Vote count"
+          },
+          "width": {
+            "type": "number",
+            "description": "Width"
+          }
+        },
+        "required": [
+          "aspect_ratio",
+          "height",
+          "iso_639_1",
+          "file_path",
+          "vote_average",
+          "vote_count",
+          "width"
+        ]
+      },
+      "description": "Logos"
+    },
+    "posters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "aspect_ratio": {
+            "type": "number",
+            "description": "Aspect ratio"
+          },
+          "height": {
+            "type": "number",
+            "description": "Height"
+          },
+          "iso_639_1": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Spoken language ISO 639-1 code"
+          },
+          "file_path": {
+            "type": "string",
+            "description": "File path"
+          },
+          "vote_average": {
+            "type": "number",
+            "description": "Vote average"
+          },
+          "vote_count": {
+            "type": "number",
+            "description": "Vote count"
+          },
+          "width": {
+            "type": "number",
+            "description": "Width"
+          }
+        },
+        "required": [
+          "aspect_ratio",
+          "height",
+          "iso_639_1",
+          "file_path",
+          "vote_average",
+          "vote_count",
+          "width"
+        ]
+      },
+      "description": "Posters"
+    }
+  },
+  "required": [
+    "id",
+    "backdrops",
+    "logos",
+    "posters"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "@segha/tmdb",
+  "description": "Schemas for TMDB",
+  "scripts": {
+    "docs": "pnpm tsx ../../utils/generate-docs.ts --entry ./index.ts --cwd .",
+    "json-schema": "pnpm tsx ../../utils/generate-json-schema.ts --entry ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "index.ts",
+  "keywords": [
+    "schemas",
+    "zod",
+    "tmdb"
+  ],
+  "version": "0.0.1",
+  "author": "Aitor Llamas Jiménez <aitorllj93@gmail.com>",
+  "homepage": "https://github.com/aitorllj93/segha",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aitorllj93/segha.git",
+    "directory": "schemas/tmdb"
+  },
+  "license": "ISC",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./api": "./API/index.ts",
+    "./movies": "./Movies/index.ts",
+    "./tv-series": "./TVSeries/index.ts",
+    "./json-schema": "./json-schemas/index.json",
+    "./json-schemas/*": "./json-schemas/*.json"
+  },
+  "peerDependencies": {
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "zod": "catalog:",
+    "zod2md": "catalog:",
+    "tsx": "catalog:"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "*.ts",
+    "json-schemas/**/*.json",
+    "README.md",
+    "CHANGELOG.md"
+  ]
+}

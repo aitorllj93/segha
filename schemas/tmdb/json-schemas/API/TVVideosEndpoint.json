@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "const": "/tv/{tv_id}/videos",
+  "description": "Get the videos that belong to a TV show."
+}

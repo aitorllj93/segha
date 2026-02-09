@@ -1,0 +1,503 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "@segha/tmdb/DataTypes",
+  "description": "Schemas for TMDB",
+  "$defs": {
+    "GenreSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Unique identifier for the genre"
+        },
+        "name": {
+          "type": "string",
+          "description": "Genre name"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "BackdropSizeSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "w300",
+        "w780",
+        "w1280",
+        "original"
+      ],
+      "description": "Backdrop size"
+    },
+    "ImageSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "aspect_ratio": {
+          "type": "number",
+          "description": "Aspect ratio"
+        },
+        "height": {
+          "type": "number",
+          "description": "Height"
+        },
+        "iso_639_1": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Spoken language ISO 639-1 code"
+        },
+        "file_path": {
+          "type": "string",
+          "description": "File path"
+        },
+        "vote_average": {
+          "type": "number",
+          "description": "Vote average"
+        },
+        "vote_count": {
+          "type": "number",
+          "description": "Vote count"
+        },
+        "width": {
+          "type": "number",
+          "description": "Width"
+        }
+      },
+      "required": [
+        "aspect_ratio",
+        "height",
+        "iso_639_1",
+        "file_path",
+        "vote_average",
+        "vote_count",
+        "width"
+      ]
+    },
+    "ImagesResponseSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Image ID"
+        },
+        "backdrops": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "aspect_ratio": {
+                "type": "number",
+                "description": "Aspect ratio"
+              },
+              "height": {
+                "type": "number",
+                "description": "Height"
+              },
+              "iso_639_1": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Spoken language ISO 639-1 code"
+              },
+              "file_path": {
+                "type": "string",
+                "description": "File path"
+              },
+              "vote_average": {
+                "type": "number",
+                "description": "Vote average"
+              },
+              "vote_count": {
+                "type": "number",
+                "description": "Vote count"
+              },
+              "width": {
+                "type": "number",
+                "description": "Width"
+              }
+            },
+            "required": [
+              "aspect_ratio",
+              "height",
+              "iso_639_1",
+              "file_path",
+              "vote_average",
+              "vote_count",
+              "width"
+            ]
+          },
+          "description": "Backdrops"
+        },
+        "logos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "aspect_ratio": {
+                "type": "number",
+                "description": "Aspect ratio"
+              },
+              "height": {
+                "type": "number",
+                "description": "Height"
+              },
+              "iso_639_1": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Spoken language ISO 639-1 code"
+              },
+              "file_path": {
+                "type": "string",
+                "description": "File path"
+              },
+              "vote_average": {
+                "type": "number",
+                "description": "Vote average"
+              },
+              "vote_count": {
+                "type": "number",
+                "description": "Vote count"
+              },
+              "width": {
+                "type": "number",
+                "description": "Width"
+              }
+            },
+            "required": [
+              "aspect_ratio",
+              "height",
+              "iso_639_1",
+              "file_path",
+              "vote_average",
+              "vote_count",
+              "width"
+            ]
+          },
+          "description": "Logos"
+        },
+        "posters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "aspect_ratio": {
+                "type": "number",
+                "description": "Aspect ratio"
+              },
+              "height": {
+                "type": "number",
+                "description": "Height"
+              },
+              "iso_639_1": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Spoken language ISO 639-1 code"
+              },
+              "file_path": {
+                "type": "string",
+                "description": "File path"
+              },
+              "vote_average": {
+                "type": "number",
+                "description": "Vote average"
+              },
+              "vote_count": {
+                "type": "number",
+                "description": "Vote count"
+              },
+              "width": {
+                "type": "number",
+                "description": "Width"
+              }
+            },
+            "required": [
+              "aspect_ratio",
+              "height",
+              "iso_639_1",
+              "file_path",
+              "vote_average",
+              "vote_count",
+              "width"
+            ]
+          },
+          "description": "Posters"
+        }
+      },
+      "required": [
+        "id",
+        "backdrops",
+        "logos",
+        "posters"
+      ]
+    },
+    "PosterSizeSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string",
+      "enum": [
+        "w92",
+        "w154",
+        "w185",
+        "w342",
+        "w500",
+        "w780",
+        "original"
+      ],
+      "description": "Poster size"
+    },
+    "LanguageSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "iso_639_1": {
+          "type": "string",
+          "description": "Spoken language ISO 639-1 code"
+        },
+        "name": {
+          "type": "string",
+          "description": "Spoken language name"
+        },
+        "english_name": {
+          "type": "string",
+          "description": "Spoken language English name"
+        }
+      },
+      "required": [
+        "iso_639_1",
+        "name",
+        "english_name"
+      ]
+    },
+    "PaginationParamsSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "number",
+          "description": "Page number"
+        },
+        "language": {
+          "type": "string",
+          "description": "Language code"
+        }
+      },
+      "required": [
+        "page",
+        "language"
+      ],
+      "description": "Pagination parameters"
+    },
+    "ProductionCompanySchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Unique identifier for the production company"
+        },
+        "name": {
+          "type": "string",
+          "description": "Production company name"
+        },
+        "logo_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Logo path (relative URL)"
+        },
+        "origin_country": {
+          "type": "string",
+          "description": "Production company origin country"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "logo_path",
+        "origin_country"
+      ]
+    },
+    "ProductionCountrySchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "iso_3166_1": {
+          "type": "string",
+          "description": "Production country ISO 3166-1 Alpha-2 code"
+        },
+        "name": {
+          "type": "string",
+          "description": "Production country name"
+        }
+      },
+      "required": [
+        "iso_3166_1",
+        "name"
+      ]
+    },
+    "VideoSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "iso_639_1": {
+          "type": "string",
+          "description": "Spoken language ISO 639-1 code"
+        },
+        "iso_3166_1": {
+          "type": "string",
+          "description": "Production country ISO 3166-1 Alpha-2 code"
+        },
+        "name": {
+          "type": "string",
+          "description": "Video name"
+        },
+        "key": {
+          "type": "string",
+          "description": "Video key"
+        },
+        "site": {
+          "type": "string",
+          "description": "Video site"
+        },
+        "size": {
+          "type": "number",
+          "description": "Video size"
+        },
+        "type": {
+          "type": "string",
+          "description": "Video type"
+        },
+        "official": {
+          "type": "boolean",
+          "description": "Video official"
+        },
+        "published_at": {
+          "type": "string",
+          "description": "Video published at"
+        },
+        "id": {
+          "type": "string",
+          "description": "Video ID"
+        }
+      },
+      "required": [
+        "iso_639_1",
+        "iso_3166_1",
+        "name",
+        "key",
+        "site",
+        "size",
+        "type",
+        "official",
+        "published_at",
+        "id"
+      ]
+    },
+    "VideosResponseSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Video ID"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "iso_639_1": {
+                "type": "string",
+                "description": "Spoken language ISO 639-1 code"
+              },
+              "iso_3166_1": {
+                "type": "string",
+                "description": "Production country ISO 3166-1 Alpha-2 code"
+              },
+              "name": {
+                "type": "string",
+                "description": "Video name"
+              },
+              "key": {
+                "type": "string",
+                "description": "Video key"
+              },
+              "site": {
+                "type": "string",
+                "description": "Video site"
+              },
+              "size": {
+                "type": "number",
+                "description": "Video size"
+              },
+              "type": {
+                "type": "string",
+                "description": "Video type"
+              },
+              "official": {
+                "type": "boolean",
+                "description": "Video official"
+              },
+              "published_at": {
+                "type": "string",
+                "description": "Video published at"
+              },
+              "id": {
+                "type": "string",
+                "description": "Video ID"
+              }
+            },
+            "required": [
+              "iso_639_1",
+              "iso_3166_1",
+              "name",
+              "key",
+              "site",
+              "size",
+              "type",
+              "official",
+              "published_at",
+              "id"
+            ]
+          },
+          "description": "Videos"
+        }
+      },
+      "required": [
+        "id",
+        "results"
+      ]
+    }
+  }
+}

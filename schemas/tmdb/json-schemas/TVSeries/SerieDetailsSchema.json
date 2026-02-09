@@ -1,0 +1,523 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "backdrop_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Backdrop path (relative URL)"
+    },
+    "first_air_date": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "First air date (YYYY-MM-DD format)"
+    },
+    "id": {
+      "type": "number",
+      "description": "Unique identifier for the serie"
+    },
+    "name": {
+      "type": "string",
+      "description": "Serie name"
+    },
+    "origin_country": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of origin countries"
+    },
+    "original_language": {
+      "type": "string",
+      "description": "Original language code (e.g., 'en', 'es', 'fr')"
+    },
+    "original_name": {
+      "type": "string",
+      "description": "Original serie name (in original language)"
+    },
+    "overview": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Serie overview/synopsis"
+    },
+    "popularity": {
+      "type": "number",
+      "description": "Popularity score"
+    },
+    "poster_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Poster path (relative URL)"
+    },
+    "vote_average": {
+      "type": "number",
+      "description": "Average vote rating (0-10)"
+    },
+    "vote_count": {
+      "type": "number",
+      "description": "Total number of votes"
+    },
+    "adult": {
+      "type": "boolean",
+      "description": "Adult content flag"
+    },
+    "created_by": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Unique identifier for the creator"
+          },
+          "credit_id": {
+            "type": "string",
+            "description": "Credit ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "Creator name"
+          },
+          "gender": {
+            "type": "number",
+            "description": "Creator gender"
+          },
+          "profile_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Creator profile path (relative URL)"
+          }
+        },
+        "required": [
+          "id",
+          "credit_id",
+          "name",
+          "gender",
+          "profile_path"
+        ]
+      },
+      "description": "Creators of the serie"
+    },
+    "episode_run_time": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "description": "Episode runtime in minutes"
+    },
+    "genres": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Unique identifier for the genre"
+          },
+          "name": {
+            "type": "string",
+            "description": "Genre name"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
+      },
+      "description": "Genres of the serie"
+    },
+    "homepage": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Homepage URL"
+    },
+    "in_production": {
+      "type": "boolean",
+      "description": "In production flag"
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Languages of the serie"
+    },
+    "last_air_date": {
+      "type": "string",
+      "description": "Last air date (YYYY-MM-DD format)"
+    },
+    "last_episode_to_air": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Unique identifier for the episode"
+        },
+        "name": {
+          "type": "string",
+          "description": "Episode name"
+        },
+        "overview": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Episode overview/synopsis"
+        },
+        "vote_average": {
+          "type": "number",
+          "description": "Average vote rating (0-10)"
+        },
+        "vote_count": {
+          "type": "number",
+          "description": "Total number of votes"
+        },
+        "air_date": {
+          "type": "string",
+          "description": "Air date (YYYY-MM-DD format)"
+        },
+        "episode_number": {
+          "type": "number",
+          "description": "Episode number"
+        },
+        "production_code": {
+          "type": "string",
+          "description": "Production code"
+        },
+        "runtime": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Runtime in minutes"
+        },
+        "season_number": {
+          "type": "number",
+          "description": "Season number"
+        },
+        "show_id": {
+          "type": "number",
+          "description": "Show ID"
+        },
+        "still_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Still path (relative URL)"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "overview",
+        "vote_average",
+        "vote_count",
+        "air_date",
+        "episode_number",
+        "production_code",
+        "runtime",
+        "season_number",
+        "show_id",
+        "still_path"
+      ],
+      "description": "Last episode to air"
+    },
+    "next_episode_to_air": {
+      "type": "string",
+      "description": "Next episode to air"
+    },
+    "networks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Unique identifier for the network"
+          },
+          "name": {
+            "type": "string",
+            "description": "Network name"
+          },
+          "logo_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Logo path (relative URL)"
+          },
+          "origin_country": {
+            "type": "string",
+            "description": "Network origin country"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "logo_path",
+          "origin_country"
+        ]
+      },
+      "description": "Networks of the serie"
+    },
+    "number_of_episodes": {
+      "type": "number",
+      "description": "Number of episodes"
+    },
+    "number_of_seasons": {
+      "type": "number",
+      "description": "Number of seasons"
+    },
+    "production_companies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Unique identifier for the production company"
+          },
+          "name": {
+            "type": "string",
+            "description": "Production company name"
+          },
+          "logo_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Logo path (relative URL)"
+          },
+          "origin_country": {
+            "type": "string",
+            "description": "Production company origin country"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "logo_path",
+          "origin_country"
+        ]
+      },
+      "description": "Production companies of the serie"
+    },
+    "production_countries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "iso_3166_1": {
+            "type": "string",
+            "description": "Production country ISO 3166-1 Alpha-2 code"
+          },
+          "name": {
+            "type": "string",
+            "description": "Production country name"
+          }
+        },
+        "required": [
+          "iso_3166_1",
+          "name"
+        ]
+      },
+      "description": "Production countries of the serie"
+    },
+    "seasons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "air_date": {
+            "type": "string",
+            "description": "Air date (YYYY-MM-DD format)"
+          },
+          "episode_count": {
+            "type": "number",
+            "description": "Episode count"
+          },
+          "id": {
+            "type": "number",
+            "description": "Unique identifier for the season"
+          },
+          "name": {
+            "type": "string",
+            "description": "Season name"
+          },
+          "overview": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Season overview/synopsis"
+          },
+          "poster_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Poster path (relative URL)"
+          },
+          "season_number": {
+            "type": "number",
+            "description": "Season number"
+          }
+        },
+        "required": [
+          "air_date",
+          "episode_count",
+          "id",
+          "name",
+          "overview",
+          "poster_path",
+          "season_number"
+        ]
+      },
+      "description": "Seasons of the serie"
+    },
+    "spoken_languages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "iso_639_1": {
+            "type": "string",
+            "description": "Spoken language ISO 639-1 code"
+          },
+          "name": {
+            "type": "string",
+            "description": "Spoken language name"
+          },
+          "english_name": {
+            "type": "string",
+            "description": "Spoken language English name"
+          }
+        },
+        "required": [
+          "iso_639_1",
+          "name",
+          "english_name"
+        ]
+      },
+      "description": "Spoken languages of the serie"
+    },
+    "status": {
+      "type": "string",
+      "description": "Status of the serie"
+    },
+    "tagline": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Tagline of the serie"
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of the serie"
+    }
+  },
+  "required": [
+    "backdrop_path",
+    "first_air_date",
+    "id",
+    "name",
+    "origin_country",
+    "original_language",
+    "original_name",
+    "overview",
+    "popularity",
+    "poster_path",
+    "vote_average",
+    "vote_count",
+    "adult",
+    "created_by",
+    "episode_run_time",
+    "genres",
+    "homepage",
+    "in_production",
+    "languages",
+    "last_air_date",
+    "last_episode_to_air",
+    "next_episode_to_air",
+    "networks",
+    "number_of_episodes",
+    "number_of_seasons",
+    "production_companies",
+    "production_countries",
+    "seasons",
+    "spoken_languages",
+    "status",
+    "tagline",
+    "type"
+  ]
+}

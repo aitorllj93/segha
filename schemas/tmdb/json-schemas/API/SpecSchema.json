@@ -1,0 +1,3817 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "3",
+      "description": "API version"
+    },
+    "baseUrl": {
+      "type": "string",
+      "const": "https://api.themoviedb.org/3",
+      "description": "Base URL for the API"
+    },
+    "imageBaseUrl": {
+      "type": "string",
+      "const": "https://image.tmdb.org/t/p",
+      "description": "Base URL for images"
+    },
+    "methods": {
+      "type": "object",
+      "properties": {
+        "search": {
+          "type": "object",
+          "properties": {
+            "movies": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/search/movie",
+                      "description": "Search for movies by their original, translated and alternative titles."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "query": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "language": {
+                              "type": "string",
+                              "description": "Language code"
+                            },
+                            "query": {
+                              "type": "string",
+                              "description": "Search query"
+                            },
+                            "include_adult": {
+                              "description": "Include adult movies",
+                              "type": "boolean"
+                            },
+                            "year": {
+                              "description": "Year",
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "language",
+                            "query"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the movie"
+                                  },
+                                  "title": {
+                                    "type": "string",
+                                    "description": "Movie title"
+                                  },
+                                  "original_title": {
+                                    "type": "string",
+                                    "description": "Original movie title (in original language)"
+                                  },
+                                  "original_language": {
+                                    "type": "string",
+                                    "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                                  },
+                                  "overview": {
+                                    "type": "string",
+                                    "description": "Movie overview/synopsis"
+                                  },
+                                  "poster_path": {
+                                    "type": "string",
+                                    "description": "Poster path (relative URL)"
+                                  },
+                                  "backdrop_path": {
+                                    "type": "string",
+                                    "description": "Backdrop path (relative URL)"
+                                  },
+                                  "release_date": {
+                                    "type": "string",
+                                    "description": "Release date (YYYY-MM-DD format)"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Average vote rating (0-10)"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Total number of votes"
+                                  },
+                                  "popularity": {
+                                    "type": "number",
+                                    "description": "Popularity score"
+                                  },
+                                  "adult": {
+                                    "type": "boolean",
+                                    "description": "Adult content flag"
+                                  },
+                                  "genre_ids": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    },
+                                    "description": "Array of genre IDs"
+                                  },
+                                  "video": {
+                                    "type": "boolean",
+                                    "description": "Video flag"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "title",
+                                  "original_title",
+                                  "original_language",
+                                  "overview",
+                                  "poster_path",
+                                  "backdrop_path",
+                                  "release_date",
+                                  "vote_average",
+                                  "vote_count",
+                                  "popularity",
+                                  "adult",
+                                  "genre_ids",
+                                  "video"
+                                ]
+                              },
+                              "description": "Movies"
+                            },
+                            "total_pages": {
+                              "type": "number",
+                              "description": "Total pages"
+                            },
+                            "total_results": {
+                              "type": "number",
+                              "description": "Total results"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "results",
+                            "total_pages",
+                            "total_results"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "tv": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/search/tv",
+                      "description": "Search for TV shows by their original, translated and also known as names."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "query": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "language": {
+                              "type": "string",
+                              "description": "Language code"
+                            },
+                            "query": {
+                              "type": "string",
+                              "description": "Search query"
+                            },
+                            "include_adult": {
+                              "description": "Include adult movies",
+                              "type": "boolean"
+                            },
+                            "year": {
+                              "description": "Year",
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "language",
+                            "query"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "backdrop_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Backdrop path (relative URL)"
+                                  },
+                                  "first_air_date": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "First air date (YYYY-MM-DD format)"
+                                  },
+                                  "genre_ids": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    },
+                                    "description": "Array of genre IDs"
+                                  },
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the serie"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Serie name"
+                                  },
+                                  "origin_country": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "description": "Array of origin countries"
+                                  },
+                                  "original_language": {
+                                    "type": "string",
+                                    "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                                  },
+                                  "original_name": {
+                                    "type": "string",
+                                    "description": "Original serie name (in original language)"
+                                  },
+                                  "overview": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Serie overview/synopsis"
+                                  },
+                                  "popularity": {
+                                    "type": "number",
+                                    "description": "Popularity score"
+                                  },
+                                  "poster_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Poster path (relative URL)"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Average vote rating (0-10)"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Total number of votes"
+                                  }
+                                },
+                                "required": [
+                                  "backdrop_path",
+                                  "first_air_date",
+                                  "genre_ids",
+                                  "id",
+                                  "name",
+                                  "origin_country",
+                                  "original_language",
+                                  "original_name",
+                                  "overview",
+                                  "popularity",
+                                  "poster_path",
+                                  "vote_average",
+                                  "vote_count"
+                                ]
+                              },
+                              "description": "Series"
+                            },
+                            "total_pages": {
+                              "type": "number",
+                              "description": "Total pages"
+                            },
+                            "total_results": {
+                              "type": "number",
+                              "description": "Total results"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "results",
+                            "total_pages",
+                            "total_results"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            }
+          },
+          "required": [
+            "movies",
+            "tv"
+          ]
+        },
+        "movie": {
+          "type": "object",
+          "properties": {
+            "now_playing": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/movie/now_playing",
+                      "description": "Get a list of movies that are currently in theatres."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "query": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "language": {
+                              "type": "string",
+                              "description": "Language code"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "language"
+                          ],
+                          "description": "Pagination parameters"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the movie"
+                                  },
+                                  "title": {
+                                    "type": "string",
+                                    "description": "Movie title"
+                                  },
+                                  "original_title": {
+                                    "type": "string",
+                                    "description": "Original movie title (in original language)"
+                                  },
+                                  "original_language": {
+                                    "type": "string",
+                                    "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                                  },
+                                  "overview": {
+                                    "type": "string",
+                                    "description": "Movie overview/synopsis"
+                                  },
+                                  "poster_path": {
+                                    "type": "string",
+                                    "description": "Poster path (relative URL)"
+                                  },
+                                  "backdrop_path": {
+                                    "type": "string",
+                                    "description": "Backdrop path (relative URL)"
+                                  },
+                                  "release_date": {
+                                    "type": "string",
+                                    "description": "Release date (YYYY-MM-DD format)"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Average vote rating (0-10)"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Total number of votes"
+                                  },
+                                  "popularity": {
+                                    "type": "number",
+                                    "description": "Popularity score"
+                                  },
+                                  "adult": {
+                                    "type": "boolean",
+                                    "description": "Adult content flag"
+                                  },
+                                  "genre_ids": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    },
+                                    "description": "Array of genre IDs"
+                                  },
+                                  "video": {
+                                    "type": "boolean",
+                                    "description": "Video flag"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "title",
+                                  "original_title",
+                                  "original_language",
+                                  "overview",
+                                  "poster_path",
+                                  "backdrop_path",
+                                  "release_date",
+                                  "vote_average",
+                                  "vote_count",
+                                  "popularity",
+                                  "adult",
+                                  "genre_ids",
+                                  "video"
+                                ]
+                              },
+                              "description": "Movies"
+                            },
+                            "total_pages": {
+                              "type": "number",
+                              "description": "Total pages"
+                            },
+                            "total_results": {
+                              "type": "number",
+                              "description": "Total results"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "results",
+                            "total_pages",
+                            "total_results"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "popular": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/movie/popular",
+                      "description": "Get a list of movies ordered by popularity."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "query": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "language": {
+                              "type": "string",
+                              "description": "Language code"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "language"
+                          ],
+                          "description": "Pagination parameters"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the movie"
+                                  },
+                                  "title": {
+                                    "type": "string",
+                                    "description": "Movie title"
+                                  },
+                                  "original_title": {
+                                    "type": "string",
+                                    "description": "Original movie title (in original language)"
+                                  },
+                                  "original_language": {
+                                    "type": "string",
+                                    "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                                  },
+                                  "overview": {
+                                    "type": "string",
+                                    "description": "Movie overview/synopsis"
+                                  },
+                                  "poster_path": {
+                                    "type": "string",
+                                    "description": "Poster path (relative URL)"
+                                  },
+                                  "backdrop_path": {
+                                    "type": "string",
+                                    "description": "Backdrop path (relative URL)"
+                                  },
+                                  "release_date": {
+                                    "type": "string",
+                                    "description": "Release date (YYYY-MM-DD format)"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Average vote rating (0-10)"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Total number of votes"
+                                  },
+                                  "popularity": {
+                                    "type": "number",
+                                    "description": "Popularity score"
+                                  },
+                                  "adult": {
+                                    "type": "boolean",
+                                    "description": "Adult content flag"
+                                  },
+                                  "genre_ids": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    },
+                                    "description": "Array of genre IDs"
+                                  },
+                                  "video": {
+                                    "type": "boolean",
+                                    "description": "Video flag"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "title",
+                                  "original_title",
+                                  "original_language",
+                                  "overview",
+                                  "poster_path",
+                                  "backdrop_path",
+                                  "release_date",
+                                  "vote_average",
+                                  "vote_count",
+                                  "popularity",
+                                  "adult",
+                                  "genre_ids",
+                                  "video"
+                                ]
+                              },
+                              "description": "Movies"
+                            },
+                            "total_pages": {
+                              "type": "number",
+                              "description": "Total pages"
+                            },
+                            "total_results": {
+                              "type": "number",
+                              "description": "Total results"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "results",
+                            "total_pages",
+                            "total_results"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "top_rated": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/movie/top_rated",
+                      "description": "Get a list of movies ordered by rating."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "query": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "language": {
+                              "type": "string",
+                              "description": "Language code"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "language"
+                          ],
+                          "description": "Pagination parameters"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the movie"
+                                  },
+                                  "title": {
+                                    "type": "string",
+                                    "description": "Movie title"
+                                  },
+                                  "original_title": {
+                                    "type": "string",
+                                    "description": "Original movie title (in original language)"
+                                  },
+                                  "original_language": {
+                                    "type": "string",
+                                    "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                                  },
+                                  "overview": {
+                                    "type": "string",
+                                    "description": "Movie overview/synopsis"
+                                  },
+                                  "poster_path": {
+                                    "type": "string",
+                                    "description": "Poster path (relative URL)"
+                                  },
+                                  "backdrop_path": {
+                                    "type": "string",
+                                    "description": "Backdrop path (relative URL)"
+                                  },
+                                  "release_date": {
+                                    "type": "string",
+                                    "description": "Release date (YYYY-MM-DD format)"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Average vote rating (0-10)"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Total number of votes"
+                                  },
+                                  "popularity": {
+                                    "type": "number",
+                                    "description": "Popularity score"
+                                  },
+                                  "adult": {
+                                    "type": "boolean",
+                                    "description": "Adult content flag"
+                                  },
+                                  "genre_ids": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    },
+                                    "description": "Array of genre IDs"
+                                  },
+                                  "video": {
+                                    "type": "boolean",
+                                    "description": "Video flag"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "title",
+                                  "original_title",
+                                  "original_language",
+                                  "overview",
+                                  "poster_path",
+                                  "backdrop_path",
+                                  "release_date",
+                                  "vote_average",
+                                  "vote_count",
+                                  "popularity",
+                                  "adult",
+                                  "genre_ids",
+                                  "video"
+                                ]
+                              },
+                              "description": "Movies"
+                            },
+                            "total_pages": {
+                              "type": "number",
+                              "description": "Total pages"
+                            },
+                            "total_results": {
+                              "type": "number",
+                              "description": "Total results"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "results",
+                            "total_pages",
+                            "total_results"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "upcoming": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/movie/upcoming",
+                      "description": "Get a list of movies that are being released soon."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "query": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "language": {
+                              "type": "string",
+                              "description": "Language code"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "language"
+                          ],
+                          "description": "Pagination parameters"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the movie"
+                                  },
+                                  "title": {
+                                    "type": "string",
+                                    "description": "Movie title"
+                                  },
+                                  "original_title": {
+                                    "type": "string",
+                                    "description": "Original movie title (in original language)"
+                                  },
+                                  "original_language": {
+                                    "type": "string",
+                                    "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                                  },
+                                  "overview": {
+                                    "type": "string",
+                                    "description": "Movie overview/synopsis"
+                                  },
+                                  "poster_path": {
+                                    "type": "string",
+                                    "description": "Poster path (relative URL)"
+                                  },
+                                  "backdrop_path": {
+                                    "type": "string",
+                                    "description": "Backdrop path (relative URL)"
+                                  },
+                                  "release_date": {
+                                    "type": "string",
+                                    "description": "Release date (YYYY-MM-DD format)"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Average vote rating (0-10)"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Total number of votes"
+                                  },
+                                  "popularity": {
+                                    "type": "number",
+                                    "description": "Popularity score"
+                                  },
+                                  "adult": {
+                                    "type": "boolean",
+                                    "description": "Adult content flag"
+                                  },
+                                  "genre_ids": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    },
+                                    "description": "Array of genre IDs"
+                                  },
+                                  "video": {
+                                    "type": "boolean",
+                                    "description": "Video flag"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "title",
+                                  "original_title",
+                                  "original_language",
+                                  "overview",
+                                  "poster_path",
+                                  "backdrop_path",
+                                  "release_date",
+                                  "vote_average",
+                                  "vote_count",
+                                  "popularity",
+                                  "adult",
+                                  "genre_ids",
+                                  "video"
+                                ]
+                              },
+                              "description": "Movies"
+                            },
+                            "total_pages": {
+                              "type": "number",
+                              "description": "Total pages"
+                            },
+                            "total_results": {
+                              "type": "number",
+                              "description": "Total results"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "results",
+                            "total_pages",
+                            "total_results"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "details": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/movie/{movie_id}",
+                      "description": "Get the top level details of a movie by ID."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "object",
+                          "properties": {
+                            "movie_id": {
+                              "type": "number",
+                              "description": "Movie ID"
+                            }
+                          },
+                          "required": [
+                            "movie_id"
+                          ]
+                        },
+                        "query": {
+                          "type": "object",
+                          "properties": {
+                            "append_to_response": {
+                              "description": "Append to response",
+                              "type": "string"
+                            },
+                            "include_image_language": {
+                              "description": "Include image language",
+                              "type": "string"
+                            },
+                            "language": {
+                              "description": "Language",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "query"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number",
+                              "description": "Unique identifier for the movie"
+                            },
+                            "title": {
+                              "type": "string",
+                              "description": "Movie title"
+                            },
+                            "original_title": {
+                              "type": "string",
+                              "description": "Original movie title (in original language)"
+                            },
+                            "original_language": {
+                              "type": "string",
+                              "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                            },
+                            "overview": {
+                              "type": "string",
+                              "description": "Movie overview/synopsis"
+                            },
+                            "poster_path": {
+                              "type": "string",
+                              "description": "Poster path (relative URL)"
+                            },
+                            "backdrop_path": {
+                              "type": "string",
+                              "description": "Backdrop path (relative URL)"
+                            },
+                            "release_date": {
+                              "type": "string",
+                              "description": "Release date (YYYY-MM-DD format)"
+                            },
+                            "vote_average": {
+                              "type": "number",
+                              "description": "Average vote rating (0-10)"
+                            },
+                            "vote_count": {
+                              "type": "number",
+                              "description": "Total number of votes"
+                            },
+                            "popularity": {
+                              "type": "number",
+                              "description": "Popularity score"
+                            },
+                            "adult": {
+                              "type": "boolean",
+                              "description": "Adult content flag"
+                            },
+                            "video": {
+                              "type": "boolean",
+                              "description": "Video flag"
+                            },
+                            "genres": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the genre"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Genre name"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "name"
+                                ]
+                              },
+                              "description": "Movie genres"
+                            },
+                            "runtime": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ],
+                              "description": "Movie runtime in minutes"
+                            },
+                            "budget": {
+                              "type": "number",
+                              "description": "Budget in USD"
+                            },
+                            "revenue": {
+                              "type": "number",
+                              "description": "Revenue in USD"
+                            },
+                            "homepage": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ],
+                              "description": "Homepage URL"
+                            },
+                            "imdb_id": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ],
+                              "description": "IMDB ID"
+                            },
+                            "production_companies": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the production company"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Production company name"
+                                  },
+                                  "logo_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Logo path (relative URL)"
+                                  },
+                                  "origin_country": {
+                                    "type": "string",
+                                    "description": "Production company origin country"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "name",
+                                  "logo_path",
+                                  "origin_country"
+                                ]
+                              },
+                              "description": "Production companies"
+                            },
+                            "production_countries": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "iso_3166_1": {
+                                    "type": "string",
+                                    "description": "Production country ISO 3166-1 Alpha-2 code"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Production country name"
+                                  }
+                                },
+                                "required": [
+                                  "iso_3166_1",
+                                  "name"
+                                ]
+                              },
+                              "description": "Production countries"
+                            },
+                            "spoken_languages": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "iso_639_1": {
+                                    "type": "string",
+                                    "description": "Spoken language ISO 639-1 code"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Spoken language name"
+                                  },
+                                  "english_name": {
+                                    "type": "string",
+                                    "description": "Spoken language English name"
+                                  }
+                                },
+                                "required": [
+                                  "iso_639_1",
+                                  "name",
+                                  "english_name"
+                                ]
+                              },
+                              "description": "Spoken languages"
+                            },
+                            "status": {
+                              "type": "string",
+                              "description": "Current status (Released, Post Production, etc.)"
+                            },
+                            "tagline": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ],
+                              "description": "Tagline"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "title",
+                            "original_title",
+                            "original_language",
+                            "overview",
+                            "poster_path",
+                            "backdrop_path",
+                            "release_date",
+                            "vote_average",
+                            "vote_count",
+                            "popularity",
+                            "adult",
+                            "video",
+                            "genres",
+                            "runtime",
+                            "budget",
+                            "revenue",
+                            "homepage",
+                            "imdb_id",
+                            "production_companies",
+                            "production_countries",
+                            "spoken_languages",
+                            "status",
+                            "tagline"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "images": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/movie/{movie_id}/images",
+                      "description": "Get the images that belong to a movie."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "object",
+                          "properties": {
+                            "movie_id": {
+                              "type": "number",
+                              "description": "Movie ID"
+                            }
+                          },
+                          "required": [
+                            "movie_id"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "url"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number",
+                              "description": "Image ID"
+                            },
+                            "backdrops": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "aspect_ratio": {
+                                    "type": "number",
+                                    "description": "Aspect ratio"
+                                  },
+                                  "height": {
+                                    "type": "number",
+                                    "description": "Height"
+                                  },
+                                  "iso_639_1": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Spoken language ISO 639-1 code"
+                                  },
+                                  "file_path": {
+                                    "type": "string",
+                                    "description": "File path"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Vote average"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Vote count"
+                                  },
+                                  "width": {
+                                    "type": "number",
+                                    "description": "Width"
+                                  }
+                                },
+                                "required": [
+                                  "aspect_ratio",
+                                  "height",
+                                  "iso_639_1",
+                                  "file_path",
+                                  "vote_average",
+                                  "vote_count",
+                                  "width"
+                                ]
+                              },
+                              "description": "Backdrops"
+                            },
+                            "logos": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "aspect_ratio": {
+                                    "type": "number",
+                                    "description": "Aspect ratio"
+                                  },
+                                  "height": {
+                                    "type": "number",
+                                    "description": "Height"
+                                  },
+                                  "iso_639_1": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Spoken language ISO 639-1 code"
+                                  },
+                                  "file_path": {
+                                    "type": "string",
+                                    "description": "File path"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Vote average"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Vote count"
+                                  },
+                                  "width": {
+                                    "type": "number",
+                                    "description": "Width"
+                                  }
+                                },
+                                "required": [
+                                  "aspect_ratio",
+                                  "height",
+                                  "iso_639_1",
+                                  "file_path",
+                                  "vote_average",
+                                  "vote_count",
+                                  "width"
+                                ]
+                              },
+                              "description": "Logos"
+                            },
+                            "posters": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "aspect_ratio": {
+                                    "type": "number",
+                                    "description": "Aspect ratio"
+                                  },
+                                  "height": {
+                                    "type": "number",
+                                    "description": "Height"
+                                  },
+                                  "iso_639_1": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Spoken language ISO 639-1 code"
+                                  },
+                                  "file_path": {
+                                    "type": "string",
+                                    "description": "File path"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Vote average"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Vote count"
+                                  },
+                                  "width": {
+                                    "type": "number",
+                                    "description": "Width"
+                                  }
+                                },
+                                "required": [
+                                  "aspect_ratio",
+                                  "height",
+                                  "iso_639_1",
+                                  "file_path",
+                                  "vote_average",
+                                  "vote_count",
+                                  "width"
+                                ]
+                              },
+                              "description": "Posters"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "backdrops",
+                            "logos",
+                            "posters"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "videos": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/movie/{movie_id}/videos",
+                      "description": "Get the videos that belong to a movie."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "object",
+                          "properties": {
+                            "movie_id": {
+                              "type": "number",
+                              "description": "Movie ID"
+                            }
+                          },
+                          "required": [
+                            "movie_id"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "url"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number",
+                              "description": "Video ID"
+                            },
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "iso_639_1": {
+                                    "type": "string",
+                                    "description": "Spoken language ISO 639-1 code"
+                                  },
+                                  "iso_3166_1": {
+                                    "type": "string",
+                                    "description": "Production country ISO 3166-1 Alpha-2 code"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Video name"
+                                  },
+                                  "key": {
+                                    "type": "string",
+                                    "description": "Video key"
+                                  },
+                                  "site": {
+                                    "type": "string",
+                                    "description": "Video site"
+                                  },
+                                  "size": {
+                                    "type": "number",
+                                    "description": "Video size"
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "description": "Video type"
+                                  },
+                                  "official": {
+                                    "type": "boolean",
+                                    "description": "Video official"
+                                  },
+                                  "published_at": {
+                                    "type": "string",
+                                    "description": "Video published at"
+                                  },
+                                  "id": {
+                                    "type": "string",
+                                    "description": "Video ID"
+                                  }
+                                },
+                                "required": [
+                                  "iso_639_1",
+                                  "iso_3166_1",
+                                  "name",
+                                  "key",
+                                  "site",
+                                  "size",
+                                  "type",
+                                  "official",
+                                  "published_at",
+                                  "id"
+                                ]
+                              },
+                              "description": "Videos"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "results"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "similar": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/movie/{movie_id}/similar",
+                      "description": "Get the similar movies based on genres and keywords."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "object",
+                          "properties": {
+                            "movie_id": {
+                              "type": "number",
+                              "description": "Movie ID"
+                            }
+                          },
+                          "required": [
+                            "movie_id"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "url"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the movie"
+                                  },
+                                  "title": {
+                                    "type": "string",
+                                    "description": "Movie title"
+                                  },
+                                  "original_title": {
+                                    "type": "string",
+                                    "description": "Original movie title (in original language)"
+                                  },
+                                  "original_language": {
+                                    "type": "string",
+                                    "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                                  },
+                                  "overview": {
+                                    "type": "string",
+                                    "description": "Movie overview/synopsis"
+                                  },
+                                  "poster_path": {
+                                    "type": "string",
+                                    "description": "Poster path (relative URL)"
+                                  },
+                                  "backdrop_path": {
+                                    "type": "string",
+                                    "description": "Backdrop path (relative URL)"
+                                  },
+                                  "release_date": {
+                                    "type": "string",
+                                    "description": "Release date (YYYY-MM-DD format)"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Average vote rating (0-10)"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Total number of votes"
+                                  },
+                                  "popularity": {
+                                    "type": "number",
+                                    "description": "Popularity score"
+                                  },
+                                  "adult": {
+                                    "type": "boolean",
+                                    "description": "Adult content flag"
+                                  },
+                                  "genre_ids": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    },
+                                    "description": "Array of genre IDs"
+                                  },
+                                  "video": {
+                                    "type": "boolean",
+                                    "description": "Video flag"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "title",
+                                  "original_title",
+                                  "original_language",
+                                  "overview",
+                                  "poster_path",
+                                  "backdrop_path",
+                                  "release_date",
+                                  "vote_average",
+                                  "vote_count",
+                                  "popularity",
+                                  "adult",
+                                  "genre_ids",
+                                  "video"
+                                ]
+                              },
+                              "description": "Movies"
+                            },
+                            "total_pages": {
+                              "type": "number",
+                              "description": "Total pages"
+                            },
+                            "total_results": {
+                              "type": "number",
+                              "description": "Total results"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "results",
+                            "total_pages",
+                            "total_results"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            }
+          },
+          "required": [
+            "now_playing",
+            "popular",
+            "top_rated",
+            "upcoming",
+            "details",
+            "images",
+            "videos",
+            "similar"
+          ]
+        },
+        "tv": {
+          "type": "object",
+          "properties": {
+            "airing_today": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/tv/airing_today",
+                      "description": "Get a list of TV shows airing today."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "query": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "language": {
+                              "type": "string",
+                              "description": "Language code"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "language"
+                          ],
+                          "description": "Pagination parameters"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "backdrop_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Backdrop path (relative URL)"
+                                  },
+                                  "first_air_date": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "First air date (YYYY-MM-DD format)"
+                                  },
+                                  "genre_ids": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    },
+                                    "description": "Array of genre IDs"
+                                  },
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the serie"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Serie name"
+                                  },
+                                  "origin_country": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "description": "Array of origin countries"
+                                  },
+                                  "original_language": {
+                                    "type": "string",
+                                    "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                                  },
+                                  "original_name": {
+                                    "type": "string",
+                                    "description": "Original serie name (in original language)"
+                                  },
+                                  "overview": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Serie overview/synopsis"
+                                  },
+                                  "popularity": {
+                                    "type": "number",
+                                    "description": "Popularity score"
+                                  },
+                                  "poster_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Poster path (relative URL)"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Average vote rating (0-10)"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Total number of votes"
+                                  }
+                                },
+                                "required": [
+                                  "backdrop_path",
+                                  "first_air_date",
+                                  "genre_ids",
+                                  "id",
+                                  "name",
+                                  "origin_country",
+                                  "original_language",
+                                  "original_name",
+                                  "overview",
+                                  "popularity",
+                                  "poster_path",
+                                  "vote_average",
+                                  "vote_count"
+                                ]
+                              },
+                              "description": "Series"
+                            },
+                            "total_pages": {
+                              "type": "number",
+                              "description": "Total pages"
+                            },
+                            "total_results": {
+                              "type": "number",
+                              "description": "Total results"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "results",
+                            "total_pages",
+                            "total_results"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "on_the_air": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/tv/on_the_air",
+                      "description": "Get a list of TV shows that air in the next 7 days."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "query": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "language": {
+                              "type": "string",
+                              "description": "Language code"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "language"
+                          ],
+                          "description": "Pagination parameters"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "backdrop_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Backdrop path (relative URL)"
+                                  },
+                                  "first_air_date": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "First air date (YYYY-MM-DD format)"
+                                  },
+                                  "genre_ids": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    },
+                                    "description": "Array of genre IDs"
+                                  },
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the serie"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Serie name"
+                                  },
+                                  "origin_country": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "description": "Array of origin countries"
+                                  },
+                                  "original_language": {
+                                    "type": "string",
+                                    "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                                  },
+                                  "original_name": {
+                                    "type": "string",
+                                    "description": "Original serie name (in original language)"
+                                  },
+                                  "overview": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Serie overview/synopsis"
+                                  },
+                                  "popularity": {
+                                    "type": "number",
+                                    "description": "Popularity score"
+                                  },
+                                  "poster_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Poster path (relative URL)"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Average vote rating (0-10)"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Total number of votes"
+                                  }
+                                },
+                                "required": [
+                                  "backdrop_path",
+                                  "first_air_date",
+                                  "genre_ids",
+                                  "id",
+                                  "name",
+                                  "origin_country",
+                                  "original_language",
+                                  "original_name",
+                                  "overview",
+                                  "popularity",
+                                  "poster_path",
+                                  "vote_average",
+                                  "vote_count"
+                                ]
+                              },
+                              "description": "Series"
+                            },
+                            "total_pages": {
+                              "type": "number",
+                              "description": "Total pages"
+                            },
+                            "total_results": {
+                              "type": "number",
+                              "description": "Total results"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "results",
+                            "total_pages",
+                            "total_results"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "popular": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/tv/popular",
+                      "description": "Get a list of TV shows ordered by popularity."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "query": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "language": {
+                              "type": "string",
+                              "description": "Language code"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "language"
+                          ],
+                          "description": "Pagination parameters"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "backdrop_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Backdrop path (relative URL)"
+                                  },
+                                  "first_air_date": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "First air date (YYYY-MM-DD format)"
+                                  },
+                                  "genre_ids": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    },
+                                    "description": "Array of genre IDs"
+                                  },
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the serie"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Serie name"
+                                  },
+                                  "origin_country": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "description": "Array of origin countries"
+                                  },
+                                  "original_language": {
+                                    "type": "string",
+                                    "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                                  },
+                                  "original_name": {
+                                    "type": "string",
+                                    "description": "Original serie name (in original language)"
+                                  },
+                                  "overview": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Serie overview/synopsis"
+                                  },
+                                  "popularity": {
+                                    "type": "number",
+                                    "description": "Popularity score"
+                                  },
+                                  "poster_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Poster path (relative URL)"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Average vote rating (0-10)"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Total number of votes"
+                                  }
+                                },
+                                "required": [
+                                  "backdrop_path",
+                                  "first_air_date",
+                                  "genre_ids",
+                                  "id",
+                                  "name",
+                                  "origin_country",
+                                  "original_language",
+                                  "original_name",
+                                  "overview",
+                                  "popularity",
+                                  "poster_path",
+                                  "vote_average",
+                                  "vote_count"
+                                ]
+                              },
+                              "description": "Series"
+                            },
+                            "total_pages": {
+                              "type": "number",
+                              "description": "Total pages"
+                            },
+                            "total_results": {
+                              "type": "number",
+                              "description": "Total results"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "results",
+                            "total_pages",
+                            "total_results"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "top_rated": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/tv/top_rated",
+                      "description": "Get a list of TV shows ordered by rating."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "query": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "language": {
+                              "type": "string",
+                              "description": "Language code"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "language"
+                          ],
+                          "description": "Pagination parameters"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "backdrop_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Backdrop path (relative URL)"
+                                  },
+                                  "first_air_date": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "First air date (YYYY-MM-DD format)"
+                                  },
+                                  "genre_ids": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    },
+                                    "description": "Array of genre IDs"
+                                  },
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the serie"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Serie name"
+                                  },
+                                  "origin_country": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "description": "Array of origin countries"
+                                  },
+                                  "original_language": {
+                                    "type": "string",
+                                    "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                                  },
+                                  "original_name": {
+                                    "type": "string",
+                                    "description": "Original serie name (in original language)"
+                                  },
+                                  "overview": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Serie overview/synopsis"
+                                  },
+                                  "popularity": {
+                                    "type": "number",
+                                    "description": "Popularity score"
+                                  },
+                                  "poster_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Poster path (relative URL)"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Average vote rating (0-10)"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Total number of votes"
+                                  }
+                                },
+                                "required": [
+                                  "backdrop_path",
+                                  "first_air_date",
+                                  "genre_ids",
+                                  "id",
+                                  "name",
+                                  "origin_country",
+                                  "original_language",
+                                  "original_name",
+                                  "overview",
+                                  "popularity",
+                                  "poster_path",
+                                  "vote_average",
+                                  "vote_count"
+                                ]
+                              },
+                              "description": "Series"
+                            },
+                            "total_pages": {
+                              "type": "number",
+                              "description": "Total pages"
+                            },
+                            "total_results": {
+                              "type": "number",
+                              "description": "Total results"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "results",
+                            "total_pages",
+                            "total_results"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "details": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/tv/{tv_id}",
+                      "description": "Get the top level details of a TV show by ID."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "object",
+                          "properties": {
+                            "tv_id": {
+                              "type": "number",
+                              "description": "TV ID"
+                            }
+                          },
+                          "required": [
+                            "tv_id"
+                          ]
+                        },
+                        "query": {
+                          "type": "object",
+                          "properties": {
+                            "append_to_response": {
+                              "description": "Append to response",
+                              "type": "string"
+                            },
+                            "include_image_language": {
+                              "description": "Include image language",
+                              "type": "string"
+                            },
+                            "language": {
+                              "description": "Language",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "query"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "backdrop_path": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ],
+                              "description": "Backdrop path (relative URL)"
+                            },
+                            "first_air_date": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ],
+                              "description": "First air date (YYYY-MM-DD format)"
+                            },
+                            "id": {
+                              "type": "number",
+                              "description": "Unique identifier for the serie"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "Serie name"
+                            },
+                            "origin_country": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "description": "Array of origin countries"
+                            },
+                            "original_language": {
+                              "type": "string",
+                              "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                            },
+                            "original_name": {
+                              "type": "string",
+                              "description": "Original serie name (in original language)"
+                            },
+                            "overview": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ],
+                              "description": "Serie overview/synopsis"
+                            },
+                            "popularity": {
+                              "type": "number",
+                              "description": "Popularity score"
+                            },
+                            "poster_path": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ],
+                              "description": "Poster path (relative URL)"
+                            },
+                            "vote_average": {
+                              "type": "number",
+                              "description": "Average vote rating (0-10)"
+                            },
+                            "vote_count": {
+                              "type": "number",
+                              "description": "Total number of votes"
+                            },
+                            "adult": {
+                              "type": "boolean",
+                              "description": "Adult content flag"
+                            },
+                            "created_by": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the creator"
+                                  },
+                                  "credit_id": {
+                                    "type": "string",
+                                    "description": "Credit ID"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Creator name"
+                                  },
+                                  "gender": {
+                                    "type": "number",
+                                    "description": "Creator gender"
+                                  },
+                                  "profile_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Creator profile path (relative URL)"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "credit_id",
+                                  "name",
+                                  "gender",
+                                  "profile_path"
+                                ]
+                              },
+                              "description": "Creators of the serie"
+                            },
+                            "episode_run_time": {
+                              "type": "array",
+                              "items": {
+                                "type": "number"
+                              },
+                              "description": "Episode runtime in minutes"
+                            },
+                            "genres": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the genre"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Genre name"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "name"
+                                ]
+                              },
+                              "description": "Genres of the serie"
+                            },
+                            "homepage": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ],
+                              "description": "Homepage URL"
+                            },
+                            "in_production": {
+                              "type": "boolean",
+                              "description": "In production flag"
+                            },
+                            "languages": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "description": "Languages of the serie"
+                            },
+                            "last_air_date": {
+                              "type": "string",
+                              "description": "Last air date (YYYY-MM-DD format)"
+                            },
+                            "last_episode_to_air": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number",
+                                  "description": "Unique identifier for the episode"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "description": "Episode name"
+                                },
+                                "overview": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ],
+                                  "description": "Episode overview/synopsis"
+                                },
+                                "vote_average": {
+                                  "type": "number",
+                                  "description": "Average vote rating (0-10)"
+                                },
+                                "vote_count": {
+                                  "type": "number",
+                                  "description": "Total number of votes"
+                                },
+                                "air_date": {
+                                  "type": "string",
+                                  "description": "Air date (YYYY-MM-DD format)"
+                                },
+                                "episode_number": {
+                                  "type": "number",
+                                  "description": "Episode number"
+                                },
+                                "production_code": {
+                                  "type": "string",
+                                  "description": "Production code"
+                                },
+                                "runtime": {
+                                  "anyOf": [
+                                    {
+                                      "type": "number"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ],
+                                  "description": "Runtime in minutes"
+                                },
+                                "season_number": {
+                                  "type": "number",
+                                  "description": "Season number"
+                                },
+                                "show_id": {
+                                  "type": "number",
+                                  "description": "Show ID"
+                                },
+                                "still_path": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ],
+                                  "description": "Still path (relative URL)"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "name",
+                                "overview",
+                                "vote_average",
+                                "vote_count",
+                                "air_date",
+                                "episode_number",
+                                "production_code",
+                                "runtime",
+                                "season_number",
+                                "show_id",
+                                "still_path"
+                              ],
+                              "description": "Last episode to air"
+                            },
+                            "next_episode_to_air": {
+                              "type": "string",
+                              "description": "Next episode to air"
+                            },
+                            "networks": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the network"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Network name"
+                                  },
+                                  "logo_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Logo path (relative URL)"
+                                  },
+                                  "origin_country": {
+                                    "type": "string",
+                                    "description": "Network origin country"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "name",
+                                  "logo_path",
+                                  "origin_country"
+                                ]
+                              },
+                              "description": "Networks of the serie"
+                            },
+                            "number_of_episodes": {
+                              "type": "number",
+                              "description": "Number of episodes"
+                            },
+                            "number_of_seasons": {
+                              "type": "number",
+                              "description": "Number of seasons"
+                            },
+                            "production_companies": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the production company"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Production company name"
+                                  },
+                                  "logo_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Logo path (relative URL)"
+                                  },
+                                  "origin_country": {
+                                    "type": "string",
+                                    "description": "Production company origin country"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "name",
+                                  "logo_path",
+                                  "origin_country"
+                                ]
+                              },
+                              "description": "Production companies of the serie"
+                            },
+                            "production_countries": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "iso_3166_1": {
+                                    "type": "string",
+                                    "description": "Production country ISO 3166-1 Alpha-2 code"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Production country name"
+                                  }
+                                },
+                                "required": [
+                                  "iso_3166_1",
+                                  "name"
+                                ]
+                              },
+                              "description": "Production countries of the serie"
+                            },
+                            "seasons": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "air_date": {
+                                    "type": "string",
+                                    "description": "Air date (YYYY-MM-DD format)"
+                                  },
+                                  "episode_count": {
+                                    "type": "number",
+                                    "description": "Episode count"
+                                  },
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the season"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Season name"
+                                  },
+                                  "overview": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Season overview/synopsis"
+                                  },
+                                  "poster_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Poster path (relative URL)"
+                                  },
+                                  "season_number": {
+                                    "type": "number",
+                                    "description": "Season number"
+                                  }
+                                },
+                                "required": [
+                                  "air_date",
+                                  "episode_count",
+                                  "id",
+                                  "name",
+                                  "overview",
+                                  "poster_path",
+                                  "season_number"
+                                ]
+                              },
+                              "description": "Seasons of the serie"
+                            },
+                            "spoken_languages": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "iso_639_1": {
+                                    "type": "string",
+                                    "description": "Spoken language ISO 639-1 code"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Spoken language name"
+                                  },
+                                  "english_name": {
+                                    "type": "string",
+                                    "description": "Spoken language English name"
+                                  }
+                                },
+                                "required": [
+                                  "iso_639_1",
+                                  "name",
+                                  "english_name"
+                                ]
+                              },
+                              "description": "Spoken languages of the serie"
+                            },
+                            "status": {
+                              "type": "string",
+                              "description": "Status of the serie"
+                            },
+                            "tagline": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ],
+                              "description": "Tagline of the serie"
+                            },
+                            "type": {
+                              "type": "string",
+                              "description": "Type of the serie"
+                            }
+                          },
+                          "required": [
+                            "backdrop_path",
+                            "first_air_date",
+                            "id",
+                            "name",
+                            "origin_country",
+                            "original_language",
+                            "original_name",
+                            "overview",
+                            "popularity",
+                            "poster_path",
+                            "vote_average",
+                            "vote_count",
+                            "adult",
+                            "created_by",
+                            "episode_run_time",
+                            "genres",
+                            "homepage",
+                            "in_production",
+                            "languages",
+                            "last_air_date",
+                            "last_episode_to_air",
+                            "next_episode_to_air",
+                            "networks",
+                            "number_of_episodes",
+                            "number_of_seasons",
+                            "production_companies",
+                            "production_countries",
+                            "seasons",
+                            "spoken_languages",
+                            "status",
+                            "tagline",
+                            "type"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "images": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/tv/{tv_id}/images",
+                      "description": "Get the images that belong to a TV show."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "object",
+                          "properties": {
+                            "tv_id": {
+                              "type": "number",
+                              "description": "TV ID"
+                            }
+                          },
+                          "required": [
+                            "tv_id"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "url"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number",
+                              "description": "Image ID"
+                            },
+                            "backdrops": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "aspect_ratio": {
+                                    "type": "number",
+                                    "description": "Aspect ratio"
+                                  },
+                                  "height": {
+                                    "type": "number",
+                                    "description": "Height"
+                                  },
+                                  "iso_639_1": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Spoken language ISO 639-1 code"
+                                  },
+                                  "file_path": {
+                                    "type": "string",
+                                    "description": "File path"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Vote average"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Vote count"
+                                  },
+                                  "width": {
+                                    "type": "number",
+                                    "description": "Width"
+                                  }
+                                },
+                                "required": [
+                                  "aspect_ratio",
+                                  "height",
+                                  "iso_639_1",
+                                  "file_path",
+                                  "vote_average",
+                                  "vote_count",
+                                  "width"
+                                ]
+                              },
+                              "description": "Backdrops"
+                            },
+                            "logos": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "aspect_ratio": {
+                                    "type": "number",
+                                    "description": "Aspect ratio"
+                                  },
+                                  "height": {
+                                    "type": "number",
+                                    "description": "Height"
+                                  },
+                                  "iso_639_1": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Spoken language ISO 639-1 code"
+                                  },
+                                  "file_path": {
+                                    "type": "string",
+                                    "description": "File path"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Vote average"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Vote count"
+                                  },
+                                  "width": {
+                                    "type": "number",
+                                    "description": "Width"
+                                  }
+                                },
+                                "required": [
+                                  "aspect_ratio",
+                                  "height",
+                                  "iso_639_1",
+                                  "file_path",
+                                  "vote_average",
+                                  "vote_count",
+                                  "width"
+                                ]
+                              },
+                              "description": "Logos"
+                            },
+                            "posters": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "aspect_ratio": {
+                                    "type": "number",
+                                    "description": "Aspect ratio"
+                                  },
+                                  "height": {
+                                    "type": "number",
+                                    "description": "Height"
+                                  },
+                                  "iso_639_1": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Spoken language ISO 639-1 code"
+                                  },
+                                  "file_path": {
+                                    "type": "string",
+                                    "description": "File path"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Vote average"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Vote count"
+                                  },
+                                  "width": {
+                                    "type": "number",
+                                    "description": "Width"
+                                  }
+                                },
+                                "required": [
+                                  "aspect_ratio",
+                                  "height",
+                                  "iso_639_1",
+                                  "file_path",
+                                  "vote_average",
+                                  "vote_count",
+                                  "width"
+                                ]
+                              },
+                              "description": "Posters"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "backdrops",
+                            "logos",
+                            "posters"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "videos": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/tv/{tv_id}/videos",
+                      "description": "Get the videos that belong to a TV show."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "object",
+                          "properties": {
+                            "tv_id": {
+                              "type": "number",
+                              "description": "TV ID"
+                            }
+                          },
+                          "required": [
+                            "tv_id"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "url"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number",
+                              "description": "Video ID"
+                            },
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "iso_639_1": {
+                                    "type": "string",
+                                    "description": "Spoken language ISO 639-1 code"
+                                  },
+                                  "iso_3166_1": {
+                                    "type": "string",
+                                    "description": "Production country ISO 3166-1 Alpha-2 code"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Video name"
+                                  },
+                                  "key": {
+                                    "type": "string",
+                                    "description": "Video key"
+                                  },
+                                  "site": {
+                                    "type": "string",
+                                    "description": "Video site"
+                                  },
+                                  "size": {
+                                    "type": "number",
+                                    "description": "Video size"
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "description": "Video type"
+                                  },
+                                  "official": {
+                                    "type": "boolean",
+                                    "description": "Video official"
+                                  },
+                                  "published_at": {
+                                    "type": "string",
+                                    "description": "Video published at"
+                                  },
+                                  "id": {
+                                    "type": "string",
+                                    "description": "Video ID"
+                                  }
+                                },
+                                "required": [
+                                  "iso_639_1",
+                                  "iso_3166_1",
+                                  "name",
+                                  "key",
+                                  "site",
+                                  "size",
+                                  "type",
+                                  "official",
+                                  "published_at",
+                                  "id"
+                                ]
+                              },
+                              "description": "Videos"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "results"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            },
+            "similar": {
+              "type": "object",
+              "properties": {
+                "get": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint": {
+                      "type": "string",
+                      "const": "/tv/{tv_id}/similar",
+                      "description": "Get the similar TV shows."
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "object",
+                          "properties": {
+                            "tv_id": {
+                              "type": "number",
+                              "description": "TV ID"
+                            }
+                          },
+                          "required": [
+                            "tv_id"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "url"
+                      ]
+                    },
+                    "responses": {
+                      "type": "object",
+                      "properties": {
+                        "200": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "number",
+                              "description": "Page number"
+                            },
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "backdrop_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Backdrop path (relative URL)"
+                                  },
+                                  "first_air_date": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "First air date (YYYY-MM-DD format)"
+                                  },
+                                  "genre_ids": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    },
+                                    "description": "Array of genre IDs"
+                                  },
+                                  "id": {
+                                    "type": "number",
+                                    "description": "Unique identifier for the serie"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Serie name"
+                                  },
+                                  "origin_country": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "description": "Array of origin countries"
+                                  },
+                                  "original_language": {
+                                    "type": "string",
+                                    "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                                  },
+                                  "original_name": {
+                                    "type": "string",
+                                    "description": "Original serie name (in original language)"
+                                  },
+                                  "overview": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Serie overview/synopsis"
+                                  },
+                                  "popularity": {
+                                    "type": "number",
+                                    "description": "Popularity score"
+                                  },
+                                  "poster_path": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ],
+                                    "description": "Poster path (relative URL)"
+                                  },
+                                  "vote_average": {
+                                    "type": "number",
+                                    "description": "Average vote rating (0-10)"
+                                  },
+                                  "vote_count": {
+                                    "type": "number",
+                                    "description": "Total number of votes"
+                                  }
+                                },
+                                "required": [
+                                  "backdrop_path",
+                                  "first_air_date",
+                                  "genre_ids",
+                                  "id",
+                                  "name",
+                                  "origin_country",
+                                  "original_language",
+                                  "original_name",
+                                  "overview",
+                                  "popularity",
+                                  "poster_path",
+                                  "vote_average",
+                                  "vote_count"
+                                ]
+                              },
+                              "description": "Series"
+                            },
+                            "total_pages": {
+                              "type": "number",
+                              "description": "Total pages"
+                            },
+                            "total_results": {
+                              "type": "number",
+                              "description": "Total results"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "results",
+                            "total_pages",
+                            "total_results"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "200"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "endpoint",
+                    "parameters",
+                    "responses"
+                  ]
+                }
+              },
+              "required": [
+                "get"
+              ]
+            }
+          },
+          "required": [
+            "airing_today",
+            "on_the_air",
+            "popular",
+            "top_rated",
+            "details",
+            "images",
+            "videos",
+            "similar"
+          ]
+        }
+      },
+      "required": [
+        "search",
+        "movie",
+        "tv"
+      ]
+    }
+  },
+  "required": [
+    "version",
+    "baseUrl",
+    "imageBaseUrl",
+    "methods"
+  ]
+}

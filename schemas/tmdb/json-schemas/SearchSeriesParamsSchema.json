@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "page": {
+      "type": "number",
+      "description": "Page number"
+    },
+    "language": {
+      "type": "string",
+      "description": "Language code"
+    },
+    "query": {
+      "type": "string",
+      "description": "Search query"
+    },
+    "include_adult": {
+      "description": "Include adult movies",
+      "type": "boolean"
+    },
+    "year": {
+      "description": "Year",
+      "type": "number"
+    }
+  },
+  "required": [
+    "page",
+    "language",
+    "query"
+  ]
+}

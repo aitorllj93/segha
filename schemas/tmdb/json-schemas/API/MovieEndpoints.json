@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "anyOf": [
+    {
+      "type": "string",
+      "const": "/movie/now_playing",
+      "description": "Get a list of movies that are currently in theatres."
+    },
+    {
+      "type": "string",
+      "const": "/movie/popular",
+      "description": "Get a list of movies ordered by popularity."
+    },
+    {
+      "type": "string",
+      "const": "/movie/top_rated",
+      "description": "Get a list of movies ordered by rating."
+    },
+    {
+      "type": "string",
+      "const": "/movie/upcoming",
+      "description": "Get a list of movies that are being released soon."
+    },
+    {
+      "type": "string",
+      "const": "/movie/{movie_id}",
+      "description": "Get the top level details of a movie by ID."
+    },
+    {
+      "type": "string",
+      "const": "/movie/{movie_id}/images",
+      "description": "Get the images that belong to a movie."
+    },
+    {
+      "type": "string",
+      "const": "/movie/{movie_id}/videos",
+      "description": "Get the videos that belong to a movie."
+    },
+    {
+      "type": "string",
+      "const": "/movie/{movie_id}/similar",
+      "description": "Get the similar movies based on genres and keywords."
+    }
+  ]
+}
