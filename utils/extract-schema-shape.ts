@@ -14,26 +14,52 @@ export interface SchemaShape {
 }
 
 /**
+ * Package.json segha configuration
+ */
+interface SeghaConfig {
+  i18n?: boolean;
+}
+
+/**
  * Detects language folders in a package's json-schemas directory
- * A package is considered multi-language if it has folders like es/, en/, etc.
- * that contain index.json files
+ * A package is considered i18n only if it explicitly sets
+ * "segha.i18n": true in its package.json.
+ *
+ * Example package.json configuration:
+ * {
+ *   "segha": {
+ *     "i18n": true
+ *   }
+ * }
  */
 export function detectLanguageFolders(packagePath: string): string[] {
-  const jsonSchemasPath = join(packagePath, 'json-schemas');
-  
-  if (!existsSync(jsonSchemasPath)) {
+  const packageJsonPath = join(packagePath, 'package.json');
+
+  if (!existsSync(packageJsonPath)) {
     return [];
   }
 
-  const languageFolders: string[] = [];
-  
   try {
+    const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
+    const seghaConfig: SeghaConfig = packageJson.segha || {};
+
+    // Only detect language folders if explicitly enabled
+    if (seghaConfig.i18n !== true) {
+      return [];
+    }
+
+    const jsonSchemasPath = join(packagePath, 'json-schemas');
+    if (!existsSync(jsonSchemasPath)) {
+      return [];
+    }
+
+    const languageFolders: string[] = [];
     const entries = readdirSync(jsonSchemasPath);
-    
+
     for (const entry of entries) {
       const entryPath = join(jsonSchemasPath, entry);
       const stat = statSync(entryPath);
-      
+
       // Check if it's a directory and contains index.json
       if (stat.isDirectory()) {
         const indexPath = join(entryPath, 'index.json');
@@ -42,12 +68,12 @@ export function detectLanguageFolders(packagePath: string): string[] {
         }
       }
     }
+
+    return languageFolders.sort();
   } catch (error) {
-    // If we can't read the directory, return empty array
+    // If we can't read or parse package.json, return empty array
     return [];
   }
-
-  return languageFolders.sort();
 }
 
 /**
