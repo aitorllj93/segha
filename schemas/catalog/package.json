@@ -4,7 +4,7 @@
   "main": "index.ts",
   "description": "Schemas for Petroglyph Catalog",
   "segha": {
-    "multiLanguage": true
+    "i18n": true
   },
   "scripts": {
     "docs": "pnpm run docs:root && pnpm run docs:en && pnpm run docs:es",
