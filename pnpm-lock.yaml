@@ -34,6 +34,38 @@ importers:
         specifier: ^0.2.5
         version: 0.2.5(zod@4.3.6)
 
+  mappers/catalog/tmdb:
+    dependencies:
+      '@segha/catalog':
+        specifier: workspace:*
+        version: link:../../../schemas/catalog
+      '@segha/tmdb':
+        specifier: workspace:*
+        version: link:../../../schemas/tmdb
+    devDependencies:
+      tsx:
+        specifier: 'catalog:'
+        version: 4.21.0
+      zod:
+        specifier: 'catalog:'
+        version: 4.3.6
+
+  mappers/catalog/watchmode:
+    dependencies:
+      '@segha/catalog':
+        specifier: workspace:*
+        version: link:../../../schemas/catalog
+      '@segha/watchmode':
+        specifier: workspace:*
+        version: link:../../../schemas/watchmode
+    devDependencies:
+      tsx:
+        specifier: 'catalog:'
+        version: 4.21.0
+      zod:
+        specifier: 'catalog:'
+        version: 4.3.6
+
   schemas/catalog:
     dependencies:
       arkregex:
