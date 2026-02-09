@@ -1,5 +1,6 @@
 {
   "name": "@segha/watchmode",
+  "version": "0.0.2",
   "description": "Schemas for Watchmode",
   "scripts": {
     "docs": "pnpm tsx ../../utils/generate-docs.ts --entry ./index.ts --cwd .",
@@ -12,7 +13,6 @@
     "zod",
     "watchmode"
   ],
-  "version": "0.0.1",
   "author": "Aitor Llamas Jiménez <aitorllj93@gmail.com>",
   "homepage": "https://github.com/aitorllj93/segha",
   "repository": {
@@ -44,6 +44,7 @@
   },
   "files": [
     "*.ts",
+    "**/*.ts",
     "json-schemas/**/*.json",
     "README.md",
     "CHANGELOG.md"
