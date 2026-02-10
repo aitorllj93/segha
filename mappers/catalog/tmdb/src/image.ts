@@ -1,5 +1,5 @@
 import { type BackdropSize, type PosterSize } from "@segha/tmdb";
-import { ImageBaseUrl } from "@segha/tmdb/api";
+import { IMAGE_BASE_URL } from "@segha/tmdb/api";
 
 export const getPosterUrl = (
   path: string | null,
@@ -9,7 +9,7 @@ export const getPosterUrl = (
     return '';
   }
 
-  return `${ImageBaseUrl.values}/${size}${path}`;
+  return `${IMAGE_BASE_URL}/${size}${path}`;
 }
 
 export const getBackdropUrl = (
@@ -20,5 +20,5 @@ export const getBackdropUrl = (
     return '';
   }
 
-  return `${ImageBaseUrl.values}/${size}${path}`;
+  return `${IMAGE_BASE_URL}/${size}${path}`;
 }

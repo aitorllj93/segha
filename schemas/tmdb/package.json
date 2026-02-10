@@ -1,6 +1,6 @@
 {
   "name": "@segha/tmdb",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Schemas for TMDB",
   "scripts": {
     "docs": "pnpm tsx ../../utils/generate-docs.ts --entry ./index.ts --cwd .",
