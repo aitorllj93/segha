@@ -1,6 +1,6 @@
 {
   "name": "@segha/catalog",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "main": "index.ts",
   "description": "Schemas for Petroglyph Catalog",
   "segha": {
@@ -79,8 +79,7 @@
   },
   "files": [
     "*.ts",
-    "en/**/*.ts",
-    "es/**/*.ts",
+    "**/*.ts",
     "json-schemas/**/*.json",
     "README.md",
     "CHANGELOG.md"
