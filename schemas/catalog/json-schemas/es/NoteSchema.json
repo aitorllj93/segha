@@ -1339,7 +1339,7 @@
               "pattern": "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
             },
             "icon": {
-              "default": "movie",
+              "default": "film",
               "description": "Icono de Lucide.",
               "type": "string",
               "pattern": "^[a-z-]+$"
@@ -1620,6 +1620,11 @@
             },
             "youtube_url": {
               "description": "URL de YouTube",
+              "type": "string",
+              "format": "uri"
+            },
+            "watch_url": {
+              "description": "URL de streaming",
               "type": "string",
               "format": "uri"
             }
@@ -2189,6 +2194,11 @@
             },
             "youtube_url": {
               "description": "URL de YouTube",
+              "type": "string",
+              "format": "uri"
+            },
+            "watch_url": {
+              "description": "URL de streaming",
               "type": "string",
               "format": "uri"
             }

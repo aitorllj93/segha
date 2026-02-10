@@ -39,6 +39,7 @@ import { SpecSchema, ConfigurationSchema } from '@segha/watchmode/api';
 - [IdMappingEntry](#idmappingentry)
 - [IdMapping](#idmapping)
 - [PurchaseServiceType](#purchaseservicetype)
+- [StreamingSourceName](#streamingsourcename)
 - [StreamingSource](#streamingsource)
 - [StreamingSourceType](#streamingsourcetype)
 - [StreamingSourcesParameters](#streamingsourcesparameters)
@@ -81,6 +82,189 @@ _Array of [IdMappingEntry](#idmappingentry) items._
 Rental/purchase services (iTunes, Vudu, etc.)
 
 _Literal `'purchase'` value._
+
+## StreamingSourceName
+
+_Enum, one of the following possible values:_
+
+<details>
+<summary><i>Expand for full list of 173 values</i></summary>
+
+- `'Netflix'`
+- `'Hulu'`
+- `'Max'`
+- `'Prime Video'`
+- `'Disney+'`
+- `'AppleTV+'`
+- `'BBC iPlayer'`
+- `'Hayu'`
+- `'Paramount+'`
+- `'Paramount+ with Showtime'`
+- `'Crave'`
+- `'Peacock'`
+- `'Peacock Premium'`
+- `'Amazon Freevee'`
+- `'Netflix Free'`
+- `'Crave Starz'`
+- `'Stan'`
+- `'STARZ'`
+- `'CBC Gem'`
+- `'Foxtel Now'`
+- `'Sky Go'`
+- `'MAX Free'`
+- `'MGM+'`
+- `'Now TV'`
+- `'All 4'`
+- `'BINGE'`
+- `'Britbox UK'`
+- `'Tubi TV'`
+- `'AMC'`
+- `'Arrow Player'`
+- `'Fawesome'`
+- `'FX'`
+- `'Kanopy'`
+- `'NBC'`
+- `'SkyShowtime'`
+- `'USA'`
+- `'Videoland'`
+- `'Youtube Premium'`
+- `'Crunchyroll Premium'`
+- `'Movistar+'`
+- `'Plex'`
+- `'Topic'`
+- `'The Criterion Channel'`
+- `'FILMIN'`
+- `'Fandor'`
+- `'Shudder'`
+- `'WWE Network'`
+- `'AppleTV'`
+- `'PBS'`
+- `'Google Play'`
+- `'Amazon'`
+- `'Fandango at Home'`
+- `'YouTube'`
+- `'The Roku Channel'`
+- `'Syfy'`
+- `'Acorn TV (Via Amazon Prime)'`
+- `'Cinemax (Via Amazon Prime)'`
+- `'Curiosity Stream (Via Amazon Prime)'`
+- `'Fandor (Via Amazon Prime)'`
+- `'Hallmark Movies Now (Via Amazon Prime)'`
+- `'Shout! Factory TV (Via Amazon Prime)'`
+- `'Shudder (Via Amazon Prime)'`
+- `'STARZ (Via Amazon Prime)'`
+- `'SundanceNow Doc Club (Via Amazon Prime)'`
+- `'Spectrum On Demand'`
+- `'DirecTV On Demand'`
+- `'7plus'`
+- `'9Now'`
+- `'A&E'`
+- `'ABC iview'`
+- `'Acorn TV'`
+- `'Adult Swim'`
+- `'AHC GO'`
+- `'AMC+'`
+- `'Animal Planet GO'`
+- `'BBC America'`
+- `'Beamafilm'`
+- `'BET'`
+- `'BET+'`
+- `'BFI Player'`
+- `'Bravo'`
+- `'Britbox'`
+- `'Britbox (Via Amazon Prime)'`
+- `'Cartoon Network'`
+- `'CBS'`
+- `'CBS News'`
+- `'Chili'`
+- `'Cinemax (Via Hulu)'`
+- `'Cineplex'`
+- `'Clarovideo'`
+- `'Crunchyroll'`
+- `'CTV'`
+- `'Curiosity Stream'`
+- `'Curzon Home Cinema'`
+- `'The CW'`
+- `'Darkmatter TV'`
+- `'Destination America GO'`
+- `'Discovery GO'`
+- `'Discovery Life GO'`
+- `'Discovery+'`
+- `'Fetch TV'`
+- `'Flix Premiere'`
+- `'FlixFling'`
+- `'Food Network'`
+- `'FOX'`
+- `'Freeform'`
+- `'fuboTV'`
+- `'fyi'`
+- `'Globoplay'`
+- `'GuideDoc'`
+- `'Hallmark Channel Everywhere'`
+- `'Hallmark Movies Now'`
+- `'HBO (Via Hulu)'`
+- `'HGTV'`
+- `'HiDive'`
+- `'The History Channel'`
+- `'Hollywood Suite'`
+- `'Hoopla'`
+- `'JioHotstar'`
+- `'Hungama Play'`
+- `'ICI TOU.TV'`
+- `'IFC'`
+- `'Investigation Discovery'`
+- `'Investigation Discovery GO'`
+- `'ITVX'`
+- `'Lifetime'`
+- `'LOGO'`
+- `'MGM+ (Via Amazon Prime)'`
+- `'MTV'`
+- `'MUBI'`
+- `'Amazon MX Player'`
+- `'My5'`
+- `'National Geographic'`
+- `'NBC News'`
+- `'NLZIET'`
+- `'Oxygen'`
+- `'OzFlix'`
+- `'Paramount Network'`
+- `'PBS Kids'`
+- `'Pluto TV'`
+- `'Popcornflix'`
+- `'Rakuten TV'`
+- `'SBS On Demand'`
+- `'Science GO'`
+- `'Shout! Factory TV'`
+- `'Sky Store'`
+- `'Sony LIV'`
+- `'South Park Studios'`
+- `'STARZ (Via Hulu)'`
+- `'Sun Nxt'`
+- `'Sundance'`
+- `'SundanceNow Doc Club'`
+- `'Talk Talk TV'`
+- `'TBS'`
+- `'tenplay'`
+- `'TLC GO'`
+- `'TNT'`
+- `'Travel Channel'`
+- `'truTV'`
+- `'TV Land'`
+- `'UKTV Play'`
+- `'VH1'`
+- `'Vice TV'`
+- `'Vimeo'`
+- `'Virgin TV GO'`
+- `'Fandango at Home Free'`
+- `'Watch Food Network'`
+- `'Watch HGTV'`
+- `'Watch TCM'`
+- `'Watch Travel Channel'`
+- `'WE tv'`
+- `'Windows Store'`
+- `'Zee5'`
+
+</details>
 
 ## StreamingSource
 
@@ -147,7 +331,7 @@ _Object containing the following properties:_
 | Property                  | Description                                                                               | Type                                        |
 | :------------------------ | :---------------------------------------------------------------------------------------- | :------------------------------------------ |
 | **`source_id`** (\*)      | Source ID                                                                                 | `number`                                    |
-| **`name`** (\*)           | Name                                                                                      | `string`                                    |
+| **`name`** (\*)           |                                                                                           | [StreamingSourceName](#streamingsourcename) |
 | **`type`** (\*)           | Streaming source type                                                                     | [StreamingSourceType](#streamingsourcetype) |
 | **`region`** (\*)         | Region                                                                                    | `string`                                    |
 | **`ios_url`** (\*)        | iOS deep link URL. For free plans, returns "Deeplinks available for paid plans only."     | `string` (_nullable_)                       |

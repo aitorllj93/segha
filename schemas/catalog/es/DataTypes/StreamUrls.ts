@@ -9,4 +9,5 @@ export const StreamUrlsSchema = z.object({
   hulu_url: z.url().optional().describe('URL de Hulu'),
   pluto_tv_url: z.url().optional().describe('URL de Pluto TV'),
   youtube_url: z.url().optional().describe('URL de YouTube'),
+  watch_url: z.url().optional().describe('URL de streaming'),
 }).describe('URLs de streaming');

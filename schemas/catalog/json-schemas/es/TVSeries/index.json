@@ -332,6 +332,11 @@
               "description": "URL de YouTube",
               "type": "string",
               "format": "uri"
+            },
+            "watch_url": {
+              "description": "URL de streaming",
+              "type": "string",
+              "format": "uri"
             }
           },
           "description": "URLs de streaming"

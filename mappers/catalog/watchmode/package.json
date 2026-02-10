@@ -1,6 +1,6 @@
 {
   "name": "@segha/catalog-mapper-watchmode",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "src/index.ts",
   "description": "Mapper for Watchmode to Petroglyph Catalog",
   "keywords": [
