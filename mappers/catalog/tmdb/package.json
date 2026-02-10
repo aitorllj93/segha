@@ -1,6 +1,6 @@
 {
   "name": "@segha/catalog-mapper-tmdb",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "src/index.ts",
   "description": "Mapper for TMDB to Petroglyph Catalog",
   "keywords": [

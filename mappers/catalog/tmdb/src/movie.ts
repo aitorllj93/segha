@@ -27,7 +27,7 @@ export function mapMovie(movie: TmdbMovie, options: MappingOptions = {}): Movie 
     status: "Pendiente",
     areas: ["[[Creatividad]]"],
     color: "#BE9207",
-    icon: "movie",
+    icon: "film",
     cover: getPosterUrl(movie.poster_path, options.posterSize),
     banner: getBackdropUrl(movie.backdrop_path, options.bannerSize),
     url: mapMovieImdbUrl(movie),

@@ -9,7 +9,7 @@ const MovieStatus = z
   .union([Pending, InProgress, Watched])
   .describe('Estado de visualización de la película');
 
-const MovieIcon = z.literal("movie");
+const MovieIcon = z.literal("film");
 
 export const MovieSchema = SourceSchema
   .extend({

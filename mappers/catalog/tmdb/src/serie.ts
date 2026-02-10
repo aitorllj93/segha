@@ -24,7 +24,7 @@ export function mapSerie(serie: TmdbSerie, options: MappingOptions = {}): TVSeri
     status: "Pendiente",
     areas: ["[[Creatividad]]"],
     color: "#BE9207",
-    icon: "movie",
+    icon: "tv",
     cover: getPosterUrl(serie.poster_path, options.posterSize),
     banner: getBackdropUrl(serie.backdrop_path, options.bannerSize),
     url: mapSerieTmdbUrl(serie),
