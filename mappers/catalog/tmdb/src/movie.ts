@@ -1,7 +1,8 @@
 import type { MovieDetails as TmdbMovie } from "@segha/tmdb/movies";
 import type { Movie } from "@segha/catalog/es";
-import { getBackdropUrl, getPosterUrl } from "./image";
+import { getBackdropUrl, getLogoUrl, getPosterUrl } from "./image";
 import { BackdropSize, PosterSize } from "@segha/tmdb";
+import { getTrailerUrl, getVideoUrl } from "./video";
 
 type MappingOptions = {
   bannerSize?: BackdropSize;
@@ -21,6 +22,13 @@ export function mapMovieImdbUrl(movie: TmdbMovie): string {
 }
 
 export function mapMovie(movie: TmdbMovie, options: MappingOptions = {}): Movie {
+  const images = [
+    ...movie.images?.backdrops.map(i => getBackdropUrl(i.file_path)) ?? [],
+    ...movie.images?.logos.map(i => getLogoUrl(i.file_path)) ?? [],
+    ...movie.images?.posters.map(i => getPosterUrl(i.file_path)) ?? [],
+  ].filter(Boolean) as string[];
+  const videos = movie.videos?.results?.map(getVideoUrl).filter(Boolean) as string[];
+
   return {
     type: "[[Fuentes]]",
     format: "[[Películas]]",
@@ -30,12 +38,14 @@ export function mapMovie(movie: TmdbMovie, options: MappingOptions = {}): Movie 
     icon: "film",
     cover: getPosterUrl(movie.poster_path, options.posterSize),
     banner: getBackdropUrl(movie.backdrop_path, options.bannerSize),
+    trailer: getTrailerUrl(movie.videos?.results),
     url: mapMovieImdbUrl(movie),
     external_ids: [
       mapMovieImdbId(movie),
       mapMovieTmdbId(movie),
     ],
     title: movie.title,
+    subtitle: movie.tagline ?? undefined,
     description: movie.overview,
     published: movie.release_date,
     genres: movie.genres.map(genre => genre.name),
@@ -43,5 +53,7 @@ export function mapMovie(movie: TmdbMovie, options: MappingOptions = {}): Movie 
     aliases: movie.original_title ?
       [movie.original_title] :
       undefined,
+    images: images.length ? images : undefined,
+    videos: videos.length ? videos : undefined,
   };
 }

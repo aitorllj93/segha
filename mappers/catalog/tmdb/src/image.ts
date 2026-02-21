@@ -22,3 +22,14 @@ export const getBackdropUrl = (
 
   return `${IMAGE_BASE_URL}/${size}${path}`;
 }
+
+export const getLogoUrl = (
+  path: string | null,
+  size: BackdropSize = 'original'
+): string => {
+  if (!path) {
+    return '';
+  }
+
+  return `${IMAGE_BASE_URL}/${size}${path}`;
+}
