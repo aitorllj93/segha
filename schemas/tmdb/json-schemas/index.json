@@ -730,7 +730,12 @@
                     "description": "Video key"
                   },
                   "site": {
-                    "type": "string",
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "const": "YouTube"
+                      }
+                    ],
                     "description": "Video site"
                   },
                   "size": {
@@ -738,7 +743,12 @@
                     "description": "Video size"
                   },
                   "type": {
-                    "type": "string",
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "const": "Teaser"
+                      }
+                    ],
                     "description": "Video type"
                   },
                   "official": {
@@ -1959,7 +1969,12 @@
                     "description": "Video key"
                   },
                   "site": {
-                    "type": "string",
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "const": "YouTube"
+                      }
+                    ],
                     "description": "Video site"
                   },
                   "size": {
@@ -1967,7 +1982,12 @@
                     "description": "Video size"
                   },
                   "type": {
-                    "type": "string",
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "const": "Teaser"
+                      }
+                    ],
                     "description": "Video type"
                   },
                   "official": {
@@ -2435,7 +2455,12 @@
           "description": "Video key"
         },
         "site": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "YouTube"
+            }
+          ],
           "description": "Video site"
         },
         "size": {
@@ -2443,7 +2468,12 @@
           "description": "Video size"
         },
         "type": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Teaser"
+            }
+          ],
           "description": "Video type"
         },
         "official": {
@@ -2502,7 +2532,12 @@
                 "description": "Video key"
               },
               "site": {
-                "type": "string",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "const": "YouTube"
+                  }
+                ],
                 "description": "Video site"
               },
               "size": {
@@ -2510,7 +2545,12 @@
                 "description": "Video size"
               },
               "type": {
-                "type": "string",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "const": "Teaser"
+                  }
+                ],
                 "description": "Video type"
               },
               "official": {

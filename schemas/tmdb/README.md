@@ -404,18 +404,18 @@ _(\*) Required._
 
 _Object containing the following properties:_
 
-| Property                | Description                                | Type      |
-| :---------------------- | :----------------------------------------- | :-------- |
-| **`iso_639_1`** (\*)    | Spoken language ISO 639-1 code             | `string`  |
-| **`iso_3166_1`** (\*)   | Production country ISO 3166-1 Alpha-2 code | `string`  |
-| **`name`** (\*)         | Video name                                 | `string`  |
-| **`key`** (\*)          | Video key                                  | `string`  |
-| **`site`** (\*)         | Video site                                 | `string`  |
-| **`size`** (\*)         | Video size                                 | `number`  |
-| **`type`** (\*)         | Video type                                 | `string`  |
-| **`official`** (\*)     | Video official                             | `boolean` |
-| **`published_at`** (\*) | Video published at                         | `string`  |
-| **`id`** (\*)           | Video ID                                   | `string`  |
+| Property                | Description                                | Type        |
+| :---------------------- | :----------------------------------------- | :---------- |
+| **`iso_639_1`** (\*)    | Spoken language ISO 639-1 code             | `string`    |
+| **`iso_3166_1`** (\*)   | Production country ISO 3166-1 Alpha-2 code | `string`    |
+| **`name`** (\*)         | Video name                                 | `string`    |
+| **`key`** (\*)          | Video key                                  | `string`    |
+| **`site`** (\*)         | Video site                                 | `'YouTube'` |
+| **`size`** (\*)         | Video size                                 | `number`    |
+| **`type`** (\*)         | Video type                                 | `'Teaser'`  |
+| **`official`** (\*)     | Video official                             | `boolean`   |
+| **`published_at`** (\*) | Video published at                         | `string`    |
+| **`id`** (\*)           | Video ID                                   | `string`    |
 
 _(\*) Required._
 

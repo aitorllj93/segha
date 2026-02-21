@@ -1536,6 +1536,10 @@
                 "pattern": "^(tmdb|imdb|watchmode|tvmaze|tvdb):.+$"
               }
             },
+            "subtitle": {
+              "description": "Tagline",
+              "type": "string"
+            },
             "actors": {
               "description": "Actores",
               "type": "array",
@@ -2128,6 +2132,10 @@
                 "type": "string",
                 "pattern": "^(tmdb|imdb|watchmode|tvmaze|tvdb):.+$"
               }
+            },
+            "subtitle": {
+              "description": "Tagline",
+              "type": "string"
             },
             "actors": {
               "description": "Actores",
