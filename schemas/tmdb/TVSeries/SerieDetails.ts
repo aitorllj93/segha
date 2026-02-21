@@ -1,12 +1,13 @@
 import z from "zod";
 
-import { GenreSchema, ProductionCompanySchema, ProductionCountrySchema, LanguageSchema } from "../DataTypes";
+import { GenreSchema, ProductionCompanySchema, ProductionCountrySchema, LanguageSchema, VideosResponseSchema, ImagesResponseSchema } from "../DataTypes";
 
 import { SerieSchema } from "./Serie";
 import { SeasonSchema } from "./Season";
 import { NetworkSchema } from "./Network";
 import { CreatorSchema } from "./Creator";
 import { EpisodeSchema } from "./Episode";
+import { SeriesResponseSchema } from "./SeriesResponse";
 
 export const SerieDetailsSchema = SerieSchema.omit({
   genre_ids: true,
@@ -31,6 +32,9 @@ export const SerieDetailsSchema = SerieSchema.omit({
   status: z.string().describe('Status of the serie'),
   tagline: z.string().nullable().describe('Tagline of the serie'),
   type: z.string().describe('Type of the serie'),
+  images: ImagesResponseSchema.optional(),
+  videos: VideosResponseSchema.optional(),
+  similar: SeriesResponseSchema.optional()
 });
 
 export const SerieDetailsParamsSchema = z.object({

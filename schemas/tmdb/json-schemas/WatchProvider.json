@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "number",
+  "enum": [
+    8,
+    337,
+    350,
+    119,
+    63,
+    62,
+    1899,
+    188,
+    541,
+    538,
+    283
+  ]
+}

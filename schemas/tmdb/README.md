@@ -40,6 +40,7 @@ import { SpecSchema, ConfigurationSchema } from '@segha/tmdb/api';
 - [Image](#image)
 - [ImagesResponse](#imagesresponse)
 - [Language](#language)
+- [MonetizationType](#monetizationtype)
 - [MovieDetailsParams](#moviedetailsparams)
 - [MovieDetails](#moviedetails)
 - [Movie](#movie)
@@ -48,6 +49,7 @@ import { SpecSchema, ConfigurationSchema } from '@segha/tmdb/api';
 - [PosterSize](#postersize)
 - [ProductionCompany](#productioncompany)
 - [ProductionCountry](#productioncountry)
+- [ReleaseType](#releasetype)
 - [SearchMoviesParams](#searchmoviesparams)
 - [SearchSeriesParams](#searchseriesparams)
 - [SerieDetailsParams](#seriedetailsparams)
@@ -56,6 +58,7 @@ import { SpecSchema, ConfigurationSchema } from '@segha/tmdb/api';
 - [SeriesResponse](#seriesresponse)
 - [Video](#video)
 - [VideosResponse](#videosresponse)
+- [WatchProvider](#watchprovider)
 
 ## API Reference
 
@@ -122,6 +125,16 @@ _Object containing the following properties:_
 
 _(\*) Required._
 
+## MonetizationType
+
+_Enum, one of the following possible values:_
+
+- `'flatrate'`
+- `'free'`
+- `'ads'`
+- `'rent'`
+- `'buy'`
+
 ## MovieDetailsParams
 
 _Object containing the following properties:_
@@ -164,6 +177,9 @@ _Object containing the following properties:_
 | **`spoken_languages`** (\*)     | Spoken languages                                 | _Array of [Language](#language) items_                   |
 | **`status`** (\*)               | Current status (Released, Post Production, etc.) | `string`                                                 |
 | **`tagline`** (\*)              | Tagline                                          | `string` (_nullable_)                                    |
+| `images`                        |                                                  | [ImagesResponse](#imagesresponse)                        |
+| `videos`                        |                                                  | [VideosResponse](#videosresponse)                        |
+| `similar`                       |                                                  | [MoviesResponse](#moviesresponse)                        |
 
 _(\*) Required._
 
@@ -254,6 +270,17 @@ _Object containing the following properties:_
 
 _(\*) Required._
 
+## ReleaseType
+
+_Enum, one of the following possible values:_
+
+- `'1'`
+- `'2'`
+- `'3'`
+- `'4'`
+- `'5'`
+- `'6'`
+
 ## SearchMoviesParams
 
 _Object containing the following properties:_
@@ -332,6 +359,9 @@ _Object containing the following properties:_
 | **`status`** (\*)               | Status of the serie                             | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | **`tagline`** (\*)              | Tagline of the serie                            | `string` (_nullable_)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | **`type`** (\*)                 | Type of the serie                               | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `images`                        |                                                 | [ImagesResponse](#imagesresponse)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `videos`                        |                                                 | [VideosResponse](#videosresponse)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `similar`                       |                                                 | [SeriesResponse](#seriesresponse)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 _(\*) Required._
 
@@ -399,3 +429,19 @@ _Object containing the following properties:_
 | **`results`** (\*) | Videos      | _Array of [Video](#video) items_ |
 
 _(\*) Required._
+
+## WatchProvider
+
+_Enum, one of the following possible values:_
+
+- `8`
+- `337`
+- `350`
+- `119`
+- `63`
+- `62`
+- `1899`
+- `188`
+- `541`
+- `538`
+- `283`

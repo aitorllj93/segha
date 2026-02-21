@@ -1,7 +1,8 @@
 
 import z from "zod";
 
-import { GenreSchema, ProductionCompanySchema, ProductionCountrySchema, LanguageSchema } from "../DataTypes";
+import { GenreSchema, ProductionCompanySchema, ProductionCountrySchema, LanguageSchema, VideosResponseSchema, VideoSchema, ImagesResponseSchema } from "../DataTypes";
+import { MoviesResponseSchema } from './MoviesResponse';
 import { MovieSchema } from "./Movie";
 
 export const MovieDetailsSchema = MovieSchema.omit({
@@ -18,6 +19,9 @@ export const MovieDetailsSchema = MovieSchema.omit({
   spoken_languages: z.array(LanguageSchema).describe('Spoken languages'),
   status: z.string().describe('Current status (Released, Post Production, etc.)'),
   tagline: z.string().nullable().describe('Tagline'),
+  images: ImagesResponseSchema.optional(),
+  videos: VideosResponseSchema.optional(),
+  similar: MoviesResponseSchema.optional()
 });
 
 export const MovieDetailsParamsSchema = z.object({

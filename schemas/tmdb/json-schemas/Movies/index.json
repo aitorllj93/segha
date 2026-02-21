@@ -319,6 +319,361 @@
             }
           ],
           "description": "Tagline"
+        },
+        "images": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "Image ID"
+            },
+            "backdrops": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "aspect_ratio": {
+                    "type": "number",
+                    "description": "Aspect ratio"
+                  },
+                  "height": {
+                    "type": "number",
+                    "description": "Height"
+                  },
+                  "iso_639_1": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Spoken language ISO 639-1 code"
+                  },
+                  "file_path": {
+                    "type": "string",
+                    "description": "File path"
+                  },
+                  "vote_average": {
+                    "type": "number",
+                    "description": "Vote average"
+                  },
+                  "vote_count": {
+                    "type": "number",
+                    "description": "Vote count"
+                  },
+                  "width": {
+                    "type": "number",
+                    "description": "Width"
+                  }
+                },
+                "required": [
+                  "aspect_ratio",
+                  "height",
+                  "iso_639_1",
+                  "file_path",
+                  "vote_average",
+                  "vote_count",
+                  "width"
+                ]
+              },
+              "description": "Backdrops"
+            },
+            "logos": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "aspect_ratio": {
+                    "type": "number",
+                    "description": "Aspect ratio"
+                  },
+                  "height": {
+                    "type": "number",
+                    "description": "Height"
+                  },
+                  "iso_639_1": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Spoken language ISO 639-1 code"
+                  },
+                  "file_path": {
+                    "type": "string",
+                    "description": "File path"
+                  },
+                  "vote_average": {
+                    "type": "number",
+                    "description": "Vote average"
+                  },
+                  "vote_count": {
+                    "type": "number",
+                    "description": "Vote count"
+                  },
+                  "width": {
+                    "type": "number",
+                    "description": "Width"
+                  }
+                },
+                "required": [
+                  "aspect_ratio",
+                  "height",
+                  "iso_639_1",
+                  "file_path",
+                  "vote_average",
+                  "vote_count",
+                  "width"
+                ]
+              },
+              "description": "Logos"
+            },
+            "posters": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "aspect_ratio": {
+                    "type": "number",
+                    "description": "Aspect ratio"
+                  },
+                  "height": {
+                    "type": "number",
+                    "description": "Height"
+                  },
+                  "iso_639_1": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Spoken language ISO 639-1 code"
+                  },
+                  "file_path": {
+                    "type": "string",
+                    "description": "File path"
+                  },
+                  "vote_average": {
+                    "type": "number",
+                    "description": "Vote average"
+                  },
+                  "vote_count": {
+                    "type": "number",
+                    "description": "Vote count"
+                  },
+                  "width": {
+                    "type": "number",
+                    "description": "Width"
+                  }
+                },
+                "required": [
+                  "aspect_ratio",
+                  "height",
+                  "iso_639_1",
+                  "file_path",
+                  "vote_average",
+                  "vote_count",
+                  "width"
+                ]
+              },
+              "description": "Posters"
+            }
+          },
+          "required": [
+            "id",
+            "backdrops",
+            "logos",
+            "posters"
+          ]
+        },
+        "videos": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "Video ID"
+            },
+            "results": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "iso_639_1": {
+                    "type": "string",
+                    "description": "Spoken language ISO 639-1 code"
+                  },
+                  "iso_3166_1": {
+                    "type": "string",
+                    "description": "Production country ISO 3166-1 Alpha-2 code"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Video name"
+                  },
+                  "key": {
+                    "type": "string",
+                    "description": "Video key"
+                  },
+                  "site": {
+                    "type": "string",
+                    "description": "Video site"
+                  },
+                  "size": {
+                    "type": "number",
+                    "description": "Video size"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Video type"
+                  },
+                  "official": {
+                    "type": "boolean",
+                    "description": "Video official"
+                  },
+                  "published_at": {
+                    "type": "string",
+                    "description": "Video published at"
+                  },
+                  "id": {
+                    "type": "string",
+                    "description": "Video ID"
+                  }
+                },
+                "required": [
+                  "iso_639_1",
+                  "iso_3166_1",
+                  "name",
+                  "key",
+                  "site",
+                  "size",
+                  "type",
+                  "official",
+                  "published_at",
+                  "id"
+                ]
+              },
+              "description": "Videos"
+            }
+          },
+          "required": [
+            "id",
+            "results"
+          ]
+        },
+        "similar": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "type": "number",
+              "description": "Page number"
+            },
+            "results": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "description": "Unique identifier for the movie"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Movie title"
+                  },
+                  "original_title": {
+                    "type": "string",
+                    "description": "Original movie title (in original language)"
+                  },
+                  "original_language": {
+                    "type": "string",
+                    "description": "Original language code (e.g., 'en', 'es', 'fr')"
+                  },
+                  "overview": {
+                    "type": "string",
+                    "description": "Movie overview/synopsis"
+                  },
+                  "poster_path": {
+                    "type": "string",
+                    "description": "Poster path (relative URL)"
+                  },
+                  "backdrop_path": {
+                    "type": "string",
+                    "description": "Backdrop path (relative URL)"
+                  },
+                  "release_date": {
+                    "type": "string",
+                    "description": "Release date (YYYY-MM-DD format)"
+                  },
+                  "vote_average": {
+                    "type": "number",
+                    "description": "Average vote rating (0-10)"
+                  },
+                  "vote_count": {
+                    "type": "number",
+                    "description": "Total number of votes"
+                  },
+                  "popularity": {
+                    "type": "number",
+                    "description": "Popularity score"
+                  },
+                  "adult": {
+                    "type": "boolean",
+                    "description": "Adult content flag"
+                  },
+                  "genre_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "description": "Array of genre IDs"
+                  },
+                  "video": {
+                    "type": "boolean",
+                    "description": "Video flag"
+                  }
+                },
+                "required": [
+                  "id",
+                  "title",
+                  "original_title",
+                  "original_language",
+                  "overview",
+                  "poster_path",
+                  "backdrop_path",
+                  "release_date",
+                  "vote_average",
+                  "vote_count",
+                  "popularity",
+                  "adult",
+                  "genre_ids",
+                  "video"
+                ]
+              },
+              "description": "Movies"
+            },
+            "total_pages": {
+              "type": "number",
+              "description": "Total pages"
+            },
+            "total_results": {
+              "type": "number",
+              "description": "Total results"
+            }
+          },
+          "required": [
+            "page",
+            "results",
+            "total_pages",
+            "total_results"
+          ]
         }
       },
       "required": [
