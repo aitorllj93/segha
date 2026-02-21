@@ -221,6 +221,11 @@
           "description": "Descripción de la fuente.",
           "type": "string"
         },
+        "trailer": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL del trailer en YouTube u otras plataformas"
+        },
         "watch_url": {
           "description": "URL de la serie de TV en streaming",
           "deprecated": true,
@@ -278,6 +283,20 @@
           "description": "Veces vista",
           "default": 0,
           "type": "number"
+        },
+        "videos": {
+          "description": "Vídeos promocionales",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "images": {
+          "description": "Imágenes promocionales",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [
